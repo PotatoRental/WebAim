@@ -10,9 +10,10 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css"/>
 <link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css"/>
 
-<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,900italic,900,500' />
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"/>
-<script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"/>
-<script type="text/javascript" src="/js/bootstrap.min.js"/>
-<script type="text/javascript" src="/js/jquery.mCustomScrollbar.min.js"/>
+<%--Fucking huge lesson learned today, there IS a difference between <script></script> vs <script />--%>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/modernizr.custom.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.mCustomScrollbar.min.js"></script>
+<script type="text/javascript" src="/js/cbpTooltipMenu.min.js"></script>

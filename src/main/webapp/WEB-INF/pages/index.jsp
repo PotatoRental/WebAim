@@ -20,17 +20,8 @@
     <jsp:include page="pagefrags/nav.jsp" />
 
     <div class="row maincontent">
-        <jsp:include page="pagefrags/nav.jsp" />
-
         <div class="col-md-12">
-            <ol class="breadcrumb">
-                <li><a href="/"><span class="glyphicon glyphicon-home"/></a></li>
-                <span id="topnav">
-                    <sec:ifLoggedIn><a href="#"><sec:username/></a></sec:ifLoggedIn>
-                    <sec:ifNotLoggedIn><g:link controller="login" action="auth">Login</g:link></sec:ifNotLoggedIn>
-                    <sec:ifLoggedIn><g:link controller="logout">| Log Out</g:link></sec:ifLoggedIn>
-                </span>
-            </ol>
+            <jsp:include page="pagefrags/bread.jsp" />
 
             <p style="font-size: 50pt">${flash.message}</p>
 
@@ -76,7 +67,7 @@
 
                 <div class="col-md-7 col-sm-7 col-sm-offset-1 col-md-offset-1">
                     <sec:ifNotLoggedIn>
-                        %{--CSE 308 final project. The purpose of project is to recreate the computer science
+                        <%--CSE 308 final project. The purpose of project is to recreate the computer science
                         department's ABET Information Manager.
 
                         The system's main functions are to:
@@ -95,11 +86,11 @@
                         report to ABET.
 
                         The rest of this overview provides some background on how achievement of PEOs and student
-                        outcomes are measured...--}%
+                        outcomes are measured...
                     </sec:ifNotLoggedIn>
                     <sec:ifLoggedIn>
                         <h1>Hello, welcome <sec:loggedInUserInfo field="username"/></h1>
-                    </sec:ifLoggedIn>
+                    </sec:ifLoggedIn>--%>
                     <sec:ifAnyGranted roles="ROLE_CIC">
                         <h4>Updates</h4>
 
@@ -128,23 +119,5 @@
 </div>
 
 </div>
-
-<script>
-    var menu = new cbpTooltipMenu(document.getElementById('cbp-tm-menu'));
-</script>
-
-<script>
-    (function ($) {
-        $(window).load(function () {
-            $(".search-results").mCustomScrollbar({
-                theme: "dark-2",
-                advanced: {
-                    updateOnContentResize: true,
-                    scrollInertia: 0
-                }
-            });
-        });
-    })(jQuery);
-</script>
 </body>
 </html>
