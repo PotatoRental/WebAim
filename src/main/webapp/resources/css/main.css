@@ -1,0 +1,171 @@
+body, .row {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: normal;
+}
+
+h1, .importpage h1, .container h1, .container h4 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300;
+    display: inline;
+}
+
+.hint {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+
+}
+
+.navbar {
+    background-color: #6C317C;
+}
+
+#aimtitle {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 36pt;
+}
+
+#topnav {
+    float:right;
+    text-transform: none;
+    letter-spacing: normal;
+    display:inline;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: normal;
+
+}
+
+#aimlogo {
+    width: 230px;
+}
+
+#edit-form {
+    display: none;
+}
+
+.searchbox {
+    text-align: center;
+    padding-top:150px;
+    padding-bottom: 150px;
+}
+
+.search-results {
+    max-height: 550px;
+    overflow: auto;
+}
+
+.search-results ul, .quicklinks ul {
+    list-style-type: none;
+    padding:0;
+    margin:0;
+
+}
+
+#searchbar .row {
+    width: 90%;
+    margin:0;
+    border-bottom:1px solid #dcdcec;
+}
+
+#searchbar .row:hover, .homenav div:hover{
+    color:#fff;
+    background-color: #428bca;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    cursor: pointer;
+}
+
+#search-ico {
+    padding:10px 10px 0 15px;
+}
+
+#searchfield{
+    border:0;
+    padding:10px;
+    color:#777;
+    background: none;
+
+}
+
+#searchfield:hover {
+    color:white;
+    cursor: pointer;
+}
+
+
+
+.search-results li, .quicklinks li{
+    border-bottom:1px solid #dcdcec;
+}
+
+.search-results li:hover, .search-results li a:hover, .blue-button:hover, .quicklinks li a:hover {
+    color:#fff;
+    background-color: #428bca;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+}
+
+
+.search-results li a, .quicklinks li a {
+    padding:10px;
+    display: block;
+}
+
+
+.editlink {float:right; display: inline-block}
+
+.importpage {
+    display:none;
+    min-height: 60%;
+}
+
+.maincontent {
+    padding-bottom: 50px;
+}
+
+.content {
+    padding-top:30px;
+    border-top:1px solid #dcdcec;
+    padding-bottom:100px;
+}
+
+.copyrights {
+    text-align: center;
+    color: #777;
+}
+
+#login-wrap {
+    position:fixed;
+    top: 100px;
+    width: 100%;
+}
+#login {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 250px;
+    max-width: 400px;
+    border: 1px solid #dcdcec;
+    padding: 40px 80px;
+}
+
+
+.blue-button {
+    width: 100%;
+    height: 45px;
+    font-size: 14px ;
+    background-color: #dcdcec;
+}
+
+.homenav div {
+    border: 1px solid #dcdcec;
+    padding: 60px 40px;
+    text-align: center;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
