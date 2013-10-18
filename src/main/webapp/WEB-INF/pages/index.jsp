@@ -11,6 +11,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title><fmt:message key="title"/>${title}</title>
+
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="pagefrags/imports.jsp" />
 </head>
@@ -23,10 +25,7 @@
         <div class="col-md-12">
             <jsp:include page="pagefrags/bread.jsp" />
 
-            <p style="font-size: 50pt">${flash.message}</p>
-
             <div class="row">
-
                 <div class="col-md-3">
                     <h4>Quick Links</h4>
 
