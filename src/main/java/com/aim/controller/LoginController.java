@@ -29,7 +29,7 @@ public class LoginController {
         return "login/login";
     }
 
-    @RequestMapping(value = "success")
+    @RequestMapping("success")
     public String successLogin(Principal principal, RedirectAttributes redirectAttributes) {
         String welcomeMessage = messageSource.getMessage("welcome", new Object[]{ principal.getName() }, new Locale("es_ES"));
         redirectAttributes.addFlashAttribute("message", welcomeMessage);

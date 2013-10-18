@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/>${title}</title>
+    <title><fmt:message key="title"/> | <fmt:message key="title.disaster"/></title>
     <jsp:include page="../pagefrags/imports.jsp"/>
 </head>
 <body>

@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/>${title}</title>
+    <title><fmt:message key="title"/> | <fmt:message key="title.courses"/> </title>
 
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="../pagefrags/imports.jsp"/>
@@ -59,11 +59,7 @@
         </div>
     </div>
 
-    <div class="col-md-12 content">
-        <div class="copyrights">
-            <small>&copy; 2013 Qiang He, Yun Pang, Jason Chen, Monika Tuchowska</small>
-        </div>
-    </div>
+    <jsp:include page="../pagefrags/footer.jsp" />
 </div>
 
 </div>

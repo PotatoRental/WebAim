@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/> | </title>
+    <title><fmt:message key="title"/> | <fmt:message key="title.login"/></title>
     <jsp:include page="../pagefrags/imports.jsp"/>
 </head>
 <body>
