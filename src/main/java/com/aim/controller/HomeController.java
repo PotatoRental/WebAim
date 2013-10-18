@@ -1,4 +1,4 @@
-package com.projectaim.web;
+package com.aim.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

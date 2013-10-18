@@ -22,7 +22,7 @@
     <jsp:include page="pagefrags/nav.jsp" />
 
     <div class="row maincontent">
-        <div class="col-md-12">
+
             <jsp:include page="pagefrags/bread.jsp" />
 
             <div class="row">
