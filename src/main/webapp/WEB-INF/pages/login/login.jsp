@@ -14,31 +14,36 @@
     <jsp:include page="../pagefrags/imports.jsp"/>
 </head>
 <body>
+
 <div class="container">
-    <jsp:include page="../pagefrags/nav.jsp"/>
+    <ul id="cbp-tm-menu" class="cbp-tm-menu">
+        <a href="/" style="float:left"><img id="aimlogo" src="/images/logo.png"/></a>
+    </ul>
+</div>
 
-    <div id='login-wrap'>
+<div id='login-wrap'>
 
-        <div id='login'>
+    <div id='login'>
 
-            <h2>Sign In</h2>
-            <br>
-            <form:form modelAttribute="loginForm" method='POST' id='loginForm' cssClass='cssform' autocomplete='off' action="login-check">
-                <p>
-                    <label id='username-label' for='username'>Username</label>
-                    <input type='text' class='form-control' name='username' id='username' autofocus="autofocus"/>
-                </p>
+        <h2>Sign In</h2>
+        <br>
+        <form:form modelAttribute="loginForm" method='POST' id='loginForm' cssClass='cssform' autocomplete='off' action="login-check">
+            <p>
+                <label id='username-label' for='username'>Username</label>
+                <input type='text' class='form-control' name='username' id='username' autofocus="autofocus"/>
+            </p>
 
-                <p>
-                    <label id='password-label' for='password'>Password</label>
-                    <input type='password' class='form-control' name='password' id='password'/>
-                </p>
+            <p>
+                <label id='password-label' for='password'>Password</label>
+                <input type='password' class='form-control' name='password' id='password'/>
+            </p>
 
-                <p>
-                    <input type='submit' class="btn btn-default blue-button" id="submit" value='Sign In'/>
-                </p>
-            </form:form>
-        </div>
+            <p>
+                <input type='submit' class="btn btn-default blue-button" id="submit" value='Sign In'/>
+            </p>
+        </form:form>
     </div>
+</div>
+
 </body>
 </html>
