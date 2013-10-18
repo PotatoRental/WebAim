@@ -20,7 +20,7 @@
         <!--TODO uncomment this and find a page for access denied-->
         <!--<access-denied-handler error-page="/" />-->
         <form-login username-parameter="username" password-parameter="password"
-                    login-processing-url="/login/check"
+                    login-processing-url="/login-check"
                     login-page="/login" default-target-url="/login/success"
                     authentication-failure-url="/login/failed" />
         <logout logout-success-url="/" logout-url="/logout"/>
@@ -29,7 +29,8 @@
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="mkyong" password="123456" authorities="ROLE_USER" />
+                <user name="milky" password="test" authorities="ROLE_ADMIN" />
+                <user name="monika" password="test" authorities="ROLE_CIC" />
             </user-service>
         </authentication-provider>
     </authentication-manager>

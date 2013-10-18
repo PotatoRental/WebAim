@@ -7,17 +7,21 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
-    <title><fmt:message key="title"/> | </title>
+    <title><fmt:message key="title"/>${title}</title>
+
+    <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="../pagefrags/imports.jsp"/>
 </head>
 <body>
 <div class="container">
-    <jsp:include page="../pagefrags/nav.jsp"/>
-    <div class="row maincontent">
-        <jsp:include page="../pagefrags/bread.jsp" />
 
+    <jsp:include page="../pagefrags/nav.jsp"/>
+
+    <div class="row maincontent">
+
+        <jsp:include page="../pagefrags/bread.jsp"/>
 
         <div class="col-md-4 col-sm-4 searchbar" id="searchbar" ng-controller="searchCtrl">
             <div class="row">
@@ -26,15 +30,12 @@
             </div>
             <!-- /input-group -->
 
-
             <div class="search-results">
                 <ul>
                     <li><a href="#" onclick="selectCourse()">CSE 102</a></li>
                     <li ng-repeat="course in courses | filter:search">
                         <a href="#" id={{course.id}}>{{course.name}}</a>
                     </li>
-
-
 
                 </ul>
             </div>
