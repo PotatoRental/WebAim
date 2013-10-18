@@ -26,7 +26,7 @@
 
         <jsp:include page="pagefrags/bread.jsp"/>
 
-        <div class="row">
+
             <div class="col-md-3">
                 <h4>Quick Links</h4>
 
@@ -63,7 +63,7 @@
                         </ul>
                     </div>
                 </sec:authorize>
-            </div>
+             </div>
 
             <div class="col-md-7 col-sm-7 col-sm-offset-1 col-md-offset-1">
                 <h2>${message}</h2>

@@ -13,17 +13,10 @@ h1, .importpage h1, .container h1, .container h4 {
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: 300;
     font-style: italic;
-
 }
 
-.navbar {
-    background-color: #6C317C;
-}
-
-#aimtitle {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: 300;
-    font-size: 36pt;
+#aimlogo {
+    width: 200px;
 }
 
 #topnav {
@@ -33,11 +26,6 @@ h1, .importpage h1, .container h1, .container h4 {
     display:inline;
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: normal;
-
-}
-
-#aimlogo {
-    width: 230px;
 }
 
 #edit-form {
@@ -62,13 +50,12 @@ h1, .importpage h1, .container h1, .container h4 {
 
 }
 
-#searchbar .row {
-    width: 90%;
+#courselist .row {
     margin:0;
     border-bottom:1px solid #dcdcec;
 }
 
-#searchbar .row:hover, .homenav div:hover{
+#courselist .row:hover, .home-nav div:hover{
     color:#fff;
     background-color: #428bca;
     -o-transition:.5s;
@@ -78,24 +65,28 @@ h1, .importpage h1, .container h1, .container h4 {
     cursor: pointer;
 }
 
-#search-ico {
-    padding:10px 10px 0 15px;
+#search-input-group {
+    width:100%;
+    padding:10px 0px 10px 15px;
 }
 
-#searchfield{
+#search-ico{
+    padding-right: 10px;
+}
+
+#search-field {
     border:0;
     padding:10px;
     color:#777;
     background: none;
-
+    -webkit-box-shadow: none;
+    -box-shadow: none;
 }
 
-#searchfield:hover {
+#search-field:hover {
     color:white;
     cursor: pointer;
 }
-
-
 
 .search-results li, .quicklinks li{
     border-bottom:1px solid #dcdcec;
@@ -110,12 +101,10 @@ h1, .importpage h1, .container h1, .container h4 {
     -webkit-transition:.5s;
 }
 
-
 .search-results li a, .quicklinks li a {
     padding:10px;
     display: block;
 }
-
 
 .editlink {float:right; display: inline-block}
 
@@ -159,13 +148,4 @@ h1, .importpage h1, .container h1, .container h4 {
     height: 45px;
     font-size: 14px ;
     background-color: #dcdcec;
-}
-
-.homenav div {
-    border: 1px solid #dcdcec;
-    padding: 60px 40px;
-    text-align: center;
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: 300;
-    text-align: center;
 }

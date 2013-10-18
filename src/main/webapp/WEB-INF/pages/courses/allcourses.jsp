@@ -7,7 +7,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <head>
     <title><fmt:message key="title"/>${title}</title>
 
@@ -23,25 +23,28 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <div class="col-md-4 col-sm-4 searchbar" id="searchbar" ng-controller="searchCtrl">
+        <div class="courselist col-md-3 col-sm-3" id="courselist">
             <div class="row">
-                <span id="search-ico" class="glyphicon glyphicon-search"></span>
-                <input type="text" ng-model="search" id="searchfield" value="Search Courses" onclick="this.value=''">
+                <div class="input-group" id="search-input-group">
+                  <span class="input-group-btn">
+                    <span id="search-ico" class="glyphicon glyphicon-search"></span>
+                  </span>
+                    <input type="text" class="form-control" id="search-field" value="Search Courses" onclick="this.value=''">
+                </div>
+                <!-- /input-group -->
+
             </div>
-            <!-- /input-group -->
 
             <div class="search-results">
                 <ul>
                     <li><a href="#" onclick="selectCourse()">CSE 102</a></li>
-                    <li ng-repeat="course in courses | filter:search">
-                        <a href="#" id={{course.id}}>{{course.name}}</a>
-                    </li>
-
+                    <li><a href="#">CSE 110</a></li>
+                    <li><a href="#">CSE 114</a></li>
                 </ul>
             </div>
         </div>
 
-        <div class="col-md-8 col-sm-8">
+        <div class="col-md-8 col-sm-7 col-sm-offset-1 col-md-offset-1">
 
             <div id="course-home">
                 <g:include view="courses.gsp"/>

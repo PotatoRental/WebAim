@@ -7,7 +7,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <ul id="cbp-tm-menu" class="cbp-tm-menu">
-    <a href="/" style="float:left"><img id="aimlogo" src="/images/logo.png"/></a>
+    <a href="/" style="float:left"><img id="aimlogo" src="/images/logo_b.png"/></a>
 
     <li>
         <a href="#">Programs & Courses</a>
