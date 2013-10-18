@@ -107,6 +107,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.14</version>
                 <configuration>
                     <includes>
                         <include>**/*Tests.java</include>
