@@ -48,7 +48,7 @@
     </sec:authorize>
 
     <sec:authorize ifAnyGranted="ROLE_ADMIN">
-        <li><a href="#">Minutes</a></li>
+        <li><a href="#">Admin</a></li>
     </sec:authorize>
 </ul>
 
