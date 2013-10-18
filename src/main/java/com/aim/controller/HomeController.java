@@ -11,8 +11,7 @@ public class HomeController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getHomePage(ModelMap model) {
-		model.addAttribute("message", "Hello world!");
-        model.addAttribute("title", "Home page");
+
 		return "index";
 	}
 }

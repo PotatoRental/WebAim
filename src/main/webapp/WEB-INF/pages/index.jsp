@@ -66,6 +66,7 @@
             </div>
 
             <div class="col-md-7 col-sm-7 col-sm-offset-1 col-md-offset-1">
+                <h2>${message}</h2>
                 <sec:authorize access="isAuthenticated()">
                     <%--CSE 308 final project. The purpose of project is to recreate the computer science
                     department's ABET Information Manager.
