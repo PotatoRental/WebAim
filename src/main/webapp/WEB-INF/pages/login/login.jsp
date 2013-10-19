@@ -21,7 +21,7 @@
     </ul>
 </div>
 
-<div id='login-wrap'>
+<div id='centered'>
 
     <div id='login'>
 

@@ -39,7 +39,7 @@
             <a href="#">PEOs</a>
             <ul class="cbp-tm-submenu">
                 <li><a href="#" class="cbp-tm-icon-screen">Manage PEOs</a></li>
-                <li><a href="#" class="cbp-tm-icon-mail">Tabulate PEO Attainment</a></li>
+                <li><a href="/peo/tabulate-attainment" class="cbp-tm-icon-mail">Tabulate PEO Attainment</a></li>
             </ul>
         </li>
         <li><a href="#">Minutes</a></li>

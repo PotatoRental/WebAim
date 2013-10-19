@@ -9,6 +9,8 @@ h1, .importpage h1, .container h1, .container h4 {
     display: inline;
 }
 
+select {width:100%;}
+
 .hint {
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: 300;
@@ -92,7 +94,11 @@ h1, .importpage h1, .container h1, .container h4 {
     border-bottom:1px solid #dcdcec;
 }
 
-.search-results li:hover, .search-results li a:hover, .blue-button:hover, .quicklinks li a:hover {
+.search-results li:hover,
+.search-results li a:hover,
+.blue-button:hover,
+.quicklinks li a:hover,
+.blue-hover:hover{
     color:#fff;
     background-color: #428bca;
     -o-transition:.5s;
@@ -100,6 +106,8 @@ h1, .importpage h1, .container h1, .container h4 {
     -moz-transition:.5s;
     -webkit-transition:.5s;
 }
+
+
 
 .search-results li a, .quicklinks li a {
     padding:10px;
@@ -128,7 +136,7 @@ h1, .importpage h1, .container h1, .container h4 {
     color: #777;
 }
 
-#login-wrap {
+#centered {
     position:fixed;
     top: 100px;
     width: 100%;
@@ -149,3 +157,8 @@ h1, .importpage h1, .container h1, .container h4 {
     font-size: 14px ;
     background-color: #dcdcec;
 }
+
+.year {
+    width: 4em;
+}
+
