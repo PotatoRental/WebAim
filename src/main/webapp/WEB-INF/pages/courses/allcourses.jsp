@@ -40,6 +40,18 @@
                     <li><a href="#" onclick="selectCourse()">CSE 102</a></li>
                     <li><a href="#">CSE 110</a></li>
                     <li><a href="#">CSE 114</a></li>
+                    <li><a href="#">CSE 110</a></li>
+                    <li><a href="#">CSE 114</a></li>
+                    <li><a href="#">CSE 110</a></li>
+                    <li><a href="#">CSE 114</a></li>
+                    <li><a href="#">CSE 110</a></li>
+                    <li><a href="#">CSE 114</a></li>
+                    <li><a href="#">CSE 110</a></li>
+                    <li><a href="#">CSE 114</a></li>
+                    <li><a href="#">CSE 110</a></li>
+                    <li><a href="#">CSE 114</a></li>
+                    <li><a href="#">CSE 110</a></li>
+                    <li><a href="#">CSE 114</a></li>
                 </ul>
             </div>
         </div>
