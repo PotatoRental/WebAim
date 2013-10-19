@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/>${title}</title>
+    <title><fmt:message key="title"/> | <fmt:message key="title.home"/></title>
 
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="pagefrags/imports.jsp"/>
@@ -32,8 +32,11 @@
 
                 <div class="quicklinks">
                     <ul>
-                        <li><a href="#">All Course Listings</a></li>
+                        <li><a href="/courses">All Course Listings</a></li>
                         <li><a href="#">Degree Programs</a></li>
+                        <sec:authorize ifAllGranted="ROLE_ADMIN">
+                            <li><a href="/users">View Users</a></li>
+                        </sec:authorize>
                         <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
                             <li><a href="#">View Instructors</a></li>
                             <li><a href="#">View Course Coordinators</a></li>
@@ -114,11 +117,7 @@
 
 </div>
 
-<div class="col-md-12 content">
-    <div class="copyrights">
-        <small>&copy; 2013 Qiang He, Yun Pang, Jason Chen, Monika Tuchowska</small>
-    </div>
-</div>
+<jsp:include page="pagefrags/footer.jsp" />
 
 </div>
 </body>
