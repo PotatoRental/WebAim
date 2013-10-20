@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @PreAuthorize("hasAnyRole('ROLE_ADMIN, ROLE_CIC')")
 public class OutcomeTabulateController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "tabulate-outcomes", method = RequestMethod.GET)
     public String getAllUsers(ModelMap modelMap) {
         return "student-outcomes/tabulate-outcomes";
     }
