@@ -30,7 +30,7 @@
         <a href="#">Student Outcomes</a>
         <ul class="cbp-tm-submenu">
             <li><a href="#" class="cbp-tm-icon-archive">Manage Outcomes</a></li>
-            <li><a href="#" class="cbp-tm-icon-cog">Tabulate Outcomes</a></li>
+            <li><a href="/student-outcomes/tabulate-outcomes" class="cbp-tm-icon-cog">Tabulate Outcomes</a></li>
         </ul>
     </li>
 
