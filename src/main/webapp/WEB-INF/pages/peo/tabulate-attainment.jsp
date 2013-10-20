@@ -49,7 +49,7 @@
                 <input type="radio" name="base-level" value="both">Both (avg.)
 
                 <br><br>
-                <input type='submit' class="btn btn-default blue-button" id="submit" value='Tabulate'/>
+                <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
 
             </form>
         </div>

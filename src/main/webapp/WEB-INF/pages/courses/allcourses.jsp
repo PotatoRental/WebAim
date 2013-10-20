@@ -23,8 +23,8 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <div class="courselist col-md-3 col-sm-3" id="courselist">
-            <div class="row">
+        <div class="list col-md-3 col-sm-3" id="list">
+            <div class="row blue-hover">
                 <div class="input-group" id="search-input-group">
                   <span class="input-group-btn">
                     <span id="search-ico" class="glyphicon glyphicon-search"></span>

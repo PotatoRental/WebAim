@@ -21,13 +21,17 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <div class="col-md-4 col-sm-4 searchbar" id="searchbar">
-            <div class="row">
-
-                <span id="search-ico" class="glyphicon glyphicon-search"></span>
-                <input type="text" id="searchfield" value="Search Courses" onclick="this.value=''">
+        <div class="list col-md-4 col-sm-4 searchbar" id="list">
+            <div class="row blue-hover">
+                <div class="input-group" id="search-input-group">
+                  <span class="input-group-btn">
+                    <span id="search-ico" class="glyphicon glyphicon-search"></span>
+                  </span>
+                    <input type="text" class="form-control" id="search-field" value="Search Users" onclick="this.value=''">
+                </div>
+                <!-- /input-group -->
             </div>
-            <!-- /input-group -->
+
 
             <div class="search-results">
                 <ul>
