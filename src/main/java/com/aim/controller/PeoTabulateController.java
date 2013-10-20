@@ -6,6 +6,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.security.Principal;
+
 /**
  * Created with IntelliJ IDEA.
  * User: milky
@@ -13,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Time: 1:26 PM
  */
 @Controller
-@RequestMapping("/peo/tabulate-attainment")
+@RequestMapping("/peo")
 @PreAuthorize("hasAnyRole('ROLE_ADMIN, ROLE_CIC')")
 public class PeoTabulateController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String getAllUsers(ModelMap modelMap) {
+    @RequestMapping(value = "tabulate-attainment", method = RequestMethod.GET)
+    public String getAllUsers(Principal principal, ModelMap modelMap) {
         return "peo/tabulate-attainment";
     }
 }
