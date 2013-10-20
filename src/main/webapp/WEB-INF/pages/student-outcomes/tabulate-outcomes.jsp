@@ -44,7 +44,7 @@
 
             </form>
 
-            <form id="soa-survey" class="outcome-form">
+            <form id="soa-survey" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
                 <select class="blue-hover">
@@ -62,7 +62,7 @@
 
             </form>
 
-            <form id="soa-direct-course" class="outcome-form">
+            <form id="soa-direct-course" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
                 <select class="blue-hover">
@@ -80,7 +80,7 @@
 
             </form>
 
-            <form id="so-enabled-courses" class="outcome-form">
+            <form id="so-enabled-courses" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
                 <select class="blue-hover">
@@ -96,7 +96,7 @@
 
             </form>
 
-            <form id="so-assessed-courses" class="outcome-form">
+            <form id="so-assessed-courses" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
                 <select class="blue-hover">
@@ -116,7 +116,7 @@
 
         <div class="col-md-9 col-sm-9">
 
-            <table class="tabulate table table-bordered table-striped" id="soa-direct-table">
+            <table class="tabulate table table-bordered" id="soa-direct-table">
 
                 <tr>
                     <th>Year</th>
@@ -160,12 +160,13 @@
 
 <script type="text/javascript">
     $( "#select-outcome" ).change(function() {
-        var str = "#";
+        var str = "";
         $( "#select-outcome option:selected" ).each(function() {
             str += $( this ).val();
         });
+        var id="#"+str;
         $(".outcome-form").addClass("hidden");
-        $(str).removeClass("hidden");
+        $(id).removeClass("hidden");
         $(".tabulate").attr("id", str+"-table");
     });
 
