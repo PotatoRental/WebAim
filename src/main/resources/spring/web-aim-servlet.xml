@@ -12,22 +12,43 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <context:component-scan base-package="com.aim.controller"/>
+    <!-- Looks through the package for all controllers -->
+    <context:component-scan base-package="com.aim"/>
 
+    <!-- Allows annotations such as @Controller -->
     <mvc:annotation-driven />
 
+    <!-- Lets resources address be mapped so not all things on page needs to be /resources/css -->
     <mvc:resources mapping="/css/**" location="/resources/css/" />
     <mvc:resources mapping="/images/**" location="/resources/images/" />
     <mvc:resources mapping="/js/**" location="/resources/js/" />
     <mvc:resources mapping="/fonts/**" location="/resources/fonts/" />
 
+    <!-- Allows handler intercept to include things by default -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/css/**" />
+            <mvc:exclude-mapping path="/images/**" />
+            <mvc:exclude-mapping path="/js/**" />
+            <mvc:exclude-mapping path="/fonts/**" />
+            <bean class="com.aim.interceptor.DefaultModelInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- Allows Annotations such as PreAuthorize -->
     <sec:global-method-security pre-post-annotations="enabled" />
 
+    <!-- A global properties file -->
+    <bean id="properties" class="java.util.Properties" />
+
+    <!-- Changes all access too look for .jsp pages -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- Sets to use resource bundles-->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages/messages"/>
     </bean>

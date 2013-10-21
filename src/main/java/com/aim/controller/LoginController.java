@@ -1,6 +1,7 @@
 package com.aim.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,7 @@ public class LoginController {
     @RequestMapping("success")
     public String successLogin(Principal principal, RedirectAttributes redirectAttributes) {
         String welcomeMessage = messageSource.getMessage("welcome", new Object[]{ principal.getName() }, new Locale("es_ES"));
-        redirectAttributes.addFlashAttribute("message", welcomeMessage);
+        redirectAttributes.addFlashAttribute("welcomeMessage", welcomeMessage);
 
         return "redirect:/";
     }

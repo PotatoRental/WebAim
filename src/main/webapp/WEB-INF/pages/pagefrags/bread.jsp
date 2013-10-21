@@ -5,6 +5,7 @@
   Time: 1:40 AM
 --%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="col-md-12">
     <ol class="breadcrumb">
         <li><a href="/"><span class="glyphicon glyphicon-home"/></a></li>
@@ -15,3 +16,8 @@
     </span>
     </ol>
 </div>
+<c:if test="${not empty globalMessage}">
+    <div class="global-messages">
+        <h2>Admin message: ${globalMessage}</h2>
+    </div>
+</c:if>

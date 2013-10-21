@@ -26,7 +26,6 @@
 
         <jsp:include page="pagefrags/bread.jsp"/>
 
-
             <div class="col-md-3">
                 <h4>Quick Links</h4>
 
@@ -69,33 +68,40 @@
              </div>
 
             <div class="col-md-7 col-sm-7 col-sm-offset-1 col-md-offset-1">
-                <h2>${message}</h2>
-                <sec:authorize access="isAuthenticated()">
-                    <%--CSE 308 final project. The purpose of project is to recreate the computer science
+                <h2>${welcomeMessage}</h2>
+                <sec:authorize access="isAnonymous()">
+                    CSE 308 final project. The purpose of project is to recreate the computer science
                     department's ABET Information Manager.
-
+                    </br></br>
                     The system's main functions are to:
-
+                    </br></br>
                     (1) Provide a repository for all accreditation-related material. This consists primarily of
                     information used to assess achievement of PEOs and student outcomes. It also includes some
                     miscellaneous material, such as minutes of CIC meetings.
-
+                    </br></br>
                     (2) Provide a convenient way for instructors and CIC members to add information to the
                     repository.
-
+                    </br></br>
                     (3) Provide CIC members and evaluators (outside experts appointed by ABET to evaluate a degree
                     program) with convenient access to this material
-
+                    </br></br>
                     (4) Generate various tables from the data in the repository, to be included in the department's
                     report to ABET.
-
+                    </br></br>
                     The rest of this overview provides some background on how achievement of PEOs and student
-                    outcomes are measured...--%>
+                    outcomes are measured...
                 </sec:authorize>
-                <%--
-                <sec:ifLoggedIn>
-                    <h1>Hello, welcome <sec:loggedInUserInfo field="username"/></h1>
-                </sec:ifLoggedIn>--%>
+
+                <sec:authorize ifAnyGranted="ROLE_ADMIN">
+                    <div class="global-set">
+                        <form method="post" action="globalMessage">
+                            <input name="globalMessage" type="text" name="message" autofocus="autofocus" placeholder="Global Message"/>
+                            <input id="submitbutton" type="submit"/>
+                        </form>
+                    </div>
+
+                </sec:authorize>
+
                 <sec:authorize ifAnyGranted="ROLE_CIC">
                     <h4>Updates</h4>
 
