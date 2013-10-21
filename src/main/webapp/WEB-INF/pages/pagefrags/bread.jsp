@@ -18,6 +18,6 @@
 </div>
 <c:if test="${not empty globalMessage}">
     <div class="global-messages">
-        <h2>Admin message: ${globalMessage}</h2>
+        <h3>Admin message: ${globalMessage}</h3>
     </div>
 </c:if>
