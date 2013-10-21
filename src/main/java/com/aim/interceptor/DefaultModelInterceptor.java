@@ -17,12 +17,12 @@ import java.util.Properties;
 public class DefaultModelInterceptor extends HandlerInterceptorAdapter {
 
     @Autowired
-    private Properties properties;
+    private Properties globalProperties;
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response,
                            Object o, ModelAndView modelAndView) throws Exception {
 
-        modelAndView.addObject("globalMessage", properties.get("globalMessage"));
+        modelAndView.addObject("globalMessage", globalProperties.get("globalMessage"));
     }
 }

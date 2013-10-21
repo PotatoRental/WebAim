@@ -41,6 +41,11 @@
         <location>/WEB-INF/pages/errors/404.jsp</location>
     </error-page>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/pages/errors/404.jsp</location>
+    </error-page>
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>

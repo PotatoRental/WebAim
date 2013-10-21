@@ -1,11 +1,17 @@
 package com.aim.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.Properties;
 
@@ -14,16 +20,18 @@ import java.util.Properties;
 public class HomeController {
 
     @Autowired
-    private Properties properties;
+    private Properties globalProperties;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getHomePage(ModelMap model) {
 		return "index";
 	}
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "globalMessage", method = RequestMethod.POST)
-    public String setGlobalMessage(@RequestParam String globalMessage) {
-        properties.setProperty("globalMessage", globalMessage);
+    public String setGlobalMessage(@RequestParam String globalMessage, RedirectAttributes attributes) {
+        globalProperties.setProperty("globalMessage", globalMessage);
+
         return "redirect:/";
     }
 }
