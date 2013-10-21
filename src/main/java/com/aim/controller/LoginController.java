@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.Locale;
@@ -31,10 +33,13 @@ public class LoginController {
     }
 
     @RequestMapping("success")
-    public String successLogin(Principal principal, RedirectAttributes redirectAttributes) {
+    public ModelAndView successLogin(Principal principal, RedirectAttributes redirectAttributes) {
         String welcomeMessage = messageSource.getMessage("welcome", new Object[]{ principal.getName() }, new Locale("es_ES"));
         redirectAttributes.addFlashAttribute("welcomeMessage", welcomeMessage);
 
-        return "redirect:/";
+        RedirectView view = new RedirectView("/");
+        view.setExposeModelAttributes(false);
+
+        return new ModelAndView(view);
     }
 }

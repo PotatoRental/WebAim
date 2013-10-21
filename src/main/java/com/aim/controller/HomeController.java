@@ -1,6 +1,7 @@
 package com.aim.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,9 +30,12 @@ public class HomeController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "globalMessage", method = RequestMethod.POST)
-    public String setGlobalMessage(@RequestParam String globalMessage, RedirectAttributes attributes) {
+    public ModelAndView setGlobalMessage(@RequestParam String globalMessage, RedirectAttributes attributes) {
         globalProperties.setProperty("globalMessage", globalMessage);
 
-        return "redirect:/";
+        RedirectView redirect = new RedirectView("/");
+        redirect.setExposeModelAttributes(false);
+
+        return new ModelAndView(redirect);
     }
 }
