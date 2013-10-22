@@ -39,7 +39,7 @@
             </p>
 
             <p>
-                <input type='submit' class="btn btn-default fat-btn" id="submit" value='Sign In'/>
+                <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Sign In'/>
             </p>
         </form:form>
     </div>

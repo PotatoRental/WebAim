@@ -20,4 +20,9 @@ public class CoursesController {
     public String getCourses(ModelMap modelMap) {
         return "courses/allcourses";
     }
+
+    @RequestMapping(value = "course-offerings", method = RequestMethod.GET)
+    public String getAllUsers(ModelMap modelMap) {
+        return "courses/course-offerings";
+    }
 }

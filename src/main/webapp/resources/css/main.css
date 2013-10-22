@@ -1,21 +1,4 @@
-body, .row {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: normal;
-}
-
-h1, .importpage h1, .container h1, .container h4 {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: 300;
-    display: inline;
-}
-
-select {width:100%;}
-
-.hint {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: 300;
-    font-style: italic;
-}
+/*NAV STYLES*/
 
 #aimlogo {
     width: 200px;
@@ -29,6 +12,31 @@ select {width:100%;}
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: normal;
 }
+
+/*BREADCRUMB STYLES*/
+
+/*GENERAL STYLES*/
+body, .row {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: normal;
+}
+
+h1, .importpage h1, .container h1, .container h4 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300;
+    display: inline;
+}
+
+select {width:100%;}
+
+/*CONTENT STYLES*/
+
+.hint {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
 
 #edit-form, .hidden {
     display: none;
@@ -59,6 +67,12 @@ select {width:100%;}
 #search-input-group {
     width:100%;
     padding:10px 0px 10px 15px;
+}
+
+.add-btn {
+    width:100%;
+    padding:20px 15px 20px 15px;
+    text-align: center;
 }
 
 #search-ico{
@@ -93,7 +107,22 @@ select {width:100%;}
     -ms-transition:.5s;
     -moz-transition:.5s;
     -webkit-transition:.5s;
+    cursor: pointer;
+    text-decoration: none;
 }
+
+.bs-callout {
+    background-color: #f0f7fd;
+    border-color: #d0e3f0;
+    margin: 20px 0;
+    padding: 15px 30px 15px 15px;
+    padding-top: 15px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    border-left: 5px solid #eee;
+}
+
 
 .search-results li a, .quicklinks li a {
     padding:10px;
@@ -117,16 +146,14 @@ select {width:100%;}
     padding-bottom:100px;
 }
 
-.copyrights {
-    text-align: center;
-    color: #777;
-}
+
 
 #centered {
     position:fixed;
     top: 100px;
     width: 100%;
 }
+
 #login {
     margin-left: auto;
     margin-right: auto;
@@ -135,7 +162,6 @@ select {width:100%;}
     border: 1px solid #dcdcec;
     padding: 40px 80px;
 }
-
 
 .fat-btn {
     width: 100%;
@@ -155,3 +181,9 @@ select {width:100%;}
     color:white;
 }
 
+/*FOOTER STYLES*/
+
+.copyrights {
+    text-align: center;
+    color: #777;
+}
