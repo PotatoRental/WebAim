@@ -20,7 +20,7 @@
                 <li><a href="/courses/course-offerings" class="cbp-tm-icon-location">Course Offerings</a></li>
             </sec:authorize>
             <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
-                <li><a href="#" class="cbp-tm-icon-users">Missing Course Info</a></li>
+                <li><a href="/courses/missing-course-info" class="cbp-tm-icon-users">Missing Course Info</a></li>
                 <li><a href="#" class="cbp-tm-icon-earth">Course Coordinator Reports</a></li>
             </sec:authorize>
         </ul>

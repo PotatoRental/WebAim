@@ -56,7 +56,9 @@
             </div>
         </div>
 
-        <div class="col-md-8 col-sm-7 col-sm-offset-1 col-md-offset-1">
+        <div class="col-md-9 col-sm-8">
+
+            <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
 
             <div id="course-home">
                 <g:include view="courses.gsp"/>
