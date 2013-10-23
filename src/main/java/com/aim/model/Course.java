@@ -15,10 +15,10 @@ import java.util.List;
 @Table(name = "COURSE")
 public class Course {
     @Id
-    @Column
+    @Column(nullable = false)
     private String id;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
     @ManyToMany

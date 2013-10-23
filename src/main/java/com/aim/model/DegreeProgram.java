@@ -11,10 +11,11 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
+
 @Table(name = "DEGREEPROGRAM")
 public class DegreeProgram {
     @Id
-    @Column
+    @Column(nullable = false)
     private String id;
 
     @Column(nullable = false)
@@ -45,7 +46,10 @@ public class DegreeProgram {
     @ManyToMany(mappedBy = "degreeprograms")
     private List<Course> courses;
 
-    //TODO: add lists of PEOs and Student outcomes
+    @OneToMany(mappedBy = "degreeprogram")
+    private List<PEO> peos;
+
+    //TODO: add lists of Student outcomes
 
     public String getId() {
         return id;
@@ -69,5 +73,13 @@ public class DegreeProgram {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public List<PEO> getPeos() {
+        return peos;
+    }
+
+    public void setPeos(List<PEO> peos) {
+        this.peos = peos;
     }
 }
