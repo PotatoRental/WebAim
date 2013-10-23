@@ -19,7 +19,7 @@
 
         <div class="courselist col-md-3 col-sm-3" id="courselist">
             <h4>Select Outcome:</h4>
-            <select class="blue-hover" id="select-outcome">
+            <select class="blue-hover fat-select" id="select-outcome">
                 <option value="soa-direct" selected="selected">Student Outcome Attainment (Direct Assessment)</option>
                 <option value="soa-direct-course">Student Outcome Attainment (Direct Assessment) by Course</option>
                 <option value="soa-survey">Student Outcome Attainment (Survey Assessment)</option>
@@ -29,7 +29,7 @@
             <form id="soa-direct" class="outcome-form">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover">
+                <select class="blue-hover fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
@@ -47,7 +47,7 @@
             <form id="soa-survey" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover">
+                <select class="blue-hover fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
@@ -65,7 +65,7 @@
             <form id="soa-direct-course" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover">
+                <select class="blue-hover fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
@@ -83,7 +83,7 @@
             <form id="so-enabled-courses" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover">
+                <select class="blue-hover fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
@@ -99,7 +99,7 @@
             <form id="so-assessed-courses" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover">
+                <select class="blue-hover fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>

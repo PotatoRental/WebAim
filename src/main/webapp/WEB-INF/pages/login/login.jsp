@@ -21,7 +21,7 @@
     </ul>
 </div>
 
-<div id='centered'>
+<div id='centered-login'>
 
     <div id='login'>
 

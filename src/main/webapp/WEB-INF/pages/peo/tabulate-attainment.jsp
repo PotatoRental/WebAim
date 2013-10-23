@@ -21,7 +21,7 @@
             <form>
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover">
+                <select class="blue-hover fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
