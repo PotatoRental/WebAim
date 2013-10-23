@@ -19,6 +19,10 @@ public class StudentOutcome {
 
     @Column private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "DP_ID")
+    private DegreeProgram degreeprogram;
+
     public List<CourseOutcome> getCourseOutcomes() {
         return courseOutcomes;
     }

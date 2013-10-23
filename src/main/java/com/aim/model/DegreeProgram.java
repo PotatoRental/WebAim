@@ -33,7 +33,8 @@ public class DegreeProgram {
     @OneToMany(mappedBy = "degreeprogram")
     private List<PEO> peos;
 
-    //TODO: add lists of Student outcomes
+    @OneToMany(mappedBy = "degreeprogram")
+    private List<StudentOutcome> studentoutcomes;
 
     public List<UserAccount> getUseraccounts() {
         return useraccounts;
