@@ -36,6 +36,14 @@ public class DegreeProgram {
     @OneToMany(mappedBy = "degreeprogram")
     private List<StudentOutcome> studentoutcomes;
 
+    public List<StudentOutcome> getStudentoutcomes() {
+        return studentoutcomes;
+    }
+
+    public void setStudentoutcomes(List<StudentOutcome> studentoutcomes) {
+        this.studentoutcomes = studentoutcomes;
+    }
+
     public List<UserAccount> getUseraccounts() {
         return useraccounts;
     }

@@ -38,4 +38,12 @@ public class StudentOutcome {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public DegreeProgram getDegreeprogram() {
+        return degreeprogram;
+    }
+
+    public void setDegreeprogram(DegreeProgram degreeprogram) {
+        this.degreeprogram = degreeprogram;
+    }
 }
