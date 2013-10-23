@@ -5,12 +5,13 @@ import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * User: milky
+ * User: Jason, Yun
  * Date: 10/22/13
  * Time: 10:00 PM
  */
 @Entity
 @Table(name = "USERACCOUNT")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class UserAccount {
 
     @Id
@@ -28,15 +29,6 @@ public class UserAccount {
 
     @Column(nullable = false)
     private String email;
-
-    @ManyToMany
-    @JoinTable (name = "USER_DP",
-        joinColumns =
-            @JoinColumn(name = "USERNAME", referencedColumnName = "username"),
-        inverseJoinColumns =
-            @JoinColumn(name = "DP_ID", referencedColumnName = "id")
-    )
-    private List<DegreeProgram> degreeprograms;
 
     public String getUsername() {
         return username;
