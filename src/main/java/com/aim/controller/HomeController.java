@@ -1,5 +1,6 @@
 package com.aim.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,12 +21,16 @@ import java.util.Properties;
 @RequestMapping("/")
 public class HomeController {
 
+    private static final Logger logger = Logger.getLogger(HomeController.class);
+
     @Autowired
     private Properties globalProperties;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getHomePage(ModelMap model) {
-		return "index";
+        logger.info("User get the home page");
+
+        return "index";
 	}
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -35,6 +40,8 @@ public class HomeController {
 
         RedirectView redirect = new RedirectView("/");
         redirect.setExposeModelAttributes(false);
+
+        logger.info("User set message to " + globalMessage);
 
         return new ModelAndView(redirect);
     }
