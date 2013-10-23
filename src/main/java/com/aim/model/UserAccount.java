@@ -1,6 +1,7 @@
 package com.aim.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,6 +28,15 @@ public class UserAccount {
 
     @Column(nullable = false)
     private String email;
+
+    @ManyToMany
+    @JoinTable (name = "USER_DP",
+        joinColumns =
+            @JoinColumn(name = "USERNAME", referencedColumnName = "username"),
+        inverseJoinColumns =
+            @JoinColumn(name = "DP_ID", referencedColumnName = "id")
+    )
+    private List<DegreeProgram> degreeprograms;
 
     public String getUsername() {
         return username;
