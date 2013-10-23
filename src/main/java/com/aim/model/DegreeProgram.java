@@ -26,6 +26,25 @@ public class DegreeProgram {
     @ManyToMany(mappedBy = "degreeprograms")
     private List<UserAccount> useraccounts;
 
+    public List<UserAccount> getUseraccounts() {
+        return useraccounts;
+    }
+
+    public void setUseraccounts(List<UserAccount> useraccounts) {
+        this.useraccounts = useraccounts;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
+    @ManyToMany(mappedBy = "degreeprograms")
+    private List<Course> courses;
+
     //TODO: add lists of PEOs and Student outcomes
 
     public String getId() {
