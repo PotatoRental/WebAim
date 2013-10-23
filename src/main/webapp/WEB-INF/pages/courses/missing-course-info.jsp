@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/> | <fmt:message key="title.courses"/> </title>
+    <title><fmt:message key="title"/> | <fmt:message key="title.courses"/></title>
 
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="../pagefrags/imports.jsp"/>
@@ -24,81 +24,115 @@
         <jsp:include page="../pagefrags/bread.jsp"/>
 
         <div class="list col-md-3 col-sm-3" id="list">
-            <div class="row blue-hover">
-                <div class="input-group" id="search-input-group">
-                  <span class="input-group-btn">
-                    <span id="search-ico" class="glyphicon glyphicon-search"></span>
-                  </span>
-                    <input type="text" class="form-control" id="search-field" value="Search Course Offerings" onclick="this.value=''">
-                </div>
-                <!-- /input-group -->
 
-            </div>
 
             <div class="search-results">
                 <ul>
                     <li>
-                        <a href="#" onclick="selectCourse()">
-                            CSE 102-01
-                            <br>
-                            <small>Fall 2013</small>
+                        <a href="#select-group">1. Select Group
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            CSE 110-01
-                            <br>
-                            <small>Fall 2010</small>
+                        <a href="#select-courses">2. Select Courses
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            CSE 110-02
-                            <br>
-                            <small>Fall 2010</small>
+                        <a href="#enter-message">3. Enter Message
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            CSE 110-01
-                            <br>
-                            <small>Spring 2013</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            CSE 110-01
-                            <br>
-                            <small>Fall 2013</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            CSE 110-01
-                            <br>
-                            <small>Fall 2013</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            CSE 110-01
-                            <br>
-                            <small>Fall 2013</small>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </div>
 
         <div class="col-md-9 col-sm-8">
+        <form>
+            <p>
+               <h2>1. Select Group</h2>
+                <h4>Show me missing info provided by
+                <select class="blue-hover" id="select-group">
+                    <option value="cic">CIC Members</option>
+                    <option value="instructors">Instructors</option>
+                    <option value="course-coordinators">Course Coordinators</option>
 
+                </select></h4> <br>
+            </p>
+            <p>
+                <h2>2. Select Courses</h2>
+                <h4>Notify <span class="selected-group">CIC Members</span> about the following courses:</h4>
 
+                <table class="tabulate table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select-all"></th>
+                        <th>Semester</th>
+                        <th>Course</th>
+                        <th>Section</th>
+                        <th>Instructor</th>
+                        <th>Missing Info</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Fall 2010</td>
+                        <td>CHE 132</td>
+                        <td>01</td>
+
+                        <td>Walter White</td>
+                        <td>Syllabus</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Fall 2010</td>
+                        <td>CHE 132</td>
+                        <td>01</td>
+                        <td>Walter White</td>
+                        <td>Syllabus</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Fall 2010</td>
+                        <td>CHE 132</td>
+                        <td>01</td>
+                        <td>Walter White</td>
+                        <td>Syllabus</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Fall 2010</td>
+                        <td>CHE 132</td>
+                        <td>01</td>
+                        <td>Walter White</td>
+                        <td>Syllabus</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </p>
+            <p>
+                <h2>3. Enter Message</h2>
+                <h4>Send the following message about the selected courses:</h4>
+                <textarea class="fat-textarea" rows="5" name="myname"></textarea>
+            <br><br>
+            </p>
+            <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Send Request'/>
+            </form>
         </div>
     </div>
 
-    <jsp:include page="../pagefrags/footer.jsp" />
+    <jsp:include page="../pagefrags/footer.jsp"/>
 </div>
 
 </div>
+
+<script type="text/javascript">
+    $("#select-all").click(function(){
+        $(this).closest('table').find(':checkbox').prop('checked', this.checked);
+    });
+
+    $("#select-group").change(function(){
+        $('.selected-group').html($("#select-group :selected").text());
+    });
+</script>
 </body>
 </html>

@@ -27,7 +27,7 @@ h1, .importpage h1, .container h1, .container h4 {
     display: inline;
 }
 
-select {width:100%;}
+.fat-select, .fat-textarea {width:100%;}
 
 /*CONTENT STYLES*/
 
@@ -150,10 +150,15 @@ select {width:100%;}
 
 
 
-#centered {
+#centered-login {
     position:fixed;
     top: 100px;
     width: 100%;
+}
+
+.centered {
+    margin-right:auto;
+    margin-left:auto;
 }
 
 #login {
