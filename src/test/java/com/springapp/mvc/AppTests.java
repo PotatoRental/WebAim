@@ -1,5 +1,6 @@
 package com.springapp.mvc;
 
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +23,8 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 public class AppTests {
     private MockMvc mockMvc;
 
+    private static final Logger logger = Logger.getLogger(AppTests.class);
+
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     protected WebApplicationContext wac;
@@ -32,7 +35,8 @@ public class AppTests {
     }
 
     @Test
-    public void simple() throws Exception {
+    public void home() throws Exception {
+        logger.info("Performing test: home");
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"));
@@ -40,6 +44,7 @@ public class AppTests {
 
     @Test
     public void login() throws Exception {
+        logger.info("Performing test: login");
         mockMvc.perform(get("/login"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("login/login"));

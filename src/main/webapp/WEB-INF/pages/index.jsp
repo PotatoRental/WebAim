@@ -14,7 +14,7 @@
 <head>
     <title><fmt:message key="title"/> | <fmt:message key="title.home"/></title>
 
-    <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
+    <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Pang, Alvin He"/>
     <jsp:include page="pagefrags/imports.jsp"/>
 </head>
 
