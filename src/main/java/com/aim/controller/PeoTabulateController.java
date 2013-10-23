@@ -1,5 +1,6 @@
 package com.aim.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,8 +20,11 @@ import java.security.Principal;
 @PreAuthorize("hasAnyRole('ROLE_ADMIN, ROLE_CIC')")
 public class PeoTabulateController {
 
+    private static final Logger logger = Logger.getLogger(PeoTabulateController.class);
+
     @RequestMapping(value = "tabulate-attainment", method = RequestMethod.GET)
-    public String getAllUsers(Principal principal, ModelMap modelMap) {
+    public String getAllPeos(Principal principal, ModelMap modelMap) {
+        logger.info("User tries to get all peos' information.");
         return "peo/tabulate-attainment";
     }
 }

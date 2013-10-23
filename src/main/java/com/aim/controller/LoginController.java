@@ -1,5 +1,6 @@
 package com.aim.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
@@ -24,16 +25,20 @@ import java.util.Locale;
 @SessionAttributes("loginForm")
 public class LoginController {
 
+    private static final Logger logger = Logger.getLogger(LoginController.class);
+
     @Autowired
     private MessageSource messageSource;
 
     @RequestMapping(method = RequestMethod.GET)
     public String defaultLogin() {
+        logger.info("get default login.");
         return "login/login";
     }
 
     @RequestMapping("success")
     public ModelAndView successLogin(Principal principal, RedirectAttributes redirectAttributes) {
+        logger.info("login succeed.");
         String welcomeMessage = messageSource.getMessage("welcome", new Object[]{ principal.getName() }, new Locale("es_ES"));
         redirectAttributes.addFlashAttribute("welcomeMessage", welcomeMessage);
 

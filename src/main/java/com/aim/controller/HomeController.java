@@ -28,7 +28,7 @@ public class HomeController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getHomePage(ModelMap model) {
-        logger.info("User get the home page");
+        logger.info("User gets the home page");
 
         return "index";
 	}
@@ -41,7 +41,7 @@ public class HomeController {
         RedirectView redirect = new RedirectView("/");
         redirect.setExposeModelAttributes(false);
 
-        logger.info("User set message to " + globalMessage);
+        logger.info("User sets global message to " + globalMessage);
 
         return new ModelAndView(redirect);
     }
