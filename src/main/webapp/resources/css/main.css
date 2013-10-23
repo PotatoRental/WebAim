@@ -71,8 +71,10 @@ select {width:100%;}
 
 .add-btn {
     width:100%;
-    padding:20px 15px 20px 15px;
+    padding:16px;
     text-align: center;
+    color: #777;
+    border-bottom:1px solid #dcdcec;
 }
 
 #search-ico{

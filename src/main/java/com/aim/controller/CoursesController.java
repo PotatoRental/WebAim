@@ -22,7 +22,12 @@ public class CoursesController {
     }
 
     @RequestMapping(value = "course-offerings", method = RequestMethod.GET)
-    public String getAllUsers(ModelMap modelMap) {
+    public String getOfferings(ModelMap modelMap) {
         return "courses/course-offerings";
+    }
+
+    @RequestMapping(value = "missing-course-info", method = RequestMethod.GET)
+    public String getMissingInfo(ModelMap modelMap) {
+        return "courses/missing-course-info";
     }
 }

@@ -91,7 +91,7 @@
         </div>
 
         <div class="col-md-9 col-sm-8">
-                <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp;Add Course Offering</div>
+
 
         </div>
     </div>
