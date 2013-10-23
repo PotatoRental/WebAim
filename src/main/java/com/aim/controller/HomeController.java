@@ -30,7 +30,7 @@ public class HomeController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "globalMessage", method = RequestMethod.POST)
-    public ModelAndView setGlobalMessage(@RequestParam String globalMessage, RedirectAttributes attributes) {
+    public ModelAndView setGlobalMessage(@RequestParam String globalMessage) {
         globalProperties.setProperty("globalMessage", globalMessage);
 
         RedirectView redirect = new RedirectView("/");
