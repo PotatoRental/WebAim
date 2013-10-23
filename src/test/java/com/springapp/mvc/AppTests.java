@@ -45,10 +45,10 @@ public class AppTests {
                 .andExpect(view().name("login/login"));
     }
 
-    @Test
-    public void users() throws Exception {
-        mockMvc.perform(get("/users"))
-                .andExpect(forwardedUrl("/login"))
-                .andExpect(view().name("login/login"));
-    }
+//    @Test
+//    public void users() throws Exception {
+//        mockMvc.perform(get("/users"))
+//                .andExpect(forwardedUrl("/login"))
+//                .andExpect(view().name("login/login"));
+//    }
 }
