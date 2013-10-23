@@ -26,6 +26,16 @@ public class PEO {
     @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
+    private Integer targetattainment;
+
+    @Column(nullable = false)
+    private String validityperiod;
+
+    @ManyToOne
+    @JoinColumn(name = "DP_ID")
+    private DegreeProgram degreeprogram;
+
     public String getId() {
         return id;
     }
@@ -81,14 +91,4 @@ public class PEO {
     public void setDegreeprogram(DegreeProgram degreeprogram) {
         this.degreeprogram = degreeprogram;
     }
-
-    @Column(nullable = false)
-    private Integer targetattainment;
-
-    @Column(nullable = false)
-    private String validityperiod;
-
-    @ManyToOne
-    @JoinColumn(name = "DP_ID")
-    private DegreeProgram degreeprogram;
 }
