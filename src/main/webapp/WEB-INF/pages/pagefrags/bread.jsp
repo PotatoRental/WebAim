@@ -18,14 +18,14 @@
     </ol>
 </div>
 <div class="col-md-12">
-<c:if test="${not empty globalMessage}">
-    <div class="global-messages">
-        <div class="bs-callout">
-            <h4>Admin message:</h4>
+    <c:if test="${not empty globalMessage}">
+        <div class="global-messages">
+            <div class="bs-callout">
+                <h4>Admin message:</h4>
+                <p> ${globalMessage}</p>
+            </div>
 
-            <p> ${globalMessage}</p>
         </div>
 
-    </div>
+    </c:if>
 </div>
-</c:if>
