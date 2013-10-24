@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,15 +31,17 @@ public class LoginController {
     @Autowired
     private MessageSource messageSource;
 
+    private SecurityContextHolder securityContextHolder;
+
     @RequestMapping(method = RequestMethod.GET)
     public String defaultLogin() {
-        logger.info("get default login.");
+        logger.info("Get default login page");
         return "login/login";
     }
 
     @RequestMapping("success")
     public ModelAndView successLogin(Principal principal, RedirectAttributes redirectAttributes) {
-        logger.info("login succeed.");
+        logger.info("login succeed: " + principal.getName() + " As "+ securityContextHolder.getContext().getAuthentication().getAuthorities());
         String welcomeMessage = messageSource.getMessage("welcome", new Object[]{ principal.getName() }, new Locale("es_ES"));
         redirectAttributes.addFlashAttribute("welcomeMessage", welcomeMessage);
 

@@ -41,7 +41,7 @@ public class HomeController {
         RedirectView redirect = new RedirectView("/");
         redirect.setExposeModelAttributes(false);
 
-        logger.info("User sets global message to " + globalMessage);
+        logger.info("User sets global message to: " + globalMessage);
 
         return new ModelAndView(redirect);
     }
