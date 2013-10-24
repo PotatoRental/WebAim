@@ -21,7 +21,7 @@
             <form>
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover fat-select">
+                <select class="fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
@@ -29,7 +29,7 @@
                 </select> <br> <br>
 
                 <h4>Academic Years:</h4> <br>
-                From <input type="text" name="year-start" class="year blue-hover"> to <input type="text" name="year-end" class="year blue-hover"> <br> <br>
+                From <input type="text" name="year-start" class="year"> to <input type="text" name="year-end" class="year"> <br> <br>
 
                 <h4>Base Attainment Level On: </h4>  <br>
                 <input type="radio" name="base-level" value="alumni-survey">Alumni Survey<br>

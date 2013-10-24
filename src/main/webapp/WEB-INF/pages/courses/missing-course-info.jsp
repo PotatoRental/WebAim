@@ -1,9 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Milky
-  Date: 10/18/13
-  Time: 3:52 AM
---%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -50,7 +44,7 @@
             <p>
                <h2>1. Select Group</h2>
                 <h4>Show me missing info provided by
-                <select class="blue-hover" id="select-group">
+                <select id="select-group">
                     <option value="cic">CIC Members</option>
                     <option value="instructors">Instructors</option>
                     <option value="course-coordinators">Course Coordinators</option>

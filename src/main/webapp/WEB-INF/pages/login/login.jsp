@@ -17,7 +17,7 @@
 
 <div class="container">
     <ul id="cbp-tm-menu" class="cbp-tm-menu">
-        <a href="/" style="float:left"><img id="aimlogo" src="/images/logo_b.png"/></a>
+        <a href="/" style="float:left"><img id="aim-logo" src="/images/logo_b.png"/></a>
     </ul>
 </div>
 

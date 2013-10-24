@@ -8,8 +8,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="col-md-12">
     <ol class="breadcrumb">
-        <li><a href="/"><span class="glyphicon glyphicon-home"/></a></li>
-    <span id="topnav">
+        <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+    <span id="top-nav">
         <sec:authorize access="isAuthenticated()"><a href="#"><sec:authentication
                 property="principal.username"/></a></sec:authorize>
         <sec:authorize access="isAnonymous()"><a href="/login">Login</a></sec:authorize>

@@ -1,9 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Milky
-  Date: 10/18/13
-  Time: 3:52 AM
---%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -11,7 +5,7 @@
 <head>
     <title><fmt:message key="title"/> | <fmt:message key="title.courses"/> </title>
 
-    <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
+    <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Pang, Alvin Qiang"/>
     <jsp:include page="../pagefrags/imports.jsp"/>
 </head>
 <body>
@@ -31,7 +25,7 @@
                   </span>
                     <input type="text" class="form-control" id="search-field" value="Search Course Offerings" onclick="this.value=''">
                 </div>
-                <!-- /input-group -->
+                <!-- input-group -->
 
             </div>
 
