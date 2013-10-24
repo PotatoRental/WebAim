@@ -33,6 +33,7 @@
                 <user name="monika" password="test" authorities="ROLE_CIC" />
                 <user name="yun" password="test" authorities="ROLE_CIC" />
                 <user name="alvin" password="test" authorities="ROLE_USER" />
+                <user name="cc" password="test" authorities="ROLE_CC" />
             </user-service>
         </authentication-provider>
     </authentication-manager>

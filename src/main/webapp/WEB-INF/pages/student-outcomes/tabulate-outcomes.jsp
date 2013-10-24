@@ -19,7 +19,7 @@
 
         <div class="courselist col-md-3 col-sm-3" id="courselist">
             <h4>Select Outcome:</h4>
-            <select class="blue-hover fat-select" id="select-outcome">
+            <select class="fat-select" id="select-outcome">
                 <option value="soa-direct" selected="selected">Student Outcome Attainment (Direct Assessment)</option>
                 <option value="soa-direct-course">Student Outcome Attainment (Direct Assessment) by Course</option>
                 <option value="soa-survey">Student Outcome Attainment (Survey Assessment)</option>
@@ -29,7 +29,7 @@
             <form id="soa-direct" class="outcome-form">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover fat-select">
+                <select class="fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
@@ -38,7 +38,7 @@
 
 
                 <h4>Academic Years:</h4> <br>
-                From <input type="text" name="year-start" class="year blue-hover"> to <input type="text" name="year-end" class="year blue-hover"> <br> <br>
+                From <input type="text" name="year-start" class="year"> to <input type="text" name="year-end" class="year"> <br> <br>
 
                 <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
 
@@ -47,7 +47,7 @@
             <form id="soa-survey" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover fat-select">
+                <select class="fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
@@ -56,7 +56,7 @@
 
 
                 <h4>Academic Years:</h4> <br>
-                From <input type="text" name="year-start" class="year blue-hover"> to <input type="text" name="year-end" class="year blue-hover"> <br> <br>
+                From <input type="text" name="year-start" class="year"> to <input type="text" name="year-end" class="year"> <br> <br>
 
                 <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
 
@@ -65,14 +65,14 @@
             <form id="soa-direct-course" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover fat-select">
+                <select class="fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
                     <option value="information-systems">Information Systems</option>
                 </select> <br> <br>
 
-                <h4>Semester:</h4> <input type="text" name="year" class="year blue-hover"><br>
+                <h4>Semester:</h4> <input type="text" name="year" class="year"><br>
                 <input type="radio" name="semester" value="fall">fall
                 <input type="radio" name="semester" value="spring">spring<br>
 
@@ -83,14 +83,14 @@
             <form id="so-enabled-courses" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover fat-select">
+                <select class="fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
                     <option value="information-systems">Information Systems</option>
                 </select> <br> <br>
 
-                <h4>Academic Year:</h4> <input type="text" name="year" class="year blue-hover"><br>  <br>
+                <h4>Academic Year:</h4> <input type="text" name="year" class="year"><br>  <br>
 
                 <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
 
@@ -99,14 +99,14 @@
             <form id="so-assessed-courses" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="blue-hover fat-select">
+                <select class="fat-select">
                     <option value="accounting">Accounting</option>
                     <option value="biochemistry">Biochemistry</option>
                     <option value="computer-science">Computer Science</option>
                     <option value="information-systems">Information Systems</option>
                 </select> <br> <br>
 
-                <h4>Academic Year:</h4> <input type="text" name="year" class="year blue-hover"><br>  <br>
+                <h4>Academic Year:</h4> <input type="text" name="year" class="year"><br>  <br>
 
                 <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
 

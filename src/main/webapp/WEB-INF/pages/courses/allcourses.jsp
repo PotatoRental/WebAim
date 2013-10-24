@@ -61,15 +61,9 @@
             <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
 
             <div id="course-home">
-                <g:include view="courses.gsp"/>
-            </div>
-            <div class="importpage" id="cse102">
-                <g:include view="course.gsp"/>
+
             </div>
 
-            <div class="importpage" id="edit-form">
-                <g:include view="course2.gsp"/>
-            </div>
         </div>
     </div>
 
