@@ -41,4 +41,10 @@ public class CoursesController {
         logger.info("User tries to get missing course information.");
         return "courses/missing-course-info";
     }
+
+    @RequestMapping(value = "cc-reports", method = RequestMethod.GET)
+    public String getCourseCoordinatorReports(ModelMap modelMap) {
+        logger.info("User tries to get course coordinator reports.");
+        return "courses/cc-reports";
+    }
 }

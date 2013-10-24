@@ -44,7 +44,7 @@
             <p>
                <h2>1. Select Group</h2>
                 <h4>Show me missing info provided by
-                <select id="select-group">
+                <select class="selectpicker" id="select-group">
                     <option value="cic">CIC Members</option>
                     <option value="instructors">Instructors</option>
                     <option value="course-coordinators">Course Coordinators</option>
