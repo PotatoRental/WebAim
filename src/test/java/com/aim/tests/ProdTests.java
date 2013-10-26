@@ -16,7 +16,6 @@ import javax.sql.DataSource;
  * Date: 10/26/13
  * Time: 2:29 AM
  */
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration("classpath:/spring/web-aim-servlet.xml")
