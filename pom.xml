@@ -114,6 +114,19 @@
             <version>1.2.17</version>
         </dependency>
 
+        <!-- Database connection -->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.26</version>
+        </dependency>
+
         <!-- Testing framework -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -145,6 +158,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.14</version>
                 <configuration>
+                    <excludes>
+                        <exclude>**/DevTests.java</exclude>
+                    </excludes>
                     <includes>
                         <include>**/*Tests.java</include>
                     </includes>

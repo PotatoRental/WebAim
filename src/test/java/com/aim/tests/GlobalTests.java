@@ -1,4 +1,4 @@
-package com.springapp.mvc;
+package com.aim.tests;
 
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -12,7 +12,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
@@ -20,10 +19,10 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration("classpath:/spring/web-aim-servlet.xml")
-public class AppTests {
+public class GlobalTests {
     private MockMvc mockMvc;
 
-    private static final Logger logger = Logger.getLogger(AppTests.class);
+    private static final Logger logger = Logger.getLogger(GlobalTests.class);
 
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired

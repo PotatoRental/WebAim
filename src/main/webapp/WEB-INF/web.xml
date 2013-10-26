@@ -12,6 +12,12 @@
         <param-value>classpath:spring/security-config.xml</param-value>
     </context-param>
 
+    <!-- Default profile for dev -->
+    <context-param>
+        <param-name>spring.profiles.default</param-name>
+        <param-value>dev</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>web-aim</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -37,11 +43,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <error-page>
-        <error-code>404</error-code>
-        <location>/WEB-INF/pages/errors/404.jsp</location>
-    </error-page>
-
+    <!-- Error pages -->
     <!--    <error-page>
         <exception-type>java.lang.Exception</exception-type>
         <location>/WEB-INF/pages/errors/disaster.jsp</location>

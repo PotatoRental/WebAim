@@ -49,4 +49,22 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages/messages"/>
     </bean>
+
+    <beans profile="dev">
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+            <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+            <property name="username" value="aimweb" />
+            <property name="password" value="ProjectAim2014" />
+            <property name="url" value="jdbc:mysql://wontoncode.com:3306/potatoaim"/>
+        </bean>
+    </beans>
+
+    <beans profile="prod">
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+            <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+            <property name="username" value="aimweb" />
+            <property name="password" value="ProjectAim2014" />
+            <property name="url" value="jdbc:mysql://127.0.0.1:3306/potatoaim"/>
+        </bean>
+    </beans>
 </beans>

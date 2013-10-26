@@ -29,7 +29,7 @@
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="milky" password="test" authorities="ROLE_ADMIN" />
+                <user name="milky" password="test" authorities="ROLE_ADMIN, ROLE_CIC, ROLE_CC" />
                 <user name="monika" password="test" authorities="ROLE_CIC" />
                 <user name="yun" password="test" authorities="ROLE_CIC" />
                 <user name="alvin" password="test" authorities="ROLE_USER" />
