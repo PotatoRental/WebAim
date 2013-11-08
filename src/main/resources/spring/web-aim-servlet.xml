@@ -50,6 +50,9 @@
         <property name="basename" value="messages/messages"/>
     </bean>
 
+    <!-- User details -->
+    <!--<bean id="userDetailService" class=""-->
+
     <beans profile="dev">
         <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
             <property name="driverClassName" value="com.mysql.jdbc.Driver" />

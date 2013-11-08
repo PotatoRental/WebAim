@@ -28,7 +28,7 @@
 
     <authentication-manager>
         <authentication-provider>
-            <user-service>
+            <user-service id="userDetailsService">
                 <user name="milky" password="test" authorities="ROLE_ADMIN, ROLE_CIC, ROLE_CC" />
                 <user name="monika" password="test" authorities="ROLE_CIC" />
                 <user name="yun" password="test" authorities="ROLE_CIC" />
