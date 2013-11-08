@@ -26,7 +26,7 @@
 
         <jsp:include page="pagefrags/bread.jsp"/>
 
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-3">
             <h4>Quick Links</h4>
 
             <div class="quicklinks">

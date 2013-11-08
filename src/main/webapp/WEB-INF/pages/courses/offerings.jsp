@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/> | <fmt:message key="title.courses"/> </title>
+    <title><fmt:message key="title"/> | <fmt:message key="title.courses"/></title>
 
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="../pagefrags/imports.jsp"/>
@@ -29,7 +29,8 @@
                       <span class="input-group-btn">
                         <span id="search-ico" class="glyphicon glyphicon-search"></span>
                       </span>
-                    <input type="text" class="form-control" id="search-field" value="Search" onclick="this.value=''">
+                    <input type="text" class="form-control" id="search-field" value="Search Courses"
+                           onclick="this.value=''">
                 </div>
                 <!-- /input-group -->
 
@@ -58,28 +59,22 @@
 
         <div class="col-md-9 col-sm-8">
 
-            <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course Offering</div>
+            <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
 
-            <div id="course-home">
+            <div id="offering-home">
 
             </div>
 
         </div>
     </div>
 
-    <jsp:include page="../pagefrags/footer.jsp" />
+    <jsp:include page="../pagefrags/footer.jsp"/>
 </div>
 
 <script type="text/javascript">
-    $( "#cse102" ).click(function() {
-        $( "#course-home" ).load( "/courses/view-offering" );
+    $("#cse102").click(function () {
+        $("#offering-home").load("/courses/view-offering");
     });
-
-    $("#edit-cancel").click(function(){
-        $( "#course-home" ).load( "/courses/cse102" );
-    });
-
-
 </script>
 
 </body>

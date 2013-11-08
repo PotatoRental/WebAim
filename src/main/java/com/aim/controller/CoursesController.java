@@ -33,7 +33,19 @@ public class CoursesController {
     @RequestMapping(value = "course-offerings", method = RequestMethod.GET)
     public String getOfferings(ModelMap modelMap) {
         logger.info("User tries to get course offering information.");
-        return "courses/course-offerings";
+        return "courses/offerings";
+    }
+
+    @RequestMapping(value = "view-offering", method = RequestMethod.GET)
+    public String getOffering(ModelMap modelMap) {
+        //logger.info("User tries to get course offering information.");
+        return "/courses/view-offering";
+    }
+
+    @RequestMapping(value = "edit-offering", method = RequestMethod.GET)
+    public String getOfferingEditor(ModelMap modelMap) {
+        //logger.info("User tries to get course offering information.");
+        return "/courses/edit-offering";
     }
 
     @RequestMapping(value = "missing-course-info", method = RequestMethod.GET)
@@ -47,4 +59,17 @@ public class CoursesController {
         logger.info("User tries to get course coordinator reports.");
         return "courses/cc-reports";
     }
+
+    @RequestMapping(value = "cse102", method = RequestMethod.GET)
+    public String getCourse(ModelMap modelMap) {
+        //logger.info("User tries to get course offering information.");
+        return "courses/cse102";
+    }
+
+    @RequestMapping(value = "cse102-edit", method = RequestMethod.GET)
+    public String getCourseEditor(ModelMap modelMap) {
+        //logger.info("User tries to get course offering information.");
+        return "courses/cse102-edit";
+    }
+
 }

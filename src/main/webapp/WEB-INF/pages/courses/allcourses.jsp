@@ -15,61 +15,66 @@
     <jsp:include page="../pagefrags/imports.jsp"/>
 </head>
 <body>
-<div class="container">
+    <div class="container">
 
-    <jsp:include page="../pagefrags/nav.jsp"/>
+        <jsp:include page="../pagefrags/nav.jsp"/>
 
-    <div class="row maincontent">
+        <div class="row maincontent">
 
-        <jsp:include page="../pagefrags/bread.jsp"/>
+            <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <div class="list col-md-3 col-sm-3" id="list">
-            <div class="row blue-hover">
-                <div class="input-group" id="search-input-group">
-                  <span class="input-group-btn">
-                    <span id="search-ico" class="glyphicon glyphicon-search"></span>
-                  </span>
-                    <input type="text" class="form-control" id="search-field" value="Search Courses" onclick="this.value=''">
+            <div class="list col-md-3 col-sm-3" id="list">
+                <div class="row blue-hover">
+                    <div class="input-group" id="search-input-group">
+                      <span class="input-group-btn">
+                        <span id="search-ico" class="glyphicon glyphicon-search"></span>
+                      </span>
+                        <input type="text" class="form-control" id="search-field" value="Search Courses" onclick="this.value=''">
+                    </div>
+                    <!-- /input-group -->
+
                 </div>
-                <!-- /input-group -->
 
+                <div class="search-results">
+                    <ul>
+                        <li><a id="cse102" href="#">CSE 102</a></li>
+                        <li><a href="#">CSE 110</a></li>
+                        <li><a href="#">CSE 114</a></li>
+                        <li><a href="#">CSE 110</a></li>
+                        <li><a href="#">CSE 114</a></li>
+                        <li><a href="#">CSE 110</a></li>
+                        <li><a href="#">CSE 114</a></li>
+                        <li><a href="#">CSE 110</a></li>
+                        <li><a href="#">CSE 114</a></li>
+                        <li><a href="#">CSE 110</a></li>
+                        <li><a href="#">CSE 114</a></li>
+                        <li><a href="#">CSE 110</a></li>
+                        <li><a href="#">CSE 114</a></li>
+                        <li><a href="#">CSE 110</a></li>
+                        <li><a href="#">CSE 114</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="search-results">
-                <ul>
-                    <li><a href="#" onclick="selectCourse()">CSE 102</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                </ul>
+            <div class="col-md-9 col-sm-8">
+
+                <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
+
+                <div id="course-home">
+
+                </div>
+
             </div>
         </div>
 
-        <div class="col-md-9 col-sm-8">
-
-            <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
-
-            <div id="course-home">
-
-            </div>
-
-        </div>
+        <jsp:include page="../pagefrags/footer.jsp" />
     </div>
 
-    <jsp:include page="../pagefrags/footer.jsp" />
-</div>
+    <script type="text/javascript">
+        $( "#cse102" ).click(function() {
+            $( "#course-home" ).load( "/courses/cse102" );
+        });
+    </script>
 
-</div>
 </body>
 </html>

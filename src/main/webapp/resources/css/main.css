@@ -94,6 +94,7 @@ h1, .container h1, .container h4 {
     background-color: #dcdcec;
 }
 
+.fat,
 .fat-select,
 .fat-textarea {
     width:100%;
@@ -180,12 +181,23 @@ h1, .container h1, .container h4 {
     min-height: 60%;
 }
 
+/*table styles*/
+table td {
+    vertical-align:middle;
+}
+
+.title-col {
+    width: 125px;
+    font-weight: 500;
+}
+
 #soa-direct-table tr:nth-child(2),
 #soa-survey-table tr:nth-child(2),
 #soa-direct-course-table tr:last-child{
     background-color: #428bca;
     color:white;
 }
+
 
 /*FOOTER STYLES*/
 
