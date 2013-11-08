@@ -27,4 +27,8 @@ public class UsersController {
         return "users/allusers";
     }
 
+    @RequestMapping(value = "ajax", method = RequestMethod.GET)
+    public @ResponseBody String getAllUsers() {
+        return "body";
+    }
 }
