@@ -17,7 +17,8 @@ public class GlobalConfig {
 
     public @Bean Properties globalProperties() {
         Properties properties = new Properties();
-        properties.setProperty("globalMessage", "Welcome! Only admin users can set messages. Try it with milky::test");
+        // TODO delete this sample line for global properties
+        //properties.setProperty("globalMessage", "Welcome! Only admin users can set messages. Try it with milky::test");
 
         return properties;
     }

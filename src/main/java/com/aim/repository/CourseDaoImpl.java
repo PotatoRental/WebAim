@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -29,7 +28,7 @@ public class CourseDaoImpl implements CourseDao {
         logger.info("User is getting all courses.");
 
         return sessionFactory.getCurrentSession()
-                .createSQLQuery("select * from Course")
+                .createQuery("from Course")
                 .list();
     }
 

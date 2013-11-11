@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
  * Time: 3:33 AM
  */
 @Service
-public class UserService {
+public interface UserService {
 
 }

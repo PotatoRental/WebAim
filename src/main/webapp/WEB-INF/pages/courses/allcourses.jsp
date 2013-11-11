@@ -5,6 +5,7 @@
   Time: 3:52 AM
 --%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -36,7 +37,7 @@
                 </div>
 
                 <div class="search-results">
-                    <ul>
+                    <%--<ul>
                         <li><a id="cse102" href="#">CSE 102</a></li>
                         <li><a href="#">CSE 110</a></li>
                         <li><a href="#">CSE 114</a></li>
@@ -52,6 +53,11 @@
                         <li><a href="#">CSE 114</a></li>
                         <li><a href="#">CSE 110</a></li>
                         <li><a href="#">CSE 114</a></li>
+                    </ul>--%>
+                    <ul>
+                        <c:forEach var="course" items="${courselist}">
+                            <li><a href="#">${course.id}</a></li>
+                        </c:forEach>
                     </ul>
                 </div>
             </div>
