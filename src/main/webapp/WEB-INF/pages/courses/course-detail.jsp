@@ -1,6 +1,6 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <p>
-    <h1>CSE 102</h1>
+    <h1>${course.id}</h1>
     <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
         &nbsp;&nbsp;<a id="edit-course" href="#">Edit</a>
     </sec:authorize>
@@ -8,39 +8,23 @@
 <table class="table table-bordered table-striped">
     <tr>
         <td class="title-col">Course Identifier</td>
-        <td>CSE 102</td>
+        <td>${course.id}</td>
     </tr>
     <tr>
-        <td class="title-col">
-            Course Name
-        </td>
-        <td>
-            Introduction to Web Design and Programming
-        </td>
+        <td class="title-col">Course Name</td>
+        <td>${course.name}</td>
     </tr>
     <tr>
-        <td class="title-col">
-            Course Coordinator
-        </td>
-        <td>
-            <a href="#">Ahmad Esmaili</a>
-        </td>
+        <td class="title-col">Course Coordinator</td>
+        <td><a href="#">Ahmad Esmaili</a></td>
     </tr>
     <tr>
-        <td class="title-col">
-            Alternate Course Coordinators:
-        </td>
-        <td>
-            <a href="#">Walter White</a>
-        </td>
+        <td class="title-col">Alternate Course Coordinators:</td>
+        <td><a href="#">Walter White</a></td>
     </tr>
     <tr>
-        <td class="title-col">
-            Degree Programs
-        </td>
-        <td>
-            Bachelor of Science in Computer Science
-        </td>
+        <td class="title-col">Degree Programs</td>
+        <td>Bachelor of Science in Computer Science</td>
     </tr>
     <tr>
         <td class="title-col">

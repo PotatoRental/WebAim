@@ -67,7 +67,6 @@
         $(document).ready(function() {
            $( ".courses" ).click(function(event) {
                $("#course-home").load("/courses/" + event.target.id);
-               alert(event.target.id);
            });
         });
     </script>
