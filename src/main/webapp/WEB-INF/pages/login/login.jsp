@@ -25,17 +25,16 @@
 
     <div id='login'>
 
-        <h2>Sign In</h2>
+        <h1>Sign In</h1>
+        <br>
         <br>
         <form:form modelAttribute="loginForm" method='POST' id='loginForm' cssClass='cssform' autocomplete='off' action="login-check">
             <p>
-                <label id='username-label' for='username'>Username</label>
-                <input type='text' class='form-control' name='username' id='username' autofocus="autofocus"/>
+                <input type='text' class='form-control' name='username' id='username' autofocus="autofocus" placeholder="Username" required/>
             </p>
 
             <p>
-                <label id='password-label' for='password'>Password</label>
-                <input type='password' class='form-control' name='password' id='password'/>
+                <input type='password' class='form-control' name='password' id='password' placeholder="Password" required/>
             </p>
 
             <p>

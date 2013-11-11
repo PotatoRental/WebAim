@@ -18,13 +18,19 @@ import java.security.Principal;
 @Controller
 @RequestMapping("/peo")
 @PreAuthorize("hasAnyRole('ROLE_ADMIN, ROLE_CIC')")
-public class PeoTabulateController {
+public class PeoController {
 
-    private static final Logger logger = Logger.getLogger(PeoTabulateController.class);
+    private static final Logger logger = Logger.getLogger(PeoController.class);
 
     @RequestMapping(value = "tabulate-attainment", method = RequestMethod.GET)
+    public String getTabulatedPeos(Principal principal, ModelMap modelMap) {
+        logger.info("User tries to tabulate PEO attainment.");
+        return "peo/tabulate-attainment";
+    }
+
+    @RequestMapping(value = "manage-peos", method = RequestMethod.GET)
     public String getAllPeos(Principal principal, ModelMap modelMap) {
         logger.info("User tries to get all peos' information.");
-        return "peo/tabulate-attainment";
+        return "peo/manage-peos";
     }
 }

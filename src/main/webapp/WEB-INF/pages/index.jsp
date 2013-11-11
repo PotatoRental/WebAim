@@ -92,6 +92,22 @@
                 outcomes are measured...
             </sec:authorize>
 
+
+
+            <sec:authorize ifAnyGranted="ROLE_CIC">
+                <h4>Updates</h4>
+
+                <div class="alert alert-dismissable alert-warning">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>4 courses are missing information.</strong> <a href="#">View</a>.
+                </div>
+
+                <div class="alert alert-dismissable alert-info">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    2 courses have been added to the system. <a href="#">View</a>.
+                </div>
+            </sec:authorize>
+
             <sec:authorize ifAnyGranted="ROLE_ADMIN">
                 <div class="global-set">
                     <c:choose>
@@ -111,20 +127,6 @@
 
                 </div>
 
-            </sec:authorize>
-
-            <sec:authorize ifAnyGranted="ROLE_CIC">
-                <h4>Updates</h4>
-
-                <div class="alert alert-dismissable alert-warning">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <strong>4 courses are missing information.</strong> <a href="#">View</a>.
-                </div>
-
-                <div class="alert alert-dismissable alert-info">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    2 courses have been added to the system. <a href="#">View</a>.
-                </div>
             </sec:authorize>
         </div>
 

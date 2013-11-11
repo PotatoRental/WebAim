@@ -38,7 +38,7 @@
             Degree Programs
         </td>
         <td>
-            Computer Science
+            Bachelor of Science in Computer Science
         </td>
     </tr>
     <tr>

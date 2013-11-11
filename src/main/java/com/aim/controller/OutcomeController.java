@@ -16,13 +16,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/student-outcomes")
 @PreAuthorize("hasAnyRole('ROLE_ADMIN, ROLE_CIC')")
-public class OutcomeTabulateController {
+public class OutcomeController {
 
-    private static final Logger logger = Logger.getLogger(OutcomeTabulateController.class);
+    private static final Logger logger = Logger.getLogger(OutcomeController.class);
 
     @RequestMapping(value = "tabulate-outcomes", method = RequestMethod.GET)
-    public String getAllOutcomes(ModelMap modelMap) {
-        logger.info("User tries to get all outcomes' information");
+    public String getTabulatedOutcomes(ModelMap modelMap) {
+        logger.info("User tries to tabulate student outcomes");
         return "student-outcomes/tabulate-outcomes";
     }
+
+    @RequestMapping(value = "manage-outcomes", method = RequestMethod.GET)
+    public String getAllOutcomes(ModelMap modelMap) {
+        logger.info("User tries to get all outcomes' information");
+        return "student-outcomes/manage-outcomes";
+    }
+
 }

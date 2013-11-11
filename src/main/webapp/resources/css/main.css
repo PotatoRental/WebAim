@@ -20,6 +20,16 @@ h1, .container h1, .container h4 {
     display: none;
 }
 
+.link {
+    cursor: pointer;
+    color: rgb(66, 139, 202);
+}
+
+.link:hover {
+    color: rgb(42, 100, 150);
+    cursor: pointer;
+}
+
 /*NAV STYLES*/
 
 #aim-logo {
@@ -196,6 +206,10 @@ table td {
 #soa-direct-course-table tr:last-child{
     background-color: #428bca;
     color:white;
+}
+
+#header-form td{
+    background-color: rgb(238, 238, 238);
 }
 
 

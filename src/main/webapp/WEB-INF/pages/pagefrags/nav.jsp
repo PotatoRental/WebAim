@@ -31,7 +31,7 @@
     <li>
         <a href="#">Student Outcomes</a>
         <ul class="cbp-tm-submenu">
-            <li><a href="#" class="cbp-tm-icon-archive">Manage Outcomes</a></li>
+            <li><a href="/student-outcomes/manage-outcomes" class="cbp-tm-icon-archive">Manage Outcomes</a></li>
             <li><a href="/student-outcomes/tabulate-outcomes" class="cbp-tm-icon-cog">Tabulate Outcomes</a></li>
         </ul>
     </li>
@@ -40,7 +40,7 @@
         <li>
             <a href="#">PEOs</a>
             <ul class="cbp-tm-submenu">
-                <li><a href="#" class="cbp-tm-icon-screen">Manage PEOs</a></li>
+                <li><a href="/peo/manage-peos" class="cbp-tm-icon-screen">Manage PEOs</a></li>
                 <li><a href="/peo/tabulate-attainment" class="cbp-tm-icon-mail">Tabulate PEO Attainment</a></li>
             </ul>
         </li>
