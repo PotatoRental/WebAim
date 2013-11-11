@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Time: 1:26 PM
  */
 @Controller
-@RequestMapping("/outcomes")
+@RequestMapping("/outcome")
 @PreAuthorize("hasAnyRole('ROLE_ADMIN, ROLE_CIC')")
 public class OutcomeController {
 

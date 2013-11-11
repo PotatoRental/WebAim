@@ -53,6 +53,17 @@
     <!-- User details -->
     <!--<bean id="userDetailService" class=""-->
 
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.aim.model" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
     <beans profile="dev">
         <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
             <property name="driverClassName" value="com.mysql.jdbc.Driver" />
