@@ -11,7 +11,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "ASSIGNMENT")
+@Table(name = "Assignment")
 public class Assignment {
     @Id
     @Column(nullable=false)

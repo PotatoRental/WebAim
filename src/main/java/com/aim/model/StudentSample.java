@@ -10,7 +10,7 @@ import javax.persistence.*;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "STUDENTSAMPLE")
+@Table(name = "StudentSample")
 public class StudentSample {
     @Id
     @Column (nullable = false)

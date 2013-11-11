@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * Time: 10:22 PM
  */
 @Entity
-@Table(name = "EVALUATOR")
+@Table(name = "Evaluator")
 public class Evaluator extends SchoolUser {
 
     @Column private String evalPeriod;

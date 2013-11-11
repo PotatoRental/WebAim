@@ -3,6 +3,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
@@ -10,7 +11,26 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/security
-        http://www.springframework.org/schema/security/spring-security.xsd">
+        http://www.springframework.org/schema/security/spring-security.xsd
+        http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.aim.model" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
     <!-- Looks through the package for all controllers -->
     <context:component-scan base-package="com.aim"/>
@@ -53,23 +73,13 @@
     <!-- User details -->
     <!--<bean id="userDetailService" class=""-->
 
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="com.aim.model" />
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-            </props>
-        </property>
-    </bean>
-
     <beans profile="dev">
         <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
             <property name="driverClassName" value="com.mysql.jdbc.Driver" />
             <property name="username" value="aimweb" />
             <property name="password" value="ProjectAim2014" />
-            <property name="url" value="jdbc:mysql://wontoncode.com:3306/potatoaim"/>
+            <!--<property name="url" value="jdbc:mysql://wontoncode.com:3306/potatoaim"/>-->
+            <property name="url" value="jdbc:mysql://wontoncode.com:3306/temp"/>
         </bean>
     </beans>
 
@@ -78,7 +88,8 @@
             <property name="driverClassName" value="com.mysql.jdbc.Driver" />
             <property name="username" value="aimweb" />
             <property name="password" value="ProjectAim2014" />
-            <property name="url" value="jdbc:mysql://127.0.0.1:3306/potatoaim"/>
+            <!--<property name="url" value="jdbc:mysql://127.0.0.1:3306/potatoaim"/>-->
+            <property name="url" value="jdbc:mysql://127.0.0.1:3306/temp"/>
         </bean>
     </beans>
 </beans>

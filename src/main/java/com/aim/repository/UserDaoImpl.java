@@ -2,9 +2,11 @@ package com.aim.repository;
 
 import com.aim.dao.UserDao;
 import com.aim.model.Course;
+import com.aim.model.UserAccount;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +19,7 @@ import java.lang.Integer;
  * Date: 10/23/13
  * Time: 12:18 AM
  */
+@Repository
 public abstract class UserDaoImpl implements UserDao {
 
     private static final Logger logger = Logger.getLogger(UserDaoImpl.class);
@@ -24,27 +27,27 @@ public abstract class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Transactional(propagation = Propagation.MANDATORY)
-    public List<Course> getAllCourses() {
-        logger.info("User is getting all courses.");
+    @Transactional
+    public List<UserAccount> getAllUsers() {
+        logger.info("User is getting all users.");
 
         return sessionFactory.getCurrentSession()
-                .createSQLQuery("select * from users")
+                .createSQLQuery("select * from UserAccount")
                 .list();
     }
 
-    @Transactional(propagation = Propagation.MANDATORY)
+    @Transactional
     public Integer getNumUsers() {
         logger.info("Testing first course loading");
         return (Integer) sessionFactory.getCurrentSession()
-                .createSQLQuery("select count(*) from users")
+                .createSQLQuery("select count(*) from UserAccount")
                 .uniqueResult();
     }
 
-    @Transactional(propagation = Propagation.MANDATORY)
-    public List<Course> getCourseBySemester() {
+    @Transactional
+    public List<UserAccount> getUserByUsername(String username) {
         // TODO null return
-        logger.info("User is getting all courses in a semester.");
+        logger.info("User is getting all users by username");
         return null;
     }
 }

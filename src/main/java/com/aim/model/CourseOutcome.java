@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * Time: 11:23 PM
  */
 @Entity
-@Table(name = "COURSEOUTCOME")
+@Table(name = "CourseOutcome")
 public class CourseOutcome {
 
     @Id
@@ -23,7 +23,8 @@ public class CourseOutcome {
     @Column private String description;
     @Column private boolean accessed;
 
-    @Column private StudentOutcome studentOutcome;
+    /*@Column private StudentOutcome studentOutcome;*/
+    // TODO fix student outcome, needs table joining
 
     public Integer getSequenceNumber() {
         return sequenceNumber;
@@ -57,11 +58,11 @@ public class CourseOutcome {
         this.accessed = accessed;
     }
 
-    public StudentOutcome getStudentOutcome() {
+/*    public StudentOutcome getStudentOutcome() {
         return studentOutcome;
     }
 
     public void setStudentOutcome(StudentOutcome studentOutcome) {
         this.studentOutcome = studentOutcome;
-    }
+    }*/
 }

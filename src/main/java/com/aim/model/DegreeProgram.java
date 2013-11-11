@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Entity
 
-@Table(name = "DEGREEPROGRAM")
+@Table(name = "DegreeProgram")
 public class DegreeProgram {
     @Id
     @Column(nullable = false)
@@ -23,9 +23,6 @@ public class DegreeProgram {
 
     @Column(nullable = false)
     private String department;
-
-    @ManyToMany(mappedBy = "degreeprograms")
-    private List<UserAccount> useraccounts;
 
     @ManyToMany(mappedBy = "degreeprograms")
     private List<Course> courses;
@@ -42,14 +39,6 @@ public class DegreeProgram {
 
     public void setStudentoutcomes(List<StudentOutcome> studentoutcomes) {
         this.studentoutcomes = studentoutcomes;
-    }
-
-    public List<UserAccount> getUseraccounts() {
-        return useraccounts;
-    }
-
-    public void setUseraccounts(List<UserAccount> useraccounts) {
-        this.useraccounts = useraccounts;
     }
 
     public List<Course> getCourses() {

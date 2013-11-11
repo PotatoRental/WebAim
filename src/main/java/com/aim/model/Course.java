@@ -12,7 +12,7 @@ import java.util.List;
  */
 
 @Entity
-@Table(name = "COURSE")
+@Table(name = "Course")
 public class Course {
     @Id
     @Column(nullable = false)

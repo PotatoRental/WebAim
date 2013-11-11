@@ -1,7 +1,9 @@
 package com.aim.controller;
 
 import com.aim.model.Course;
+import com.aim.service.CourseServiceImpl;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,10 +24,14 @@ public class CoursesController {
 
     private static final Logger logger = Logger.getLogger(CoursesController.class);
 
+    @Autowired
+    private CourseServiceImpl courseServiceImpl;
+
     @RequestMapping(method = RequestMethod.GET)
     public String getCourses(ModelMap modelMap) {
-//        List<Course> courseList = courseDao.getAllCourses();
-//        modelMap.addAttribute("courselist", courseList);
+        List<Course> courseList = courseServiceImpl.getAllCourses();
+        modelMap.addAttribute("courselist", courseList);
+
         logger.info("User tries to get courses.");
         return "courses/allcourses";
     }

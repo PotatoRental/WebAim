@@ -10,7 +10,7 @@ import java.util.List;
  * Time: 10:00 PM
  */
 @Entity
-@Table(name = "USERACCOUNT")
+@Table(name = "UserAccount")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class UserAccount {
 
