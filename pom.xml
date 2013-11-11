@@ -124,7 +124,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
             <version>1.7.5</version>
-            <scope>runtime</scope>
         </dependency>
 
         <!-- Database connection -->
@@ -174,11 +173,8 @@
                 <version>2.14</version>
                 <configuration>
                     <excludes>
-                        <exclude>**/DevTests.java</exclude>
+                        <exclude>**/*Tests.java</exclude>
                     </excludes>
-                    <includes>
-                        <include>**/*Tests.java</include>
-                    </includes>
                 </configuration>
             </plugin>
             <plugin>
