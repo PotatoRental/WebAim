@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <p>
     <h1>CSE 102</h1>
     <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">

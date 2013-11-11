@@ -16,6 +16,7 @@ import java.util.List;
  * Time: 2:23 AM
  */
 @Repository
+@Transactional
 public class CourseDaoImpl implements CourseDao {
 
     private static final Logger logger = Logger.getLogger(CourseDaoImpl.class);
@@ -23,13 +24,22 @@ public class CourseDaoImpl implements CourseDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Transactional
+
     public List<Course> getAllCourses() {
         logger.info("User is getting all courses.");
 
         return sessionFactory.getCurrentSession()
                 .createQuery("from Course")
                 .list();
+    }
+
+    public Course getCourseById(String courseId) {
+        logger.info("User is getting course " + courseId);
+
+        return (Course) sessionFactory.getCurrentSession()
+                .createQuery("from Course where id = :courseId")
+                .setString("courseId", courseId)
+                .uniqueResult();
     }
 
     @Override

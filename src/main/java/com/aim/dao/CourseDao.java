@@ -12,5 +12,6 @@ import java.util.List;
 public interface CourseDao {
     public List<Course> getAllCourses();
     public List<Course> getCoursesByInstructor();
+    public Course getCourseById(String courseId);
     public Integer getNumCourses();
 }

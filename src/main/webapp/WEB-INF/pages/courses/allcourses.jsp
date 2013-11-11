@@ -37,26 +37,9 @@
                 </div>
 
                 <div class="search-results">
-                    <%--<ul>
-                        <li><a id="cse102" href="#">CSE 102</a></li>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                    </ul>--%>
                     <ul>
                         <c:forEach var="course" items="${courselist}">
-                            <li><a href="#">${course.id}</a></li>
+                            <li><a class="courses" id="${course.id}" href="#">${course.id}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -77,8 +60,15 @@
     </div>
 
     <script type="text/javascript">
-        $( "#cse102" ).click(function() {
-            $( "#course-home" ).load( "/courses/cse102" );
+        /*$( "#${course.id}" ).click(function() {
+            $( "#course-home" ).load( "/courses/${course.id}" );
+        });*/
+
+        $(document).ready(function() {
+           $( ".courses" ).click(function(event) {
+               $("#course-home").load("/courses/" + event.target.id);
+               alert(event.target.id);
+           });
         });
     </script>
 

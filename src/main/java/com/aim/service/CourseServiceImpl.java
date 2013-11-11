@@ -4,6 +4,7 @@ import com.aim.dao.CourseDao;
 import com.aim.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,6 +29,10 @@ public class CourseServiceImpl implements CourseService {
 
     public List<Course> getCoursesByInstructor() {
         return courseDao.getCoursesByInstructor();
+    }
+
+    public Course getCourseById(String courseId) {
+        return courseDao.getCourseById(courseId);
     }
 
     public Integer getNumCourses() {

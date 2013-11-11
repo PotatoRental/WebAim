@@ -16,5 +16,7 @@ public interface CourseService {
 
     public List<Course> getCoursesByInstructor();
 
+    public Course getCourseById(String courseId);
+
     public Integer getNumCourses();
 }

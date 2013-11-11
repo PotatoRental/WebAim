@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -29,12 +30,30 @@ public class CoursesController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String getCourses(ModelMap modelMap) {
+        logger.info("User tries to get courses.");
+
         List<Course> courseList = courseServiceImpl.getAllCourses();
         modelMap.addAttribute("courselist", courseList);
 
-        logger.info("User tries to get courses.");
         return "courses/allcourses";
     }
+
+    @RequestMapping(value = "{courseId}", method = RequestMethod.GET)
+    public String getCourse(@PathVariable String courseId, ModelMap modelMap) {
+        logger.info("User tries to view course: " + courseId);
+
+        Course course = courseServiceImpl.getCourseById(courseId);
+
+        modelMap.addAttribute("course", course);
+        return "courses/course-detail";
+    }
+
+    @RequestMapping(value = "cse102-edit", method = RequestMethod.GET)
+    public String getCourseEditor(ModelMap modelMap) {
+        logger.info("User tries to edit course.");
+        return "courses/course-detail-edit";
+    }
+
 
     @RequestMapping(value = "course-offerings", method = RequestMethod.GET)
     public String getOfferings(ModelMap modelMap) {
@@ -65,17 +84,4 @@ public class CoursesController {
         logger.info("User tries to get course coordinator reports.");
         return "courses/cc-reports";
     }
-
-    @RequestMapping(value = "cse102", method = RequestMethod.GET)
-    public String getCourse(ModelMap modelMap) {
-        logger.info("User tries to view course.");
-        return "courses/cse102";
-    }
-
-    @RequestMapping(value = "cse102-edit", method = RequestMethod.GET)
-    public String getCourseEditor(ModelMap modelMap) {
-        logger.info("User tries to edit course.");
-        return "courses/cse102-edit";
-    }
-
 }
