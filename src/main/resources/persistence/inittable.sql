@@ -103,7 +103,7 @@ CREATE TABLE CourseOutcome(
 
 CREATE TABLE Student_Course_Outcome(
 	studentOutcomeId varchar(10),
-	courseOutcomeId varchar(10),
+	courseOutcomeId integer,
 	PRIMARY KEY (studentOutcomeId, courseOutcomeId),
 	FOREIGN KEY (studentOutcomeId) REFERENCES StudentOutcome(id)
 		ON DELETE CASCADE
@@ -111,7 +111,7 @@ CREATE TABLE Student_Course_Outcome(
 	FOREIGN KEY (courseOutcomeId) REFERENCES CourseOutcome(sequenceNumber)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
-)
+);
 
 CREATE TABLE CourseOffering(
 	id integer,
@@ -162,12 +162,9 @@ This table contains 2 pieces of information because they have the same candidate
 */
 CREATE TABLE CourseOfferingOutcomeInformation(
 	id integer,
-	--specify which course offering and which course outcome
 	courseOutcomeId integer,
 	courseOfferingId integer,
-	--information for the target attainment level of this specific course offering and course outcome
 	targetAttainment float,
-	--information from survey
 	averageAttainmentRating float,
 	PRIMARY KEY (id),
 	FOREIGN KEY (courseOutcomeId) REFERENCES CourseOutcome(sequenceNumber)
