@@ -22,15 +22,18 @@ public class Course {
     private String name;
 
     @ManyToMany
-    @JoinTable (name = "COURSE_DP",
+    @JoinTable (name = "Course_DegreeProgram",
             joinColumns =
-            @JoinColumn(name = "COURSE_ID", referencedColumnName = "id"),
+            @JoinColumn(name = "courseId", referencedColumnName = "id"),
             inverseJoinColumns =
-            @JoinColumn(name = "DP_ID", referencedColumnName = "id")
+            @JoinColumn(name = "degreeProgramId", referencedColumnName = "id")
     )
     private List<DegreeProgram> degreeprograms;
 
-    //TODO: add fields and mappings for course outcomes, course coordinator and ACCs.
+    @OneToMany(mappedBy = "course")
+    private List<CourseOutcome> courseOutcomes;
+
+    //TODO: add fields and mappings for course coordinator and ACCs.
 
     public String getId() {
         return id;

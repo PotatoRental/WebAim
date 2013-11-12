@@ -1,9 +1,7 @@
 package com.aim.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,6 +20,19 @@ public class CourseOutcome {
     @Column private String rational;
     @Column private String description;
     @Column private boolean accessed;
+
+    @ManyToOne
+    @JoinColumn(name = "courseId")
+    private Course course;
+
+    @ManyToMany
+    @JoinTable (name = "Student_Course_Outcome",
+            joinColumns =
+            @JoinColumn(name = "courseOutcomeId", referencedColumnName = "sequenceNumber"),
+            inverseJoinColumns =
+            @JoinColumn(name = "studentOutcomeId", referencedColumnName = "id")
+    )
+    private List<StudentOutcome> studentOutcomes;
 
     /*@Column private StudentOutcome studentOutcome;*/
     // TODO fix student outcome, needs table joining

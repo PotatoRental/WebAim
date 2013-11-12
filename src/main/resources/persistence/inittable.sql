@@ -4,8 +4,19 @@ CREATE TABLE UserAccount(
 	email varchar(40),
 	firstName varchar(40),
 	lastName varchar(40),
-	cicMember bit,
-	PRIMARY KEY (username)
+	PRIMARY KEY (username),
+	UNIQUE (email)
+);
+
+CREATE TABLE Role(
+  id integer,
+  username varchar(40),
+  role varchar(30),
+  PRIMARY KEY (id),
+  UNIQUE (username, role),
+  FOREIGN KEY (username) REFERENCES UserAccount(username)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
 );
 
 CREATE TABLE Evaluator(
@@ -41,7 +52,8 @@ CREATE TABLE PEO(
 	sequenceNumber integer,
 	shortName varchar(20),
 	description varchar(1000),
-	targetAttainment float,
+	targetAttainment integer,
+	validityPeriod varchar(100),
 	degreeProgramId varchar(10),
 	PRIMARY KEY (id),
 	FOREIGN KEY (degreeProgramId) REFERENCES DegreeProgram(id)
@@ -54,8 +66,8 @@ CREATE TABLE StudentOutcome(
 	sequenceNumber integer,
 	shortName varchar(20),
 	description varchar(1000),
-	targetDirectAssessmentAttainmentLevel float,
-	targetSurveyAssessmentAttainmentLevel float,
+	targetDirectAssessmentAttainmentLevel integer,
+	targetSurveyAssessmentAttainmentLevel integer,
 	degreeProgramId varchar(10),
 	PRIMARY KEY (id),
 	FOREIGN KEY (degreeProgramId) REFERENCES DegreeProgram(id)
@@ -164,8 +176,8 @@ CREATE TABLE CourseOfferingOutcomeInformation(
 	id integer,
 	courseOutcomeId integer,
 	courseOfferingId integer,
-	targetAttainment float,
-	averageAttainmentRating float,
+	targetAttainment integer,
+	averageAttainmentRating integer,
 	PRIMARY KEY (id),
 	FOREIGN KEY (courseOutcomeId) REFERENCES CourseOutcome(sequenceNumber)
 		ON DELETE NO ACTION
@@ -180,9 +192,9 @@ CREATE TABLE CourseOfferingDirectAssessment(
 	courseOutcomeId integer,
 	courseOfferingId integer,
 	assessmentInstrument varchar(255),
-	thresholdScore float,
+	thresholdScore integer,
 	rationale varchar(1000),
-	attainmentLevel float,
+	attainmentLevel integer,
 	PRIMARY KEY (id),
 	FOREIGN KEY (courseOutcomeId) REFERENCES CourseOutcome(sequenceNumber)
 		ON DELETE NO ACTION
@@ -205,7 +217,7 @@ CREATE TABLE Survey(
 CREATE TABLE Survey_DegreeProgram(
 	surveyId integer,
 	degreeProgramId varchar(10),
-	peoAttainmentLevel float,
+	peoAttainmentLevel integer,
 	PRIMARY KEY (surveyId, degreeProgramId),
 	FOREIGN KEY (surveyId) REFERENCES Survey(id)
 		ON DELETE CASCADE
@@ -218,7 +230,7 @@ CREATE TABLE Survey_DegreeProgram(
 CREATE TABLE Survey_PEOAttainment(
 	surveyId integer,
 	peoId varchar(10),
-	attainmentLevel float,
+	attainmentLevel integer,
 	PRIMARY KEY (surveyId, peoId),
 	FOREIGN KEY (surveyId) REFERENCES Survey(id)
 		ON DELETE CASCADE

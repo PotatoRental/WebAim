@@ -15,6 +15,9 @@ import java.util.List;
 public class Assignment {
     @Id
     @Column(nullable=false)
+    private Integer id;
+
+    @Column
     private String name;
 
     @Column
@@ -22,6 +25,8 @@ public class Assignment {
 
     @OneToMany(mappedBy="assignment")
     private List<StudentSample> studentSampleList;
+
+    //TODO: add mapping to course offering
 
     public String getName() {
         return name;

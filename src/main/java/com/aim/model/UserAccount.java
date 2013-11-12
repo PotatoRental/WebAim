@@ -1,7 +1,6 @@
 package com.aim.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,16 +12,15 @@ import java.util.List;
 @Table(name = "UserAccount")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class UserAccount {
-
     @Id
     @Column
     private String username;
 
     @Column(nullable = false)
-    private String firstname;
+    private String firstName;
 
     @Column(nullable = false)
-    private String lastname;
+    private String lastName;
 
     @Column(nullable = false)
     private String password;
@@ -38,20 +36,20 @@ public class UserAccount {
         this.username = username;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstname) {
+        this.firstName = firstname;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastname) {
+        this.lastName = lastname;
     }
 
     public String getPassword() {
