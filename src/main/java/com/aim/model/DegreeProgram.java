@@ -31,14 +31,14 @@ public class DegreeProgram {
     private List<PEO> peos;
 
     @OneToMany(mappedBy = "degreeprogram")
-    private List<StudentOutcome> studentoutcomes;
+    private List<StudentOutcome> studentOutcomes;
 
-    public List<StudentOutcome> getStudentoutcomes() {
-        return studentoutcomes;
+    public List<StudentOutcome> getStudentOutcomes() {
+        return studentOutcomes;
     }
 
-    public void setStudentoutcomes(List<StudentOutcome> studentoutcomes) {
-        this.studentoutcomes = studentoutcomes;
+    public void setStudentOutcomes(List<StudentOutcome> studentOutcomes) {
+        this.studentOutcomes = studentOutcomes;
     }
 
     public List<Course> getCourses() {

@@ -18,22 +18,22 @@ public class PEO {
     private String id;
 
     @Column(nullable = false)
-    private Integer sequencenumber;
+    private Integer sequenceNumber;
 
     @Column(nullable = false)
-    private String shortname;
+    private String shortName;
 
     @Column(nullable = false)
     private String description;
 
     @Column(nullable = false)
-    private Integer targetattainment;
+    private Integer targetAttainment;
 
     @Column(nullable = false)
-    private String validityperiod;
+    private String validityPeriod;
 
     @ManyToOne
-    @JoinColumn(name = "DP_ID")
+    @JoinColumn(name = "degreeProgramId")
     private DegreeProgram degreeprogram;
 
     public String getId() {
@@ -44,20 +44,20 @@ public class PEO {
         this.id = id;
     }
 
-    public Integer getSequencenumber() {
-        return sequencenumber;
+    public Integer getSequenceNumber() {
+        return sequenceNumber;
     }
 
-    public void setSequencenumber(Integer sequencenumber) {
-        this.sequencenumber = sequencenumber;
+    public void setSequenceNumber(Integer sequencenumber) {
+        this.sequenceNumber = sequencenumber;
     }
 
-    public String getShortname() {
-        return shortname;
+    public String getShortName() {
+        return shortName;
     }
 
-    public void setShortname(String shortname) {
-        this.shortname = shortname;
+    public void setShortName(String shortname) {
+        this.shortName = shortname;
     }
 
     public String getDescription() {
@@ -68,20 +68,20 @@ public class PEO {
         this.description = description;
     }
 
-    public Integer getTargetattainment() {
-        return targetattainment;
+    public Integer getTargetAttainment() {
+        return targetAttainment;
     }
 
-    public void setTargetattainment(Integer targetattainment) {
-        this.targetattainment = targetattainment;
+    public void setTargetAttainment(Integer targetattainment) {
+        this.targetAttainment = targetattainment;
     }
 
-    public String getValidityperiod() {
-        return validityperiod;
+    public String getValidityPeriod() {
+        return validityPeriod;
     }
 
-    public void setValidityperiod(String validityperiod) {
-        this.validityperiod = validityperiod;
+    public void setValidityPeriod(String validityperiod) {
+        this.validityPeriod = validityperiod;
     }
 
     public DegreeProgram getDegreeprogram() {

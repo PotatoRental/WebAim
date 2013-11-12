@@ -23,7 +23,7 @@ public class StudentSample {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "assignment")
+    @JoinColumn(name = "assignmentId")
     private Assignment assignment;
 
     public String getId() {
