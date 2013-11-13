@@ -31,8 +31,8 @@
     <li>
         <a href="#">Student Outcomes</a>
         <ul class="cbp-tm-submenu">
-            <li><a href="/student-outcomes/manage-outcomes" class="cbp-tm-icon-archive">Manage Outcomes</a></li>
-            <li><a href="/student-outcomes/tabulate-outcomes" class="cbp-tm-icon-cog">Tabulate Outcomes</a></li>
+            <li><a href="/outcome/manage-outcomes" class="cbp-tm-icon-archive">Manage Outcomes</a></li>
+            <li><a href="/outcome/tabulate-outcomes" class="cbp-tm-icon-cog">Tabulate Outcomes</a></li>
         </ul>
     </li>
 
@@ -44,7 +44,7 @@
                 <li><a href="/peo/tabulate-attainment" class="cbp-tm-icon-mail">Tabulate PEO Attainment</a></li>
             </ul>
         </li>
-        <li><a href="#">Minutes</a></li>
+        <li><a href="/minutes/">Minutes</a></li>
         <li><a href="#">Surveys</a></li>
         <li><a href="/users/">Users</a></li>
     </sec:authorize>
