@@ -72,9 +72,7 @@
     });
     $(".close-col").click(function(){
         $(".sidebar").switchClass( "col-md-3", "col-md-12", 200, "easeInOutQuad" );
-       // $(".sidebar").addClass("col-md-12");
         $(".sidebar").addClass("col-sm-12");
-        //$(".sidebar").removeClass("col-md-3");
         $(".sidebar").removeClass("col-sm-3");
         $("#course-home").html("");
         smallToggled=false;

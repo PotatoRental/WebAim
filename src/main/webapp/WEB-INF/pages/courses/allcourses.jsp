@@ -24,8 +24,9 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <div class="list col-md-12 col-sm-12 sidebar" id="list">
-            <div class="row blue-hover">
+        <div class="list col-md-12 row" id="search" >
+
+            <div class=" blue-hover col-md-3 ">
                 <div class="input-group" id="search-input-group">
                       <span class="input-group-btn">
                         <span id="search-ico" class="glyphicon glyphicon-search"></span>
@@ -36,8 +37,16 @@
                 <!-- /input-group -->
 
             </div>
+            <div class="blue-hover col-md-9 ">
+                <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course Offering</div>
+            </div>
 
-            <div class="search-results" >
+
+
+        </div>
+
+        <div class="list col-md-12 col-sm-12 sidebar" id="list">
+            <div class="search-results">
                 <ul>
                     <c:forEach var="course" items="${courselist}">
                         <li><a class="courses" id="${course.id}" href="#">${course.id}</a></li>
@@ -48,13 +57,7 @@
 
         <div class="col-md-9 col-sm-8">
 
-            <div class="add-btn blue-hover" id="add-course" style="display:none"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp;
-                Add Course
-            </div>
-
-            <div id="course-home">
-
-            </div>
+            <div id="course-home"></div>
 
         </div>
     </div>
@@ -66,18 +69,15 @@
     /*$( "#${course.id}" ).click(function() {
      $( "#course-home" ).load( "/courses/${course.id}" );
      });*/
-    $("#small-results").toggle();
     var smallToggled = false;
     $(document).ready(function () {
         $(".courses").click(function (event) {
-
-            if (!smallToggled){
-            //$(".search-results").toggle();
+            if (!smallToggled) {
                 $(".sidebar").addClass("col-md-3");
                 $(".sidebar").addClass("col-sm-3");
                 $(".sidebar").removeClass("col-md-12");
                 $(".sidebar").removeClass("col-sm-12");
-                smallToggled=true;
+                smallToggled = true;
             }
             $("#course-home").load("/courses/" + event.target.id);
         });
