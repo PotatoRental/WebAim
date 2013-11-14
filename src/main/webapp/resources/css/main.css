@@ -77,6 +77,10 @@ h1, .container h1, .container h4 {
     padding: 40px 80px;
 }
 
+.error-login {
+    color: darkviolet;
+}
+
 .bs-callout { /* Admin alert box */
     background-color: #f0f7fd;
     border-color: #d0e3f0;

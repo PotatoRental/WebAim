@@ -30,7 +30,7 @@
         <br>
         <br>
         <c:if test="${not empty loginMessage}">
-            <h4>Login failed: ${loginMessage}</h4>
+            <h4 class="error-login">Login failed: ${loginMessage}</h4>
         </c:if>
         <form:form modelAttribute="loginForm" method='POST' id='loginForm' cssClass='cssform' autocomplete='off' action="login-check">
             <p>
