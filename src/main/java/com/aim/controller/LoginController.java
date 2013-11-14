@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -36,6 +37,14 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.GET)
     public String defaultLogin() {
         logger.info("Get default login page");
+        return "login/login";
+    }
+
+    @RequestMapping("failed")
+    public String failedLogin(ModelMap map) {
+        logger.info("Get failed login page");
+        // TODO Change so it's dynamic message, probably use different locale
+        map.addAttribute("loginMessage", "Was not able to authenticate user");
         return "login/login";
     }
 

@@ -6,6 +6,7 @@
 --%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -28,6 +29,9 @@
         <h1>Sign In</h1>
         <br>
         <br>
+        <c:if test="${not empty loginMessage}">
+            <h4>Login failed: ${loginMessage}</h4>
+        </c:if>
         <form:form modelAttribute="loginForm" method='POST' id='loginForm' cssClass='cssform' autocomplete='off' action="login-check">
             <p>
                 <input type='text' class='form-control' name='username' id='username' autofocus="autofocus" placeholder="Username" required/>
