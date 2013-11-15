@@ -10,66 +10,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/> | <fmt:message key="title.courses"/> </title>
+    <title><fmt:message key="title"/> | <fmt:message key="title.courses"/></title>
 
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="../pagefrags/imports.jsp"/>
 </head>
 <body>
-    <div class="container">
+<div class="container">
 
-        <jsp:include page="../pagefrags/nav.jsp"/>
+    <jsp:include page="../pagefrags/nav.jsp"/>
 
-        <div class="row maincontent">
+    <div class="row maincontent">
 
-            <jsp:include page="../pagefrags/bread.jsp"/>
+        <jsp:include page="../pagefrags/bread.jsp"/>
 
-            <div class="list col-md-3 col-sm-3" id="list">
-                <div class="row blue-hover">
-                    <div class="input-group" id="search-input-group">
+        <div class="list col-md-12 row" id="search" >
+
+            <div class=" blue-hover col-md-3 ">
+                <div class="input-group" id="search-input-group">
                       <span class="input-group-btn">
                         <span id="search-ico" class="glyphicon glyphicon-search"></span>
                       </span>
-                        <input type="text" class="form-control" id="search-field" value="Search Courses" onclick="this.value=''">
-                    </div>
-                    <!-- /input-group -->
-
+                    <input type="text" class="form-control" id="search-field" value="Search Courses"
+                           onclick="this.value=''">
                 </div>
+                <!-- /input-group -->
 
-                <div class="search-results">
-                    <ul>
-                        <c:forEach var="course" items="${courselist}">
-                            <li><a class="courses" id="${course.id}" href="#">${course.id}</a></li>
-                        </c:forEach>
-                    </ul>
-                </div>
+            </div>
+            <div class="blue-hover col-md-9 ">
+                <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course Offering</div>
             </div>
 
-            <div class="col-md-9 col-sm-8">
 
-                <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
 
-                <div id="course-home">
+        </div>
 
-                </div>
-
+        <div class="list col-md-12 col-sm-12 sidebar" id="list">
+            <div class="search-results">
+                <ul>
+                    <c:forEach var="course" items="${courselist}">
+                        <li><a class="courses" id="${course.id}" href="#">${course.id}</a></li>
+                    </c:forEach>
+                </ul>
             </div>
         </div>
 
-        <jsp:include page="../pagefrags/footer.jsp" />
+        <div class="col-md-9 col-sm-8">
+
+            <div id="course-home"></div>
+
+        </div>
     </div>
 
-    <script type="text/javascript">
-        /*$( "#${course.id}" ).click(function() {
-            $( "#course-home" ).load( "/courses/${course.id}" );
-        });*/
+    <jsp:include page="../pagefrags/footer.jsp"/>
+</div>
 
-        $(document).ready(function() {
-           $( ".courses" ).click(function(event) {
-               $("#course-home").load("/courses/" + event.target.id);
-           });
+<script type="text/javascript">
+    /*$( "#${course.id}" ).click(function() {
+     $( "#course-home" ).load( "/courses/${course.id}" );
+     });*/
+    var smallToggled = false;
+    $(document).ready(function () {
+        $(".courses").click(function (event) {
+            if (!smallToggled) {
+                $(".sidebar").addClass("col-md-3");
+                $(".sidebar").addClass("col-sm-3");
+                $(".sidebar").removeClass("col-md-12");
+                $(".sidebar").removeClass("col-sm-12");
+                smallToggled = true;
+            }
+            $("#course-home").load("/courses/" + event.target.id);
         });
-    </script>
+    });
+
+    $("#add-course").click(function () {
+
+    })
+</script>
 
 </body>
 </html>

@@ -4,6 +4,7 @@
     <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
         &nbsp;&nbsp;<a id="edit-course" href="#">Edit</a>
     </sec:authorize>
+    <h1><span class="glyphicon glyphicon-circle-arrow-left  link close-col pull-right"></span> </h1>
 </p>
 <table class="table table-bordered table-striped">
     <tr>
@@ -69,4 +70,11 @@
     $("#edit-course").click(function(){
         $( "#course-home" ).load( "/courses/cse102-edit" );
     });
+    $(".close-col").click(function(){
+        $(".sidebar").switchClass( "col-md-3", "col-md-12", 200, "easeInOutQuad" );
+        $(".sidebar").addClass("col-sm-12");
+        $(".sidebar").removeClass("col-sm-3");
+        $("#course-home").html("");
+        smallToggled=false;
+    } );
 </script>
