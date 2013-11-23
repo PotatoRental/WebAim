@@ -17,7 +17,7 @@
             <spring:url value="/courses" var="courseUrl" htmlEscape="true"/>
             <li><a href="${courseUrl}" class="cbp-tm-icon-cog">Courses</a></li>
             <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC, ROLE_CC, ROLE_EVAL">
-                <li><a href="/courses/course-offerings" class="cbp-tm-icon-location">Course Offerings</a></li>
+                <li><a href="/courses/offerings" class="cbp-tm-icon-location">Course Offerings</a></li>
             </sec:authorize>
             <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
                 <li><a href="/courses/missing-course-info" class="cbp-tm-icon-users">Missing Course Info</a></li>
@@ -45,7 +45,7 @@
             </ul>
         </li>
         <li><a href="/minutes/">Minutes</a></li>
-        <li><a href="#">Surveys</a></li>
+        <li><a href="/surveys/">Surveys</a></li>
         <li><a href="/users/">Users</a></li>
     </sec:authorize>
 
