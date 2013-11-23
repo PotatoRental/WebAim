@@ -27,8 +27,8 @@ public class CourseServiceImpl implements CourseService {
         return courseDao.getAllCourses();
     }
 
-    public List<Course> getCoursesByInstructor() {
-        return courseDao.getCoursesByInstructor();
+    public List<Course> getCoursesByInstructor(String instructorId) {
+        return courseDao.getCoursesByInstructor(instructorId);
     }
 
     public Course getCourseById(String courseId) {

@@ -58,12 +58,20 @@ public class CoursesController {
     @RequestMapping(value = "course-offerings", method = RequestMethod.GET)
     public String getOfferings(ModelMap modelMap) {
         logger.info("User tries to get course offering information.");
+        // TODO change to getAllCourseOfferings instead
+        List<Course> courseList = courseServiceImpl.getAllCourses();
+        modelMap.addAttribute("courselist", courseList);
+
         return "courses/offerings";
     }
 
-    @RequestMapping(value = "view-offering", method = RequestMethod.GET)
-    public String getOffering(ModelMap modelMap) {
-        logger.info("User tries to view a course offering.");
+    @RequestMapping(value = "course-offerings/{courseId}", method = RequestMethod.GET)
+    public String getOffering(@PathVariable String courseId, ModelMap modelMap) {
+        logger.info("User tries to view a course offering for id: " + courseId);
+
+        //List<Course> coursesInstructed = courseServiceImpl.getCoursesByInstructor("");
+
+
         return "/courses/view-offering";
     }
 
