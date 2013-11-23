@@ -38,7 +38,7 @@
 
             </div>
             <div class="blue-hover col-md-9 ">
-                <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
+                <div class="add-btn blue-hover" id="add-course"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
             </div>
 
         </div>
@@ -79,7 +79,14 @@
     });
 
     $("#add-course").click(function () {
-
+        if (!smallToggled) {
+            $(".sidebar").addClass("col-md-3");
+            $(".sidebar").addClass("col-sm-3");
+            $(".sidebar").removeClass("col-md-12");
+            $(".sidebar").removeClass("col-sm-12");
+            smallToggled = true;
+        }
+        $("#course-home").load("/courses/course-detail-add");
     })
 
     $("#search-field").keyup(function(){
