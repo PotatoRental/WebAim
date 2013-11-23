@@ -54,12 +54,12 @@ public class CoursesController {
         return "courses/course-detail-edit";
     }
 
-
-    @RequestMapping(value = "course-offerings", method = RequestMethod.GET)
+    @RequestMapping(value = "offerings", method = RequestMethod.GET)
     public String getOfferings(ModelMap modelMap) {
         logger.info("User tries to get course offering information.");
-        return "courses/offerings";
+        return "courses/course-offerings";
     }
+
 
     @RequestMapping(value = "view-offering", method = RequestMethod.GET)
     public String getOffering(ModelMap modelMap) {

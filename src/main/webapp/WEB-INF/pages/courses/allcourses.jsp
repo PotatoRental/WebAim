@@ -38,10 +38,8 @@
 
             </div>
             <div class="blue-hover col-md-9 ">
-                <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course Offering</div>
+                <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
             </div>
-
-
 
         </div>
 
@@ -49,7 +47,7 @@
             <div class="search-results">
                 <ul>
                     <c:forEach var="course" items="${courselist}">
-                        <li><a class="courses" id="${course.id}" href="#">${course.id}</a></li>
+                        <li class="courses"><a id="${course.id}" href="#">${course.id} | ${course.name}</a></li>
                     </c:forEach>
                 </ul>
             </div>
@@ -66,9 +64,6 @@
 </div>
 
 <script type="text/javascript">
-    /*$( "#${course.id}" ).click(function() {
-     $( "#course-home" ).load( "/courses/${course.id}" );
-     });*/
     var smallToggled = false;
     $(document).ready(function () {
         $(".courses").click(function (event) {
@@ -85,6 +80,19 @@
 
     $("#add-course").click(function () {
 
+    })
+
+    $("#search-field").keyup(function(){
+        var keyword = $("#search-field").val();
+
+        $.extend($.expr[':'], {
+            'contains': function(elem, i, match, array){
+                return $(elem).text().toLowerCase().indexOf(match[3].toLowerCase()) >= 0;
+            }
+        });
+
+        $(".courses").hide();
+        $(".courses").filter(":contains('"+keyword+"')").show();
     })
 </script>
 
