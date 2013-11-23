@@ -37,6 +37,14 @@ public abstract class UserDaoImpl implements UserDao {
     }
 
     @Transactional
+    public UserAccount getUserById(String userId) {
+        return (UserAccount) sessionFactory.getCurrentSession()
+                .createQuery("from UserAccount where id = :userId")
+                .setString("userId",userId)
+                .uniqueResult();
+    }
+
+    @Transactional
     public Integer getNumUsers() {
         logger.info("Testing first course loading");
         return (Integer) sessionFactory.getCurrentSession()

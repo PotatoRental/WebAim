@@ -1,5 +1,6 @@
 package com.aim.service;
 
+import com.aim.model.UserAccount;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,5 +10,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface UserService {
+
+    public UserAccount getUserById(String id);
 
 }

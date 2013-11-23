@@ -86,7 +86,7 @@
             $(".sidebar").removeClass("col-sm-12");
             smallToggled = true;
         }
-        $("#course-home").load("/courses/course-detail-add");
+        $("#course-home").load("/courses/add-course");
     })
 
     $("#search-field").keyup(function(){

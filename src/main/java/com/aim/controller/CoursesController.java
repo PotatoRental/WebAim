@@ -43,8 +43,8 @@ public class CoursesController {
         logger.info("User tries to view course: " + courseId);
 
         Course course = courseServiceImpl.getCourseById(courseId);
-
         modelMap.addAttribute("course", course);
+
         return "courses/course-detail";
     }
 
@@ -54,11 +54,17 @@ public class CoursesController {
         return "courses/course-detail-edit";
     }
 
+    @RequestMapping(value = "add-course", method = RequestMethod.GET)
+    public String getCourseAdder(ModelMap modelMap) {
+        logger.info("User tries to add course.");
+        return "/courses/course-detail-add";
+    }
 
-    @RequestMapping(value = "course-offerings", method = RequestMethod.GET)
+
+    @RequestMapping(value = "offerings", method = RequestMethod.GET)
     public String getOfferings(ModelMap modelMap) {
         logger.info("User tries to get course offering information.");
-        return "courses/offerings";
+        return "courses/course-offerings";
     }
 
     @RequestMapping(value = "view-offering", method = RequestMethod.GET)
@@ -72,6 +78,8 @@ public class CoursesController {
         logger.info("User tries to edit course offering information.");
         return "/courses/edit-offering";
     }
+
+
 
     @RequestMapping(value = "missing-course-info", method = RequestMethod.GET)
     public String getMissingInfo(ModelMap modelMap) {
