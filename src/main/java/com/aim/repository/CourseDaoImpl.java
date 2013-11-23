@@ -43,8 +43,13 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     @Override
-    public List<Course> getCoursesByInstructor() {
-        return null;  //TODO override
+    public List<Course> getCoursesByInstructor(String instructorName) {
+        logger.info("User is getting course by instructor" + instructorName);
+
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Course where id = :instructorId")
+                .setString("instructorId", instructorName)
+                .list();
     }
 
     @Override
