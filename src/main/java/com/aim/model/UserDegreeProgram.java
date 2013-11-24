@@ -1,6 +1,5 @@
 package com.aim.model;
 
-import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -11,8 +10,10 @@ import javax.persistence.Id;
  * Time: 8:34 PM
  * To change this template use File | Settings | File Templates.
  */
+@javax.persistence.IdClass(com.aim.model.UserDegreeProgramPK.class)
+@javax.persistence.Table(name = "User_DegreeProgram", schema = "", catalog = "potatoaim")
 @Entity
-public class Evaluator {
+public class UserDegreeProgram {
     private String username;
 
     @javax.persistence.Column(name = "username")
@@ -25,16 +26,16 @@ public class Evaluator {
         this.username = username;
     }
 
-    private String evaluationPeriod;
+    private String degreeProgramId;
 
-    @javax.persistence.Column(name = "evaluationPeriod")
-    @Basic
-    public String getEvaluationPeriod() {
-        return evaluationPeriod;
+    @javax.persistence.Column(name = "degreeProgramId")
+    @Id
+    public String getDegreeProgramId() {
+        return degreeProgramId;
     }
 
-    public void setEvaluationPeriod(String evaluationPeriod) {
-        this.evaluationPeriod = evaluationPeriod;
+    public void setDegreeProgramId(String degreeProgramId) {
+        this.degreeProgramId = degreeProgramId;
     }
 
     @Override
@@ -42,11 +43,11 @@ public class Evaluator {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Evaluator evaluator = (Evaluator) o;
+        UserDegreeProgram that = (UserDegreeProgram) o;
 
-        if (evaluationPeriod != null ? !evaluationPeriod.equals(evaluator.evaluationPeriod) : evaluator.evaluationPeriod != null)
+        if (degreeProgramId != null ? !degreeProgramId.equals(that.degreeProgramId) : that.degreeProgramId != null)
             return false;
-        if (username != null ? !username.equals(evaluator.username) : evaluator.username != null) return false;
+        if (username != null ? !username.equals(that.username) : that.username != null) return false;
 
         return true;
     }
@@ -54,7 +55,7 @@ public class Evaluator {
     @Override
     public int hashCode() {
         int result = username != null ? username.hashCode() : 0;
-        result = 31 * result + (evaluationPeriod != null ? evaluationPeriod.hashCode() : 0);
+        result = 31 * result + (degreeProgramId != null ? degreeProgramId.hashCode() : 0);
         return result;
     }
 }

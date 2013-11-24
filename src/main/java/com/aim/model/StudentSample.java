@@ -1,39 +1,34 @@
 package com.aim.model;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Qiang He
- * Date: 10/23/13
- * Time: 5:30 PM
+ * User: milky
+ * Date: 11/23/13
+ * Time: 8:34 PM
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "StudentSample")
 public class StudentSample {
+    private int id;
+
+    @javax.persistence.Column(name = "id")
     @Id
-    @Column (nullable = false)
-    private String id;
-
-    @Column
-    private String quality;
-
-    @Column
-    private String content;
-
-    @ManyToOne
-    @JoinColumn(name = "assignmentId")
-    private Assignment assignment;
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
+    private String quality;
+
+    @javax.persistence.Column(name = "quality")
+    @Basic
     public String getQuality() {
         return quality;
     }
@@ -42,6 +37,10 @@ public class StudentSample {
         this.quality = quality;
     }
 
+    private String content;
+
+    @javax.persistence.Column(name = "content")
+    @Basic
     public String getContent() {
         return content;
     }
@@ -50,11 +49,25 @@ public class StudentSample {
         this.content = content;
     }
 
-    public Assignment getAssignment() {
-        return assignment;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        StudentSample that = (StudentSample) o;
+
+        if (id != that.id) return false;
+        if (content != null ? !content.equals(that.content) : that.content != null) return false;
+        if (quality != null ? !quality.equals(that.quality) : that.quality != null) return false;
+
+        return true;
     }
 
-    public void setAssignment(Assignment assignment) {
-        this.assignment = assignment;
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (quality != null ? quality.hashCode() : 0);
+        result = 31 * result + (content != null ? content.hashCode() : 0);
+        return result;
     }
 }

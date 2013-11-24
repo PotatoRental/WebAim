@@ -1,6 +1,5 @@
 package com.aim.service;
 
-import com.aim.dao.CourseDao;
 import com.aim.model.Course;
 
 import java.util.List;

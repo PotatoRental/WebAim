@@ -1,41 +1,22 @@
 package com.aim.model;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Yun
- * Date: 10/22/13
- * Time: 11:36 PM
+ * User: milky
+ * Date: 11/23/13
+ * Time: 8:34 PM
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "PEO")
-public class PEO {
-
-    @Id
-    @Column(nullable = false)
+public class Peo {
     private String id;
 
-    @Column(nullable = false)
-    private Integer sequenceNumber;
-
-    @Column(nullable = false)
-    private String shortName;
-
-    @Column(nullable = false)
-    private String description;
-
-    @Column(nullable = false)
-    private Integer targetAttainment;
-
-    @Column(nullable = false)
-    private String validityPeriod;
-
-    @ManyToOne
-    @JoinColumn(name = "degreeProgramId")
-    private DegreeProgram degreeprogram;
-
+    @javax.persistence.Column(name = "id")
+    @Id
     public String getId() {
         return id;
     }
@@ -44,22 +25,34 @@ public class PEO {
         this.id = id;
     }
 
+    private Integer sequenceNumber;
+
+    @javax.persistence.Column(name = "sequenceNumber")
+    @Basic
     public Integer getSequenceNumber() {
         return sequenceNumber;
     }
 
-    public void setSequenceNumber(Integer sequencenumber) {
-        this.sequenceNumber = sequencenumber;
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber = sequenceNumber;
     }
 
+    private String shortName;
+
+    @javax.persistence.Column(name = "shortName")
+    @Basic
     public String getShortName() {
         return shortName;
     }
 
-    public void setShortName(String shortname) {
-        this.shortName = shortname;
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 
+    private String description;
+
+    @javax.persistence.Column(name = "description")
+    @Basic
     public String getDescription() {
         return description;
     }
@@ -68,27 +61,58 @@ public class PEO {
         this.description = description;
     }
 
+    private Integer targetAttainment;
+
+    @javax.persistence.Column(name = "targetAttainment")
+    @Basic
     public Integer getTargetAttainment() {
         return targetAttainment;
     }
 
-    public void setTargetAttainment(Integer targetattainment) {
-        this.targetAttainment = targetattainment;
+    public void setTargetAttainment(Integer targetAttainment) {
+        this.targetAttainment = targetAttainment;
     }
 
+    private String validityPeriod;
+
+    @javax.persistence.Column(name = "validityPeriod")
+    @Basic
     public String getValidityPeriod() {
         return validityPeriod;
     }
 
-    public void setValidityPeriod(String validityperiod) {
-        this.validityPeriod = validityperiod;
+    public void setValidityPeriod(String validityPeriod) {
+        this.validityPeriod = validityPeriod;
     }
 
-    public DegreeProgram getDegreeprogram() {
-        return degreeprogram;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Peo peo = (Peo) o;
+
+        if (description != null ? !description.equals(peo.description) : peo.description != null) return false;
+        if (id != null ? !id.equals(peo.id) : peo.id != null) return false;
+        if (sequenceNumber != null ? !sequenceNumber.equals(peo.sequenceNumber) : peo.sequenceNumber != null)
+            return false;
+        if (shortName != null ? !shortName.equals(peo.shortName) : peo.shortName != null) return false;
+        if (targetAttainment != null ? !targetAttainment.equals(peo.targetAttainment) : peo.targetAttainment != null)
+            return false;
+        if (validityPeriod != null ? !validityPeriod.equals(peo.validityPeriod) : peo.validityPeriod != null)
+            return false;
+
+        return true;
     }
 
-    public void setDegreeprogram(DegreeProgram degreeprogram) {
-        this.degreeprogram = degreeprogram;
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (sequenceNumber != null ? sequenceNumber.hashCode() : 0);
+        result = 31 * result + (shortName != null ? shortName.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (targetAttainment != null ? targetAttainment.hashCode() : 0);
+        result = 31 * result + (validityPeriod != null ? validityPeriod.hashCode() : 0);
+        return result;
     }
 }

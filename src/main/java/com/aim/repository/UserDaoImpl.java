@@ -1,13 +1,11 @@
 package com.aim.repository;
 
 import com.aim.dao.UserDao;
-import com.aim.model.Course;
 import com.aim.model.UserAccount;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -20,6 +18,7 @@ import java.lang.Integer;
  * Time: 12:18 AM
  */
 @Repository
+@Transactional
 public abstract class UserDaoImpl implements UserDao {
 
     private static final Logger logger = Logger.getLogger(UserDaoImpl.class);
@@ -45,9 +44,11 @@ public abstract class UserDaoImpl implements UserDao {
     }
 
     @Transactional
-    public List<UserAccount> getUserByUsername(String username) {
-        // TODO null return
+    public UserAccount getUserByUsername(String username) {
         logger.info("User is getting all users by username");
-        return null;
+        return (UserAccount) sessionFactory.getCurrentSession()
+                .createQuery("from UserAccount where username = :username")
+                .setString("username", username)
+                .uniqueResult();
     }
 }
