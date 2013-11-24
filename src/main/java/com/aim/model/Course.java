@@ -1,25 +1,45 @@
 package com.aim.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * User: milky
- * Date: 11/23/13
- * Time: 9:21 PM
- * To change this template use File | Settings | File Templates.
+ * User: Yun
+ * Date: 10/22/13
+ * Time: 11:16 PM
  */
-@Entity
-public class Course {
-    private String id;
-    private String name;
-    private UserAccount courseCoordinatorUsername;
 
-    @javax.persistence.Column(name = "id")
+@Entity
+@Table(name = "Course")
+public class Course {
     @Id
+    @Column(nullable = false)
+    private String id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @ManyToMany
+    @JoinTable (name = "Course_DegreeProgram",
+            joinColumns =
+            @JoinColumn(name = "courseId", referencedColumnName = "id"),
+            inverseJoinColumns =
+            @JoinColumn(name = "degreeProgramId", referencedColumnName = "id")
+    )
+    private List<DegreeProgram> degreeprograms;
+
+    @OneToMany(mappedBy = "course")
+    private List<CourseOutcome> courseOutcomes;
+
+    @ManyToOne
+    @JoinColumn(name = "courseCoordinatorUsername", referencedColumnName = "username")
+    private UserAccount courseCoordinator;
+
+    @ManyToOne
+    @JoinColumn(name = "alternateCourseCoordinatorUsername", referencedColumnName = "username")
+    private UserAccount alternateCourseCoordinator;
+
     public String getId() {
         return id;
     }
@@ -28,8 +48,6 @@ public class Course {
         this.id = id;
     }
 
-    @javax.persistence.Column(name = "name")
-    @Basic
     public String getName() {
         return name;
     }
@@ -38,33 +56,35 @@ public class Course {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Course course = (Course) o;
-
-        if (id != null ? !id.equals(course.id) : course.id != null) return false;
-        if (name != null ? !name.equals(course.name) : course.name != null) return false;
-
-        return true;
+    public List<DegreeProgram> getDegreeprograms() {
+        return degreeprograms;
     }
 
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
+    public void setDegreeprograms(List<DegreeProgram> degreeprograms) {
+        this.degreeprograms = degreeprograms;
     }
 
-    @OneToOne
-    @javax.persistence.JoinColumn(name = "courseCoordinatorUsername", referencedColumnName = "username")
-    public UserAccount getCourseCoordinatorUsername() {
-        return courseCoordinatorUsername;
+    public List<CourseOutcome> getCourseOutcomes() {
+        return courseOutcomes;
     }
 
-    public void setCourseCoordinatorUsername(UserAccount courseCoordinatorUsername) {
-        this.courseCoordinatorUsername = courseCoordinatorUsername;
+    public void setCourseOutcomes(List<CourseOutcome> courseOutcomes) {
+        this.courseOutcomes = courseOutcomes;
+    }
+
+    public UserAccount getCourseCoordinator() {
+        return courseCoordinator;
+    }
+
+    public void setCourseCoordinator(UserAccount courseCoordinator) {
+        this.courseCoordinator = courseCoordinator;
+    }
+
+    public UserAccount getAlternateCourseCoordinator() {
+        return alternateCourseCoordinator;
+    }
+
+    public void setAlternateCourseCoordinator(UserAccount alternateCourseCoordinator) {
+        this.alternateCourseCoordinator = alternateCourseCoordinator;
     }
 }

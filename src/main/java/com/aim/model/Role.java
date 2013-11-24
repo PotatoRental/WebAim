@@ -3,18 +3,16 @@ package com.aim.model;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 /**
- * Created with IntelliJ IDEA.
- * User: milky
- * Date: 11/23/13
- * Time: 9:22 PM
- * To change this template use File | Settings | File Templates.
+ * User: Milky
+ * Date: 11/24/13
+ * Time: 2:11 PM
  */
 @Entity
 public class Role {
     private int id;
+    private String role;
 
     @javax.persistence.Column(name = "id")
     @Id
@@ -25,8 +23,6 @@ public class Role {
     public void setId(int id) {
         this.id = id;
     }
-
-    private String role;
 
     @javax.persistence.Column(name = "role")
     @Basic
@@ -56,17 +52,5 @@ public class Role {
         int result = id;
         result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
-    }
-
-    private UserAccount username;
-
-    @OneToOne
-    @javax.persistence.JoinColumn(name = "username", referencedColumnName = "username")
-    public UserAccount getUsername() {
-        return username;
-    }
-
-    public void setUsername(UserAccount username) {
-        this.username = username;
     }
 }

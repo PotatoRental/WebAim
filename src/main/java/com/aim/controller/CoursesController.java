@@ -37,7 +37,7 @@ public class CoursesController {
         List<Course> courseList = aimService.getAllCourses();
         List<UserAccount> userList = new ArrayList<UserAccount>();
         for (Course course : courseList)
-            userList.add(course.getCourseCoordinatorUsername());
+            userList.add(course.getCourseCoordinator());
         modelMap.addAttribute("userlist", userList);
         modelMap.addAttribute("courselist", courseList);
 
@@ -49,7 +49,7 @@ public class CoursesController {
         logger.info("User tries to view course: " + courseId);
 
         Course course = aimService.getCourseById(courseId);
-        UserAccount userAccount = course.getCourseCoordinatorUsername();
+        UserAccount userAccount = course.getCourseCoordinator();
 
         modelMap.addAttribute("course", course);
         modelMap.addAttribute("useraccount", userAccount);
