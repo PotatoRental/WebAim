@@ -49,10 +49,8 @@ public class CoursesController {
         logger.info("User tries to view course: " + courseId);
 
         Course course = aimService.getCourseById(courseId);
-        UserAccount userAccount = course.getCourseCoordinator();
 
         modelMap.addAttribute("course", course);
-        modelMap.addAttribute("useraccount", userAccount);
         return "courses/course-detail";
     }
 

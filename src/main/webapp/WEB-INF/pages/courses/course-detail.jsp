@@ -17,11 +17,11 @@
     </tr>
     <tr>
         <td class="title-col">Course Coordinator</td>
-        <td><a href="#">${useraccount.firstName} ${useraccount.lastName}</a></td>
+        <td><a href="#">${course.courseCoordinator.firstName} ${course.courseCoordinator.lastName}</a></td>
     </tr>
     <tr>
         <td class="title-col">Alternate Course Coordinators:</td>
-        <td><a href="#">Walter White</a></td>
+        <td><a href="#">${course.alternateCourseCoordinator.firstName} ${course.alternateCourseCoordinator.lastName}</a></td>
     </tr>
     <tr>
         <td class="title-col">Degree Programs</td>
@@ -74,6 +74,7 @@
         $(".sidebar").switchClass( "col-md-3", "col-md-12", 200, "easeInOutQuad" );
         $(".sidebar").addClass("col-sm-12");
         $(".sidebar").removeClass("col-sm-3");
+        $(".course-desc").show();
         $("#course-home").html("");
         smallToggled=false;
     } );

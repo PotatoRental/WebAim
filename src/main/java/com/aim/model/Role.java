@@ -1,6 +1,7 @@
 package com.aim.model;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -14,7 +15,7 @@ public class Role {
     private int id;
     private String role;
 
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public int getId() {
         return id;
@@ -24,7 +25,7 @@ public class Role {
         this.id = id;
     }
 
-    @javax.persistence.Column(name = "role")
+    @Column(name = "role")
     @Basic
     public String getRole() {
         return role;
@@ -34,7 +35,6 @@ public class Role {
         this.role = role;
     }
 
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -47,7 +47,6 @@ public class Role {
         return true;
     }
 
-    @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (role != null ? role.hashCode() : 0);
