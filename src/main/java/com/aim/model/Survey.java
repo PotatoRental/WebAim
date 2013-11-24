@@ -1,46 +1,52 @@
 package com.aim.model;
 
-import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created with IntelliJ IDEA.
- * User: milky
- * Date: 11/23/13
- * Time: 8:34 PM
+ * User: Yun
+ * Date: 11/12/13
+ * Time: 12:33 AM
  * To change this template use File | Settings | File Templates.
  */
 @Entity
+@Table(name = "Survey")
 public class Survey {
-    private int id;
-
-    @javax.persistence.Column(name = "id")
     @Id
-    public int getId() {
+    @Column
+    private Integer id;
+
+    @Column
+    private String group;
+
+    @Column
+    private String initiator;
+
+    @Column
+    private String semester;
+
+    @Column
+    private String result;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    private String groups;
-
-    @javax.persistence.Column(name = "groups")
-    @Basic
-    public String getGroups() {
-        return groups;
+    public String getGroup() {
+        return group;
     }
 
-    public void setGroups(String groups) {
-        this.groups = groups;
+    public void setGroup(String group) {
+        this.group = group;
     }
 
-    private String initiator;
-
-    @javax.persistence.Column(name = "initiator")
-    @Basic
     public String getInitiator() {
         return initiator;
     }
@@ -49,10 +55,6 @@ public class Survey {
         this.initiator = initiator;
     }
 
-    private String semester;
-
-    @javax.persistence.Column(name = "semester")
-    @Basic
     public String getSemester() {
         return semester;
     }
@@ -61,41 +63,11 @@ public class Survey {
         this.semester = semester;
     }
 
-    private String result;
-
-    @javax.persistence.Column(name = "result")
-    @Basic
     public String getResult() {
         return result;
     }
 
     public void setResult(String result) {
         this.result = result;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Survey survey = (Survey) o;
-
-        if (id != survey.id) return false;
-        if (groups != null ? !groups.equals(survey.groups) : survey.groups != null) return false;
-        if (initiator != null ? !initiator.equals(survey.initiator) : survey.initiator != null) return false;
-        if (result != null ? !result.equals(survey.result) : survey.result != null) return false;
-        if (semester != null ? !semester.equals(survey.semester) : survey.semester != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result1 = id;
-        result1 = 31 * result1 + (groups != null ? groups.hashCode() : 0);
-        result1 = 31 * result1 + (initiator != null ? initiator.hashCode() : 0);
-        result1 = 31 * result1 + (semester != null ? semester.hashCode() : 0);
-        result1 = 31 * result1 + (result != null ? result.hashCode() : 0);
-        return result1;
     }
 }

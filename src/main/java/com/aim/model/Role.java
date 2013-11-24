@@ -1,21 +1,21 @@
 package com.aim.model;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created with IntelliJ IDEA.
- * User: milky
- * Date: 11/23/13
- * Time: 8:34 PM
- * To change this template use File | Settings | File Templates.
+ * User: Milky
+ * Date: 11/24/13
+ * Time: 2:11 PM
  */
 @Entity
 public class Role {
     private int id;
+    private String role;
 
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public int getId() {
         return id;
@@ -25,9 +25,7 @@ public class Role {
         this.id = id;
     }
 
-    private String role;
-
-    @javax.persistence.Column(name = "role")
+    @Column(name = "role")
     @Basic
     public String getRole() {
         return role;
@@ -37,7 +35,6 @@ public class Role {
         this.role = role;
     }
 
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -50,7 +47,6 @@ public class Role {
         return true;
     }
 
-    @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (role != null ? role.hashCode() : 0);

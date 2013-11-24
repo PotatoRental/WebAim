@@ -19,7 +19,7 @@ import java.lang.Integer;
  */
 @Repository
 @Transactional
-public abstract class UserDaoImpl implements UserDao {
+public class UserDaoImpl implements UserDao {
 
     private static final Logger logger = Logger.getLogger(UserDaoImpl.class);
 

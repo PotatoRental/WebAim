@@ -79,7 +79,6 @@
             <property name="username" value="aimweb" />
             <property name="password" value="ProjectAim2014" />
             <property name="url" value="jdbc:mysql://wontoncode.com:3306/potatoaim"/>
-            <!--<property name="url" value="jdbc:mysql://wontoncode.com:3306/temp"/>-->
         </bean>
     </beans>
 
@@ -89,7 +88,6 @@
             <property name="username" value="aimweb" />
             <property name="password" value="ProjectAim2014" />
             <property name="url" value="jdbc:mysql://127.0.0.1:3306/potatoaim"/>
-            <!--<property name="url" value="jdbc:mysql://127.0.0.1:3306/temp"/>-->
         </bean>
     </beans>
 </beans>

@@ -47,7 +47,7 @@
             <div class="search-results">
                 <ul>
                     <c:forEach var="course" items="${courselist}">
-                        <li class="courses"><a id="${course.id}" href="#">${course.id} | ${course.name}</a></li>
+                        <li class="courses"><a id="${course.id}" href="#">${course.id}<span class="course-desc"> | ${course.name}</span></a></li>
                     </c:forEach>
                 </ul>
             </div>
@@ -72,6 +72,7 @@
                 $(".sidebar").addClass("col-sm-3");
                 $(".sidebar").removeClass("col-md-12");
                 $(".sidebar").removeClass("col-sm-12");
+                $(".course-desc").hide();
                 smallToggled = true;
             }
             $("#course-home").load("/courses/" + event.target.id);

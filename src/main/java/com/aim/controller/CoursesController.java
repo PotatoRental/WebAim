@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,13 +27,17 @@ public class CoursesController {
     private static final Logger logger = Logger.getLogger(CoursesController.class);
 
     @Autowired
-    private CourseServiceImpl courseServiceImpl;
+    private AimServiceImpl aimService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getCourses(ModelMap modelMap) {
         logger.info("User tries to get courses.");
 
-        List<Course> courseList = courseServiceImpl.getAllCourses();
+        List<Course> courseList = aimService.getAllCourses();
+        List<UserAccount> userList = new ArrayList<UserAccount>();
+        for (Course course : courseList)
+            userList.add(course.getCourseCoordinator());
+        modelMap.addAttribute("userlist", userList);
         modelMap.addAttribute("courselist", courseList);
 
         return "courses/allcourses";
@@ -42,9 +47,9 @@ public class CoursesController {
     public String getCourse(@PathVariable String courseId, ModelMap modelMap) {
         logger.info("User tries to view course: " + courseId);
 
-        Course course = courseServiceImpl.getCourseById(courseId);
-        modelMap.addAttribute("course", course);
+        Course course = aimService.getCourseById(courseId);
 
+        modelMap.addAttribute("course", course);
         return "courses/course-detail";
     }
 
@@ -78,8 +83,6 @@ public class CoursesController {
         logger.info("User tries to edit course offering information.");
         return "/courses/edit-offering";
     }
-
-
 
     @RequestMapping(value = "missing-course-info", method = RequestMethod.GET)
     public String getMissingInfo(ModelMap modelMap) {
