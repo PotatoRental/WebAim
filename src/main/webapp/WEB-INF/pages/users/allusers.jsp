@@ -1,4 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -16,35 +17,59 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <div class="list col-md-4 col-sm-4 searchbar" id="list">
-            <div class="row blue-hover">
-                <div class="input-group" id="search-input-group">
-                  <span class="input-group-btn">
-                    <span id="search-ico" class="glyphicon glyphicon-search"></span>
-                  </span>
-                    <input type="text" class="form-control" id="search-field" value="Search Users" onclick="this.value=''">
-                </div>
-                <!-- /input-group -->
-            </div>
+        <div class="col-md-12 col-sm-12">
+            <table class="table table-striped">
+                <tr>
+                    <th>Full Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Roles</th>
+                    <th></th>
+
+                </tr>
 
 
-            <div class="search-results">
-                <ul>
-                    <li><a href="#">Gale Boetticher <span class="label label-info">Course Coord.</span></a></li>
-                    <li><a href="#">Gustavo Fring <span class="label label-primary">CIC</span></a></li>
-                    <li><a href="#">Saul Goodman <span class="label label-default">Evaluator</span></a></li>
-                    <li><a href="#">Jesse Pinkman <span class="label label-primary">CIC</span></a></li>
-                    <li><a href="#">Hank Schrader <span class="label label-default">Evaluator</span></a></li>
+                <form>
+                    <tr id="header-form">
+                        <td><input type='text' required name="first-name" class="fat" placeholder="First Name"><br/>
+                            <input type='text' required name="last-name" class="fat" placeholder="Last Name">
+                        </td>
+                        <td><input type='text' required name="username" class="fat" placeholder="Username"> <br/>
+                            <input type='text' required name="password" class="fat" placeholder="Password"></td>
+                        <td><input type='text' required name="email" class="fat" placeholder="Email Address"></td>
+                        <td>
+                            <input type="checkbox" name="role" value="Admin">Admin<br/>
+                            <input type="checkbox" name="role" value="CIC">CIC Member<br/>
+                            <input type="checkbox" name="role" value="Course-Coordinator">Course Coordinator <br/>
+                            <input type="checkbox" name="role" value="Evaluator">Evaluator<br/>
+                            <input type="checkbox" name="role" value="Instructor">Instructor
+                        </td>
 
-                    <li><a href="#">Skyler White <span class="label label-default">Evaluator</span></a></li>
-                    <li><a href="#" onclick="selectCourse()">Walter White <span class="label label-primary">CIC</span>
-                        <span class="label label-success">Instructor</span></a></li>
+                        <td>
+                            <input type='submit' class="fat btn btn-primary" value='Add User'/>
+                        </td>
 
-                </ul>
-            </div>
-        </div>
+                    </tr>
+                </form>
 
-        <div class="col-md-8 col-sm-8">
+
+                <c:forEach var="i" begin="0" end="100" step="1">
+                    <tr>
+                        <td>Walter White</td>
+                        <td>wwhite</td>
+                        <td>heisenberg@sbu</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                <li>Course Coordinator</li>
+                                <li>Instructor</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <input type='submit' class="fat btn btn-primary" value='Edit User'/>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
         </div>
 
     </div>

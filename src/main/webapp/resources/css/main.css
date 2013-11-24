@@ -196,10 +196,12 @@ h1, .container h1, .container h4 {
     text-decoration: none;
 }
 
-.search-results li a, .quicklinks li a {
+.search-results li a, .quicklinks li a, .search-list {
     padding:10px;
     display: block;
 }
+
+
 
 .editlink {float:right; display: inline-block}
 

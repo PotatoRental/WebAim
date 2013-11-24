@@ -12,7 +12,7 @@
     <li>
         <a href="#">Programs & Courses</a>
         <ul class="cbp-tm-submenu">
-            <li><a href="#" class="cbp-tm-icon-archive">Degree Programs</a></li>
+            <li><a href="/programs/" class="cbp-tm-icon-archive">Degree Programs</a></li>
 
             <spring:url value="/courses" var="courseUrl" htmlEscape="true"/>
             <li><a href="${courseUrl}" class="cbp-tm-icon-cog">Courses</a></li>

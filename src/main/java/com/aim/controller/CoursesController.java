@@ -64,7 +64,7 @@ public class CoursesController {
     @RequestMapping(value = "offerings", method = RequestMethod.GET)
     public String getOfferings(ModelMap modelMap) {
         logger.info("User tries to get course offering information.");
-        return "courses/course-offerings";
+        return "courses/offerings";
     }
 
     @RequestMapping(value = "view-offering", method = RequestMethod.GET)

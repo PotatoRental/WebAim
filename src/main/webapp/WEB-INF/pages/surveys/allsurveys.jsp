@@ -36,7 +36,7 @@
                     <form>
                         <tr id="header-form">
                             <td>
-                                <select name="degree-program">
+                                <select required name="degree-program">
                                     <option value="CSE">Computer Science</option>
                                     <option value="ISE">Information Systems</option>
                                 </select>
@@ -44,14 +44,14 @@
                             <td><input type='text' required name="group" class="fat" placeholder="Group"></td>
                             <td><input type='text' required name="initiator" class="fat" placeholder="Initiator"></td>
                             <td>
-                                <select name="semester" id="semester">
+                                <select required name="semester" id="semester">
                                     <%--<option disabled value="month" selected="selected">Month</option>--%>
 
                                         <option value="fall">Fall</option>
                                         <option value="spring">Spring</option>
                                 </select>
 
-                                <select name="year" id="year">
+                                <select required name="year" id="year">
                                     <%--<option disabled value="year" selected="selected">Year</option>--%>
                                     <c:forEach var="i" begin="0" end="23" step="1">
                                         <option value="${2013-i}">${2013-i}</option>
@@ -61,7 +61,7 @@
 
                             <td><button class="btn btn-default">Select Results File</button></td>
                             <td>
-                                <input type='submit' class="fat btn btn-default blue-hover" value='Add Survey'/>
+                                <input type='submit' class="fat btn btn-primary" value='Add Survey'/>
                             </td>
                         </tr>
                     </form>
@@ -74,7 +74,7 @@
                         <td><a href="#">results.pdf</a></td>
 
                         <td>
-                            <input type='submit' class="fat btn btn-default blue-hover" value='Edit Survey'/>
+                            <input type='submit' class="fat btn btn-primary" value='Edit Survey'/>
                         </td>
                     </tr>
                     </c:forEach>
