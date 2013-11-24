@@ -6,6 +6,7 @@
 --%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -37,10 +38,11 @@
                 <!-- /input-group -->
 
             </div>
-            <div class="blue-hover col-md-9 ">
-                <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
-            </div>
-
+            <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
+                <div class="blue-hover col-md-9 ">
+                    <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
+                </div>
+            </sec:authorize>
         </div>
 
         <div class="list col-md-12 col-sm-12 sidebar" id="list">
