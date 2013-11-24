@@ -1,8 +1,7 @@
 package com.aim.controller;
 
 import com.aim.model.Course;
-import com.aim.model.UserAccount;
-import com.aim.service.AimServiceImpl;
+import com.aim.service.CourseServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -65,8 +64,14 @@ public class CoursesController {
         return "courses/course-detail-edit";
     }
 
+    @RequestMapping(value = "add-course", method = RequestMethod.GET)
+    public String getCourseAdder(ModelMap modelMap) {
+        logger.info("User tries to add course.");
+        return "/courses/course-detail-add";
+    }
 
-    @RequestMapping(value = "course-offerings", method = RequestMethod.GET)
+
+    @RequestMapping(value = "offerings", method = RequestMethod.GET)
     public String getOfferings(ModelMap modelMap) {
         logger.info("User tries to get course offering information.");
         return "courses/offerings";

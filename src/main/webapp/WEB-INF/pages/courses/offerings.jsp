@@ -1,10 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Milky
-  Date: 10/18/13
-  Time: 3:52 AM
---%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -23,47 +18,41 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <div class="list col-md-3 col-sm-3" id="list">
-            <div class="row blue-hover">
+        <div class="list col-md-12 row" id="search" >
+
+            <div class=" blue-hover col-md-3 ">
                 <div class="input-group" id="search-input-group">
                       <span class="input-group-btn">
                         <span id="search-ico" class="glyphicon glyphicon-search"></span>
                       </span>
-                    <input type="text" class="form-control" id="search-field" value="Search Courses"
+                    <input type="text" class="form-control" id="search-field" value="Search Course Offerings"
                            onclick="this.value=''">
                 </div>
                 <!-- /input-group -->
 
             </div>
+            <div class="blue-hover col-md-9 ">
+                <div class="add-btn blue-hover" id="add-offering"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course Offering</div>
+            </div>
 
+        </div>
+
+        <div class="list col-md-12 col-sm-12 sidebar" id="list">
             <div class="search-results">
                 <ul>
-                    <li><a id="cse102" href="#">CSE 102</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
-                    <li><a href="#">CSE 110</a></li>
-                    <li><a href="#">CSE 114</a></li>
+                    <c:forEach var="i" begin="100" end="300" step="10">
+                        <li class="course search-list">CSE${i}</li>
+                        <li class="search-list hidden offering">
+                            &emsp;CSE${i}-01 | Fall 2013
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
         </div>
 
         <div class="col-md-9 col-sm-8">
 
-            <div class="add-btn blue-hover"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course</div>
-
-            <div id="offering-home">
-
-            </div>
+            <div id="course-home"></div>
 
         </div>
     </div>
@@ -72,9 +61,49 @@
 </div>
 
 <script type="text/javascript">
-    $("#cse102").click(function () {
-        $("#offering-home").load("/courses/view-offering");
+    var smallToggled = false;
+    $(document).ready(function () {
+        $(".offering").click(function (event) {
+
+            if (!smallToggled) {
+                $(".sidebar").addClass("col-md-3");
+                $(".sidebar").addClass("col-sm-3");
+                $(".sidebar").removeClass("col-md-12");
+                $(".sidebar").removeClass("col-sm-12");
+                smallToggled = true;
+            }
+
+            //$("#course-home").load("/courses/offerings/" + event.target.id);
+        });
     });
+
+    $("#add-offering").click(function () {
+        if (!smallToggled) {
+            $(".sidebar").addClass("col-md-3");
+            $(".sidebar").addClass("col-sm-3");
+            $(".sidebar").removeClass("col-md-12");
+            $(".sidebar").removeClass("col-sm-12");
+            smallToggled = true;
+        }
+        //$("#course-home").load("/courses/offerings/add-offering");
+    }) ;
+
+    $(".course").click(function(){
+         $(this).next().toggleClass("hidden");
+    })  ;
+
+    $("#search-field").keyup(function(){
+        var keyword = $("#search-field").val();
+
+        $.extend($.expr[':'], {
+            'contains': function(elem, i, match, array){
+                return $(elem).text().toLowerCase().indexOf(match[3].toLowerCase()) >= 0;
+            }
+        });
+
+        $(".search-list").hide();
+        $(".search-list").filter(":contains('"+keyword+"')").show();
+    })
 </script>
 
 </body>

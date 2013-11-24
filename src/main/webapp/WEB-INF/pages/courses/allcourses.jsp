@@ -82,7 +82,14 @@
     });
 
     $("#add-course").click(function () {
-
+        if (!smallToggled) {
+            $(".sidebar").addClass("col-md-3");
+            $(".sidebar").addClass("col-sm-3");
+            $(".sidebar").removeClass("col-md-12");
+            $(".sidebar").removeClass("col-sm-12");
+            smallToggled = true;
+        }
+        $("#course-home").load("/courses/add-course");
     })
 
     $("#search-field").keyup(function(){
