@@ -1,7 +1,8 @@
 package com.aim.controller;
 
 import com.aim.model.Course;
-import com.aim.service.CourseServiceImpl;
+import com.aim.model.UserAccount;
+import com.aim.service.AimServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,13 +28,17 @@ public class CoursesController {
     private static final Logger logger = Logger.getLogger(CoursesController.class);
 
     @Autowired
-    private CourseServiceImpl courseServiceImpl;
+    private AimServiceImpl aimService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getCourses(ModelMap modelMap) {
         logger.info("User tries to get courses.");
 
-        List<Course> courseList = courseServiceImpl.getAllCourses();
+        List<Course> courseList = aimService.getAllCourses();
+        List<UserAccount> userList = new ArrayList<UserAccount>();
+        for (Course course : courseList)
+            userList.add(course.getCourseCoordinatorUsername());
+        modelMap.addAttribute("userlist", userList);
         modelMap.addAttribute("courselist", courseList);
 
         return "courses/allcourses";
@@ -42,9 +48,11 @@ public class CoursesController {
     public String getCourse(@PathVariable String courseId, ModelMap modelMap) {
         logger.info("User tries to view course: " + courseId);
 
-        Course course = courseServiceImpl.getCourseById(courseId);
+        Course course = aimService.getCourseById(courseId);
+        UserAccount userAccount = course.getCourseCoordinatorUsername();
 
         modelMap.addAttribute("course", course);
+        modelMap.addAttribute("useraccount", userAccount);
         return "courses/course-detail";
     }
 

@@ -17,7 +17,7 @@
     </tr>
     <tr>
         <td class="title-col">Course Coordinator</td>
-        <td><a href="#">${course}</a></td>
+        <td><a href="#">${useraccount.firstName} ${useraccount.lastName}</a></td>
     </tr>
     <tr>
         <td class="title-col">Alternate Course Coordinators:</td>

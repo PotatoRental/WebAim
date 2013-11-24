@@ -8,12 +8,21 @@ import javax.persistence.Id;
  * Created with IntelliJ IDEA.
  * User: milky
  * Date: 11/23/13
- * Time: 8:34 PM
+ * Time: 9:22 PM
  * To change this template use File | Settings | File Templates.
  */
 @Entity
 public class CourseOffering {
     private int id;
+    private String courseId;
+    private Integer section;
+    private String semester;
+    private String syllabusPath;
+    private String schedulePath;
+    private String lectureNotesPath;
+    private String eosReportPath;
+    private String ccReportPath;
+    private String cicReportPath;
 
     @javax.persistence.Column(name = "id")
     @Id
@@ -25,8 +34,6 @@ public class CourseOffering {
         this.id = id;
     }
 
-    private String courseId;
-
     @javax.persistence.Column(name = "courseId")
     @Basic
     public String getCourseId() {
@@ -36,8 +43,6 @@ public class CourseOffering {
     public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
-
-    private Integer section;
 
     @javax.persistence.Column(name = "section")
     @Basic
@@ -49,8 +54,6 @@ public class CourseOffering {
         this.section = section;
     }
 
-    private String semester;
-
     @javax.persistence.Column(name = "semester")
     @Basic
     public String getSemester() {
@@ -60,8 +63,6 @@ public class CourseOffering {
     public void setSemester(String semester) {
         this.semester = semester;
     }
-
-    private String syllabusPath;
 
     @javax.persistence.Column(name = "syllabusPath")
     @Basic
@@ -73,8 +74,6 @@ public class CourseOffering {
         this.syllabusPath = syllabusPath;
     }
 
-    private String schedulePath;
-
     @javax.persistence.Column(name = "schedulePath")
     @Basic
     public String getSchedulePath() {
@@ -84,8 +83,6 @@ public class CourseOffering {
     public void setSchedulePath(String schedulePath) {
         this.schedulePath = schedulePath;
     }
-
-    private String lectureNotesPath;
 
     @javax.persistence.Column(name = "lectureNotesPath")
     @Basic
@@ -97,8 +94,6 @@ public class CourseOffering {
         this.lectureNotesPath = lectureNotesPath;
     }
 
-    private String eosReportPath;
-
     @javax.persistence.Column(name = "eosReportPath")
     @Basic
     public String getEosReportPath() {
@@ -109,8 +104,6 @@ public class CourseOffering {
         this.eosReportPath = eosReportPath;
     }
 
-    private String ccReportPath;
-
     @javax.persistence.Column(name = "ccReportPath")
     @Basic
     public String getCcReportPath() {
@@ -120,8 +113,6 @@ public class CourseOffering {
     public void setCcReportPath(String ccReportPath) {
         this.ccReportPath = ccReportPath;
     }
-
-    private String cicReportPath;
 
     @javax.persistence.Column(name = "cicReportPath")
     @Basic

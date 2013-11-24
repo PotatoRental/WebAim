@@ -1,7 +1,9 @@
 package com.aim.service;
 
 import com.aim.dao.CourseDao;
+import com.aim.dao.UserDao;
 import com.aim.model.Course;
+import com.aim.model.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +15,15 @@ import java.util.List;
  * Time: 3:35 AM
  */
 @Service
-public class CourseServiceImpl implements CourseService {
+public class AimServiceImpl implements AimService {
 
     private CourseDao courseDao;
+    private UserDao userDao;
 
     @Autowired
-    private CourseServiceImpl(CourseDao courseDao) {
+    private AimServiceImpl(CourseDao courseDao, UserDao userDao) {
         this.courseDao = courseDao;
+        this.userDao = userDao;
     }
 
     public List<Course> getAllCourses() {
@@ -36,5 +40,9 @@ public class CourseServiceImpl implements CourseService {
 
     public Integer getNumCourses() {
         return courseDao.getNumCourses();
+    }
+
+    public UserAccount getUserByUsername(String username) {
+        return userDao.getUserByUsername(username);
     }
 }

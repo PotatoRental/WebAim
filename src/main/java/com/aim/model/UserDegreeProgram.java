@@ -7,7 +7,7 @@ import javax.persistence.Id;
  * Created with IntelliJ IDEA.
  * User: milky
  * Date: 11/23/13
- * Time: 8:34 PM
+ * Time: 9:22 PM
  * To change this template use File | Settings | File Templates.
  */
 @javax.persistence.IdClass(com.aim.model.UserDegreeProgramPK.class)
