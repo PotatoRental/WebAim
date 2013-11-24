@@ -12,28 +12,29 @@ import javax.persistence.Id;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-public class Course {
-    private String id;
-    private String name;
+public class Role {
+    private int id;
 
     @javax.persistence.Column(name = "id")
     @Id
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    @javax.persistence.Column(name = "name")
+    private String role;
+
+    @javax.persistence.Column(name = "role")
     @Basic
-    public String getName() {
-        return name;
+    public String getRole() {
+        return role;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
@@ -41,18 +42,18 @@ public class Course {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Course course = (Course) o;
+        Role role1 = (Role) o;
 
-        if (id != null ? !id.equals(course.id) : course.id != null) return false;
-        if (name != null ? !name.equals(course.name) : course.name != null) return false;
+        if (id != role1.id) return false;
+        if (role != null ? !role.equals(role1.role) : role1.role != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        int result = id;
+        result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
     }
 }

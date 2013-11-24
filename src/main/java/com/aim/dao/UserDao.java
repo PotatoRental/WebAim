@@ -1,6 +1,5 @@
 package com.aim.dao;
 
-import com.aim.model.Course;
 import com.aim.model.UserAccount;
 
 import java.util.List;
@@ -15,5 +14,5 @@ public interface UserDao {
 
     public List<UserAccount> getAllUsers();
 
-    public UserAccount getUserById(String id);
+    public UserAccount getUserByUsername(String username);
 }

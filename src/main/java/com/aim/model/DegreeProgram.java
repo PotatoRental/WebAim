@@ -1,62 +1,34 @@
 package com.aim.model;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Yun
- * Date: 10/22/13
- * Time: 10:45 PM
+ * User: milky
+ * Date: 11/23/13
+ * Time: 8:34 PM
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-
-@Table(name = "DegreeProgram")
 public class DegreeProgram {
-    @Id
-    @Column(nullable = false)
     private String id;
 
-    @Column(nullable = false)
-    private String description;
-
-    @Column(nullable = false)
-    private String department;
-
-    @ManyToMany(mappedBy = "degreeprograms")
-    private List<Course> courses;
-
-    @OneToMany(mappedBy = "degreeprogram")
-    private List<PEO> peos;
-
-    @OneToMany(mappedBy = "degreeprogram")
-    private List<StudentOutcome> studentOutcomes;
-
-    public List<StudentOutcome> getStudentOutcomes() {
-        return studentOutcomes;
-    }
-
-    public void setStudentOutcomes(List<StudentOutcome> studentOutcomes) {
-        this.studentOutcomes = studentOutcomes;
-    }
-
-    public List<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
-    }
-
+    @javax.persistence.Column(name = "id")
+    @Id
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        id = id;
+        this.id = id;
     }
 
+    private String description;
+
+    @javax.persistence.Column(name = "description")
+    @Basic
     public String getDescription() {
         return description;
     }
@@ -65,6 +37,10 @@ public class DegreeProgram {
         this.description = description;
     }
 
+    private String department;
+
+    @javax.persistence.Column(name = "department")
+    @Basic
     public String getDepartment() {
         return department;
     }
@@ -73,11 +49,25 @@ public class DegreeProgram {
         this.department = department;
     }
 
-    public List<PEO> getPeos() {
-        return peos;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DegreeProgram that = (DegreeProgram) o;
+
+        if (department != null ? !department.equals(that.department) : that.department != null) return false;
+        if (description != null ? !description.equals(that.description) : that.description != null) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+
+        return true;
     }
 
-    public void setPeos(List<PEO> peos) {
-        this.peos = peos;
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (department != null ? department.hashCode() : 0);
+        return result;
     }
 }
