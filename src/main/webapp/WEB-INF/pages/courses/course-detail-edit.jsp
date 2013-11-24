@@ -1,6 +1,7 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <p>
 
-<h1>CSE 102</h1>
+<h1>${course.id}</h1>
 <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
     &nbsp;&nbsp;<a id="edit-cancel" href="#">Cancel</a>
 </sec:authorize>
@@ -10,14 +11,14 @@
 
         <tr>
             <td class="title-col">Course Identifier</td>
-            <td><input type="text" class="fat" onclick="this.select()" value="CSE 102"></td>
+            <td><input type="text" class="fat" onclick="this.select()" value="${course.id}"></td>
         </tr>
         <tr>
             <td class="title-col">
                 Course Name
             </td>
             <td>
-                <input type="text" class="fat" onclick="this.select()" value="Introduction to Web Design and Programming">
+                <input type="text" class="fat" onclick="this.select()" value="${course.name}">
             </td>
         </tr>
         <tr>
@@ -89,9 +90,9 @@
 </form>
 <script type="text/javascript">
     $("#edit-cancel").click(function(){
-        $( "#course-home" ).load( "/courses/cse102" );
+        $( "#course-home" ).load( "/courses/${course.id}" );
     });
     $("#submit").click(function(){
-        $( "#course-home" ).load( "/courses/cse102" );
+        $( "#course-home" ).load( "/courses/${course.id}" );
     });
 </script>
