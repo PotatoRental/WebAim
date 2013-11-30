@@ -25,7 +25,7 @@ public class SurveyController {
     @RequestMapping(method = RequestMethod.GET)
     public String getMinutes(ModelMap modelMap) {
         logger.info("User tries to get surveys.");
-        return "/surveys/allsurveys";
+        return "surveys/allsurveys";
     }
 
 }

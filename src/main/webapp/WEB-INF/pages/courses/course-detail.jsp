@@ -68,7 +68,7 @@
 
 <script type="text/javascript">
     $("#edit-course").click(function(){
-        $( "#course-home" ).load( "/courses/cse102-edit" );
+        $( "#course-home" ).load( "/courses/${course.id}/edit" );
     });
     $(".close-col").click(function(){
         $(".sidebar").switchClass( "col-md-3", "col-md-12", 200, "easeInOutQuad" );

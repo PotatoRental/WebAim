@@ -32,5 +32,8 @@ public class UsersController {
         return "body";
     }
 
-
+    @RequestMapping(value = "{userid}", method = RequestMethod.GET)
+    public String getUser() {
+        return "users/userprofile";
+    }
 }

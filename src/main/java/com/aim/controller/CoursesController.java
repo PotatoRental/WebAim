@@ -54,9 +54,13 @@ public class CoursesController {
         return "courses/course-detail";
     }
 
-    @RequestMapping(value = "cse102-edit", method = RequestMethod.GET)
-    public String getCourseEditor(ModelMap modelMap) {
+    @RequestMapping(value = "{courseId}/edit", method = RequestMethod.GET)
+    public String getCourseEditor(@PathVariable String courseId, ModelMap modelMap) {
         logger.info("User tries to edit course.");
+
+        Course course = aimService.getCourseById(courseId);
+
+        modelMap.addAttribute("course", course);
         return "courses/course-detail-edit";
     }
 
