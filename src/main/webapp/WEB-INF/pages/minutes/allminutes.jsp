@@ -34,14 +34,14 @@
                                         <option value="${i}">${i}</option>
                                     </c:forEach>
                                 </select>
-                                 /
+                                /
                                 <select name="day" id="day">
                                     <%--<option disabled value="day" selected="selected">Day</option>--%>
                                     <c:forEach var="i" begin="1" end="31" step="1">
                                         <option value="${i}">${i}</option>
                                     </c:forEach>
                                 </select>
-                                 /
+                                /
                                 <select name="year" id="year">
                                     <%--<option disabled value="year" selected="selected">Year</option>--%>
                                     <c:forEach var="i" begin="0" end="23" step="1">
@@ -57,49 +57,23 @@
                             </td>
                         </tr>
                     </form>
-                    <tr>
-                        <td>01/01/2001</td>
-                        <td>Group Name</td>
-                        <td>
-                            An ability to apply knowledge of computing and mathematics appropriate to the discipline
-                        </td>
-                        <td>
-                            <input type='submit' class="fat btn btn-default blue-hover" value='Edit'/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>01/01/2001</td>
-                        <td>Group Name</td>
-                        <td> An ability to analyze a problem, and identify and define the computing requirements
-                            appropriate to its solution
+                    <c:forEach begin="0" end="20" var="i" step="1">
+                        <tr>
+                            <td>
+                                <a style="display: inline;" class="date editable editable-click" href="#" id="${i}"
+                                   data-type="combodate" data-value="2013-05-15" data-format="YYYY-MM-DD"
+                                   data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1"
+                                   data-title="Select Date">15/05/2013</a>
+                            </td>
+                            <td><a class="group-name">Group Name</a></td>
+                            <td>
+                                <a class="minutes">An ability to apply knowledge of computing and mathematics appropriate to the discipline</a>
+                            </td>
+                            <td>
 
-                        </td>
-                        <td>
-                            <input type='submit' class="fat btn btn-default blue-hover" value='Edit'/>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>01/01/2001</td>
-                        <td>Group Name</td>
-                        <td>An ability to design, implement, and evaluate a computer-based system, process, component or
-                            program to meet desired needs
-
-                        </td>
-                        <td>
-                            <input type='submit' class="fat btn btn-default blue-hover" value='Edit'/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>01/01/2001</td>
-                        <td>Group Name</td>
-                        <td>An ability to function effectively on teams to accomplish a common goal
-
-                        </td>
-                        <td>
-                            <input type='submit' class="fat btn btn-default blue-hover" value='Edit'/>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                    </c:forEach>
 
 
                 </table>
@@ -113,7 +87,34 @@
 </div>
 
 <script type="text/javascript">
+    $(document).ready(function () {
+        //toggle `popup` / `inline` mode
+        $.fn.editable.defaults.mode = 'popup';
+        $(function () {
+            $('.date').editable({
+                format: 'YYYY-MM-DD',
+                viewformat: 'DD.MM.YYYY',
+                template: 'D / MMMM / YYYY',
+                combodate: {
+                    minYear: 2000,
+                    maxYear: 2015,
+                    minuteStep: 1
+                }
+            });
+        });
 
+        $('.group-name').editable({
+            mode:'inline'
+        });
+
+        $('.minutes').editable({
+            mode:'inline',
+            type: 'textarea',
+            rows:4,
+            inputclass: 'fat',
+            width: 300
+        })
+    });
 </script>
 
 </body>

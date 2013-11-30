@@ -75,11 +75,13 @@
                         <td><a class="department" data-pk="${i}"> Computer Science</a></td>
                         <td><a class="group" data-pk="${i}">Group Name</a></td>
                         <td><a class="initiator" data-pk="${i}">Initiator</a></td>
-                        <td>Fall 2013</td>
+                        <td>
+                            <a style="display: inline;" class="editable editable-click" href="#" id="dob2" data-type="combodate" data-value="2013-05-15" data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1" data-title="Select Date">15/05/2013</a>
+                        </td>
                         <td><a href="#">results.pdf</a></td>
 
                         <td>
-
+                            <a style="display: inline;" class="editable editable-click" href="#" id="dob" data-type="combodate" data-value="2013-05-15" data-format="YYYY-MM-DD" data-viewformat="MM/DD | YYYY" data-template="MMM / D | YYYY" data-pk="1" data-title="Select Date">05/15/2013</a>
                         </td>
                     </tr>
                     </c:forEach>
@@ -97,7 +99,7 @@
     <jsp:include page="../pagefrags/footer.jsp"/>
 </div>
 
-<script type="text/javascript" src="/js/select2.js"></script>
+
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -125,9 +127,41 @@
         });
 
         $('.group').editable();
-        $('.initiator').editable();
+       // $('.initiator').editable();
 
-        $('#country').editable({
+        $('.s').editable({
+            url: '/post',
+            value: {
+                city: "Moscow",
+                street: "Lenina",
+                building: "12"
+            },
+
+            display: function(value) {
+                if(!value) {
+                    $(this).empty();
+                    return;
+                }
+                var html = '<b>' + $('<div>').text(value.city).html() + '</b>, ' + $('<div>').text(value.street).html() + ' st., bld. ' + $('<div>').text(value.building).html();
+                $(this).html(html);
+            }
+        });
+
+        $(function(){
+            $('#dob').editable({
+                format: 'YYYY-MM-DD',
+                viewformat: 'DD.MM.YYYY',
+                template: 'D / MMMM / YYYY',
+                combodate: {
+                    minYear: 2000,
+                    maxYear: 2015,
+                    minuteStep: 1
+                }
+            });
+        });
+
+
+        $('.initiator').editable({
             source: [
                 {id: 'gb', text: 'Great Britain'},
                 {id: 'us', text: 'United States'},
