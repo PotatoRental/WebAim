@@ -13,9 +13,12 @@
 <body>
 <div class="container">
 
+
+
     <jsp:include page="../pagefrags/nav.jsp"/>
 
     <div class="row maincontent">
+
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
@@ -66,15 +69,17 @@
                         </tr>
                     </form>
                     <c:forEach var="i" begin="0" end="23" step="1">
+
+
                     <tr>
-                        <td>01/01/2001</td>
-                        <td>Group Name</td>
-                        <td>Initiator</td>
+                        <td><a class="department" data-pk="${i}"> Computer Science</a></td>
+                        <td><a class="group" data-pk="${i}">Group Name</a></td>
+                        <td><a class="initiator" data-pk="${i}">Initiator</a></td>
                         <td>Fall 2013</td>
                         <td><a href="#">results.pdf</a></td>
 
                         <td>
-                            <input type='submit' class="fat btn btn-primary" value='Edit Survey'/>
+
                         </td>
                     </tr>
                     </c:forEach>
@@ -92,8 +97,47 @@
     <jsp:include page="../pagefrags/footer.jsp"/>
 </div>
 
-<script type="text/javascript">
+<script type="text/javascript" src="/js/select2.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        //toggle `popup` / `inline` mode
+        $.fn.editable.defaults.mode = 'inline';
+
+
+
+        $('.department').editable({
+            type: 'select',
+            title: 'Select status',
+            name: 'degreeProgramId', //COLUMN OF DATABASE TABLE TO BE EDITED
+            placement: 'right',
+            value: 2,
+            source: [
+                {value: 1, text: 'Applied Mathematics'},
+                {value: 2, text: 'Computer Science'},
+                {value: 3, text: 'Information Systems'}
+            ]
+            /*
+             //uncomment these lines to send data on server
+
+             ,url: '/post'
+             */
+        });
+
+        $('.group').editable();
+        $('.initiator').editable();
+
+        $('#country').editable({
+            source: [
+                {id: 'gb', text: 'Great Britain'},
+                {id: 'us', text: 'United States'},
+                {id: 'ru', text: 'Russia'}
+            ],
+            select2: {
+                multiple: true
+            }
+        });
+    });
 </script>
 
 </body>
