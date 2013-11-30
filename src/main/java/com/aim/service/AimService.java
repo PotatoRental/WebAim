@@ -1,21 +1,52 @@
 package com.aim.service;
 
+import com.aim.dao.CourseDao;
+import com.aim.dao.UserDao;
 import com.aim.model.Course;
 import com.aim.model.UserAccount;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * User: Milky
  * Date: 11/11/13
- * Time: 3:48 AM
+ * Time: 3:35 AM
  */
-public interface AimService {
+@Service
+public class AimService {
 
-    public List<Course> getAllCourses();
-    public List<Course> getCoursesByInstructor(String instructorName);
-    public Course getCourseById(String courseId);
-    public Integer getNumCourses();
+    private CourseDao courseDao;
+    private UserDao userDao;
 
-    public UserAccount getUserByUsername(String username);
+    @Autowired
+    private AimService(CourseDao courseDao, UserDao userDao) {
+        this.courseDao = courseDao;
+        this.userDao = userDao;
+    }
+
+    public List<Course> getAllCourses() {
+        return courseDao.getAllCourses();
+    }
+
+    public List<Course> getCoursesByInstructor(String instructorId) {
+        return courseDao.getCoursesByInstructor(instructorId);
+    }
+
+    public Course getCourseById(String courseId) {
+        return courseDao.getCourseById(courseId);
+    }
+
+    public Integer getNumCourses() {
+        return courseDao.getNumCourses();
+    }
+
+    public UserAccount getUserByUsername(String username) {
+        return userDao.getUserByUsername(username);
+    }
+
+    public List<UserAccount> getAllInstructors() {
+        return userDao.getAllInstructors();
+    }
 }

@@ -1,6 +1,7 @@
 package com.aim.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,6 +28,9 @@ public class UserAccount {
 
     @Column(nullable = false)
     private String email;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "role")
+    private List<Role> roles;
 
     public String getUsername() {
         return username;
@@ -66,5 +70,13 @@ public class UserAccount {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

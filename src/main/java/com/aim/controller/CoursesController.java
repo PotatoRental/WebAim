@@ -2,7 +2,7 @@ package com.aim.controller;
 
 import com.aim.model.Course;
 import com.aim.model.UserAccount;
-import com.aim.service.AimServiceImpl;
+import com.aim.service.AimService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,17 +27,13 @@ public class CoursesController {
     private static final Logger logger = Logger.getLogger(CoursesController.class);
 
     @Autowired
-    private AimServiceImpl aimService;
+    private AimService aimService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getCourses(ModelMap modelMap) {
         logger.info("User tries to get courses.");
 
         List<Course> courseList = aimService.getAllCourses();
-        List<UserAccount> userList = new ArrayList<UserAccount>();
-        for (Course course : courseList)
-            userList.add(course.getCourseCoordinator());
-        modelMap.addAttribute("userlist", userList);
         modelMap.addAttribute("courselist", courseList);
 
         return "courses/allcourses";
@@ -59,8 +54,10 @@ public class CoursesController {
         logger.info("User tries to edit course.");
 
         Course course = aimService.getCourseById(courseId);
+        List<UserAccount> allInstructor = aimService.getAllInstructors();
 
         modelMap.addAttribute("course", course);
+        modelMap.addAttribute("allInstructor", allInstructor);
         return "courses/course-detail-edit";
     }
 

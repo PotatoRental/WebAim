@@ -26,16 +26,14 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Transactional
     public List<UserAccount> getAllUsers() {
         logger.info("User is getting all users.");
 
         return sessionFactory.getCurrentSession()
-                .createSQLQuery("select * from UserAccount")
+                .createQuery("from UserAccount")
                 .list();
     }
 
-    @Transactional
     public UserAccount getUserById(String userId) {
         return (UserAccount) sessionFactory.getCurrentSession()
                 .createQuery("from UserAccount where id = :userId")
@@ -43,15 +41,6 @@ public class UserDaoImpl implements UserDao {
                 .uniqueResult();
     }
 
-    @Transactional
-    public Integer getNumUsers() {
-        logger.info("Testing first course loading");
-        return (Integer) sessionFactory.getCurrentSession()
-                .createSQLQuery("select count(*) from UserAccount")
-                .uniqueResult();
-    }
-
-    @Transactional
     public UserAccount getUserByUsername(String username) {
         logger.info("User is getting all users by username");
         return (UserAccount) sessionFactory.getCurrentSession()
@@ -59,4 +48,13 @@ public class UserDaoImpl implements UserDao {
                 .setString("username", username)
                 .uniqueResult();
     }
+
+    @Override
+    public List<UserAccount> getAllInstructors() {
+        logger.info("User is geting all instructor class user");
+        return (List<UserAccount>) sessionFactory.getCurrentSession()
+                .createQuery("")
+                .list();
+    }
+
 }
