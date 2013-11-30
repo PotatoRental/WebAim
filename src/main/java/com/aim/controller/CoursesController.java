@@ -1,7 +1,8 @@
 package com.aim.controller;
 
 import com.aim.model.Course;
-import com.aim.service.CourseServiceImpl;
+import com.aim.model.UserAccount;
+import com.aim.service.AimServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
