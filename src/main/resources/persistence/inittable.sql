@@ -68,6 +68,7 @@ CREATE TABLE StudentOutcome(
 	description varchar(1000),
 	targetDirectAssessmentAttainmentLevel integer,
 	targetSurveyAssessmentAttainmentLevel integer,
+	validityPeriod varchar(100),
 	degreeProgramId varchar(10),
 	PRIMARY KEY (id),
 	FOREIGN KEY (degreeProgramId) REFERENCES DegreeProgram(id)
@@ -104,8 +105,6 @@ CREATE TABLE Course_DegreeProgram(
 CREATE TABLE CourseOutcome(
 	sequenceNumber integer,
 	description varchar(1000),
-	rationale varchar(1000),
-	assessed bit,
 	courseId varchar(10),
 	PRIMARY KEY (sequenceNumber),
 	FOREIGN KEY (courseId) REFERENCES Course(id)
@@ -113,9 +112,11 @@ CREATE TABLE CourseOutcome(
 		ON UPDATE CASCADE
 );
 
-CREATE TABLE Student_Course_Outcome(
+CREATE TABLE StudentOutcome_CourseOutcome(
 	studentOutcomeId varchar(10),
 	courseOutcomeId integer,
+	rationale varchar(1000),
+	assessed bit,
 	PRIMARY KEY (studentOutcomeId, courseOutcomeId),
 	FOREIGN KEY (studentOutcomeId) REFERENCES StudentOutcome(id)
 		ON DELETE CASCADE
