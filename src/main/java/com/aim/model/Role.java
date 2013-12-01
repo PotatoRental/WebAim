@@ -8,10 +8,10 @@ import javax.persistence.*;
  * Time: 2:11 PM
  */
 @Entity
-@Table("Role")
+@Table(name = "Role")
 public class Role {
 
-    @Column(name = "role")
+    @Id
     private String role;
 
     public String getRole() {

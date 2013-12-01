@@ -29,7 +29,7 @@ public class UserAccount {
     @Column(nullable = false)
     private String email;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "role")
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Role> roles;
 
     public String getUsername() {

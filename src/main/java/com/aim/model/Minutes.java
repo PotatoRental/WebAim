@@ -24,7 +24,7 @@ public class Minutes {
     private Date date;
 
     @Column
-    private String group;
+    private String groups;
 
     @Column
     private String minutes;
@@ -45,12 +45,12 @@ public class Minutes {
         this.date = date;
     }
 
-    public String getGroup() {
-        return group;
+    public String getGroups() {
+        return groups;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setGroups(String group) {
+        this.groups = group;
     }
 
     public String getMinutes() {

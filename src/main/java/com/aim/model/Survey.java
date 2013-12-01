@@ -20,7 +20,7 @@ public class Survey {
     private Integer id;
 
     @Column
-    private String group;
+    private String groups;
 
     @Column
     private String initiator;
@@ -39,12 +39,12 @@ public class Survey {
         this.id = id;
     }
 
-    public String getGroup() {
-        return group;
+    public String getGroups() {
+        return groups;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setGroups(String groups) {
+        this.groups = groups;
     }
 
     public String getInitiator() {
