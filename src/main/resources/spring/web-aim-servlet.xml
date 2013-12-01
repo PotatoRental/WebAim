@@ -78,8 +78,7 @@
             <property name="driverClassName" value="com.mysql.jdbc.Driver" />
             <property name="username" value="aimweb" />
             <property name="password" value="ProjectAim2014" />
-            <!--<property name="url" value="jdbc:mysql://wontoncode.com:3306/potatoaim"/>-->
-            <property name="url" value="jdbc:mysql://wontoncode.com:3306/temp"/>
+            <property name="url" value="jdbc:mysql://wontoncode.com:3306/potatoaim"/>
         </bean>
     </beans>
 
@@ -88,8 +87,7 @@
             <property name="driverClassName" value="com.mysql.jdbc.Driver" />
             <property name="username" value="aimweb" />
             <property name="password" value="ProjectAim2014" />
-            <!--<property name="url" value="jdbc:mysql://127.0.0.1:3306/potatoaim"/>-->
-            <property name="url" value="jdbc:mysql://127.0.0.1:3306/temp"/>
+            <property name="url" value="jdbc:mysql://127.0.0.1:3306/potatoaim"/>
         </bean>
     </beans>
 </beans>

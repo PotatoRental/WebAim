@@ -12,12 +12,12 @@
     <li>
         <a href="#">Programs & Courses</a>
         <ul class="cbp-tm-submenu">
-            <li><a href="#" class="cbp-tm-icon-archive">Degree Programs</a></li>
+            <li><a href="/programs/" class="cbp-tm-icon-archive">Degree Programs</a></li>
 
             <spring:url value="/courses" var="courseUrl" htmlEscape="true"/>
             <li><a href="${courseUrl}" class="cbp-tm-icon-cog">Courses</a></li>
             <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC, ROLE_CC, ROLE_EVAL">
-                <li><a href="/courses/course-offerings" class="cbp-tm-icon-location">Course Offerings</a></li>
+                <li><a href="/courses/offerings" class="cbp-tm-icon-location">Course Offerings</a></li>
             </sec:authorize>
             <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
                 <li><a href="/courses/missing-course-info" class="cbp-tm-icon-users">Missing Course Info</a></li>
@@ -31,8 +31,8 @@
     <li>
         <a href="#">Student Outcomes</a>
         <ul class="cbp-tm-submenu">
-            <li><a href="/student-outcomes/manage-outcomes" class="cbp-tm-icon-archive">Manage Outcomes</a></li>
-            <li><a href="/student-outcomes/tabulate-outcomes" class="cbp-tm-icon-cog">Tabulate Outcomes</a></li>
+            <li><a href="/outcome/manage-outcomes" class="cbp-tm-icon-archive">Manage Outcomes</a></li>
+            <li><a href="/outcome/tabulate-outcomes" class="cbp-tm-icon-cog">Tabulate Outcomes</a></li>
         </ul>
     </li>
 
@@ -44,8 +44,8 @@
                 <li><a href="/peo/tabulate-attainment" class="cbp-tm-icon-mail">Tabulate PEO Attainment</a></li>
             </ul>
         </li>
-        <li><a href="#">Minutes</a></li>
-        <li><a href="#">Surveys</a></li>
+        <li><a href="/minutes/">Minutes</a></li>
+        <li><a href="/surveys/">Surveys</a></li>
         <li><a href="/users/">Users</a></li>
     </sec:authorize>
 

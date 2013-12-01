@@ -4,6 +4,7 @@
     <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
         &nbsp;&nbsp;<a id="edit-course" href="#">Edit</a>
     </sec:authorize>
+    <h1><span class="glyphicon glyphicon-circle-arrow-left  link close-col pull-right"></span> </h1>
 </p>
 <table class="table table-bordered table-striped">
     <tr>
@@ -16,11 +17,11 @@
     </tr>
     <tr>
         <td class="title-col">Course Coordinator</td>
-        <td><a href="#">Ahmad Esmaili</a></td>
+        <td><a href="#">${course.courseCoordinator.firstName} ${course.courseCoordinator.lastName}</a></td>
     </tr>
     <tr>
         <td class="title-col">Alternate Course Coordinators:</td>
-        <td><a href="#">Walter White</a></td>
+        <td><a href="#">${course.alternateCourseCoordinator.firstName} ${course.alternateCourseCoordinator.lastName}</a></td>
     </tr>
     <tr>
         <td class="title-col">Degree Programs</td>
@@ -67,6 +68,14 @@
 
 <script type="text/javascript">
     $("#edit-course").click(function(){
-        $( "#course-home" ).load( "/courses/cse102-edit" );
+        $( "#course-home" ).load( "/courses/${course.id}/edit" );
     });
+    $(".close-col").click(function(){
+        $(".sidebar").switchClass( "col-md-3", "col-md-12", 200, "easeInOutQuad" );
+        $(".sidebar").addClass("col-sm-12");
+        $(".sidebar").removeClass("col-sm-3");
+        $(".course-desc").show();
+        $("#course-home").html("");
+        smallToggled=false;
+    } );
 </script>

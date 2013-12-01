@@ -175,6 +175,9 @@
                     <excludes>
                         <exclude>**/*Tests.java</exclude>
                     </excludes>
+                    <!--<includes>
+                        <include>**/*Tests.java</include>
+                    </includes>-->
                 </configuration>
             </plugin>
             <plugin>

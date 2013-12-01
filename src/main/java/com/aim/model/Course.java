@@ -8,7 +8,6 @@ import java.util.List;
  * User: Yun
  * Date: 10/22/13
  * Time: 11:16 PM
- * To change this template use File | Settings | File Templates.
  */
 
 @Entity
@@ -33,7 +32,13 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private List<CourseOutcome> courseOutcomes;
 
-    //TODO: add fields and mappings for course coordinator and ACCs.
+    @ManyToOne
+    @JoinColumn(name = "courseCoordinatorUsername", referencedColumnName = "username")
+    private UserAccount courseCoordinator;
+
+    @ManyToOne
+    @JoinColumn(name = "alternateCourseCoordinatorUsername", referencedColumnName = "username")
+    private UserAccount alternateCourseCoordinator;
 
     public String getId() {
         return id;
@@ -57,5 +62,29 @@ public class Course {
 
     public void setDegreeprograms(List<DegreeProgram> degreeprograms) {
         this.degreeprograms = degreeprograms;
+    }
+
+    public List<CourseOutcome> getCourseOutcomes() {
+        return courseOutcomes;
+    }
+
+    public void setCourseOutcomes(List<CourseOutcome> courseOutcomes) {
+        this.courseOutcomes = courseOutcomes;
+    }
+
+    public UserAccount getCourseCoordinator() {
+        return courseCoordinator;
+    }
+
+    public void setCourseCoordinator(UserAccount courseCoordinator) {
+        this.courseCoordinator = courseCoordinator;
+    }
+
+    public UserAccount getAlternateCourseCoordinator() {
+        return alternateCourseCoordinator;
+    }
+
+    public void setAlternateCourseCoordinator(UserAccount alternateCourseCoordinator) {
+        this.alternateCourseCoordinator = alternateCourseCoordinator;
     }
 }

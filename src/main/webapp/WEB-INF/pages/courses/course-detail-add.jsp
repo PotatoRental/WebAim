@@ -1,25 +1,16 @@
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<p>
-
-<h1>${course.id}</h1>
-<sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
-    &nbsp;&nbsp;<a id="edit-cancel" href="#">Cancel</a>
-</sec:authorize>
-</p>
 <form>
 <table class="table table-bordered table-striped">
 
         <tr>
             <td class="title-col">Course Identifier</td>
-            <td><input type="text" class="fat" onclick="this.select()" value="${course.id}"></td>
+            <td><input type="text" required name="id" class="fat" placeholder="Course Identifier"></td>
         </tr>
         <tr>
             <td class="title-col">
                 Course Name
             </td>
             <td>
-                <input type="text" class="fat" onclick="this.select()" value="${course.name}">
+                <input type="text" required class="fat" placeholder="Course Name" name="name">
             </td>
         </tr>
         <tr>
@@ -27,9 +18,9 @@
                 Course Coordinator
             </td>
             <td>
-                <select class="fat">
-                    <c:forEach var="cordinator" items=""
-                    <option value="ahmad-esmaili" selected="selected">Ahmad Esmaili</option>
+                <select class="fat" name="course-coordinator" required>
+                    <option value="Course-Coordinator" disabled selected="selected">Select Course Coordinator</option>
+                    <option value="ahmad-esmaili">Ahmad Esmaili</option>
                     <option value="skyler-white">Skyler White</option>
                 </select>
             </td>
@@ -39,8 +30,9 @@
                 Alternate Course Coordinators:
             </td>
             <td>
-                <select class="fat">
-                    <option value="walter-white" selected="selected">Walter White</option>
+                <select class="fat" name="alt-course-coordinator" required>
+                    <option value="Alt-Course-Coordinator" disabled selected="selected">Select Alternate Course Coordinator</option>
+                    <option value="walter-white">Walter White</option>
                     <option value="skyler-white">Skyler White</option>
                 </select>
 
@@ -48,11 +40,12 @@
         </tr>
         <tr>
             <td class="title-col">
-                Degree Programs
+                Degree Program
             </td>
             <td>
-                <select class="fat">
-                    <option value="cse" selected="selected">Computer Science</option>
+                <select class="fat" name="degree-programs">
+                    <option value="degree-program" disabled selected="selected">Select Degree Program</option>
+                    <option value="cse">Computer Science</option>
                     <option value="ise">Information Systems</option>
                 </select>
             </td>
@@ -75,26 +68,14 @@
 
             </td>
         </tr>
-        <tr>
-            <td class="title-col">
-                Course Offerings
-            </td>
-            <td>
-                <a href="#">View Course Offerings</a>
-            </td>
-        </tr>
-
-
-
-
 </table>
     <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Submit'/>
 </form>
 <script type="text/javascript">
     $("#edit-cancel").click(function(){
-        $( "#course-home" ).load( "/courses/${course.id}" );
+        $( "#course-home" ).load( "/courses/cse102" );
     });
     $("#submit").click(function(){
-        $( "#course-home" ).load( "/courses/${course.id}" );
+        $( "#course-home" ).load( "/courses/cse102" );
     });
 </script>

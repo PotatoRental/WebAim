@@ -17,7 +17,7 @@ h1, .container h1, .container h4 {
 }
 
 .hidden {
-    display: none;
+    display:none;
 }
 
 .link {
@@ -77,6 +77,10 @@ h1, .container h1, .container h4 {
     padding: 40px 80px;
 }
 
+.error-login {
+    color: darkviolet;
+}
+
 .bs-callout { /* Admin alert box */
     background-color: #f0f7fd;
     border-color: #d0e3f0;
@@ -89,12 +93,20 @@ h1, .container h1, .container h4 {
     border-left: 5px solid #eee;
 }
 
-.add-btn {
+.add-btn-ex {
     width:100%;
     padding:16px;
     text-align: center;
     color: #777;
     border-bottom:1px solid #dcdcec;
+}
+
+.add-btn {
+    width:100%;
+    padding:16px;
+    text-align: center;
+    color: #777;
+
 }
 
 .fat-btn {
@@ -114,7 +126,12 @@ h1, .container h1, .container h4 {
     width: 4em;
 }
 
-#list .row {
+#search {
+    margin:0;
+}
+
+#list .row,
+#search .row {
     margin:0;
     border-bottom:1px solid #dcdcec;
 }
@@ -179,10 +196,12 @@ h1, .container h1, .container h4 {
     text-decoration: none;
 }
 
-.search-results li a, .quicklinks li a {
+.search-results li a, .quicklinks li a, .search-list {
     padding:10px;
     display: block;
 }
+
+
 
 .editlink {float:right; display: inline-block}
 

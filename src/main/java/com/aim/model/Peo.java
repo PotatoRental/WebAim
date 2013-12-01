@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "PEO")
-public class PEO {
+public class Peo {
 
     @Id
     @Column(nullable = false)

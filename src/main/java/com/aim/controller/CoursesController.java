@@ -1,7 +1,8 @@
 package com.aim.controller;
 
 import com.aim.model.Course;
-import com.aim.service.CourseServiceImpl;
+import com.aim.model.UserAccount;
+import com.aim.service.AimService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -26,13 +27,13 @@ public class CoursesController {
     private static final Logger logger = Logger.getLogger(CoursesController.class);
 
     @Autowired
-    private CourseServiceImpl courseServiceImpl;
+    private AimService aimService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getCourses(ModelMap modelMap) {
         logger.info("User tries to get courses.");
 
-        List<Course> courseList = courseServiceImpl.getAllCourses();
+        List<Course> courseList = aimService.getAllCourses();
         modelMap.addAttribute("courselist", courseList);
 
         return "courses/allcourses";
@@ -42,20 +43,32 @@ public class CoursesController {
     public String getCourse(@PathVariable String courseId, ModelMap modelMap) {
         logger.info("User tries to view course: " + courseId);
 
-        Course course = courseServiceImpl.getCourseById(courseId);
+        Course course = aimService.getCourseById(courseId);
 
         modelMap.addAttribute("course", course);
         return "courses/course-detail";
     }
 
-    @RequestMapping(value = "cse102-edit", method = RequestMethod.GET)
-    public String getCourseEditor(ModelMap modelMap) {
+    @RequestMapping(value = "{courseId}/edit", method = RequestMethod.GET)
+    public String getCourseEditor(@PathVariable String courseId, ModelMap modelMap) {
         logger.info("User tries to edit course.");
+
+        Course course = aimService.getCourseById(courseId);
+        List<UserAccount> allInstructor = aimService.getAllInstructors();
+
+        modelMap.addAttribute("course", course);
+        modelMap.addAttribute("allInstructor", allInstructor);
         return "courses/course-detail-edit";
     }
 
+    @RequestMapping(value = "add-course", method = RequestMethod.GET)
+    public String getCourseAdder(ModelMap modelMap) {
+        logger.info("User tries to add course.");
+        return "/courses/course-detail-add";
+    }
 
-    @RequestMapping(value = "course-offerings", method = RequestMethod.GET)
+
+    @RequestMapping(value = "offerings", method = RequestMethod.GET)
     public String getOfferings(ModelMap modelMap) {
         logger.info("User tries to get course offering information.");
         return "courses/offerings";

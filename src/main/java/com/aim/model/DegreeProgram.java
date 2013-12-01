@@ -28,7 +28,7 @@ public class DegreeProgram {
     private List<Course> courses;
 
     @OneToMany(mappedBy = "degreeprogram")
-    private List<PEO> peos;
+    private List<Peo> peos;
 
     @OneToMany(mappedBy = "degreeprogram")
     private List<StudentOutcome> studentOutcomes;
@@ -73,11 +73,11 @@ public class DegreeProgram {
         this.department = department;
     }
 
-    public List<PEO> getPeos() {
+    public List<Peo> getPeos() {
         return peos;
     }
 
-    public void setPeos(List<PEO> peos) {
+    public void setPeos(List<Peo> peos) {
         this.peos = peos;
     }
 }
