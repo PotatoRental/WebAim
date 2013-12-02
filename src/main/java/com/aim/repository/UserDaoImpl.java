@@ -1,6 +1,7 @@
 package com.aim.repository;
 
 import com.aim.dao.UserDao;
+import com.aim.model.Role;
 import com.aim.model.UserAccount;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
@@ -50,11 +51,16 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<UserAccount> getAllInstructors() {
-        logger.info("User is geting all instructor class user");
-        return (List<UserAccount>) sessionFactory.getCurrentSession()
-                .createQuery("")
+    public List<UserAccount> getAllUserRole(Role role) {
+        logger.info("User is geting all users with role");
+        List<UserAccount> userlist = (List<UserAccount>) sessionFactory.getCurrentSession()
+                .createQuery("from UserAccount ")
                 .list();
-    }
 
+        for (int i = userlist.size() - 1; i >= 0; i--)
+            if (!userlist.get(i).getRoles().contains(role))
+                userlist.remove(i);
+
+        return userlist;
+    }
 }

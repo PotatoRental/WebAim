@@ -3,6 +3,7 @@ package com.aim.service;
 import com.aim.dao.CourseDao;
 import com.aim.dao.UserDao;
 import com.aim.model.Course;
+import com.aim.model.Role;
 import com.aim.model.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,7 +47,7 @@ public class AimService {
         return userDao.getUserByUsername(username);
     }
 
-    public List<UserAccount> getAllInstructors() {
-        return userDao.getAllInstructors();
+    public List<UserAccount> getAllCourseCoordinator() {
+        return userDao.getAllUserRole(Role.ROLE_CC);
     }
 }

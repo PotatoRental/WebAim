@@ -28,9 +28,12 @@
             </td>
             <td>
                 <select class="fat">
-                    <c:forEach var="cordinator" items=""
-                    <option value="ahmad-esmaili" selected="selected">Ahmad Esmaili</option>
-                    <option value="skyler-white">Skyler White</option>
+                    <c:forEach var="cc" items="${allCourseCoordinator}">
+                        <option value="${cc.firstName}-${cc.lastName}"
+                                <c:if test="${cc.firstName eq course.courseCoordinator.firstName && cc.lastName eq course.courseCoordinator.lastName}">
+                                    selected="selected"
+                                 </c:if>>${cc.firstName} ${cc.lastName}</option>
+                    </c:forEach>
                 </select>
             </td>
         </tr>
@@ -40,8 +43,12 @@
             </td>
             <td>
                 <select class="fat">
-                    <option value="walter-white" selected="selected">Walter White</option>
-                    <option value="skyler-white">Skyler White</option>
+                    <c:forEach var="cc" items="${allCourseCoordinator}">
+                        <option value="${cc.firstName}-${cc.lastName}"
+                                <c:if test="${cc.firstName eq course.courseCoordinator.firstName && cc.lastName eq course.courseCoordinator.lastName}">
+                                    selected="selected"
+                                </c:if>>${cc.firstName} ${cc.lastName}</option>
+                    </c:forEach>
                 </select>
 
             </td>

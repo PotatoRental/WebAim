@@ -1,5 +1,6 @@
 package com.aim.dao;
 
+import com.aim.model.Role;
 import com.aim.model.UserAccount;
 
 import java.util.List;
@@ -12,5 +13,5 @@ import java.util.List;
 public interface UserDao {
     public List<UserAccount> getAllUsers();
     public UserAccount getUserByUsername(String username);
-    public List<UserAccount> getAllInstructors();
+    public List<UserAccount> getAllUserRole(Role role);
 }

@@ -54,10 +54,10 @@ public class CoursesController {
         logger.info("User tries to edit course.");
 
         Course course = aimService.getCourseById(courseId);
-        List<UserAccount> allInstructor = aimService.getAllInstructors();
+        List<UserAccount> allCourseCoordinator = aimService.getAllCourseCoordinator();
 
         modelMap.addAttribute("course", course);
-        modelMap.addAttribute("allInstructor", allInstructor);
+        modelMap.addAttribute("allCourseCoordinator", allCourseCoordinator);
         return "courses/course-detail-edit";
     }
 
