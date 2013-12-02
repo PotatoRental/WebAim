@@ -19,5 +19,11 @@ public class MinutesController {
         return "/minutes/allminutes";
     }
 
+    @RequestMapping(value="edit-minutes", method = RequestMethod.GET)
+    public String getMinutesEditor (ModelMap modelMap) {
+        logger.info("User tries to edit minutes.");
+        return "/minutes/edit-minutes";
+    }
+
 
 }

@@ -37,7 +37,7 @@
                     <tr>
                         <td class="title-col">Degree Program</td>
                         <td>
-                            <select multiple name="degree-program">
+                            <select multiple aname="degree-program">
                                 <option value="Computer Science">Computer Science</option>
                                 <option value="Computer Science">Information Systems</option>
                             </select>
