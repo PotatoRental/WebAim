@@ -1,6 +1,8 @@
 package com.aim.controller;
 
 import com.aim.model.Course;
+import com.aim.model.CourseOutcome;
+import com.aim.model.DegreeProgram;
 import com.aim.model.UserAccount;
 import com.aim.service.AimService;
 import org.apache.log4j.Logger;
@@ -8,10 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,7 +62,24 @@ public class CoursesController {
         List<UserAccount> allCourseCoordinator = aimService.getAllCourseCoordinator();
 
         modelMap.addAttribute("course", course);
+        modelMap.addAttribute("ccaccount", new UserAccount());
         modelMap.addAttribute("allCourseCoordinator", allCourseCoordinator);
+        return "courses/course-detail-edit";
+    }
+
+    @RequestMapping(value = "{courseId}/submit", method = RequestMethod.POST)
+    public String submitCourseEditor(@PathVariable String courseId,
+                                     @ModelAttribute("course") Course course,
+                                     BindingResult courseResu) {
+        logger.info("User tries to submit course.");
+
+        String ccusername = (String) courseResu.getFieldError("courseCoordinator").getRejectedValue();
+        String alterusername = (String) courseResu.getFieldError("alternateCourseCoordinator").getRejectedValue();
+        course.setCourseCoordinator(aimService.getUserByUsername(ccusername));
+        course.setAlternateCourseCoordinator(aimService.getUserByUsername(alterusername));
+
+        aimService.saveCourse(course);
+
         return "courses/course-detail-edit";
     }
 
