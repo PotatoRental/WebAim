@@ -18,23 +18,8 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <div class="list col-md-3 col-sm-3" id="list">
-            <sec:authorize ifAnyGranted="ROLE_CC">
-                <div class="add-btn">
-                    Sidebar?
-                </div>
-                <div class="search-results">
-                    <ul>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                    </ul>
-                </div>
-            </sec:authorize>
-        </div>
 
-        <div class="col-md-9 col-sm-8">
+        <div class="col-md-12 col-sm-12">
 
             <div>
                 <h2>Manage PEOs</h2>

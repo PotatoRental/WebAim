@@ -42,7 +42,7 @@
                 Alternate Course Coordinators:
             </td>
             <td>
-                <select class="fat">
+                <select multiple class="fat" name="alternate-course-coordinators">
                     <c:forEach var="cc" items="${allCourseCoordinator}">
                         <option value="${cc.firstName}-${cc.lastName}"
                                 <c:if test="${cc.firstName eq course.courseCoordinator.firstName && cc.lastName eq course.courseCoordinator.lastName}">
@@ -58,7 +58,7 @@
                 Degree Programs
             </td>
             <td>
-                <select class="fat">
+                <select multiple class="fat" name="degree-programs">
                     <option value="cse" selected="selected">Computer Science</option>
                     <option value="ise">Information Systems</option>
                 </select>
