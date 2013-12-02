@@ -55,7 +55,7 @@
 
                 <c:forEach var="i" begin="0" end="100" step="1">
                     <tr>
-                        <td>Walter White</td>
+                        <td><a href="/users/userprofile">Walter White</a></td>
                         <td>wwhite</td>
                         <td>heisenberg@sbu</td>
                         <td>

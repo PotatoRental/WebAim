@@ -23,9 +23,15 @@ public class SurveyController {
     private static final Logger logger = Logger.getLogger(SurveyController.class);
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getMinutes(ModelMap modelMap) {
+    public String getSurveys(ModelMap modelMap) {
         logger.info("User tries to get surveys.");
-        return "surveys/allsurveys";
+        return "/surveys/allsurveys";
+    }
+
+    @RequestMapping(value="edit-survey", method = RequestMethod.GET)
+    public String getSurveyEditor (ModelMap modelMap) {
+        logger.info("User tries to edit survey");
+        return "/surveys/edit-survey";
     }
 
 }
