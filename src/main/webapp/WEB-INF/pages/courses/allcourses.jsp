@@ -49,7 +49,7 @@
             <div class="search-results">
                 <ul>
                     <c:forEach var="course" items="${courselist}">
-                        <li class="courses"><a id="${course.id}" href="#">${course.id}<span class="course-desc"> | ${course.name}</span></a></li>
+                        <li ><a class="courses" id="${course.id}" href="#">${course.id} <span class="course-desc"> | ${course.name}</span> </a></li>
                     </c:forEach>
                 </ul>
             </div>
