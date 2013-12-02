@@ -134,13 +134,23 @@ CREATE TABLE CourseOffering(
 	instructorUsername varchar(40),
 	syllabusPath varchar(255),
 	schedulePath varchar(255),
-	lectureNotesPath varchar(255),
 	eosReportPath varchar(255),
 	ccReportPath varchar(255),
 	cicReportPath varchar(255),
 	PRIMARY KEY (id),
 	UNIQUE (courseId, section, semester),
 	FOREIGN KEY (instructorUsername) REFERENCES UserAccount(username)
+		ON DELETE NO ACTION
+		ON UPDATE CASCADE
+);
+
+CREATE TABLE LectureNote(
+  id integer,
+  name varchar(50),
+  filePath varchar(255),
+  courseOfferingId integer,
+  PRIMARY KEY (id),
+	FOREIGN KEY (courseOfferingId) REFERENCES CourseOffering(id)
 		ON DELETE NO ACTION
 		ON UPDATE CASCADE
 );
@@ -208,7 +218,7 @@ CREATE TABLE CourseOfferingDirectAssessment(
 	
 CREATE TABLE Survey(
 	id integer,
-	group varchar(20),
+	groups varchar(20),
 	initiator varchar(20),
 	semester varchar(10),
 	result varchar(255),
@@ -244,7 +254,7 @@ CREATE TABLE Survey_PEOAttainment(
 CREATE TABLE Minutes(
 	id integer,
 	date date,
-	group varchar(20),
+	groups varchar(20),
 	minutes varchar(255),
 	PRIMARY KEY (id)
 );
