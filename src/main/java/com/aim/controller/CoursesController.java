@@ -113,12 +113,13 @@ public class CoursesController {
 
     @RequestMapping(value = "add-course/submit", method = RequestMethod.POST)
     public String addCourse(@ModelAttribute("course") Course course,
+                            BindingResult courseResu,
                             HttpServletRequest request,
                             RedirectAttributes redirectAttributes) {
 
-        Course exists = aimService.getCourseById(course.getId());
-        if (exists != null) {
-            redirectAttributes.addFlashAttribute("course-error", "Course ID already exits");
+        Course exist = aimService.getCourseById(course.getId());
+        if (exist != null) {
+            redirectAttributes.addFlashAttribute("course-error", "Could not add course because it exists already");
             return "redirect:/courses";
         }
 
@@ -134,7 +135,7 @@ public class CoursesController {
         course.setAlternateCourseCoordinator(aimService.getUserByUsername(alterusername));
         course.setDegreeprograms(dPrograms);
 
-        redirectAttributes.addFlashAttribute("course-added", "Course " + course.getId() + " has been added");
+        redirectAttributes.addFlashAttribute("course-modified", "Course " + course.getId() + " has been added");
 
         aimService.addCourse(course);
         return "redirect:/courses";
