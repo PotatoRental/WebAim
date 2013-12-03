@@ -1,11 +1,7 @@
 package com.aim.service;
 
-import com.aim.dao.CourseDao;
-import com.aim.dao.UserDao;
-import com.aim.model.Course;
-import com.aim.model.DegreeProgram;
-import com.aim.model.Role;
-import com.aim.model.UserAccount;
+import com.aim.dao.*;
+import com.aim.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
