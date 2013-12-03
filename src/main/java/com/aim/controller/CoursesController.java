@@ -86,6 +86,10 @@ public class CoursesController {
     @RequestMapping(value = "add-course", method = RequestMethod.GET)
     public String getCourseAdder(ModelMap modelMap) {
         logger.info("User tries to add course.");
+
+        List<UserAccount> allCourseCoordinator = aimService.getAllCourseCoordinator();
+        modelMap.addAttribute("allCourseCoordinator", allCourseCoordinator);
+
         return "/courses/course-detail-add";
     }
 

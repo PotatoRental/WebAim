@@ -26,7 +26,9 @@ public class Assignment {
     @OneToMany(mappedBy="assignment")
     private List<StudentSample> studentSampleList;
 
-    //TODO: add mapping to course offering
+    @ManyToOne
+    @JoinColumn(name = "courseOfferingId", referencedColumnName = "id")
+    private CourseOffering courseOffering;
 
     public String getName() {
         return name;

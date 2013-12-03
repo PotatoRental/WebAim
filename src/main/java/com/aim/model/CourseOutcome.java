@@ -17,25 +17,14 @@ public class CourseOutcome {
     @Column
     private Integer sequenceNumber;
 
-    @Column private String rational;
     @Column private String description;
-    @Column private boolean accessed;
 
     @ManyToOne
     @JoinColumn(name = "courseId")
     private Course course;
 
-    @ManyToMany
-    @JoinTable (name = "Student_Course_Outcome",
-            joinColumns =
-            @JoinColumn(name = "courseOutcomeId", referencedColumnName = "sequenceNumber"),
-            inverseJoinColumns =
-            @JoinColumn(name = "studentOutcomeId", referencedColumnName = "id")
-    )
-    private List<StudentOutcome> studentOutcomes;
-
-    /*@Column private StudentOutcome studentOutcome;*/
-    // TODO fix student outcome, needs table joining
+    @OneToMany(mappedBy = "courseOutcome")
+    private List<StudentOutcomeCourseOutcomeMapping> studentOutcomeCourseOutcomeMappings;
 
     public Integer getSequenceNumber() {
         return sequenceNumber;
@@ -43,14 +32,6 @@ public class CourseOutcome {
 
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber = sequenceNumber;
-    }
-
-    public String getRational() {
-        return rational;
-    }
-
-    public void setRational(String rational) {
-        this.rational = rational;
     }
 
     public String getDescription() {
@@ -61,19 +42,11 @@ public class CourseOutcome {
         this.description = description;
     }
 
-    public boolean isAccessed() {
-        return accessed;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setAccessed(boolean accessed) {
-        this.accessed = accessed;
+    public void setCourse(Course course) {
+        this.course = course;
     }
-
-/*    public StudentOutcome getStudentOutcome() {
-        return studentOutcome;
-    }
-
-    public void setStudentOutcome(StudentOutcome studentOutcome) {
-        this.studentOutcome = studentOutcome;
-    }*/
 }

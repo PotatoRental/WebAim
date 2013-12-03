@@ -18,19 +18,22 @@ public class UserAccount {
     private String username;
 
     @Column(nullable = false)
-    private String firstName;
-
-    @Column(nullable = false)
-    private String lastName;
-
-    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
+    private String firstName;
+
+    @Column(nullable = false)
+    private String lastName;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Role> roles;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<DegreeProgram> degreeprograms;
 
     public String getUsername() {
         return username;
@@ -78,9 +81,5 @@ public class UserAccount {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
-    }
-
-    public String toString() {
-        return firstName + " " + lastName;
     }
 }

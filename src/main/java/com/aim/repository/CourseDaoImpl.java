@@ -54,7 +54,9 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public Integer getNumCourses() {
-        return null;  //ToDO override
+        return (Integer) sessionFactory.getCurrentSession()
+                .createQuery("select count(course) from Course as course")
+                .uniqueResult();
     }
 
     @Override

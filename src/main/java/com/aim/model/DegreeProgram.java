@@ -27,6 +27,9 @@ public class DegreeProgram {
     @ManyToMany(mappedBy = "degreeprograms")
     private List<Course> courses;
 
+    @ManyToMany(mappedBy = "degreeprograms")
+    private List<UserAccount> userAccounts;
+
     @OneToMany(mappedBy = "degreeprogram")
     private List<Peo> peos;
 
@@ -54,7 +57,7 @@ public class DegreeProgram {
     }
 
     public void setId(String id) {
-        id = id;
+        this.id = id;
     }
 
     public String getDescription() {
@@ -79,5 +82,13 @@ public class DegreeProgram {
 
     public void setPeos(List<Peo> peos) {
         this.peos = peos;
+    }
+
+    public List<UserAccount> getUserAccounts() {
+        return userAccounts;
+    }
+
+    public void setUserAccounts(List<UserAccount> userAccounts) {
+        this.userAccounts = userAccounts;
     }
 }
