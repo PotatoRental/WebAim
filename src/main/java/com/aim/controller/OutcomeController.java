@@ -1,11 +1,16 @@
 package com.aim.controller;
 
+import com.aim.model.StudentOutcome;
+import com.aim.service.AimService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,6 +25,10 @@ public class OutcomeController {
 
     private static final Logger logger = Logger.getLogger(OutcomeController.class);
 
+    @Autowired
+    private AimService aimService;
+
+
     @RequestMapping(value = "tabulate-outcomes", method = RequestMethod.GET)
     public String getTabulatedOutcomes(ModelMap modelMap) {
         logger.info("User tries to tabulate student outcomes");
@@ -29,6 +38,9 @@ public class OutcomeController {
     @RequestMapping(value = "manage-outcomes", method = RequestMethod.GET)
     public String getAllOutcomes(ModelMap modelMap) {
         logger.info("User tries to get all outcomes' information");
+
+        List<StudentOutcome> studentOutcomes = aimService.getAllStudentOutcomes();
+        modelMap.addAttribute("studentoutcomes",studentOutcomes);
         return "student-outcomes/manage-outcomes";
     }
 

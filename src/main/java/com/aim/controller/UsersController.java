@@ -55,7 +55,7 @@ public class UsersController {
         return "users/userprofile";
     }
 
-    @RequestMapping(value = "edit", method = RequestMethod.GET)
+    @RequestMapping(value = "{userId}/edit", method = RequestMethod.GET)
     public String getUserEditor(ModelMap modelMap) {
         return "users/userprofile-edit";
     }

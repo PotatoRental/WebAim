@@ -23,6 +23,12 @@
 
             <div>
 
+                <ul>
+                    <c:forEach items="${studentoutcomes}" var="outcome">
+                     <li>${outcome.shortName}</li>
+                    </c:forEach>
+                </ul>
+
                 <table class="table table-striped">
 
 

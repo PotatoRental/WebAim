@@ -89,7 +89,7 @@
     $(".edit-user").click(function(){
         //$( "#course-home" ).load( "/courses/${course.id}/edit" );
         //window.location = "/users/edit";
-        window.location = "/users/"+$(this).attr("id");
+        window.location = "/users/"+$(this).attr("id")+"/edit";
     });
 
     var checkboxes = $("input[type='checkbox']");
