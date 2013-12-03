@@ -1,5 +1,8 @@
 package com.aim.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class Course {
     private String name;
 
     @ManyToMany
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     @JoinTable (name = "Course_DegreeProgram",
             joinColumns =
             @JoinColumn(name = "courseId", referencedColumnName = "id"),
@@ -30,6 +34,7 @@ public class Course {
     private List<DegreeProgram> degreeprograms;
 
     @OneToMany(mappedBy = "course")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<CourseOutcome> courseOutcomes;
 
     @ManyToOne
@@ -87,4 +92,5 @@ public class Course {
     public void setAlternateCourseCoordinator(UserAccount alternateCourseCoordinator) {
         this.alternateCourseCoordinator = alternateCourseCoordinator;
     }
+
 }

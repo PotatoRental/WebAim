@@ -71,4 +71,12 @@ public class Survey {
     public void setResultPath(String result) {
         this.resultPath = result;
     }
+
+    public List<DegreeProgram> getDegreeprograms() {
+        return degreeprograms;
+    }
+
+    public void setDegreeprograms(List<DegreeProgram> degreeprograms) {
+        this.degreeprograms = degreeprograms;
+    }
 }

@@ -3,8 +3,10 @@ package com.aim.service;
 import com.aim.dao.CourseDao;
 import com.aim.dao.StudentOutcomeDao;
 import com.aim.dao.UserDao;
-import com.aim.model.*;
-import com.aim.repository.MinutesDaoImpl;
+import com.aim.model.Course;
+import com.aim.model.DegreeProgram;
+import com.aim.model.Role;
+import com.aim.model.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +21,6 @@ import java.util.List;
 public class AimService {
 
     private CourseDao courseDao;
-    private MinutesDaoImpl minutesDaoImpl;
-    private StudentOutcomeDao studentOutcomeDao;
     private UserDao userDao;
 
     @Autowired
@@ -61,11 +61,11 @@ public class AimService {
         courseDao.saveCourse(course);
     }
 
-    public List<StudentOutcome> getAllStudentOutcomes() {
-        return studentOutcomeDao.getAllStudentOutcomes();
+    public List<DegreeProgram> getAllDegreeProgram() {
+        return courseDao.getAllDegreeProgram();
     }
 
-    public List<Minutes> getAllMinutes(){
-        return minutesDaoImpl.getAllMinutes();
+    public DegreeProgram getDegreeProgramById(String degreeId) {
+        return courseDao.getDegreeProgramById(degreeId);
     }
 }

@@ -18,7 +18,7 @@ public class DegreeProgram {
     @Column(nullable = false)
     private String id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 8000)
     private String description;
 
     @Column(nullable = false)
@@ -35,6 +35,9 @@ public class DegreeProgram {
 
     @OneToMany(mappedBy = "degreeprogram")
     private List<StudentOutcome> studentOutcomes;
+
+    public DegreeProgram() {
+    }
 
     public List<StudentOutcome> getStudentOutcomes() {
         return studentOutcomes;

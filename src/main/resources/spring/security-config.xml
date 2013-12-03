@@ -9,6 +9,8 @@
 
     <http pattern="/resources/**" security="none" />
 
+    <beans:import resource="web-aim-servlet.xml" />
+
     <http use-expressions="true">
         <intercept-url pattern="/signup" access="isAnonymous()" />
         <intercept-url pattern="/login" access="isAnonymous()" />

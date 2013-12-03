@@ -1,4 +1,5 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <p>
     <h1>${course.id}</h1>
     <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
@@ -17,43 +18,38 @@
     </tr>
     <tr>
         <td class="title-col">Course Coordinator</td>
-        <td><a href="#">${course.courseCoordinator.firstName} ${course.courseCoordinator.lastName}</a></td>
+        <td><a href="/users/${course.courseCoordinator.username}">${course.courseCoordinator.firstName} ${course.courseCoordinator.lastName}</a></td>
     </tr>
     <tr>
         <td class="title-col">Alternate Course Coordinators:</td>
-        <td><a href="#">${course.alternateCourseCoordinator.firstName} ${course.alternateCourseCoordinator.lastName}</a></td>
+        <td><a href="/users/${course.alternateCourseCoordinator.username}">${course.alternateCourseCoordinator.firstName} ${course.alternateCourseCoordinator.lastName}</a></td>
     </tr>
     <tr>
         <td class="title-col">Degree Programs</td>
-        <td>Bachelor of Science in Computer Science</td>
+        <td>
+            <c:if test="${not empty course.degreeprograms}">
+                <ul class="list-unstyled">
+                    <c:forEach var="degree" items="${course.degreeprograms}">
+                        <li>
+                            ${degree.department}
+                        </li>
+                    </c:forEach>
+                </ul>
+            </c:if>
+        </td>
     </tr>
     <tr>
         <td class="title-col">
             Course Outcomes:
         </td>
         <td>
-            <ul>
-                <li>
-
-                    Develop the students ability to create Web pages using validated XHTML standards.
-
-                </li>
-                <li>
-
-                    Introduce the students to the use of Cascading Style Sheets for formatting the presentation of Web pages, and the principles of what makes good Web page style.
-
-                </li>
-                <li>
-
-                    Introduce the students to effective page layout principles and the use of CSS positioning for effective Web page layout.
-
-                </li>
-                <li>
-
-                    Introduce the students to WYSIWYG tools for creating well designed and organized Web sites.
-
-                </li>
-            </ul>
+            <c:if test="${not empty course.courseOutcomes}">
+                <ul>
+                   <c:forEach var="outcome" items="${course.courseOutcomes}">
+                       <li>${outcome.description}</li>
+                   </c:forEach>
+                </ul>
+            </c:if>
         </td>
     </tr>
     <tr>

@@ -23,7 +23,7 @@ public class StudentOutcome {
     @Column(nullable = false)
     private String shortName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 8000)
     private String description;
 
     @Column(nullable = false)
@@ -96,5 +96,21 @@ public class StudentOutcome {
 
     public void setTargetSurveyAssessmentAttainmentLevel(Float targetSurveyAssessmentAttainmentLevel) {
         this.targetSurveyAssessmentAttainmentLevel = targetSurveyAssessmentAttainmentLevel;
+    }
+
+    public String getValidityPeriod() {
+        return validityPeriod;
+    }
+
+    public void setValidityPeriod(String validityPeriod) {
+        this.validityPeriod = validityPeriod;
+    }
+
+    public List<StudentOutcomeCourseOutcomeMapping> getStudentOutcomeCourseOutcomeMappings() {
+        return studentOutcomeCourseOutcomeMappings;
+    }
+
+    public void setStudentOutcomeCourseOutcomeMappings(List<StudentOutcomeCourseOutcomeMapping> studentOutcomeCourseOutcomeMappings) {
+        this.studentOutcomeCourseOutcomeMappings = studentOutcomeCourseOutcomeMappings;
     }
 }

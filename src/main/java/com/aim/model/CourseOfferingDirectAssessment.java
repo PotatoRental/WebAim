@@ -27,7 +27,7 @@ public class CourseOfferingDirectAssessment {
     @Column
     private String assessmentInstrument;
 
-    @Column
+    @Column(length = 8000)
     private String rationale;
 
     @Column
