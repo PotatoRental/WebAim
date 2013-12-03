@@ -1,5 +1,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <p>
 
 <h1>${course.id}</h1>
@@ -7,19 +9,25 @@
     &nbsp;&nbsp;<a id="edit-cancel" href="#">Cancel</a>
 </sec:authorize>
 </p>
-<form>
+<form method="post" action="/courses/${course.id}/submit">
 <table class="table table-bordered table-striped">
 
         <tr>
             <td class="title-col">Course Identifier</td>
-            <td><input type="text" class="fat" onclick="this.select()" value="${course.id}"></td>
+            <td>
+                <spring:bind path="course.id">
+                    <input type="text" class="fat" onclick="this.select()" name="${status.expression}" value="${status.value}"><br />
+                </spring:bind>
+            </td>
         </tr>
         <tr>
             <td class="title-col">
                 Course Name
             </td>
             <td>
-                <input type="text" class="fat" onclick="this.select()" value="${course.name}">
+                <spring:bind path="course.name">
+                    <input type="text" class="fat" onclick="this.select()" name="${status.expression}" value="${status.value}"><br />
+                </spring:bind>
             </td>
         </tr>
         <tr>
@@ -27,14 +35,16 @@
                 Course Coordinator
             </td>
             <td>
-                <select class="fat">
+                <form:select cssClass="fat" path="course.courseCoordinator">
                     <c:forEach var="cc" items="${allCourseCoordinator}">
-                        <option value="${cc.firstName}-${cc.lastName}"
-                                <c:if test="${cc.firstName eq course.courseCoordinator.firstName && cc.lastName eq course.courseCoordinator.lastName}">
-                                    selected="selected"
-                                 </c:if>>${cc.firstName} ${cc.lastName}</option>
+                        <option value="${cc.username}"
+                        <c:if test="${cc.username eq course.courseCoordinator.username}">
+                            selected="selected"
+                        </c:if>>
+                        ${cc.firstName} ${cc.lastName}</option>
+                        <%--<form:option value="${cc.username}">${cc.firstName} ${cc.lastName}</form:option>--%>
                     </c:forEach>
-                </select>
+                </form:select>
             </td>
         </tr>
         <tr>
@@ -42,15 +52,11 @@
                 Alternate Course Coordinators:
             </td>
             <td>
-                <select multiple class="fat" name="alternate-course-coordinators">
+                <form:select cssClass="fat" path="course.alternateCourseCoordinator">
                     <c:forEach var="cc" items="${allCourseCoordinator}">
-                        <option value="${cc.firstName}-${cc.lastName}"
-                                <c:if test="${cc.firstName eq course.courseCoordinator.firstName && cc.lastName eq course.courseCoordinator.lastName}">
-                                    selected="selected"
-                                </c:if>>${cc.firstName} ${cc.lastName}</option>
+                        <form:option value="${cc.username}">${cc.firstName} ${cc.lastName}</form:option>
                     </c:forEach>
-                </select>
-
+                </form:select>
             </td>
         </tr>
         <tr>

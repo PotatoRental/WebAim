@@ -87,15 +87,15 @@
     var smallToggled = false;
     $(document).ready(function () {
         $(".courses").click(function (event) {
+            $(".course-desc").hide();
             if (!smallToggled) {
                 $(".sidebar").addClass("col-md-3");
                 $(".sidebar").addClass("col-sm-3");
                 $(".sidebar").removeClass("col-md-12");
                 $(".sidebar").removeClass("col-sm-12");
-                $(".course-desc").hide();
                 smallToggled = true;
             }
-            $("#course-home").load("/courses/" + event.target.id);
+            $("#course-home").load("/courses/" + event.currentTarget.id);
         });
     });
 

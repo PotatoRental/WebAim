@@ -56,4 +56,9 @@ public class CourseDaoImpl implements CourseDao {
     public Integer getNumCourses() {
         return null;  //ToDO override
     }
+
+    @Override
+    public void saveCourse(Course course) {
+        sessionFactory.getCurrentSession().update(course);
+    }
 }
