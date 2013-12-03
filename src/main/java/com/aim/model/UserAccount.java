@@ -32,9 +32,6 @@ public class UserAccount {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Role> roles;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<DegreeProgram> degreeprograms;
-
     public String getUsername() {
         return username;
     }
@@ -47,16 +44,16 @@ public class UserAccount {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String firstname) {
+        this.firstName = firstname;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastName(String lastname) {
+        this.lastName = lastname;
     }
 
     public String getPassword() {
@@ -81,13 +78,5 @@ public class UserAccount {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
-    }
-
-    public List<DegreeProgram> getDegreeprograms() {
-        return degreeprograms;
-    }
-
-    public void setDegreeprograms(List<DegreeProgram> degreePrograms) {
-        this.degreeprograms = degreePrograms;
     }
 }

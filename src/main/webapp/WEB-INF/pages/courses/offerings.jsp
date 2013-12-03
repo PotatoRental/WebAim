@@ -1,5 +1,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,21 @@
         <jsp:include page="../pagefrags/bread.jsp"/>
 
         <div class="list col-md-12 row" id="search" >
+            <sec:authorize ifNotGranted="ROLE_CIC, ROLE_ADMIN">
+                <div class=" blue-hover col-md-12 ">
+                    <div class="input-group" id="search-input-group">
+                      <span class="input-group-btn">
+                        <span id="search-ico" class="glyphicon glyphicon-search"></span>
+                      </span>
+                        <input type="text" class="form-control" id="search-field" value="Search Course Offerings"
+                               onclick="this.value=''">
+                    </div>
+                    <!-- /input-group -->
 
+                </div>
+
+            </sec:authorize>
+            <sec:authorize ifAnyGranted=" ROLE_CIC, ROLE_ADMIN">
             <div class=" blue-hover col-md-3 ">
                 <div class="input-group" id="search-input-group">
                       <span class="input-group-btn">
@@ -34,6 +49,7 @@
             <div class="blue-hover col-md-9 ">
                 <div class="add-btn blue-hover" id="add-offering"><span class="glyphicon glyphicon-plus"></span> &nbsp;&nbsp; Add Course Offering</div>
             </div>
+            </sec:authorize>
 
         </div>
 
@@ -41,9 +57,9 @@
             <div class="search-results">
                 <ul>
                     <c:forEach var="i" begin="100" end="300" step="10">
-                        <li class="course search-list">CSE${i}</li>
-                        <li class="search-list hidden offering">
-                            &emsp;CSE${i}-01 | Fall 2013
+                        <li class="course search-list">CSE${i}<span class="course-desc"> | Course Description Here.</span></li>
+                        <li class="search-list hidden offering link">
+                            &emsp;CSE${i}-01: Fall 2013
                         </li>
                     </c:forEach>
                 </ul>
@@ -72,7 +88,8 @@
                 $(".sidebar").removeClass("col-sm-12");
                 smallToggled = true;
             }
-
+            $(".course-desc").hide();
+            $("#course-home").load("/courses/view-offering");
             //$("#course-home").load("/courses/offerings/" + event.target.id);
         });
     });

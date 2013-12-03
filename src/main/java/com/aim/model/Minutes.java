@@ -1,9 +1,6 @@
 package com.aim.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -28,6 +25,9 @@ public class Minutes {
 
     @Column
     private String minutes;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private DegreeProgram degreeProgram;
 
     public Integer getId() {
         return id;
@@ -59,5 +59,13 @@ public class Minutes {
 
     public void setMinutes(String minutes) {
         this.minutes = minutes;
+    }
+
+    public DegreeProgram getDegreeProgram() {
+        return degreeProgram;
+    }
+
+    public void setDegreeProgram(DegreeProgram program) {
+        this.degreeProgram = program;
     }
 }

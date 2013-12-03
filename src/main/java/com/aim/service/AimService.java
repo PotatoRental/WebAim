@@ -50,4 +50,8 @@ public class AimService {
     public List<UserAccount> getAllCourseCoordinator() {
         return userDao.getAllUserRole(Role.ROLE_CC);
     }
+
+    public void saveCourse(Course course) {
+        courseDao.saveCourse(course);
+    }
 }
