@@ -27,17 +27,20 @@ public class StudentOutcome {
     private String description;
 
     @Column(nullable = false)
-    private Integer targetDirectAssessmentAttainmentLevel;
+    private Float targetDirectAssessmentAttainmentLevel;
 
     @Column(nullable = false)
-    private Integer targetSurveyAssessmentAttainmentLevel;
+    private Float targetSurveyAssessmentAttainmentLevel;
+
+    @Column(nullable = false)
+    private String validityPeriod;
+
+    @OneToMany(mappedBy = "studentOutcome")
+    private List<StudentOutcomeCourseOutcomeMapping> studentOutcomeCourseOutcomeMappings;
 
     @ManyToOne
     @JoinColumn(name = "degreeProgramId")
     private DegreeProgram degreeprogram;
-
-    @ManyToMany(mappedBy = "studentOutcomes")
-    private List<CourseOutcome> courseOutcomes;
 
     public String getDescription() {
         return description;
@@ -79,19 +82,19 @@ public class StudentOutcome {
         this.shortName = shortName;
     }
 
-    public Integer getTargetDirectAssessmentAttainmentLevel() {
+    public Float getTargetDirectAssessmentAttainmentLevel() {
         return targetDirectAssessmentAttainmentLevel;
     }
 
-    public void setTargetDirectAssessmentAttainmentLevel(Integer targetDirectAssessmentAttainmentLevel) {
+    public void setTargetDirectAssessmentAttainmentLevel(Float targetDirectAssessmentAttainmentLevel) {
         this.targetDirectAssessmentAttainmentLevel = targetDirectAssessmentAttainmentLevel;
     }
 
-    public Integer getTargetSurveyAssessmentAttainmentLevel() {
+    public Float getTargetSurveyAssessmentAttainmentLevel() {
         return targetSurveyAssessmentAttainmentLevel;
     }
 
-    public void setTargetSurveyAssessmentAttainmentLevel(Integer targetSurveyAssessmentAttainmentLevel) {
+    public void setTargetSurveyAssessmentAttainmentLevel(Float targetSurveyAssessmentAttainmentLevel) {
         this.targetSurveyAssessmentAttainmentLevel = targetSurveyAssessmentAttainmentLevel;
     }
 }

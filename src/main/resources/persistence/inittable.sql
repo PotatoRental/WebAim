@@ -4,6 +4,7 @@ CREATE TABLE UserAccount(
 	email varchar(40),
 	firstName varchar(40),
 	lastName varchar(40),
+	isEvaluator bit,
 	PRIMARY KEY (username),
 	UNIQUE (email)
 );
@@ -77,8 +78,8 @@ CREATE TABLE StudentOutcome(
 );
 
 CREATE TABLE Course(
-	id varchar(10),
-	name varchar(50),
+	id varchar(20),
+	name varchar(255),
 	courseCoordinatorUsername varchar(40),
 	alternateCourseCoordinatorUsername varchar(40),
 	PRIMARY KEY (id),
@@ -91,7 +92,7 @@ CREATE TABLE Course(
 );
 
 CREATE TABLE Course_DegreeProgram(
-	courseId varchar(10),
+	courseId varchar(20),
 	degreeProgramId varchar(10),
 	PRIMARY KEY (courseId, degreeProgramId),
 	FOREIGN KEY (courseId) REFERENCES Course(id)
@@ -105,7 +106,7 @@ CREATE TABLE Course_DegreeProgram(
 CREATE TABLE CourseOutcome(
 	sequenceNumber integer,
 	description varchar(1000),
-	courseId varchar(10),
+	courseId varchar(20),
 	PRIMARY KEY (sequenceNumber),
 	FOREIGN KEY (courseId) REFERENCES Course(id)
 		ON DELETE NO ACTION
@@ -128,7 +129,7 @@ CREATE TABLE StudentOutcome_CourseOutcome(
 
 CREATE TABLE CourseOffering(
 	id integer,
-	courseId varchar(10),
+	courseId varchar(20),
 	section integer,
 	semester varchar(10),
 	instructorUsername varchar(40),
@@ -228,7 +229,6 @@ CREATE TABLE Survey(
 CREATE TABLE Survey_DegreeProgram(
 	surveyId integer,
 	degreeProgramId varchar(10),
-	peoAttainmentLevel integer,
 	PRIMARY KEY (surveyId, degreeProgramId),
 	FOREIGN KEY (surveyId) REFERENCES Survey(id)
 		ON DELETE CASCADE

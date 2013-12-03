@@ -1,9 +1,7 @@
 package com.aim.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,7 +27,10 @@ public class Survey {
     private String semester;
 
     @Column
-    private String result;
+    private String resultPath;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<DegreeProgram> degreeprograms;
 
     public Integer getId() {
         return id;
@@ -63,11 +64,11 @@ public class Survey {
         this.semester = semester;
     }
 
-    public String getResult() {
-        return result;
+    public String getResultPath() {
+        return resultPath;
     }
 
-    public void setResult(String result) {
-        this.result = result;
+    public void setResultPath(String result) {
+        this.resultPath = result;
     }
 }

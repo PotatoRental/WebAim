@@ -1,9 +1,7 @@
 package com.aim.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,18 +26,15 @@ public class CourseOffering {
     @Column
     private String semester;
 
-    //TODO: this maps to user account
-    @Column
-    private String instructorUsername;
+    @ManyToOne
+    @JoinColumn(name = "instructorUsername", referencedColumnName = "username")
+    private UserAccount instructor;
 
     @Column
     private String syllabusPath;
 
     @Column
     private String schedulePath;
-
-    @Column
-    private String lectureNotesPath;
 
     @Column
     private String eosReportPath;
@@ -49,6 +44,12 @@ public class CourseOffering {
 
     @Column
     private String cicReportPath;
+
+    @OneToMany(mappedBy = "courseOffering")
+    private List<LectureNote> lectureNotes;
+
+    @OneToMany(mappedBy = "courseOffering")
+    private List<Assignment> assignments;
 
     public Integer getId() {
         return id;
@@ -82,12 +83,12 @@ public class CourseOffering {
         this.semester = semester;
     }
 
-    public String getInstructorUsername() {
-        return instructorUsername;
+    public UserAccount getInstructor() {
+        return instructor;
     }
 
-    public void setInstructorUsername(String instructorUsername) {
-        this.instructorUsername = instructorUsername;
+    public void setInstructorUsername(UserAccount instructor) {
+        this.instructor = instructor;
     }
 
     public String getSyllabusPath() {
@@ -104,14 +105,6 @@ public class CourseOffering {
 
     public void setSchedulePath(String schedulePath) {
         this.schedulePath = schedulePath;
-    }
-
-    public String getLectureNotesPath() {
-        return lectureNotesPath;
-    }
-
-    public void setLectureNotesPath(String lectureNotesPath) {
-        this.lectureNotesPath = lectureNotesPath;
     }
 
     public String getEosReportPath() {
