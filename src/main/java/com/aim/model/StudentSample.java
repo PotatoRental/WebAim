@@ -20,7 +20,7 @@ public class StudentSample {
     private String quality;
 
     @Column
-    private String content;
+    private String filePath;
 
     @ManyToOne
     @JoinColumn(name = "assignmentId", referencedColumnName = "id")
@@ -42,12 +42,12 @@ public class StudentSample {
         this.quality = quality;
     }
 
-    public String getContent() {
-        return content;
+    public String getFilePath() {
+        return filePath;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setFilePath(String content) {
+        this.filePath = content;
     }
 
     public Assignment getAssignment() {

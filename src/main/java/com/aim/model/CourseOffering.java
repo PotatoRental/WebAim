@@ -130,4 +130,24 @@ public class CourseOffering {
     public void setCicReportPath(String cicReportPath) {
         this.cicReportPath = cicReportPath;
     }
+
+    public void setInstructor(UserAccount instructor) {
+        this.instructor = instructor;
+    }
+
+    public List<LectureNote> getLectureNotes() {
+        return lectureNotes;
+    }
+
+    public void setLectureNotes(List<LectureNote> lectureNotes) {
+        this.lectureNotes = lectureNotes;
+    }
+
+    public List<Assignment> getAssignments() {
+        return assignments;
+    }
+
+    public void setAssignments(List<Assignment> assignments) {
+        this.assignments = assignments;
+    }
 }

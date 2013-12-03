@@ -23,7 +23,7 @@ public class Peo {
     @Column(nullable = false)
     private String shortName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 8000)
     private String description;
 
     @Column(nullable = false)

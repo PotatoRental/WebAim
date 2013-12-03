@@ -61,10 +61,10 @@
 	INSERT INTO LectureNote(id, name, filePath, courseOfferingId) VALUES(1, 'Note 1', null, 1);
 
 /*Assignment*/
-	INSERT INTO Assignment(id, name, description, courseOfferingId) VALUES(1, 'Assignment 1', 'IDE setup', 1);
+	INSERT INTO Assignment(id, name, descriptionPath, courseOfferingId) VALUES(1, 'Assignment 1', null, 1);
 
 /*StudentSample*/
-	INSERT INTO StudentSample(id, quality, content, assignmentId) VALUES(1, 'GOOD', null, 1);
+	INSERT INTO StudentSample(id, quality, filePath, assignmentId) VALUES(1, 'GOOD', null, 1);
 
 /*CourseOfferingDirectAssessment*/
 	INSERT INTO CourseOfferingDirectAssessment(id, courseOutcomeId, courseOfferingId, assessmentInstrument, rationale, thresholdScore, attainmentLevel) VALUES(1, 1, 1, 'Assignment #1', 'testing the ability to setup programming softwares.', 60, 0.9);
@@ -89,5 +89,5 @@
 	INSERT INTO Survey_PEOAttainment(id, surveyId, PeoId, attainmentLevel) VALUES(2, 2, 'PEO 01', 1);
 
 /*Minutes*/
-	INSERT INTO Minutes(id, date, groups, minutes) VALUES(1, '2013-01-01', 'Advisory Board', null);
-	INSERT INTO Minutes(id, date, groups, minutes) VALUES(2, '2013-02-04', 'CIC', null);
+	INSERT INTO Minutes(id, date, groups, filePath) VALUES(1, '2013-01-01', 'Advisory Board', null);
+	INSERT INTO Minutes(id, date, groups, filePath) VALUES(2, '2013-02-04', 'CIC', null);

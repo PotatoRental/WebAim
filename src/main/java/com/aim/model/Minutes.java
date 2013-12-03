@@ -24,7 +24,7 @@ public class Minutes {
     private String groups;
 
     @Column
-    private String minutes;
+    private String filePath;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     private DegreeProgram degreeProgram;
@@ -53,12 +53,12 @@ public class Minutes {
         this.groups = group;
     }
 
-    public String getMinutes() {
-        return minutes;
+    public String getFilePath() {
+        return filePath;
     }
 
-    public void setMinutes(String minutes) {
-        this.minutes = minutes;
+    public void setFilePath(String minutes) {
+        this.filePath = minutes;
     }
 
     public DegreeProgram getDegreeProgram() {
