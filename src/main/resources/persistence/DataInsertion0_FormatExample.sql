@@ -64,7 +64,7 @@
 	INSERT INTO Assignment(id, name, description, courseOfferingId) VALUES(1, 'Assignment 1', 'IDE setup', 1);
 
 /*StudentSample*/
-	INSERT INTO StudentSample(id, quality, content, assignmentId) VALUES(1, 'GOOD', null, 1)
+	INSERT INTO StudentSample(id, quality, content, assignmentId) VALUES(1, 'GOOD', null, 1);
 
 /*CourseOfferingDirectAssessment*/
 	INSERT INTO CourseOfferingDirectAssessment(id, courseOutcomeId, courseOfferingId, assessmentInstrument, rationale, thresholdScore, attainmentLevel) VALUES(1, 1, 1, 'Assignment #1', 'testing the ability to setup programming softwares.', 60, 0.9);
