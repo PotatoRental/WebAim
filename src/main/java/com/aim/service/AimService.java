@@ -59,4 +59,8 @@ public class AimService {
     public List<DegreeProgram> getAllDegreeProgram() {
         return courseDao.getAllDegreeProgram();
     }
+
+    public DegreeProgram getDegreeProgramById(String degreeId) {
+        return courseDao.getDegreeProgramById(degreeId);
+    }
 }

@@ -64,8 +64,8 @@
                 Degree Programs
             </td>
             <td>
-                <spring:bind path="course.degreePrograms">
-                    <select multiple>
+                <spring:bind path="course.degreeprograms">
+                    <select multiple name="degrees">
                         <c:forEach var="degree" items="${degreePrograms}">
                             <option value="${degree.id}"
                                     <c:forEach var="courseDegree" items="${course.degreeprograms}">

@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -71,18 +74,26 @@ public class CoursesController {
     @RequestMapping(value = "{courseId}/submit", method = RequestMethod.POST)
     public String submitCourseEditor(@PathVariable String courseId,
                                      @ModelAttribute("course") Course course,
-                                     BindingResult courseResu, RedirectAttributes redirectAttributes) {
+                                     BindingResult courseResu,
+                                     HttpServletRequest request,
+                                     RedirectAttributes redirectAttributes) {
         logger.info("User tries to submit course.");
 
         String ccusername = (String) courseResu.getFieldError("courseCoordinator").getRejectedValue();
         String alterusername = (String) courseResu.getFieldError("alternateCourseCoordinator").getRejectedValue();
-        String degreeprograms[] = (String[]) courseResu.getFieldError("degreePrograms").getRejectedValue();
+        String degreeprograms[] = request.getParameterValues("degrees");
+
+        List<DegreeProgram> dPrograms = new ArrayList<DegreeProgram>();
+        for (String degree : degreeprograms)
+            dPrograms.add(aimService.getDegreeProgramById(degree));
+
         course.setCourseCoordinator(aimService.getUserByUsername(ccusername));
         course.setAlternateCourseCoordinator(aimService.getUserByUsername(alterusername));
+        course.setDegreeprograms(dPrograms);
 
         aimService.saveCourse(course);
 
-        redirectAttributes.addAttribute("course-added", "Course " + courseId + " has been added");
+        redirectAttributes.addFlashAttribute("course-modified", "Course " + courseId + " has been added");
 
         return "redirect:/courses";
     }

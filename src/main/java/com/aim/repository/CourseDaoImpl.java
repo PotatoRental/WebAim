@@ -61,6 +61,14 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     @Override
+    public DegreeProgram getDegreeProgramById(String degreeId) {
+        return (DegreeProgram) sessionFactory.getCurrentSession()
+                .createQuery("from DegreeProgram degree where degree.id = :degreeId")
+                .setString("degreeId", degreeId)
+                .uniqueResult();
+    }
+
+    @Override
     public Integer getNumCourses() {
         return (Integer) sessionFactory.getCurrentSession()
                 .createQuery("select count(course) from Course as course")

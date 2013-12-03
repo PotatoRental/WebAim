@@ -92,4 +92,5 @@ public class Course {
     public void setAlternateCourseCoordinator(UserAccount alternateCourseCoordinator) {
         this.alternateCourseCoordinator = alternateCourseCoordinator;
     }
+
 }
