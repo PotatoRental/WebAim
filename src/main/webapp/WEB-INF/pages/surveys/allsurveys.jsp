@@ -33,12 +33,13 @@
                         <th>Initiator</th>
                         <th>Semester</th>
                         <th>Results</th>
+                        <th>PEO Attainment Levels</th>
                         <th></th>
                     </tr>
                     <form>
                         <tr id="header-form">
                             <td>
-                                <select required name="degree-program">
+                                <select multiple required name="degree-program">
                                     <option value="CSE">Computer Science</option>
                                     <option value="ISE">Information Systems</option>
                                 </select>
@@ -65,6 +66,14 @@
                                 <input required type="file" name="results">
                             </td>
                             <td>
+                                <select name="attainment-level">
+                                    <c:forEach var="i" begin="0" end="10" step="1">
+                                        <option value="${10-i}">${10-i}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
+
+                            <td>
                                 <input type='submit' class="fat btn btn-primary" value='Add Survey'/>
                             </td>
                         </tr>
@@ -78,6 +87,7 @@
                             <td>${survey.initiator}</td>
                             <td>${survey.semester} </td>
                             <td><a href="/${survey.resultPath}">Results</a></td>
+                            <td>att. lvl</td>
 
                             <td>
                                 <button type='submit' class="edit-survey fat btn btn-primary">Edit Survey</button>

@@ -37,13 +37,14 @@
                     <form>
                         <tr id="header-form">
                             <th></th>
-                            <td><input required type='text' required name="shortname" class="fat" placeholder="Shortname"></td>
-                            <td><textarea required name="description" placeholder="Description"></textarea> </td>
+                            <td><input required type='text' required name="shortname" class="fat"
+                                       placeholder="Shortname"></td>
+                            <td><textarea required name="description" class="fat" placeholder="Description"></textarea></td>
                             <td>
                                 <select name="target-attainment">
-                                <c:forEach var="i" begin="1" end="10" step="1">
-                                    <option value="${i}">${i}</option>
-                                </c:forEach>
+                                    <c:forEach var="i" begin="0" end="10" step="1">
+                                        <option value="${10-i}">${10-i}</option>
+                                    </c:forEach>
                                 </select>
 
                             </td>
@@ -63,8 +64,9 @@
                             </td>
                             <td>
                                 <select multiple required name="degree-program">
-                                    <option value="CSE">Computer Science</option>
-                                    <option value="ISE">Information Systems</option>
+                                    <option value="CSE">CSE</option>
+                                    <option value="ISE">ISE</option>
+
                                 </select>
                             </td>
 
@@ -73,13 +75,17 @@
                             </td>
                         </tr>
                     </form>
-                    <c:forEach items="${surveys}" var="survey">
-
-
+                    <c:forEach items="${peos}" var="peo">
                         <tr>
+                            <td>${peo.sequenceNumber}</td>
+                            <td>${peo.shortName}</td>
+                            <td>${peo.description}</td>
+                            <td>${peo.targetAttainment}</td>
+                            <td>${peo.validityPeriod}</td>
+                            <td>${peo.degreeprogram.id}</td>
 
                             <td>
-                                <button type='submit' class="edit-survey fat btn btn-primary">Edit Survey</button>
+                                <button type='submit' class="edit-survey fat btn btn-primary">Edit PEO</button>
                             </td>
                         </tr>
                     </c:forEach>

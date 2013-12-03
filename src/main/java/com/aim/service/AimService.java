@@ -17,6 +17,7 @@ public class AimService {
 
     private CourseDao courseDao;
     private MinutesDao minutesDao;
+    private PeoDao peoDao;
     private StudentOutcomeDao studentOutcomeDao;
     private SurveyDao surveyDao;
     private UserDao userDao;
@@ -24,11 +25,13 @@ public class AimService {
     @Autowired
     private AimService(CourseDao courseDao,
                        MinutesDao minutesDao,
+                       PeoDao peoDao,
                        StudentOutcomeDao studentOutcomeDao,
                        SurveyDao surveyDao,
                        UserDao userDao) {
         this.courseDao = courseDao;
         this.minutesDao = minutesDao;
+        this.peoDao = peoDao;
         this.studentOutcomeDao = studentOutcomeDao;
         this.surveyDao = surveyDao;
         this.userDao = userDao;
@@ -78,11 +81,15 @@ public class AimService {
         return minutesDao.getAllMinutes();
     }
 
+    public List<Peo> getAllPeos() {
+        return peoDao.getAllPeos();
+    }
+
     public List<StudentOutcome> getAllStudentOutcomes() {
         return studentOutcomeDao.getAllStudentOutcomes();
     }
 
-    public List<Survey> getAllSurveys(){
+    public List<Survey> getAllSurveys() {
         return surveyDao.getAllSurveys();
     }
 

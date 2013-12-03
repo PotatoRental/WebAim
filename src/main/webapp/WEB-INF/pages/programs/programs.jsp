@@ -23,13 +23,14 @@
         <div class="col-md-12 col-sm-12">
 
 
-
             <div>
                 <table class="table table-striped">
                     <tr>
                         <th>Identifier</th>
                         <th>Description</th>
                         <th>Department</th>
+                        <th>PEOs</th>
+                        <th>Student Outcomes</th>
                         <th></th>
                     </tr>
                     <form>
@@ -43,7 +44,8 @@
                                     <option value="ISE">Information Systems</option>
                                 </select>
                             </td>
-
+                            <td></td>
+                            <td></td>
                             <td>
                                 <input type='submit' class="fat btn btn-primary" value='Add Program'/>
                             </td>
@@ -54,6 +56,8 @@
                             <td>${program.id}</td>
                             <td>${program.description}</td>
                             <td>${program.department}</td>
+                            <td></td>
+                            <td></td>
                             <td>
                                 <input type='submit' class="edit-program fat btn btn-primary" value='Edit Program'/>
                             </td>
