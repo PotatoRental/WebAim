@@ -93,27 +93,44 @@ public class CoursesController {
 
         aimService.saveCourse(course);
 
-        redirectAttributes.addFlashAttribute("course-modified", "Course " + courseId + " has been added");
+        redirectAttributes.addFlashAttribute("course-modified", "Course " + courseId + " has been modified");
 
         return "redirect:/courses";
     }
 
     @RequestMapping(value = "add-course", method = RequestMethod.GET)
-    @ModelAttribute("course")
     public String getCourseAdder(ModelMap modelMap) {
         logger.info("User tries to add course.");
 
         List<UserAccount> allCourseCoordinator = aimService.getAllCourseCoordinator();
+        List<DegreeProgram> degreePrograms = aimService.getAllDegreeProgram();
         modelMap.addAttribute("allCourseCoordinator", allCourseCoordinator);
         modelMap.addAttribute("course", new Course());
+        modelMap.addAttribute("degreePrograms", degreePrograms);
 
         return "courses/course-detail-add";
     }
 
-    @RequestMapping(value = "add-course", method = RequestMethod.POST)
-    public String addCourse(@PathVariable String courseId, @ModelAttribute Course course) {
+    @RequestMapping(value = "add-course/submit", method = RequestMethod.POST)
+    public String addCourse(@ModelAttribute("course") Course course, HttpServletRequest request,
+                            RedirectAttributes redirectAttributes) {
 
-        return "/course";
+        String ccusername = request.getParameter("courseCoordinator");
+        String alterusername = request.getParameter("alternateCourseCoordinator");
+        String degreeprograms[] = request.getParameterValues("degrees");
+
+        List<DegreeProgram> dPrograms = new ArrayList<DegreeProgram>();
+        for (String degree : degreeprograms)
+            dPrograms.add(aimService.getDegreeProgramById(degree));
+
+        course.setCourseCoordinator(aimService.getUserByUsername(ccusername));
+        course.setAlternateCourseCoordinator(aimService.getUserByUsername(alterusername));
+        course.setDegreeprograms(dPrograms);
+
+        redirectAttributes.addFlashAttribute("course-modified", "Course " + course.getId() + " has been added");
+
+        aimService.addCourse(course);
+        return "course";
     }
 
     @RequestMapping(value = "offerings", method = RequestMethod.GET)

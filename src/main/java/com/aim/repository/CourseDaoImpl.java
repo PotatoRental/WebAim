@@ -79,4 +79,9 @@ public class CourseDaoImpl implements CourseDao {
     public void saveCourse(Course course) {
         sessionFactory.getCurrentSession().update(course);
     }
+
+    @Override
+    public void addCourse(Course course) {
+        sessionFactory.getCurrentSession().save(course);
+    }
 }

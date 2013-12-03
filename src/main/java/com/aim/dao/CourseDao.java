@@ -18,4 +18,5 @@ public interface CourseDao {
     public Course getCourseById(String courseId);
     public Integer getNumCourses();
     public void saveCourse(Course course);
+    public void addCourse(Course course);
 }
