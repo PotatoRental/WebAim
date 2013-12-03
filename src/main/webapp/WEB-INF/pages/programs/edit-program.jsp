@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/> | <fmt:message key="title.courses"/></title>
+    <title><fmt:message key="title"/> | Edit Degree Program</title>
 
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Qiang He"/>
     <jsp:include page="../pagefrags/imports.jsp"/>

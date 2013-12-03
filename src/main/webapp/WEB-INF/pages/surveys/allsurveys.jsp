@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/> | Manage Student Outcomes</title>
+    <title><fmt:message key="title"/> | Manage Surveys</title>
 
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="../pagefrags/imports.jsp"/>
@@ -25,7 +25,7 @@
         <div class="col-md-12 col-sm-12">
 
             <div>
-                <h2>Manage Surveys</h2>
+
                 <table class="table table-striped">
                     <tr>
                         <th>Degree Program</th>

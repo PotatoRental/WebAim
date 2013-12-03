@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/> | Manage Student Outcomes</title>
+    <title><fmt:message key="title"/> | Degree Programs</title>
 
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="../pagefrags/imports.jsp"/>

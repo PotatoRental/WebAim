@@ -53,16 +53,21 @@
                 </form>
 
 
-                <c:forEach var="i" begin="0" end="100" step="1">
+
+                <c:forEach var="user" items="${userlist}">
                     <tr>
-                        <td><a href="/users/userprofile">Walter White</a></td>
-                        <td>wwhite</td>
-                        <td>heisenberg@sbu</td>
+                        <td><a href="/users/userprofile">${user.firstName} ${user.lastName}</a></td>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
                         <td>
+
                             <ul class="list-unstyled">
-                                <li>Course Coordinator</li>
-                                <li>Instructor</li>
+                                <c:forEach var="role" items="${user.roles}">
+                                <li>${role.role}</li>
+
+                                </c:forEach>
                             </ul>
+
                         </td>
                         <td>
                             <button class="fat btn btn-primary" >Edit User</button>

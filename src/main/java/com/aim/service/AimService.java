@@ -43,6 +43,10 @@ public class AimService {
         return courseDao.getNumCourses();
     }
 
+    public List<UserAccount> getAllUsers() {
+        return userDao.getAllUsers();
+    }
+
     public UserAccount getUserByUsername(String username) {
         return userDao.getUserByUsername(username);
     }

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/> | <fmt:message key="title.courses"/></title>
+    <title><fmt:message key="title"/> | Student Outcomes</title>
 
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="../pagefrags/imports.jsp"/>
@@ -21,7 +21,7 @@
         <div class="col-md-12 col-sm-12">
 
             <div>
-                <h2>Manage Student Outcomes</h2>
+
                 <table class="table table-striped">
                         <form>
                             <tr id="header-form">

@@ -23,7 +23,7 @@
         <div class="col-md-12 col-sm-12">
 
             <div>
-                <h2>Manage Minutes</h2>
+
                 <table class="table table-striped">
                     <form>
                         <tr id="header-form">
