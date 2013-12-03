@@ -18,11 +18,11 @@
     </tr>
     <tr>
         <td class="title-col">Course Coordinator</td>
-        <td><a href="#">${course.courseCoordinator.firstName} ${course.courseCoordinator.lastName}</a></td>
+        <td><a href="/users/${course.courseCoordinator.username}">${course.courseCoordinator.firstName} ${course.courseCoordinator.lastName}</a></td>
     </tr>
     <tr>
         <td class="title-col">Alternate Course Coordinators:</td>
-        <td><a href="#">${course.alternateCourseCoordinator.firstName} ${course.alternateCourseCoordinator.lastName}</a></td>
+        <td><a href="/users/${course.alternateCourseCoordinator.username}">${course.alternateCourseCoordinator.firstName} ${course.alternateCourseCoordinator.lastName}</a></td>
     </tr>
     <tr>
         <td class="title-col">Degree Programs</td>
