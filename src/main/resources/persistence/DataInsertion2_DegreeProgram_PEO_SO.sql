@@ -10,8 +10,8 @@ INSERT INTO DegreeProgram(id, description, department) VALUES ('CSE', 'Computer 
 /*UserAccount_DegreeProgram*/
 
 /*PEO*/
-INSERT INTO PEO(id, sequenceNumber, shortName, description, targetAttainment, validityPeriod, degreeProgramId) VALUES ('PEO-01', '1', 'Practicing professionals', 'Establish themselves as practicing professionals or engage in advanced study in computer science, information technology, or related areas.', '10', '2000-2014', 'CSE');
-INSERT INTO PEO(id, sequenceNumber, shortName, description, targetAttainment, validityPeriod, degreeProgramId) VALUES ('PEO-02', '2', 'Training and self-learning', 'Advance professionally through organized training or self-learning in areas related to computer science and information technology.', '10', '2000-2014', 'CSE');
+INSERT INTO PEO(id, sequenceNumber, shortName, description, targetAttainment, validityPeriod, degreeProgramId) VALUES ('PEO-01', '1', 'Est', 'Establish themselves as practicing professionals or engage in advanced study in computer science, information technology, or related areas.', '10', '2000-2014', 'CSE');
+INSERT INTO PEO(id, sequenceNumber, shortName, description, targetAttainment, validityPeriod, degreeProgramId) VALUES ('PEO-02', '2', 'Adv', 'Advance professionally through organized training or self-learning in areas related to computer science and information technology.', '10', '2000-2014', 'CSE');
 
 /*StudentOutcome*/
 INSERT INTO StudentOutcome(id, sequenceNumber, shortName, description, targetDirectAssessmentAttainmentLevel, targetSurveyAssessmentAttainmentLevel, validityPeriod, degreeProgramId) VALUES ('SO-01', '1', 'Apply', 'An ability to apply knowledge of computing and mathematics appropriate to the discipline', '10', '10', '2000-2014', 'CSE');
