@@ -14,7 +14,6 @@
 <div class="container">
 
 
-
     <jsp:include page="../pagefrags/nav.jsp"/>
 
     <div class="row maincontent">
@@ -50,8 +49,8 @@
                                 <select required name="semester" id="semester">
                                     <%--<option disabled value="month" selected="selected">Month</option>--%>
 
-                                        <option value="fall">Fall</option>
-                                        <option value="spring">Spring</option>
+                                    <option value="fall">Fall</option>
+                                    <option value="spring">Spring</option>
                                 </select>
 
                                 <select required name="year" id="year">
@@ -63,8 +62,10 @@
                             </td>
 
                             <td>
-                                <small class="filename">no file selected</small><br>
-                                <button class="btn btn-default">Select Results File</button></td>
+                                <small class="filename">no file selected</small>
+                                <br>
+                                <button class="btn btn-default">Select Results File</button>
+                            </td>
                             <td>
                                 <input type='submit' class="fat btn btn-primary" value='Add Survey'/>
                             </td>
@@ -73,22 +74,20 @@
                     <c:forEach var="i" begin="0" end="23" step="1">
 
 
-                    <tr>
-                        <td>Computer Science</td>
-                        <td>Group Name</td>
-                        <td>Initiator</td>
-                        <td>
-                            Fall 2013
-                        </td>
-                        <td><a href="#">results.pdf</a></td>
+                        <tr>
+                            <td>Computer Science</td>
+                            <td>Group Name</td>
+                            <td>Initiator</td>
+                            <td>
+                                Fall 2013
+                            </td>
+                            <td><a href="#">results.pdf</a></td>
 
-                        <td>
-                            <button type='submit' class="fat btn btn-primary">Edit Survey</button>
-                        </td>
-                    </tr>
+                            <td>
+                                <button type='submit' class="edit-survey fat btn btn-primary">Edit Survey</button>
+                            </td>
+                        </tr>
                     </c:forEach>
-
-
 
 
                 </table>
@@ -102,11 +101,13 @@
 </div>
 
 
-
 <script type="text/javascript">
-   $("button").click(function(){
-       window.location="/surveys/edit-survey";
-   })
+    var uploaded = false;
+    $("input[type='submit']").attr("disabled", !uploaded);
+
+    $(".edit-survey").click(function () {
+        window.location = "/surveys/edit-survey";
+    })
 </script>
 
 </body>

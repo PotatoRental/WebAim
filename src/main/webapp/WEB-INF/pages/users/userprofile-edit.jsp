@@ -19,50 +19,60 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+        <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
         <div class="col-md-12 col-lg-12">
-<p>
-<h1>Walter White</h1>
+            <p>
 
-    &nbsp;&nbsp;<a id="edit-course" href="#">Edit</a>
+            <h1>Walter White</h1>
 
-</p>
-<table class="table table-bordered table-striped">
-    <tr>
-        <td class="title-col">Full Name</td>
-        <td>Walter White</td>
-    </tr>
-    <tr>
-        <td class="title-col">Username</td>
-        <td>wwhite</td>
-    </tr>
-    <tr>
-        <td class="title-col">Email</td>
-        <td>heisenberg@sbu</td>
-    </tr>
-    <tr>
-        <td class="title-col">Roles</td>
-        <td>
-            <ul class="list-unstyled">
-                <li>
-                    Course Coordinator
-                </li>
-                <li>
-                    Instructor
-                </li>
-            </ul>
-        </td>
-    </tr>
+            &nbsp;&nbsp;<a id="edit-course" href="#">Cancel</a>
 
-</table>
+            </p>
+            <form>
+                <table class="table table-bordered table-striped">
 
+                    <tr>
+                        <td class="title-col">Full Name</td>
+                        <td><input required type="text" name="first-name" value="Walter"/>
+                            <input required type="text" name="last-name" value="White"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title-col">Username</td>
+                        <td> <input required type="text" name="username" value="wwhite"/></td>
+                    </tr>
+                    <tr>
+                        <td class="title-col">Email</td>
+                        <td> <input required type="text" name="email" value="heisenberg@sbu"/></td>
+                    </tr>
+                    <tr>
+                        <td class="title-col">Roles</td>
+                        <td>
+                            <input type="checkbox" name="role" value="Admin">Admin<br/>
+                            <input type="checkbox" name="role" value="CIC">CIC Member<br/>
+                            <input type="checkbox" name="role" value="Course-Coordinator">Course Coordinator <br/>
+                            <input type="checkbox" name="role" value="Evaluator">Evaluator<br/>
+                            <input type="checkbox" name="role" value="Instructor">Instructor
+                        </td>
+                    </tr>
+
+
+                </table>
+                <input type="submit" class="btn btn-default fat-btn blue-hover" value="Submit"/>
+            </form>
+        </div>
     </div>
+
+    <jsp:include page="../pagefrags/footer.jsp"/>
 </div>
 
-<jsp:include page="../pagefrags/footer.jsp"/>
-                </div>
-
 <script type="text/javascript">
+    var checkboxes = $("input[type='checkbox']");
+    $("input[type='submit']").attr("disabled", !checkboxes.is(":checked"));
+
+    checkboxes.click(function() {
+        $("input[type='submit']").attr("disabled", !checkboxes.is(":checked"));
+    });
 
 </script>

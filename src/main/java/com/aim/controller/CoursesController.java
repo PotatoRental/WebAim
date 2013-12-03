@@ -93,6 +93,10 @@ public class CoursesController {
     @RequestMapping(value = "offerings", method = RequestMethod.GET)
     public String getOfferings(ModelMap modelMap) {
         logger.info("User tries to get course offering information.");
+
+        List<Course> courseList = aimService.getAllCourses();
+        modelMap.addAttribute("courseList", courseList);
+
         return "courses/offerings";
     }
 

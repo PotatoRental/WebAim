@@ -50,7 +50,7 @@
                             <td>Bachelor of Science in Computer Science</td>
                             <td>Computer Science</td>
                             <td>
-                                <input type='submit' class="fat btn btn-primary" value='Edit Program'/>
+                                <input type='submit' class="edit-program fat btn btn-primary" value='Edit Program'/>
                             </td>
                         </tr>
                     </c:forEach>
@@ -67,7 +67,9 @@
 </div>
 
 <script type="text/javascript">
-
+    $(".edit-program").click(function () {
+        window.location = "/programs/edit";
+    })
 </script>
 
 </body>

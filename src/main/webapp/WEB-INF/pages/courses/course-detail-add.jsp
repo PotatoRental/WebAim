@@ -12,14 +12,14 @@
 
         <tr>
             <td class="title-col">Course Identifier</td>
-            <td><input type="text" class="fat" onclick="this.select()" placeholder="Enter course identifier"></td>
+            <td><input required type="text" class="fat" onclick="this.select()" placeholder="Enter course identifier"></td>
         </tr>
         <tr>
             <td class="title-col">
                 Course Name
             </td>
             <td>
-                <input type="text" class="fat" onclick="this.select()" placeholder="Enter course name">
+                <input required type="text" class="fat" onclick="this.select()" placeholder="Enter course name">
             </td>
         </tr>
         <tr>

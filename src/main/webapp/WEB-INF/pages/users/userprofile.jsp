@@ -25,7 +25,7 @@
 <p>
 <h1>Walter White</h1>
 
-    &nbsp;&nbsp;<a id="edit-course" href="#">Edit</a>
+    &nbsp;&nbsp;<a id="edit-course" href="/users/edit">Edit</a>
 
 </p>
 <table class="table table-bordered table-striped">

@@ -33,7 +33,15 @@ public class UsersController {
     }
 
     @RequestMapping(value = "{userid}", method = RequestMethod.GET)
-    public String getUser() {
+    public String getUser(ModelMap modelMap) {
         return "users/userprofile";
     }
+
+    @RequestMapping(value = "edit", method = RequestMethod.GET)
+    public String getUserEditor(ModelMap modelMap) {
+        return "users/userprofile-edit";
+    }
+
+
+
 }

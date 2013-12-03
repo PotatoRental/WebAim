@@ -65,7 +65,7 @@
                             </ul>
                         </td>
                         <td>
-                            <input type='submit' class="fat btn btn-primary" value='Edit User'/>
+                            <button class="fat btn btn-primary" >Edit User</button>
                         </td>
                     </tr>
                 </c:forEach>
@@ -78,5 +78,15 @@
 </div>
 
 </div>
+
+<script type="text/javascript">
+    var checkboxes = $("input[type='checkbox']");
+    $("input[type='submit']").attr("disabled", !checkboxes.is(":checked"));
+
+    checkboxes.click(function() {
+        $("input[type='submit']").attr("disabled", !checkboxes.is(":checked"));
+    });
+
+</script>
 </body>
 </html>
