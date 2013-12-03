@@ -32,7 +32,7 @@
             <p>
               <h1>Edit Survey</h1>
             </p>
-            <form>
+            <form method="POST">
                 <table class="table table-bordered table-striped">
                     <tr>
                         <td class="title-col">Degree Program</td>
@@ -54,14 +54,18 @@
                     </tr>
                     <tr>
                         <td class="title-col">Group</td>
-                       <td>
-                           <input required type="text" name="group" value="${survey.groups}" placeholder="Group"/>
-                       </td>
+                        <td>
+                           <spring:bind path="survey.groups">
+                               <input required type="text" name="${status.expression}" value="${survey.groups}" placeholder="Group"/>
+                           </spring:bind>
+                        </td>
                     </tr>
                     <tr>
                         <td class="title-col">Initiator</td>
                         <td>
-                            <input required type="text" name="group" value="${survey.initiator}" placeholder="Initiator"/>
+                            <spring:bind path="survey.initiator">
+                                <input required type="text" name="${status.expression}" value="${survey.initiator}" placeholder="Initiator"/>
+                            </spring:bind>
                         </td>
                     </tr>
                     <tr>

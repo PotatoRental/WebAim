@@ -113,7 +113,7 @@
 
 <script type="text/javascript">
     $(".edit-survey").click(function (event) {
-        window.location = "/surveys/edit/" + event.currentTarget.id;
+        window.location = "/surveys/" + event.currentTarget.id;
     })
 </script>
 

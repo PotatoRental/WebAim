@@ -16,10 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -42,7 +44,7 @@ public class SurveyController {
         return "/surveys/allsurveys";
     }
 
-    @RequestMapping(value="edit/{surveyId}", method = RequestMethod.GET)
+    @RequestMapping(value="{surveyId}", method = RequestMethod.GET)
     public String getSurveyEditor (@PathVariable String surveyId, ModelMap modelMap) {
         logger.info("User tries to edit survey");
 
@@ -52,6 +54,17 @@ public class SurveyController {
         modelMap.addAttribute("degreePrograms", degreePrograms);
 
         return "/surveys/edit-survey";
+    }
+
+    @RequestMapping(value = "{surveyId}", method = RequestMethod.POST)
+    public String modifySurvey(@PathVariable String surveyId,
+                               @ModelAttribute Survey survey,
+                               HttpServletRequest request) {
+
+        survey.setId(Integer.parseInt(surveyId));
+
+
+        return "/surveys/" + survey.getId();
     }
 
 }
