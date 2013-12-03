@@ -56,7 +56,7 @@
 
                 <c:forEach var="user" items="${userlist}">
                     <tr>
-                        <td><a href="/users/userprofile">${user.firstName} ${user.lastName}</a></td>
+                        <td><a href="/users/${user.username}">${user.firstName} ${user.lastName}</a></td>
                         <td>${user.username}</td>
                         <td>${user.email}</td>
                         <td>
@@ -70,7 +70,7 @@
 
                         </td>
                         <td>
-                            <button class="fat btn btn-primary" >Edit User</button>
+                            <button id="${user.username}"class="edit-user fat btn btn-primary" >Edit User</button>
                         </td>
                     </tr>
                 </c:forEach>
@@ -85,6 +85,13 @@
 </div>
 
 <script type="text/javascript">
+
+    $(".edit-user").click(function(){
+        //$( "#course-home" ).load( "/courses/${course.id}/edit" );
+        //window.location = "/users/edit";
+        window.location = "/users/"+$(this).attr("id");
+    });
+
     var checkboxes = $("input[type='checkbox']");
     $("input[type='submit']").attr("disabled", !checkboxes.is(":checked"));
 

@@ -24,7 +24,7 @@ public class StudentOutcomeCourseOutcomeMapping {
     @JoinColumn(name = "courseOutcomeId", referencedColumnName = "sequenceNumber")
     private CourseOutcome courseOutcome;
 
-    @Column
+    @Column (length = 8000)
     private String rationale;
 
     @Column

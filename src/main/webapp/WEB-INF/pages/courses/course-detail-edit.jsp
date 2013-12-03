@@ -64,10 +64,19 @@
                 Degree Programs
             </td>
             <td>
-                <select multiple class="fat" name="degree-programs">
-                    <option value="cse" selected="selected">Computer Science</option>
-                    <option value="ise">Information Systems</option>
-                </select>
+                <spring:bind path="course.degreeprograms">
+                    <select multiple name="degrees">
+                        <c:forEach var="degree" items="${degreePrograms}">
+                            <option value="${degree.id}"
+                                    <c:forEach var="courseDegree" items="${course.degreeprograms}">
+                                        <c:if test="${degree.id eq courseDegree.id}">
+                                            selected="selected"
+                                        </c:if>
+                                    </c:forEach>
+                                    >${degree.department}</option>
+                        </c:forEach>
+                    </select>
+                </spring:bind>
             </td>
         </tr>
         <tr>
@@ -75,16 +84,20 @@
                 Course Outcomes:
             </td>
             <td>
-                <p><textarea class="fat">Develop the students ability to create Web pages using validated XHTML standards.</textarea>
-                    </p>
-                <p><textarea class="fat">Introduce the students to the use of Cascading Style Sheets for formatting the presentation of Web pages, and the principles of what makes good Web page style.</textarea>
-                </p>
-                <p>
-                    <textarea class="fat">Introduce the students to effective page layout principles and the use of CSS positioning for effective Web page layout.</textarea>
-                </p>
-                <p>
-                    <textarea class="fat">Introduce the students to WYSIWYG tools for creating well designed and organized Web sites.</textarea>
-                </p>
+                <c:forEach var="outcome" items="${course.courseOutcomes}">
+                    <p><textarea class="fat">${outcome.description}</textarea></p>
+                </c:forEach>
+
+                <%--<p><textarea class="fat">Develop the students ability to create Web pages using validated XHTML standards.</textarea>--%>
+                    <%--</p>--%>
+                <%--<p><textarea class="fat">Introduce the students to the use of Cascading Style Sheets for formatting the presentation of Web pages, and the principles of what makes good Web page style.</textarea>--%>
+                <%--</p>--%>
+                <%--<p>--%>
+                    <%--<textarea class="fat">Introduce the students to effective page layout principles and the use of CSS positioning for effective Web page layout.</textarea>--%>
+                <%--</p>--%>
+                <%--<p>--%>
+                    <%--<textarea class="fat">Introduce the students to WYSIWYG tools for creating well designed and organized Web sites.</textarea>--%>
+                <%--</p>--%>
 
             </td>
         </tr>

@@ -29,9 +29,11 @@
             <td>
                 <select class="fat" required>
                     <option disabled value="select-cc" selected="selected">Select Course Coordinator</option>
-                    <c:forEach var="cc" items="${allCourseCoordinator}">
-                        <option value="${cc.username}">${cc.firstName} ${cc.lastName}</option>
-                    </c:forEach>
+                    <c:if test="${not empty allCourseCoordinator}">
+                        <c:forEach var="cc" items="${allCourseCoordinator}">
+                            <option value="${cc.username}">${cc.firstName} ${cc.lastName}</option>
+                        </c:forEach>
+                    </c:if>
                 </select>
             </td>
         </tr>
@@ -42,9 +44,11 @@
             <td>
                 <select class="fat" required>
                     <option disabled value="select-alt-cc" selected="selected">Select Alternate Course Coordinator</option>
-                    <c:forEach var="cc" items="${allCourseCoordinator}">
-                        <option value="${cc.username}">${cc.firstName} ${cc.lastName}</option>
-                    </c:forEach>
+                    <c:if test="${not empty allCourseCoordinator}">
+                        <c:forEach var="cc" items="${allCourseCoordinator}">
+                            <option value="${cc.username}">${cc.firstName} ${cc.lastName}</option>
+                        </c:forEach>
+                    </c:if>
                 </select>
 
             </td>

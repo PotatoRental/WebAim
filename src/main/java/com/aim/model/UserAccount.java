@@ -82,4 +82,12 @@ public class UserAccount {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
+
+    public List<DegreeProgram> getDegreeprograms() {
+        return degreeprograms;
+    }
+
+    public void setDegreeprograms(List<DegreeProgram> degreeprograms) {
+        this.degreeprograms = degreeprograms;
+    }
 }
