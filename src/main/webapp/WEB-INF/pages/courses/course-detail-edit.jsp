@@ -110,11 +110,17 @@
             </td>
         </tr>
 
+
+
+
 </table>
     <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Submit'/>
 </form>
 <script type="text/javascript">
     $("#edit-cancel").click(function(){
+        $( "#course-home" ).load( "/courses/${course.id}" );
+    });
+    $("#submit").click(function(){
         $( "#course-home" ).load( "/courses/${course.id}" );
     });
 </script>

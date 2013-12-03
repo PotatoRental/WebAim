@@ -23,34 +23,31 @@
 
         <div class="col-md-12 col-lg-12">
 <p>
-<h1>Walter White</h1>
+<h1>${user.firstName} ${user.lastName}</h1>
 
-    &nbsp;&nbsp;<a id="edit-course" href="#">Edit</a>
+    &nbsp;&nbsp;<a id="edit-course" href="/users/edit">Edit</a>
 
 </p>
 <table class="table table-bordered table-striped">
     <tr>
         <td class="title-col">Full Name</td>
-        <td>Walter White</td>
+        <td>${user.firstName} ${user.lastName}</td>
     </tr>
     <tr>
         <td class="title-col">Username</td>
-        <td>wwhite</td>
+        <td>${user.username}</td>
     </tr>
     <tr>
         <td class="title-col">Email</td>
-        <td>heisenberg@sbu</td>
+        <td>${user.email}</td>
     </tr>
     <tr>
         <td class="title-col">Roles</td>
         <td>
             <ul class="list-unstyled">
-                <li>
-                    Course Coordinator
-                </li>
-                <li>
-                    Instructor
-                </li>
+                <c:forEach var="role" items ="${user.roles}">
+                    <li>${role.role}</li>
+                </c:forEach>
             </ul>
         </td>
     </tr>

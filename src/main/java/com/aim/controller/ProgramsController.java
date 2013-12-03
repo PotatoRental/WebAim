@@ -26,5 +26,10 @@ public class ProgramsController {
         return "/programs/programs";
     }
 
+    @RequestMapping(value = "edit", method = RequestMethod.GET)
+    public String getProgramEditor(ModelMap modelMap) {
+        return "/programs/edit-program";
+    }
+
 
 }

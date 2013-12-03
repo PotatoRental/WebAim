@@ -18,74 +18,73 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <div class="list col-md-3 col-sm-3" id="list">
-            <sec:authorize ifAnyGranted="ROLE_CC">
-                <div class="add-btn">
-                    Courses You Are Coordinating:
-                </div>
-                <div class="search-results">
-                    <ul>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                        <li><a href="#">CSE 110</a></li>
-                        <li><a href="#">CSE 114</a></li>
-                    </ul>
-                </div>
-            </sec:authorize>
 
-
-        </div>
-
-        <div class="col-md-9 col-sm-8">
-
+        <div class="col-md-12 col-sm-12">
 
 
             <div id="course-home">
-                <h2>To Do List</h2>
-                <p>Upload your report for the following courses:</p>
+                <sec:authorize ifAnyGranted=" ROLE_CC">
+                    <h2>Courses You Are Coordinating</h2>
+                    <table class="tabulate table table-bordered table-striped">
+                        <tr>
+                            <th>Course</th>
+                            <th>Report</th>
+                            <th></th>
 
-                <table class="tabulate table table-bordered table-striped">
-                    <tr>
-                        <td class="title-col"><a href="#">CSE 110</a> </td>
-                        <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                    </tr>
-                    <tr>
-                        <td class="title-col"><a href="#">CSE 110</a></td>
-                        <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                    </tr>
-                    <tr>
-                        <td class="title-col"><a href="#">CSE 110</a></td>
-                        <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                    </tr>
-                    <tr>
-                        <td class="title-col"><a href="#">CSE 110</a></td>
-                        <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                    </tr>
-                </table>
+                        <tr>
+                            <td><a href="#">CSE 110</a></td>
+                            <td><a href="#">report.txt</a></td>
+                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">CSE 110</a></td>
+                            <td><a href="#">report.txt</a>
+                            </td>
+                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">CSE 110</a></td>
+                            <td><a href="#">report.txt</a></td>
+                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">CSE 110</a></td>
+                            <td><a href="#">report.txt</a></td>
+                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
+                        </tr>
+                    </table>
+                </sec:authorize>
 
-                <h2>Your Reports</h2>
-                <table class="tabulate table table-bordered table-striped">
-                    <tr>
-                        <th>Course</th>
-                        <th>Report</th>
+                <sec:authorize ifAnyGranted=" ROLE_CIC, ROLE_ADMIN">
+                    <h2>All Reports</h2>
+                    <table class="tabulate table table-bordered table-striped">
+                        <tr>
+                            <th>Course</th>
+                            <th>Report</th>
+                            <th></th>
 
-                    <tr>
-                        <td class="title-col"><a href="#">CSE 110</a></td>
-                        <td><a href="#">report.txt</a> <input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                    </tr>
-                    <tr>
-                        <td class="title-col"><a href="#">CSE 110</a> </td>
-                        <td><a href="#">report.txt</a> <input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                    </tr>
-                    <tr>
-                        <td class="title-col"><a href="#">CSE 110</a> </td>
-                        <td><a href="#">report.txt</a> <input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                    </tr>
-                    <tr>
-                        <td class="title-col"><a href="#">CSE 110</a> </td>
-                        <td><a href="#">report.txt</a> <input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                    </tr>
-                </table>
+                        <tr>
+                            <td><a href="#">CSE 110 | Introduction to Programming</a></td>
+                            <td><a href="#">report.txt</a></td>
+                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">CSE 110 | Introduction to Programming</a></td>
+                            <td><a href="#">report.txt</a></td>
+                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">CSE 110 | Introduction to Programming</a></td>
+                            <td><a href="#">report.txt</a></td>
+                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">CSE 110 | Introduction to Programming</a></td>
+                            <td><a href="#">report.txt</a></td>
+                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
+                        </tr>
+                    </table>
+                </sec:authorize>
 
             </div>
 

@@ -53,19 +53,24 @@
                 </form>
 
 
-                <c:forEach var="i" begin="0" end="100" step="1">
+
+                <c:forEach var="user" items="${userlist}">
                     <tr>
-                        <td><a href="/users/userprofile">Walter White</a></td>
-                        <td>wwhite</td>
-                        <td>heisenberg@sbu</td>
+                        <td><a href="/users/${user.username}">${user.firstName} ${user.lastName}</a></td>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
                         <td>
+
                             <ul class="list-unstyled">
-                                <li>Course Coordinator</li>
-                                <li>Instructor</li>
+                                <c:forEach var="role" items="${user.roles}">
+                                <li>${role.role}</li>
+
+                                </c:forEach>
                             </ul>
+
                         </td>
                         <td>
-                            <input type='submit' class="fat btn btn-primary" value='Edit User'/>
+                            <button id="${user.username}"class="edit-user fat btn btn-primary" >Edit User</button>
                         </td>
                     </tr>
                 </c:forEach>
@@ -78,5 +83,22 @@
 </div>
 
 </div>
+
+<script type="text/javascript">
+
+    $(".edit-user").click(function(){
+        //$( "#course-home" ).load( "/courses/${course.id}/edit" );
+        //window.location = "/users/edit";
+        window.location = "/users/"+$(this).attr("id");
+    });
+
+    var checkboxes = $("input[type='checkbox']");
+    $("input[type='submit']").attr("disabled", !checkboxes.is(":checked"));
+
+    checkboxes.click(function() {
+        $("input[type='submit']").attr("disabled", !checkboxes.is(":checked"));
+    });
+
+</script>
 </body>
 </html>

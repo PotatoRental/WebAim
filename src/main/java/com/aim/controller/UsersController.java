@@ -1,12 +1,18 @@
 package com.aim.controller;
 
+import com.aim.model.UserAccount;
+import com.aim.service.AimService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,9 +27,16 @@ public class UsersController {
 
     private static final Logger logger = Logger.getLogger(UsersController.class);
 
+    @Autowired
+    private AimService aimService;
+
     @RequestMapping(method = RequestMethod.GET)
     public String getAllUsers(ModelMap modelMap) {
         logger.info("User tries to get all users' information.");
+
+        List<UserAccount> userList = aimService.getAllUsers();
+        modelMap.addAttribute("userlist", userList);
+
         return "users/allusers";
     }
 
@@ -32,8 +45,21 @@ public class UsersController {
         return "body";
     }
 
-    @RequestMapping(value = "{userid}", method = RequestMethod.GET)
-    public String getUser() {
+    @RequestMapping(value = "{userId}", method = RequestMethod.GET)
+    public String getUser(@PathVariable String userId, ModelMap modelMap) {
+        logger.info("User tries to view user: "+userId);
+
+        UserAccount user = aimService.getUserByUsername(userId);
+        modelMap.addAttribute("user",user);
+
         return "users/userprofile";
     }
+
+    @RequestMapping(value = "edit", method = RequestMethod.GET)
+    public String getUserEditor(ModelMap modelMap) {
+        return "users/userprofile-edit";
+    }
+
+
+
 }

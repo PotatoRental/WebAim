@@ -43,7 +43,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     public UserAccount getUserByUsername(String username) {
-        logger.info("User is getting all users by username");
+        logger.info("User is getting a user by username");
         return (UserAccount) sessionFactory.getCurrentSession()
                 .createQuery("from UserAccount where username = :username")
                 .setString("username", username)
