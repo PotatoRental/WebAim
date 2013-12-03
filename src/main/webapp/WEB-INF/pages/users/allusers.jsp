@@ -24,6 +24,7 @@
                     <th>Username</th>
                     <th>Email</th>
                     <th>Roles</th>
+                    <th>Evaluation Period</th></t>
                     <th></th>
 
                 </tr>
@@ -44,6 +45,20 @@
                             <input type="checkbox" name="role" value="Evaluator">Evaluator<br/>
                             <input type="checkbox" name="role" value="Instructor">Instructor
                         </td>
+                        <td>
+                            <select required name="start-year" id="start-year">
+                                <%--<option disabled value="year" selected="selected">Year</option>--%>
+                                <c:forEach var="i" begin="0" end="23" step="1">
+                                    <option value="${2013-i}">${2013-i}</option>
+                                </c:forEach>
+                            </select> -
+                            <select required name="end-year" id="end-year">
+                                <%--<option disabled value="year" selected="selected">Year</option>--%>
+                                <c:forEach var="i" begin="0" end="23" step="1">
+                                    <option value="${2013-i}">${2013-i}</option>
+                                </c:forEach>
+                            </select>
+                        </td>
 
                         <td>
                             <input type='submit' class="fat btn btn-primary" value='Add User'/>
@@ -51,7 +66,6 @@
 
                     </tr>
                 </form>
-
 
 
                 <c:forEach var="user" items="${userlist}">
@@ -63,14 +77,15 @@
 
                             <ul class="list-unstyled">
                                 <c:forEach var="role" items="${user.roles}">
-                                <li>${role.role}</li>
-
+                                    <li>${role.role}</li>
                                 </c:forEach>
                             </ul>
 
                         </td>
+                        <td>N/A</td>
+
                         <td>
-                            <button id="${user.username}"class="edit-user fat btn btn-primary" >Edit User</button>
+                            <button id="${user.username}" class="edit-user fat btn btn-primary">Edit User</button>
                         </td>
                     </tr>
                 </c:forEach>
@@ -86,16 +101,17 @@
 
 <script type="text/javascript">
 
-    $(".edit-user").click(function(){
-        //$( "#course-home" ).load( "/courses/${course.id}/edit" );
+    $(".edit-user").click(function () {
+        //$( "#course-home" ).load( "/courses/
+        ${course.id}/edit" );
         //window.location = "/users/edit";
-        window.location = "/users/"+$(this).attr("id");
+        window.location = "/users/" + $(this).attr("id") + "/edit";
     });
 
     var checkboxes = $("input[type='checkbox']");
     $("input[type='submit']").attr("disabled", !checkboxes.is(":checked"));
 
-    checkboxes.click(function() {
+    checkboxes.click(function () {
         $("input[type='submit']").attr("disabled", !checkboxes.is(":checked"));
     });
 

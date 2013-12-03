@@ -33,12 +33,13 @@
                         <th>Initiator</th>
                         <th>Semester</th>
                         <th>Results</th>
+                        <th>PEO Attainment Levels</th>
                         <th></th>
                     </tr>
                     <form>
                         <tr id="header-form">
                             <td>
-                                <select required name="degree-program">
+                                <select multiple required name="degree-program">
                                     <option value="CSE">Computer Science</option>
                                     <option value="ISE">Information Systems</option>
                                 </select>
@@ -62,26 +63,31 @@
                             </td>
 
                             <td>
-                                <small class="filename">no file selected</small>
-                                <br>
-                                <button class="btn btn-default">Select Results File</button>
+                                <input required type="file" name="results">
                             </td>
+                            <td>
+                                <select name="attainment-level">
+                                    <c:forEach var="i" begin="0" end="10" step="1">
+                                        <option value="${10-i}">${10-i}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
+
                             <td>
                                 <input type='submit' class="fat btn btn-primary" value='Add Survey'/>
                             </td>
                         </tr>
                     </form>
-                    <c:forEach var="i" begin="0" end="23" step="1">
+                    <c:forEach items="${surveys}" var="survey">
 
 
                         <tr>
-                            <td>Computer Science</td>
-                            <td>Group Name</td>
-                            <td>Initiator</td>
-                            <td>
-                                Fall 2013
-                            </td>
-                            <td><a href="#">results.pdf</a></td>
+                            <td>INSERT DEGREE PROGRAMS HERE</td>
+                            <td>${survey.groups}</td>
+                            <td>${survey.initiator}</td>
+                            <td>${survey.semester} </td>
+                            <td><a href="/${survey.resultPath}">Results</a></td>
+                            <td>att. lvl</td>
 
                             <td>
                                 <button type='submit' class="edit-survey fat btn btn-primary">Edit Survey</button>
@@ -102,9 +108,6 @@
 
 
 <script type="text/javascript">
-    var uploaded = false;
-    $("input[type='submit']").attr("disabled", !uploaded);
-
     $(".edit-survey").click(function () {
         window.location = "/surveys/edit-survey";
     })

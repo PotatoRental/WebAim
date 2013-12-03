@@ -21,9 +21,7 @@
 
 
         <div class="col-md-12 col-sm-12">
-
             <div>
-
                 <table class="table table-striped">
                     <form>
                         <tr id="header-form">
@@ -50,22 +48,19 @@
                                 </select>
                             </td>
                             <td><input type='text' required name="group" class="fat" placeholder="group"></td>
-                            <td><textarea name="minutes" class="fat" required
-                                          placeholder="Enter new minutes here."></textarea></td>
+                            <td><input required type="file" name="minutes"></td>
                             <td>
                                 <input type='submit' class="fat btn btn-default blue-hover" value='Add'/>
                             </td>
                         </tr>
                     </form>
-                    <c:forEach begin="0" end="20" var="i" step="1">
+                    <c:forEach items="${minutes}" var="min">
                         <tr>
                             <td>
-                                5/15/2013
+                                    ${1+min.date.month} / ${min.date.date} / ${1900+min.date.year}
                             </td>
-                            <td>Group Name</td>
-                            <td>
-                                An ability to apply knowledge of computing and mathematics appropriate to the discipline
-                            </td>
+                            <td>${min.groups}</td>
+                            <td>${min.filePath}</td>
                             <td>
                                 <button class="edit-minutes fat btn btn-primary">Edit Minutes</button>
                             </td>

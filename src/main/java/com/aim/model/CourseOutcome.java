@@ -17,7 +17,8 @@ public class CourseOutcome {
     @Column
     private Integer sequenceNumber;
 
-    @Column private String description;
+    @Column(length = 8000)
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "courseId")
@@ -48,5 +49,13 @@ public class CourseOutcome {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public List<StudentOutcomeCourseOutcomeMapping> getStudentOutcomeCourseOutcomeMappings() {
+        return studentOutcomeCourseOutcomeMappings;
+    }
+
+    public void setStudentOutcomeCourseOutcomeMappings(List<StudentOutcomeCourseOutcomeMapping> studentOutcomeCourseOutcomeMappings) {
+        this.studentOutcomeCourseOutcomeMappings = studentOutcomeCourseOutcomeMappings;
     }
 }

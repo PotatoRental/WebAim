@@ -21,7 +21,7 @@ public class Assignment {
     private String name;
 
     @Column
-    private String description;
+    private String descriptionPath;
 
     @OneToMany(mappedBy="assignment")
     private List<StudentSample> studentSampleList;
@@ -38,12 +38,12 @@ public class Assignment {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescriptionPath() {
+        return descriptionPath;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionPath(String description) {
+        this.descriptionPath = description;
     }
 
     public List<StudentSample> getStudentSampleList() {
@@ -52,5 +52,21 @@ public class Assignment {
 
     public void setStudentSampleList(List<StudentSample> studentSampleList) {
         this.studentSampleList = studentSampleList;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public CourseOffering getCourseOffering() {
+        return courseOffering;
+    }
+
+    public void setCourseOffering(CourseOffering courseOffering) {
+        this.courseOffering = courseOffering;
     }
 }
