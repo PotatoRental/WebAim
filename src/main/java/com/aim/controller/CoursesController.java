@@ -1,7 +1,6 @@
 package com.aim.controller;
 
 import com.aim.model.Course;
-import com.aim.model.CourseOutcome;
 import com.aim.model.DegreeProgram;
 import com.aim.model.UserAccount;
 import com.aim.service.AimService;
@@ -15,8 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -60,39 +59,51 @@ public class CoursesController {
 
         Course course = aimService.getCourseById(courseId);
         List<UserAccount> allCourseCoordinator = aimService.getAllCourseCoordinator();
+        List<DegreeProgram> degreePrograms = aimService.getAllDegreeProgram();
 
         modelMap.addAttribute("course", course);
         modelMap.addAttribute("ccaccount", new UserAccount());
         modelMap.addAttribute("allCourseCoordinator", allCourseCoordinator);
+        modelMap.addAttribute("degreePrograms", degreePrograms);
         return "courses/course-detail-edit";
     }
 
     @RequestMapping(value = "{courseId}/submit", method = RequestMethod.POST)
     public String submitCourseEditor(@PathVariable String courseId,
                                      @ModelAttribute("course") Course course,
-                                     BindingResult courseResu) {
+                                     BindingResult courseResu, RedirectAttributes redirectAttributes) {
         logger.info("User tries to submit course.");
 
         String ccusername = (String) courseResu.getFieldError("courseCoordinator").getRejectedValue();
         String alterusername = (String) courseResu.getFieldError("alternateCourseCoordinator").getRejectedValue();
+        String degreeprograms[] = (String[]) courseResu.getFieldError("degreePrograms").getRejectedValue();
         course.setCourseCoordinator(aimService.getUserByUsername(ccusername));
         course.setAlternateCourseCoordinator(aimService.getUserByUsername(alterusername));
 
         aimService.saveCourse(course);
 
-        return "courses/course-detail-edit";
+        redirectAttributes.addAttribute("course-added", "Course " + courseId + " has been added");
+
+        return "redirect:/courses";
     }
 
     @RequestMapping(value = "add-course", method = RequestMethod.GET)
+    @ModelAttribute("course")
     public String getCourseAdder(ModelMap modelMap) {
         logger.info("User tries to add course.");
 
         List<UserAccount> allCourseCoordinator = aimService.getAllCourseCoordinator();
         modelMap.addAttribute("allCourseCoordinator", allCourseCoordinator);
+        modelMap.addAttribute("course", new Course());
 
-        return "/courses/course-detail-add";
+        return "courses/course-detail-add";
     }
 
+    @RequestMapping(value = "add-course", method = RequestMethod.POST)
+    public String addCourse(@PathVariable String courseId, @ModelAttribute Course course) {
+
+        return "/course";
+    }
 
     @RequestMapping(value = "offerings", method = RequestMethod.GET)
     public String getOfferings(ModelMap modelMap) {
@@ -103,13 +114,13 @@ public class CoursesController {
     @RequestMapping(value = "view-offering", method = RequestMethod.GET)
     public String getOffering(ModelMap modelMap) {
         logger.info("User tries to view a course offering.");
-        return "/courses/view-offering";
+        return "courses/view-offering";
     }
 
     @RequestMapping(value = "edit-offering", method = RequestMethod.GET)
     public String getOfferingEditor(ModelMap modelMap) {
         logger.info("User tries to edit course offering information.");
-        return "/courses/edit-offering";
+        return "courses/edit-offering";
     }
 
     @RequestMapping(value = "missing-course-info", method = RequestMethod.GET)

@@ -2,6 +2,7 @@ package com.aim.repository;
 
 import com.aim.dao.CourseDao;
 import com.aim.model.Course;
+import com.aim.model.DegreeProgram;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,13 @@ public class CourseDaoImpl implements CourseDao {
         return sessionFactory.getCurrentSession()
                 .createQuery("from Course where id = :instructorId")
                 .setString("instructorId", instructorName)
+                .list();
+    }
+
+    @Override
+    public List<DegreeProgram> getAllDegreeProgram() {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from DegreeProgram ")
                 .list();
     }
 

@@ -3,6 +3,7 @@ package com.aim.service;
 import com.aim.dao.CourseDao;
 import com.aim.dao.UserDao;
 import com.aim.model.Course;
+import com.aim.model.DegreeProgram;
 import com.aim.model.Role;
 import com.aim.model.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,9 @@ public class AimService {
 
     public void saveCourse(Course course) {
         courseDao.saveCourse(course);
+    }
+
+    public List<DegreeProgram> getAllDegreeProgram() {
+        return courseDao.getAllDegreeProgram();
     }
 }
