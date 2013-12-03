@@ -79,10 +79,14 @@
                         </tr>
                     </form>
                     <c:forEach items="${surveys}" var="survey">
-
-
                         <tr>
-                            <td>INSERT DEGREE PROGRAMS HERE</td>
+                            <td>
+                                <ul>
+                                    <c:forEach var="degree" items="${survey.degreeprograms}">
+                                        ${degree.department}
+                                    </c:forEach>
+                                </ul>
+                            </td>
                             <td>${survey.groups}</td>
                             <td>${survey.initiator}</td>
                             <td>${survey.semester} </td>
@@ -90,7 +94,7 @@
                             <td>att. lvl</td>
 
                             <td>
-                                <button type='submit' class="edit-survey fat btn btn-primary">Edit Survey</button>
+                                <button type='submit' id="${survey.id}" class="edit-survey fat btn btn-primary">Edit Survey</button>
                             </td>
                         </tr>
                     </c:forEach>
@@ -108,8 +112,8 @@
 
 
 <script type="text/javascript">
-    $(".edit-survey").click(function () {
-        window.location = "/surveys/edit-survey";
+    $(".edit-survey").click(function (event) {
+        window.location = "/surveys/edit/" + event.currentTarget.id;
     })
 </script>
 

@@ -1,5 +1,8 @@
 package com.aim.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -29,7 +32,8 @@ public class Survey {
     @Column
     private String resultPath;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<DegreeProgram> degreeprograms;
 
     public Integer getId() {
