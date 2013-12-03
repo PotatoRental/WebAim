@@ -30,9 +30,7 @@
                 <select class="fat" required>
                     <option disabled value="select-cc" selected="selected">Select Course Coordinator</option>
                     <c:forEach var="cc" items="${allCourseCoordinator}">
-                        <option value="${cc.firstName}-${cc.lastName}"
-                                <c:if test="${cc.firstName eq course.courseCoordinator.firstName && cc.lastName eq course.courseCoordinator.lastName}">
-                                </c:if>>${cc.firstName} ${cc.lastName}</option>
+                        <option value="${cc.username}">${cc.firstName} ${cc.lastName}</option>
                     </c:forEach>
                 </select>
             </td>
@@ -45,10 +43,7 @@
                 <select class="fat" required>
                     <option disabled value="select-alt-cc" selected="selected">Select Alternate Course Coordinator</option>
                     <c:forEach var="cc" items="${allCourseCoordinator}">
-                        <option value="${cc.firstName}-${cc.lastName}"
-                                <c:if test="${cc.firstName eq course.courseCoordinator.firstName && cc.lastName eq course.courseCoordinator.lastName}">
-                                    selected="selected"
-                                </c:if>>${cc.firstName} ${cc.lastName}</option>
+                        <option value="${cc.username}">${cc.firstName} ${cc.lastName}</option>
                     </c:forEach>
                 </select>
 
