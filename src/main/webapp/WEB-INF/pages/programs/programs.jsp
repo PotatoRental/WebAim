@@ -22,15 +22,19 @@
 
         <div class="col-md-12 col-sm-12">
 
+
+
             <div>
                 <table class="table table-striped">
                     <tr>
+                        <th>Identifier</th>
                         <th>Description</th>
                         <th>Department</th>
                         <th></th>
                     </tr>
                     <form>
                         <tr id="header-form">
+                            <td><input type='text' required name="id" class="fat" placeholder="Identifier">
                             <td><input type='text' required name="description" class="fat" placeholder="Description">
                             </td>
                             <td>
@@ -45,10 +49,11 @@
                             </td>
                         </tr>
                     </form>
-                    <c:forEach var="i" begin="0" end="23" step="1">
+                    <c:forEach items="${degreeprograms}" var="program">
                         <tr>
-                            <td>Bachelor of Science in Computer Science</td>
-                            <td>Computer Science</td>
+                            <td>${program.id}</td>
+                            <td>${program.description}</td>
+                            <td>${program.department}</td>
                             <td>
                                 <input type='submit' class="edit-program fat btn btn-primary" value='Edit Program'/>
                             </td>

@@ -23,20 +23,13 @@
 
             <div>
 
-                <ul>
-                    <c:forEach items="${studentoutcomes}" var="outcome">
-                     <li>${outcome.shortName}</li>
-                    </c:forEach>
-                </ul>
-
                 <table class="table table-striped">
-
 
 
                     <tr>
                         <th>#</th>
                         <th>Shortname</th>
-                        <th >Description</th>
+                        <th>Description</th>
                         <th>Target Direct<br/> Assessment<br/> Attainment Level</th>
                         <th>Target Survey<br/> Assessment<br/> Attainment Level</th>
                         <th>Validity Period</th>
@@ -48,10 +41,11 @@
                         <tr id="header-form">
                             <td></td>
                             <td>
-                                <input name ="shortname" type="text" placeholder="Enter shortname" required/>
+                                <input name="shortname" type="text" placeholder="Enter shortname" required/>
                             </td>
 
-                            <td><textarea class="fat" name="description" placeholder="Enter new description here."></textarea></td>
+                            <td><textarea class="fat" name="description"
+                                          placeholder="Enter new description here."></textarea></td>
                             <td>
                                 <select required name="target-da-level" id="target-da-level">
                                     <%--<option disabled value="year" selected="selected">Year</option>--%>
@@ -91,32 +85,23 @@
                             <td><input type='submit' class="fat btn btn-default blue-hover" value='Add'/></td>
                         </tr>
                     </form>
-
-                    <tr>
-                        <td>01</td>
-                        <td>Learn</td>
-
-                        <td>
-                            An ability to apply knowledge of computing and mathematics appropriate to the discipline
-                        </td>
-                        <td>10</td>
-
-                        <td>10</td>
-                        <td>2000-2013</td>
-                        <td>CSE</td>
-                        <td>
-                            <input type='submit' class="fat btn btn-default blue-hover" value='Edit'/>
-
-
-                        </td>
-                    </tr>
-
-
+                    <c:forEach items="${studentoutcomes}" var="outcome">
+                        <tr>
+                            <td>${outcome.sequenceNumber}</td>
+                            <td>${outcome.shortName}</td>
+                            <td>${outcome.description}</td>
+                            <td>${outcome.targetDirectAssessmentAttainmentLevel}</td>
+                            <td>${outcome.targetSurveyAssessmentAttainmentLevel}</td>
+                            <td>${outcome.validityPeriod}</td>
+                            <td>
+                                ${outcome.degreeprogram.id}
+                            </td>
+                            <td><input type='submit' class="fat btn btn-default blue-hover" value='Edit'/></td>
+                        </tr>
+                    </c:forEach>
 
 
                 </table>
-
-
 
 
             </div>

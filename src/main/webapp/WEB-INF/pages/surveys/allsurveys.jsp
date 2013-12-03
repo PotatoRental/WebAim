@@ -62,26 +62,22 @@
                             </td>
 
                             <td>
-                                <small class="filename">no file selected</small>
-                                <br>
-                                <button class="btn btn-default">Select Results File</button>
+                                <input required type="file" name="results">
                             </td>
                             <td>
                                 <input type='submit' class="fat btn btn-primary" value='Add Survey'/>
                             </td>
                         </tr>
                     </form>
-                    <c:forEach var="i" begin="0" end="23" step="1">
+                    <c:forEach items="${surveys}" var="survey">
 
 
                         <tr>
-                            <td>Computer Science</td>
-                            <td>Group Name</td>
-                            <td>Initiator</td>
-                            <td>
-                                Fall 2013
-                            </td>
-                            <td><a href="#">results.pdf</a></td>
+                            <td>INSERT DEGREE PROGRAMS HERE</td>
+                            <td>${survey.groups}</td>
+                            <td>${survey.initiator}</td>
+                            <td>${survey.semester} </td>
+                            <td><a href="/${survey.resultPath}">Results</a></td>
 
                             <td>
                                 <button type='submit' class="edit-survey fat btn btn-primary">Edit Survey</button>
@@ -102,9 +98,6 @@
 
 
 <script type="text/javascript">
-    var uploaded = false;
-    $("input[type='submit']").attr("disabled", !uploaded);
-
     $(".edit-survey").click(function () {
         window.location = "/surveys/edit-survey";
     })

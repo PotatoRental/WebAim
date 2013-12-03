@@ -1,12 +1,7 @@
 package com.aim.service;
 
-import com.aim.dao.CourseDao;
-import com.aim.dao.StudentOutcomeDao;
-import com.aim.dao.UserDao;
-import com.aim.model.Course;
-import com.aim.model.DegreeProgram;
-import com.aim.model.Role;
-import com.aim.model.UserAccount;
+import com.aim.dao.*;
+import com.aim.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +16,21 @@ import java.util.List;
 public class AimService {
 
     private CourseDao courseDao;
+    private MinutesDao minutesDao;
+    private StudentOutcomeDao studentOutcomeDao;
+    private SurveyDao surveyDao;
     private UserDao userDao;
 
     @Autowired
-    private AimService(CourseDao courseDao, UserDao userDao) {
+    private AimService(CourseDao courseDao,
+                       MinutesDao minutesDao,
+                       StudentOutcomeDao studentOutcomeDao,
+                       SurveyDao surveyDao,
+                       UserDao userDao) {
         this.courseDao = courseDao;
+        this.minutesDao = minutesDao;
+        this.studentOutcomeDao = studentOutcomeDao;
+        this.surveyDao = surveyDao;
         this.userDao = userDao;
     }
 
@@ -68,4 +73,17 @@ public class AimService {
     public DegreeProgram getDegreeProgramById(String degreeId) {
         return courseDao.getDegreeProgramById(degreeId);
     }
+
+    public List<Minutes> getAllMinutes() {
+        return minutesDao.getAllMinutes();
+    }
+
+    public List<StudentOutcome> getAllStudentOutcomes() {
+        return studentOutcomeDao.getAllStudentOutcomes();
+    }
+
+    public List<Survey> getAllSurveys(){
+        return surveyDao.getAllSurveys();
+    }
+
 }

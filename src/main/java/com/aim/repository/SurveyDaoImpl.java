@@ -1,8 +1,7 @@
 package com.aim.repository;
 
-
-import com.aim.dao.MinutesDao;
-import com.aim.model.Minutes;
+import com.aim.dao.SurveyDao;
+import com.aim.model.Survey;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,27 +11,27 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * User: Milky
- * Date: 11/11/13
- * Time: 2:23 AM
+ * Created with IntelliJ IDEA.
+ * User: Monika Tuchowska
+ * Date: 12/3/13
+ * Time: 9:46 AM
  */
+
 @Repository
 @Transactional
-public class MinutesDaoImpl implements MinutesDao{
+public class SurveyDaoImpl implements SurveyDao {
 
     private static final Logger logger = Logger.getLogger(CourseDaoImpl.class);
 
     @Autowired
     private SessionFactory sessionFactory;
 
-
-    public List<Minutes> getAllMinutes() {
-        logger.info("User is getting all minutes.");
+    @Override
+    public List<Survey> getAllSurveys() {
+        logger.info("User is getting all surveys.");
 
         return sessionFactory.getCurrentSession()
-                .createQuery("from Minutes")
+                .createQuery("from Survey")
                 .list();
     }
-
-
 }

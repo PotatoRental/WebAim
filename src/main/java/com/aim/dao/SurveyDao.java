@@ -1,6 +1,6 @@
 package com.aim.dao;
 
-import com.aim.model.Minutes;
+import com.aim.model.Survey;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: Monika Tuchowska
  * Date: 12/3/13
- * Time: 9:30 AM
+ * Time: 9:45 AM
  */
-public interface MinutesDao {
+public interface SurveyDao {
 
-    public List<Minutes> getAllMinutes();
+    public List<Survey> getAllSurveys();
 
 }
