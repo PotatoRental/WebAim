@@ -112,11 +112,18 @@ public class CoursesController {
     }
 
     @RequestMapping(value = "add-course/submit", method = RequestMethod.POST)
-    public String addCourse(@ModelAttribute("course") Course course, HttpServletRequest request,
+    public String addCourse(@ModelAttribute("course") Course course,
+                            HttpServletRequest request,
                             RedirectAttributes redirectAttributes) {
 
+        Course exists = aimService.getCourseById(course.getId());
+        if (exists != null) {
+            redirectAttributes.addFlashAttribute("course-error", "Course ID already exits");
+            return "redirect:/courses";
+        }
+
         String ccusername = request.getParameter("courseCoordinator");
-        String alterusername = request.getParameter("alternateCourseCoordinator");
+        String alterusername = request.getParameter("alterCourseCoordinator");
         String degreeprograms[] = request.getParameterValues("degrees");
 
         List<DegreeProgram> dPrograms = new ArrayList<DegreeProgram>();
@@ -127,10 +134,10 @@ public class CoursesController {
         course.setAlternateCourseCoordinator(aimService.getUserByUsername(alterusername));
         course.setDegreeprograms(dPrograms);
 
-        redirectAttributes.addFlashAttribute("course-modified", "Course " + course.getId() + " has been added");
+        redirectAttributes.addFlashAttribute("course-added", "Course " + course.getId() + " has been added");
 
         aimService.addCourse(course);
-        return "course";
+        return "redirect:/courses";
     }
 
     @RequestMapping(value = "offerings", method = RequestMethod.GET)

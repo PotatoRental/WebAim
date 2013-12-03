@@ -1,6 +1,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <p>
 
 <h1>Add Course</h1>
@@ -15,7 +16,7 @@
             <td class="title-col">Course Identifier</td>
             <td>
                 <spring:bind path="course.id">
-                    <input required type="text" class="fat" onclick="this.select()" placeholder="Enter course identifier">
+                    <input required type="text" class="fat" name="${status.expression}" onclick="this.select()" placeholder="Enter course identifier">
                 </spring:bind>
             </td>
         </tr>
@@ -25,7 +26,7 @@
             </td>
             <td>
                 <spring:bind path="course.name">
-                    <input required type="text" class="fat" onclick="this.select()" placeholder="Enter course name">
+                    <input required type="text" class="fat" name="${status.expression}" onclick="this.select()" placeholder="Enter course name">
                 </spring:bind>
             </td>
         </tr>
@@ -34,14 +35,14 @@
                 Course Coordinator
             </td>
             <td>
-                <select class="fat" required>
+                <form:select path="course.courseCoordinator" class="fat" required="required">
                     <option disabled value="select-cc" selected="selected">Select Course Coordinator</option>
-                    <c:if test="${not empty allCourseCoordinator}">
-                        <c:forEach var="cc" items="${allCourseCoordinator}">
-                            <option value="${cc.username}">${cc.firstName} ${cc.lastName}</option>
-                        </c:forEach>
-                    </c:if>
-                </select>
+                        <c:if test="${not empty allCourseCoordinator}">
+                            <c:forEach var="cc" items="${allCourseCoordinator}">
+                                <option value="${cc.username}">${cc.firstName} ${cc.lastName}</option>
+                            </c:forEach>
+                        </c:if>
+                </form:select>
             </td>
         </tr>
         <tr>
@@ -49,14 +50,14 @@
                 Alternate Course Coordinators:
             </td>
             <td>
-                <select class="fat" required>
-                    <option disabled value="select-alt-cc" selected="selected">Select Alternate Course Coordinator</option>
-                    <c:if test="${not empty allCourseCoordinator}">
-                        <c:forEach var="cc" items="${allCourseCoordinator}">
-                            <option value="${cc.username}">${cc.firstName} ${cc.lastName}</option>
-                        </c:forEach>
-                    </c:if>
-                </select>
+                <form:select path="course.alternateCourseCoordinator" class="fat" required="required">
+                    <option disabled name="alterCourseCoordinator" value="select-alt-cc" selected="selected">Select Alternate Course Coordinator</option>
+                        <c:if test="${not empty allCourseCoordinator}">
+                            <c:forEach var="cc" items="${allCourseCoordinator}">
+                                <option value="${cc.username}">${cc.firstName} ${cc.lastName}</option>
+                            </c:forEach>
+                        </c:if>
+                </form:select>
 
             </td>
         </tr>
