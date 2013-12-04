@@ -69,16 +69,24 @@ public class AimService {
         courseDao.saveCourse(course);
     }
 
+    public void addCourse(Course course) {
+        courseDao.addCourse(course);
+    }
+
+    public void saveSurvey(Survey survey) {
+        surveyDao.saveSurvey(survey);
+    }
+
+    public void aadSurvey(Survey survey) {
+        surveyDao.addSurvey(survey);
+    }
+
     public List<DegreeProgram> getAllDegreeProgram() {
         return courseDao.getAllDegreeProgram();
     }
 
     public DegreeProgram getDegreeProgramById(String degreeId) {
         return courseDao.getDegreeProgramById(degreeId);
-    }
-
-    public void addCourse(Course course) {
-        courseDao.addCourse(course);
     }
 
     public List<Minutes> getAllMinutes() {

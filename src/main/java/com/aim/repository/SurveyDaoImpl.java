@@ -42,4 +42,14 @@ public class SurveyDaoImpl implements SurveyDao {
                 .setString("surveyId", surveyId)
                 .uniqueResult();
     }
+
+    @Override
+    public void saveSurvey(Survey survey) {
+        sessionFactory.getCurrentSession().update(survey);
+    }
+
+    @Override
+    public void addSurvey(Survey survey) {
+        sessionFactory.getCurrentSession().save(survey);
+    }
 }
