@@ -39,20 +39,20 @@
                             <input type='text' required name="password" class="fat" placeholder="Password"></td>
                         <td><input type='text' required name="email" class="fat" placeholder="Email Address"></td>
                         <td>
-                            <input type="checkbox" name="role" value="Admin">Admin<br/>
-                            <input type="checkbox" name="role" value="CIC">CIC Member<br/>
-                            <input type="checkbox" name="role" value="Course-Coordinator">Course Coordinator <br/>
-                            <input type="checkbox" name="role" value="Evaluator">Evaluator<br/>
-                            <input type="checkbox" name="role" value="Instructor">Instructor
+                            <input type="checkbox" name="role" value="ROLE_ADMIN">Admin<br/>
+                            <input type="checkbox" name="role" value="ROLE_CIC">CIC Member<br/>
+                            <input type="checkbox" name="role" value="ROLE_CC">Course Coordinator <br/>
+                            <input type="checkbox" name="role" value="ROLE_EVAL">Evaluator<br/>
+                            <input type="checkbox" name="role" value="ROLE_INSTR">Instructor
                         </td>
                         <td>
-                            <select required name="start-year" id="start-year">
+                            <select class="eval" required name="start-year" id="start-year">
                                 <%--<option disabled value="year" selected="selected">Year</option>--%>
                                 <c:forEach var="i" begin="0" end="23" step="1">
                                     <option value="${2013-i}">${2013-i}</option>
                                 </c:forEach>
                             </select> -
-                            <select required name="end-year" id="end-year">
+                            <select class="eval" required name="end-year" id="end-year">
                                 <%--<option disabled value="year" selected="selected">Year</option>--%>
                                 <c:forEach var="i" begin="0" end="23" step="1">
                                     <option value="${2013-i}">${2013-i}</option>
@@ -100,10 +100,16 @@
 </div>
 
 <script type="text/javascript">
+    $(".eval").attr("disabled", !$("input[value=ROLE_EVAL]").is(":checked"));
 
     $(".edit-user").click(function () {
         window.location = "/users/" + $(this).attr("id") + "/edit";
     });
+
+    $("input[value=ROLE_EVAL]").change(function(){
+
+        $(".eval").attr("disabled", !$("input[value=ROLE_EVAL]").is(":checked"));
+    })
 
     var checkboxes = $("input[type='checkbox']");
     $("input[type='submit']").attr("disabled", !checkboxes.is(":checked"));
