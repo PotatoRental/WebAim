@@ -57,9 +57,9 @@
             <div class="search-results">
                 <ul>
                     <c:forEach var="course" items="${courseAndOffering}">
-                        <li class="course search-list">${course.key.id}<span class="course-desc"> | ${course.key.name}</span></li>
+                        <li id="${course.key.id}" class="course search-list">${course.key.id}<span class="course-desc"> | ${course.key.name}</span></li>
                         <c:forEach var="offering" items="${course.value}">
-                            <li class="search-list hidden offering link">
+                            <li class="search-list hidden offering link ${course.key.id}">
                                 &emsp;${course.key.name} ${offering.semester}
                             </li>
                         </c:forEach>
@@ -108,7 +108,8 @@
     }) ;
 
     $(".course").click(function(){
-         $(this).next().toggleClass("hidden");
+        var classname = "."+$(this).attr("id");
+        $(classname).toggleClass("hidden");
     })  ;
 
     $("#search-field").keyup(function(){
