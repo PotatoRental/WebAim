@@ -30,7 +30,8 @@
 
         <div class="col-md-12 col-lg-12">
             <p>
-            <h1>Edit Minutes</h1>
+
+            <h1>Edit Minutes</h1> &nbsp;&nbsp;<a id="cancel" href="#" onclick="window.history.back()">Cancel</a>
             </p>
             <form>
                 <table class="table table-bordered table-striped">
@@ -62,12 +63,15 @@
                     <tr>
                         <td class="title-col">Group</td>
                         <td>
-                            <input required type="text" name="group" placeholder="Group"/>
+                            <input required type="text" name="group" value="${minutes.groups}"/>
                         </td>
                     </tr>
                     <tr>
                         <td class="title-col">Minutes</td>
-                        <td><textarea required name="minutes" class="fat"></textarea></td>
+                        <td>
+                            Current file: <a href="#">Minutes</a>
+                            <input type="file" name="minutes"></td>
+                        </td>
                     </tr>
 
                 </table>
@@ -81,5 +85,10 @@
 </div>
 
 <script type="text/javascript">
-
+    $("select[name=day]").val("${minutes.date.date}");
+    $("select[name=month]").val("${1+minutes.date.month}");
+    $("select[name=year]").val("${1900+minutes.date.year}");
 </script>
+
+</body>
+</html>
