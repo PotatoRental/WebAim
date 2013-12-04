@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/> | <fmt:message key="title.courses"/></title>
+    <title><fmt:message key="title"/> | ${user.firstName} ${user.lastName}</title>
 
     <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
     <jsp:include page="../pagefrags/imports.jsp"/>
@@ -25,7 +25,7 @@
 <p>
 <h1>${user.firstName} ${user.lastName}</h1>
 
-    &nbsp;&nbsp;<a id="edit-course" href="/users/edit">Edit</a>
+    &nbsp;&nbsp;<a id="edit-user" href="/users/${user.username}/edit">Edit</a>
 
 </p>
 <table class="table table-bordered table-striped">
@@ -50,6 +50,11 @@
                 </c:forEach>
             </ul>
         </td>
+
+    </tr>
+    <tr>
+        <td class="title-col">Evaluation Period</td>
+        <td>NA</td>
     </tr>
 
 </table>

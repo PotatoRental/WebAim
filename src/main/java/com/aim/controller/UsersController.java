@@ -56,7 +56,11 @@ public class UsersController {
     }
 
     @RequestMapping(value = "{userId}/edit", method = RequestMethod.GET)
-    public String getUserEditor(ModelMap modelMap) {
+    public String getUserEditor(@PathVariable String userId,ModelMap modelMap) {
+
+        UserAccount user = aimService.getUserByUsername(userId);
+        modelMap.addAttribute("user",user);
+
         return "users/userprofile-edit";
     }
 

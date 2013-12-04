@@ -102,9 +102,6 @@
 <script type="text/javascript">
 
     $(".edit-user").click(function () {
-        //$( "#course-home" ).load( "/courses/
-        ${course.id}/edit" );
-        //window.location = "/users/edit";
         window.location = "/users/" + $(this).attr("id") + "/edit";
     });
 
