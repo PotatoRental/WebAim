@@ -6,53 +6,55 @@
 --%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<ul id="cbp-tm-menu" class="cbp-tm-menu">
-    <a href="/" style="float:left"><img id="aim-logo" src="/images/logo_b.png"/></a>
+<nav>
+    <ul id="cbp-tm-menu" class="cbp-tm-menu">
+        <a href="/" style="float:left"><img id="aim-logo" src="/images/logo_b.png"/></a>
 
-    <li>
-        <a href="#">Programs & Courses</a>
-        <ul class="cbp-tm-submenu">
-            <li><a href="/programs/" >Degree Programs</a></li>
-
-            <spring:url value="/courses" var="courseUrl" htmlEscape="true"/>
-            <li><a href="${courseUrl}" ">Courses</a></li>
-            <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC, ROLE_CC, ROLE_EVAL">
-                <li><a href="/courses/offerings" >Course Offerings</a></li>
-            </sec:authorize>
-            <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
-                <li><a href="/courses/missing-course-info" >Missing Course Info</a></li>
-            </sec:authorize>
-            <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CC">
-                <li><a href="/courses/cc-reports" >Course Coordinator Reports</a></li>
-            </sec:authorize>
-        </ul>
-    </li>
-
-    <li>
-        <a href="#">Student Outcomes</a>
-        <ul class="cbp-tm-submenu">
-            <li><a href="/outcome/manage-outcomes">Manage Outcomes</a></li>
-            <li><a href="/outcome/tabulate-outcomes">Tabulate Outcomes</a></li>
-        </ul>
-    </li>
-
-    <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
         <li>
-            <a href="#">PEOs</a>
+            <a href="#">Programs & Courses</a>
             <ul class="cbp-tm-submenu">
-                <li><a href="/peo/manage-peos" >Manage PEOs</a></li>
-                <li><a href="/peo/tabulate-attainment">Tabulate PEO Attainment</a></li>
+                <li><a href="/programs/" >Degree Programs</a></li>
+
+                <spring:url value="/courses" var="courseUrl" htmlEscape="true"/>
+                <li><a href="${courseUrl}" ">Courses</a></li>
+                <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC, ROLE_CC, ROLE_EVAL">
+                    <li><a href="/courses/offerings" >Course Offerings</a></li>
+                </sec:authorize>
+                <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
+                    <li><a href="/courses/missing-course-info" >Missing Course Info</a></li>
+                </sec:authorize>
+                <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CC">
+                    <li><a href="/courses/cc-reports" >Course Coordinator Reports</a></li>
+                </sec:authorize>
             </ul>
         </li>
-        <li><a href="/minutes/">Minutes</a></li>
-        <li><a href="/surveys/">Surveys</a></li>
-        <li><a href="/users/">Users</a></li>
-    </sec:authorize>
 
-    <sec:authorize ifAnyGranted="ROLE_ADMIN">
-        <li><a href="#">Admin</a></li>
-    </sec:authorize>
-</ul>
+        <li>
+            <a href="#">Student Outcomes</a>
+            <ul class="cbp-tm-submenu">
+                <li><a href="/outcome/manage-outcomes">Manage Outcomes</a></li>
+                <li><a href="/outcome/tabulate-outcomes">Tabulate Outcomes</a></li>
+            </ul>
+        </li>
+
+        <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
+            <li>
+                <a href="#">PEOs</a>
+                <ul class="cbp-tm-submenu">
+                    <li><a href="/peo/manage-peos" >Manage PEOs</a></li>
+                    <li><a href="/peo/tabulate-attainment">Tabulate PEO Attainment</a></li>
+                </ul>
+            </li>
+            <li><a href="/minutes/">Minutes</a></li>
+            <li><a href="/surveys/">Surveys</a></li>
+            <li><a href="/users/">Users</a></li>
+        </sec:authorize>
+
+        <sec:authorize ifAnyGranted="ROLE_ADMIN">
+            <li><a href="#">Admin</a></li>
+        </sec:authorize>
+    </ul>
+</nav>
 
 <script src="/js/cbpTooltipMenu.min.js"></script>
 <script>
