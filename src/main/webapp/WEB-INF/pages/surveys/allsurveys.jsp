@@ -81,9 +81,9 @@
                     <c:forEach items="${surveys}" var="survey">
                         <tr>
                             <td>
-                                <ul>
+                                <ul class="list-unstyled">
                                     <c:forEach var="degree" items="${survey.degreeprograms}">
-                                        ${degree.department}
+                                        <li>${degree.department} </li>
                                     </c:forEach>
                                 </ul>
                             </td>

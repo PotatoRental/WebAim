@@ -13,4 +13,5 @@ import java.util.List;
 public interface PeoDao {
 
     public List<Peo> getAllPeos();
+    public List<Peo> getPeosByDegreeProgramId(String programId);
 }

@@ -33,4 +33,15 @@ public class PeoDaoImpl implements PeoDao {
                 .createQuery("from Peo")
                 .list();
     }
+
+    public List<Peo> getPeosByDegreeProgramId(String programId) {
+        logger.info("User is getting PEOs for program:"+programId);
+
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Peo where degreeprogram = :programId")
+                .setString("programId",programId)
+                .list();
+    }
+
+
 }
