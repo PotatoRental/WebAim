@@ -10,14 +10,14 @@
 <table class="table table-bordered table-striped">
     <tr>
         <td class="title-col">Course</td>
-        <td>CSE 102</td>
+        <td>${offering.courseId}</td>
     </tr>
     <tr>
         <td class="title-col">
             Section
         </td>
         <td>
-            01
+            ${offering.section}
         </td>
     </tr>
     <tr>
@@ -25,7 +25,7 @@
             Semester
         </td>
         <td>
-            Fall 2013
+            ${offering.semester}
         </td>
     </tr>
     <tr>
@@ -33,7 +33,7 @@
             Instructor
         </td>
         <td>
-            <a href="#">Walter White</a>
+            <a href="/users/${offering.instructor.username}">${offering.instructor.firstName} ${offering.instructor.lastName}</a>
         </td>
     </tr>
     <tr>

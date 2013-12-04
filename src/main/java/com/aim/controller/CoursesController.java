@@ -18,10 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * User: Milky
@@ -149,7 +146,7 @@ public class CoursesController {
 
         List<Course> courseList = aimService.getAllCourses();
         List<CourseOffering> courseOfferingList = aimService.getAllCourseOfferings();
-        HashMap<Course, List<CourseOffering>> courseAndOffering = new HashMap<Course, List<CourseOffering>>();
+        TreeMap<Course, List<CourseOffering>> courseAndOffering = new TreeMap<Course, List<CourseOffering>>();
 
         for (Course course : courseList) {
             List<CourseOffering> list = new ArrayList<CourseOffering>();
@@ -167,9 +164,13 @@ public class CoursesController {
         return "courses/offerings";
     }
 
-    @RequestMapping(value = "view-offering", method = RequestMethod.GET)
-    public String getOffering(ModelMap modelMap) {
+    @RequestMapping(value = "offerings/{offeringId}", method = RequestMethod.GET)
+    public String getOffering(@PathVariable Integer offeringId, ModelMap modelMap) {
         logger.info("User tries to view a course offering.");
+
+        CourseOffering courseOffering = aimService.getCourseOfferingById(offeringId);
+        modelMap.addAttribute("offering", courseOffering);
+
         return "courses/view-offering";
     }
 

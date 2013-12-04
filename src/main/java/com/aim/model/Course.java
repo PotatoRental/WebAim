@@ -15,7 +15,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Course")
-public class Course {
+public class Course implements Comparable<Course> {
     @Id
     @Column(nullable = false)
     private String id;
@@ -93,4 +93,8 @@ public class Course {
         this.alternateCourseCoordinator = alternateCourseCoordinator;
     }
 
+    @Override
+    public int compareTo(Course o) {
+        return id.compareTo(o.getId());
+    }
 }

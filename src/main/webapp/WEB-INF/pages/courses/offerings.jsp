@@ -59,7 +59,7 @@
                     <c:forEach var="course" items="${courseAndOffering}">
                         <li id="${course.key.id}" class="course search-list">${course.key.id}<span class="course-desc"> | ${course.key.name}</span></li>
                         <c:forEach var="offering" items="${course.value}">
-                            <li class="search-list hidden offering link ${course.key.id}">
+                            <li class="search-list hidden offering link ${course.key.id}" id=${offering.id}>
                                 &emsp;${course.key.name} ${offering.semester}
                             </li>
                         </c:forEach>
@@ -91,8 +91,7 @@
                 smallToggled = true;
             }
             $(".course-desc").hide();
-            $("#course-home").load("/courses/view-offering");
-            //$("#course-home").load("/courses/offerings/" + event.target.id);
+            $("#course-home").load("/courses/offerings/" + event.currentTarget.id);
         });
     });
 

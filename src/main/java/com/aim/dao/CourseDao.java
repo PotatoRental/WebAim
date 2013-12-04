@@ -21,4 +21,5 @@ public interface CourseDao {
     public void saveCourse(Course course);
     public void addCourse(Course course);
     public List<CourseOffering> getAllCourseOfferings();
+    public CourseOffering getCourseOfferingById(Integer offeringId);
 }
