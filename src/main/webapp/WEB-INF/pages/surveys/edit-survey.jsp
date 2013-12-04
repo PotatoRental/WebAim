@@ -30,7 +30,7 @@
 
         <div class="col-md-12 col-lg-12">
             <p>
-              <h1>Edit Survey</h1>
+              <h1>Edit Survey</h1> &nbsp;&nbsp;<a id="cancel" href="#" onclick="window.history.back()">Cancel</a>
             </p>
             <form method="POST">
                 <table class="table table-bordered table-striped">
@@ -80,7 +80,7 @@
                             <spring:bind path="survey.semester">
                                 <select name="year">
                                     <c:forEach var="i" begin="0" end="22" step="1">
-                                        <option value="${2013-ii}">${2013-i}</option>
+                                        <option value="${2013-i}">${2013-i}</option>
                                     </c:forEach>
                                 </select>
                             </spring:bind>
@@ -89,7 +89,8 @@
                     </tr>
                     <tr>
                         <td class="title-col">Results</td>
-                        <td><textarea required name="results" class="fat"></textarea></td>
+                        <td>Current file: <a href="/${survey.resultPath}">Results</a><br/>
+                            <input type="file" name="results"></td>
                     </tr>
 
                 </table>
