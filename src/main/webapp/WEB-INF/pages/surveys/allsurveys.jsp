@@ -1,6 +1,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -36,30 +37,36 @@
                         <th>PEO Attainment Levels</th>
                         <th></th>
                     </tr>
-                    <form>
+                    <form method="post">
                         <tr id="header-form">
                             <td>
-                                <select multiple required name="degree-program">
-                                    <option value="CSE">Computer Science</option>
-                                    <option value="ISE">Information Systems</option>
-                                </select>
+                                <spring:bind path="addSurvey.degreeprograms">
+                                    <select multiple name="degrees">
+                                        <c:forEach var="degree" items="${allDegreePrograms}">
+                                            <option value="${degree.id}">${degree.department}</option>
+                                        </c:forEach>
+                                    </select>
+                                </spring:bind>
                             </td>
                             <td><input type='text' required name="group" class="fat" placeholder="Group"></td>
                             <td><input type='text' required name="initiator" class="fat" placeholder="Initiator"></td>
                             <td>
-                                <select required name="semester" id="semester">
-                                    <%--<option disabled value="month" selected="selected">Month</option>--%>
-
-                                    <option value="fall">Fall</option>
-                                    <option value="spring">Spring</option>
-                                </select>
-
-                                <select required name="year" id="year">
-                                    <%--<option disabled value="year" selected="selected">Year</option>--%>
-                                    <c:forEach var="i" begin="0" end="23" step="1">
-                                        <option value="${2013-i}">${2013-i}</option>
-                                    </c:forEach>
-                                </select>
+                                <spring:bind path="addSurvey.semester">
+                                    <select required name="semester" id="semester">
+                                        <%--<option disabled value="month" selected="selected">Month</option>--%>
+                                        <option disabled value="select-cc" selected="selected">Season</option>
+                                        <option value="FALL">Fall</option>
+                                        <option value="SPRING">Spring</option>
+                                    </select>
+                                </spring:bind>
+                                <spring:bind path="addSurvey.semester">
+                                    <select required name="semester" id="year">
+                                        <option disabled value="select-cc" selected="selected">Year</option>
+                                        <c:forEach var="i" begin="0" end="23" step="1">
+                                            <option value="${2013-i}">${2013-i}</option>
+                                        </c:forEach>
+                                    </select>
+                                </spring:bind>
                             </td>
 
                             <td>

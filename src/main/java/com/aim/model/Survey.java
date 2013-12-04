@@ -17,6 +17,7 @@ import java.util.List;
 @Table(name = "Survey")
 public class Survey {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private Integer id;
 
