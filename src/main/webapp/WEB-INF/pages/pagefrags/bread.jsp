@@ -9,6 +9,9 @@
 <div class="col-md-12">
     <ol class="breadcrumb">
         <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+        <c:forEach var="url" items="${currentUrl}">
+            <li><a href="/${url.value}">${url.key}</a></li>
+        </c:forEach>
     <span id="top-nav">
         <sec:authorize access="isAuthenticated()"><a href="/users/${currentUser.username}">${currentUser.firstName} (${currentUser.username})</a></sec:authorize>
         <sec:authorize access="isAnonymous()"><a href="/login">Login</a></sec:authorize>
