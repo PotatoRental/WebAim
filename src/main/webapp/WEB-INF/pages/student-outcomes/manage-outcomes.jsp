@@ -96,7 +96,7 @@
                             <td>
                                 ${outcome.degreeprogram.id}
                             </td>
-                            <td><input type='submit' class="fat btn btn-default blue-hover" value='Edit'/></td>
+                            <td><input id="${outcome.id}" type='submit' class="edit fat btn btn-default blue-hover" value='Edit'/></td>
                         </tr>
                     </c:forEach>
 
@@ -113,8 +113,11 @@
 </div>
 
 <script type="text/javascript">
-
+    $(".edit").click(function(){
+        window.location = "/outcome/"+$(this).attr("id")+"/edit";
+    })
 </script>
+
 
 </body>
 </html>

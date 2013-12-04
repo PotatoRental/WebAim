@@ -34,4 +34,12 @@ public class StudentOutcomeDaoImpl implements StudentOutcomeDao {
                 .createQuery("from StudentOutcome")
                 .list();
     }
+
+    @Override
+    public StudentOutcome getStudentOutcomeById(String outcomeId) {
+        return (StudentOutcome)sessionFactory.getCurrentSession()
+                .createQuery("from StudentOutcome where id = :outcomeId")
+                .setString("outcomeId",outcomeId)
+                .uniqueResult();
+    }
 }

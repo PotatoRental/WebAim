@@ -14,4 +14,6 @@ import java.util.List;
 public interface StudentOutcomeDao {
 
     public List<StudentOutcome> getAllStudentOutcomes();
+
+    public StudentOutcome getStudentOutcomeById(String outcomeId);
 }

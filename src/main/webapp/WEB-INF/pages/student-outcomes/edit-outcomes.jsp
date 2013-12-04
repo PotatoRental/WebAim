@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Polak
-  Date: 12/2/13
-  Time: 12:26 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -14,9 +7,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="title"/> | Edit Peo</title>
+    <title><fmt:message key="title"/> | Edit Student Outcomes</title>
 
-    <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Alvin Qiang"/>
+    <meta name="author" content="Monika Tuchowska, Jason Chen, Yun Peng, Qiang He"/>
     <jsp:include page="../pagefrags/imports.jsp"/>
 </head>
 <body>
@@ -31,7 +24,7 @@
         <div class="col-md-12 col-lg-12">
             <p>
 
-            <h1>Edit Peo</h1> &nbsp;&nbsp;<a id="cancel" href="/peo/manage-peos">Cancel</a>
+            <h1>Edit Student Outcome</h1> &nbsp;&nbsp;<a id="cancel" href="/peo/manage-peos">Cancel</a>
             </p>
 
 
@@ -42,19 +35,29 @@
                         <td class="title-col">Shortname</td>
                         <td>
 
-                            <input required type="text" name="shortname" value="${peo.shortName}"/>
+                            <input required type="text" name="shortname" value="${studentoutcome.shortName}"/>
                         </td>
                     </tr>
                     <tr>
                         <td class="title-col">Description</td>
                         <td>
-                            <textarea class="fat" name="description" required>${peo.description}</textarea>
+                            <textarea class="fat" name="description" required>${studentoutcome.description}</textarea>
                         </td>
                     </tr>
                     <tr>
-                        <td class="title-col">Target Attainment</td>
+                        <td class="title-col">Target Direct Assessment Attainment Level</td>
                         <td>
-                            <select name="target-attainment">
+                            <select name="target-direct-assessment">
+                                <c:forEach var="i" begin="0" end="10" step="1">
+                                    <option value="${10-i}">${10-i}</option>
+                                </c:forEach>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title-col">Target Survey Assessment Attainment Level</td>
+                        <td>
+                            <select name="target-survey-assessment">
                                 <c:forEach var="i" begin="0" end="10" step="1">
                                     <option value="${10-i}">${10-i}</option>
                                 </c:forEach>
@@ -100,12 +103,11 @@
 </div>
 
 <script type="text/javascript">
-    var validityPeriod = "${peo.validityPeriod}";
+    var validityPeriod = "${studentoutcome.validityPeriod}";
     var split = validityPeriod.split("-");
 
     $("select[name=start-year]").val(split[0]);
     $("select[name=end-year]").val(split[1]);
-    $("select[name=degree-program]").val("${peo.degreeprogram.id}");
-    $("select[name=target-attainment]").val("${peo.targetAttainment}");
+    $("select[name=degree-program]").val("${studentoutcome.degreeprogram.id}");
 
 </script>

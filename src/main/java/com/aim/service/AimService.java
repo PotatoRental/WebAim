@@ -113,6 +113,10 @@ public class AimService {
         return studentOutcomeDao.getAllStudentOutcomes();
     }
 
+    public StudentOutcome getStudentOutcomeById(String outcomeId){
+        return studentOutcomeDao.getStudentOutcomeById(outcomeId);
+    }
+
     public List<Survey> getAllSurveys() {
         return surveyDao.getAllSurveys();
     }
