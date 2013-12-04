@@ -80,7 +80,7 @@
 
 <script type="text/javascript">
     $(".edit-minutes").click(function () {
-        window.location = "/minutes/"+$(this).attr("id")+"/edit";
+        window.location = "/minutes/"+$(this).attr("id");
     })
 </script>
 

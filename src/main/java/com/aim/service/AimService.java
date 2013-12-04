@@ -136,4 +136,8 @@ public class AimService {
     public CourseOffering getCourseOfferingById(Integer offeringId) {
         return courseDao.getCourseOfferingById(offeringId);
     }
+
+    public void saveMinutes(Minutes minutes) {
+        minutesDao.modifyMinutes(minutes);
+    }
 }

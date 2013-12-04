@@ -33,6 +33,11 @@ public class MinutesDaoImpl implements MinutesDao{
                 .uniqueResult();
     }
 
+    @Override
+    public void modifyMinutes(Minutes minutes) {
+        sessionFactory.getCurrentSession().update(minutes);
+    }
+
     public List<Minutes> getAllMinutes() {
         logger.info("User is getting all minutes.");
 
