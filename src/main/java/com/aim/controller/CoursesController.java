@@ -1,6 +1,7 @@
 package com.aim.controller;
 
 import com.aim.model.Course;
+import com.aim.model.CourseOffering;
 import com.aim.model.DegreeProgram;
 import com.aim.model.UserAccount;
 import com.aim.service.AimService;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -146,7 +148,21 @@ public class CoursesController {
         logger.info("User tries to get course offering information.");
 
         List<Course> courseList = aimService.getAllCourses();
-        modelMap.addAttribute("courseList", courseList);
+        List<CourseOffering> courseOfferingList = aimService.getAllCourseOfferings();
+        HashMap<Course, List<CourseOffering>> courseAndOffering = new HashMap<Course, List<CourseOffering>>();
+
+        for (Course course : courseList) {
+            List<CourseOffering> list = new ArrayList<CourseOffering>();
+            for(CourseOffering courseOffering : courseOfferingList) {
+                if (course.getId().equals(courseOffering.getCourseId())) {
+                    list.add(courseOffering);
+                }
+            }
+            if (!list.isEmpty())
+                courseAndOffering.put(course, list);
+        }
+
+        modelMap.addAttribute("courseAndOffering", courseAndOffering);
 
         return "courses/offerings";
     }

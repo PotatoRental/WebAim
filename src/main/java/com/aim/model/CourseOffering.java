@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "CourseOffering")
-public class CourseOffering {
+public class CourseOffering implements Comparable<CourseOffering> {
     @Id
     @Column
     private Integer id;
@@ -149,5 +149,10 @@ public class CourseOffering {
 
     public void setAssignments(List<Assignment> assignments) {
         this.assignments = assignments;
+    }
+
+    @Override
+    public int compareTo(CourseOffering o) {
+        return courseId.compareTo(o.getCourseId());
     }
 }

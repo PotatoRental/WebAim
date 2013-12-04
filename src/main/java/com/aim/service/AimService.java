@@ -116,4 +116,8 @@ public class AimService {
     public void addSurvey(Survey survey) {
         surveyDao.addSurvey(survey);
     }
+
+    public List<CourseOffering> getAllCourseOfferings() {
+        return courseDao.getAllCourseOfferings();
+    }
 }
