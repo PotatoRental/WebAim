@@ -12,6 +12,6 @@ import java.util.List;
  */
 public interface UserDao {
     public List<UserAccount> getAllUsers();
-    public UserAccount getUserByUsername(String username);
+    public UserAccount getUserById(String username);
     public List<UserAccount> getAllUserRole(Role role);
 }

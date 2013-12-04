@@ -10,7 +10,7 @@
 <table class="table table-bordered table-striped">
     <tr>
         <td class="title-col">Course</td>
-        <td>${offering.courseId}</td>
+        <td><a href="/courses/${offering.courseId}">${offering.courseId}</a></td>
     </tr>
     <tr>
         <td class="title-col">

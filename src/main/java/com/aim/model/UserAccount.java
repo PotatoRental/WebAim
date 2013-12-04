@@ -1,6 +1,10 @@
 package com.aim.model;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -12,7 +16,7 @@ import java.util.List;
 @Entity
 @Table(name = "UserAccount")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class UserAccount {
+public class UserAccount implements UserDetails {
     @Id
     @Column
     private String username;
@@ -34,6 +38,12 @@ public class UserAccount {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DegreeProgram> degreeprograms;
+
+    public UserAccount() {}
+
+    public UserAccount(String username) {
+        this.username = username;
+    }
 
     public String getUsername() {
         return username;
@@ -57,6 +67,31 @@ public class UserAccount {
 
     public void setLastName(String lastname) {
         this.lastName = lastname;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles;
     }
 
     public String getPassword() {

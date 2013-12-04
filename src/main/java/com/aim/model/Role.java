@@ -1,5 +1,7 @@
 package com.aim.model;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 
 /**
@@ -9,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Role")
-public class Role {
+public class Role implements GrantedAuthority {
 
     public static final Role ROLE_INSTR = new Role("ROLE_INSTR");
     public static final Role ROLE_CC = new Role("ROLE_CC");
@@ -48,5 +50,10 @@ public class Role {
     @Override
     public int hashCode() {
         return role != null ? role.hashCode() : 0;
+    }
+
+    @Override
+    public String getAuthority() {
+        return role;
     }
 }

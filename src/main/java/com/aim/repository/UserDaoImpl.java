@@ -6,6 +6,9 @@ import com.aim.model.UserAccount;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +23,7 @@ import java.lang.Integer;
  */
 @Repository
 @Transactional
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl implements UserDao, UserDetailsService {
 
     private static final Logger logger = Logger.getLogger(UserDaoImpl.class);
 
@@ -35,14 +38,7 @@ public class UserDaoImpl implements UserDao {
                 .list();
     }
 
-    public UserAccount getUserById(String userId) {
-        return (UserAccount) sessionFactory.getCurrentSession()
-                .createQuery("from UserAccount where id = :userId")
-                .setString("userId",userId)
-                .uniqueResult();
-    }
-
-    public UserAccount getUserByUsername(String username) {
+    public UserAccount getUserById(String username) {
         logger.info("User is getting a user by username");
         return (UserAccount) sessionFactory.getCurrentSession()
                 .createQuery("from UserAccount where username = :username")
@@ -62,5 +58,10 @@ public class UserDaoImpl implements UserDao {
                 userlist.remove(i);
 
         return userlist;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return getUserById(username);
     }
 }

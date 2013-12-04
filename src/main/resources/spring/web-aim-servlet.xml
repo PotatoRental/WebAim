@@ -71,6 +71,8 @@
         <property name="basename" value="messages/messages"/>
     </bean>
 
+    <bean id="accountDetailService" class="com.aim.repository.UserDaoImpl" />
+
     <!-- User details -->
     <!--<bean id="userDetailService" class=""-->
 

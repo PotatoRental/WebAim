@@ -7,9 +7,9 @@
        http://www.springframework.org/schema/security
        http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http pattern="/resources/**" security="none" />
-
     <beans:import resource="web-aim-servlet.xml" />
+
+    <http pattern="/resources/**" security="none" />
 
     <http use-expressions="true">
         <intercept-url pattern="/signup" access="isAnonymous()" />
@@ -28,7 +28,7 @@
         <logout logout-success-url="/" logout-url="/logout"/>
     </http>
 
-    <authentication-manager>
+<!--    <authentication-manager>
         <authentication-provider>
             <user-service id="userDetailsService">
                 <user name="milky" password="test" authorities="ROLE_ADMIN" />
@@ -38,11 +38,10 @@
                 <user name="cc" password="test" authorities="ROLE_CC" />
             </user-service>
         </authentication-provider>
+    </authentication-manager>-->
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="accountDetailService" />
     </authentication-manager>
-    <!--<authentication-manager>-->
-        <!--<authentication-provider>-->
-            <!--<jdbc-user-service data-source-ref="userDetailsService" />-->
-        <!--</authentication-provider>-->
-    <!--</authentication-manager>-->
 
 </beans:beans>

@@ -60,7 +60,7 @@
                         <li id="${course.key.id}" class="course search-list">${course.key.id}<span class="course-desc"> | ${course.key.name}</span></li>
                         <c:forEach var="offering" items="${course.value}">
                             <li class="search-list hidden offering link ${course.key.id}" id=${offering.id}>
-                                &emsp;${course.key.name} ${offering.semester}
+                                &emsp;${offering.semester}
                             </li>
                         </c:forEach>
                     </c:forEach>

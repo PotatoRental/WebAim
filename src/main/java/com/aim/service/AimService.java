@@ -58,7 +58,7 @@ public class AimService {
     }
 
     public UserAccount getUserByUsername(String username) {
-        return userDao.getUserByUsername(username);
+        return userDao.getUserById(username);
     }
 
     public List<UserAccount> getAllCourseCoordinator() {
