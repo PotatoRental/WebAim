@@ -34,4 +34,12 @@ public class SurveyDaoImpl implements SurveyDao {
                 .createQuery("from Survey")
                 .list();
     }
+
+    @Override
+    public Survey getSurveyById(String surveyId) {
+        return (Survey) sessionFactory.getCurrentSession()
+                .createQuery("from Survey where id = :surveyId")
+                .setString("surveyId", surveyId)
+                .uniqueResult();
+    }
 }

@@ -13,5 +13,6 @@ import java.util.List;
 public interface SurveyDao {
 
     public List<Survey> getAllSurveys();
+    public Survey getSurveyById(String surveyId);
 
 }

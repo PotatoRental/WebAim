@@ -97,4 +97,7 @@ public class AimService {
         return surveyDao.getAllSurveys();
     }
 
+    public Survey getSurveyById(String surveyId) {
+        return surveyDao.getSurveyById(surveyId);
+    }
 }
