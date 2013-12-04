@@ -54,7 +54,7 @@
                             </td>
                         </tr>
                     </form>
-                    <c:forEach items="${minutes}" var="min">
+                    <c:forEach items="${minuteslist}" var="min">
                         <tr>
                             <td>
                                     ${1+min.date.month} / ${min.date.date} / ${1900+min.date.year}
@@ -62,7 +62,7 @@
                             <td>${min.groups}</td>
                             <td>${min.filePath}</td>
                             <td>
-                                <button class="edit-minutes fat btn btn-primary">Edit Minutes</button>
+                                <button id="${min.id}" class="edit-minutes fat btn btn-primary">Edit Minutes</button>
                             </td>
                         </tr>
                     </c:forEach>
@@ -80,7 +80,7 @@
 
 <script type="text/javascript">
     $(".edit-minutes").click(function () {
-        window.location = "/minutes/edit-minutes";
+        window.location = "/minutes/"+$(this).attr("id")+"/edit";
     })
 </script>
 

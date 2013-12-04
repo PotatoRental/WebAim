@@ -25,6 +25,13 @@ public class MinutesDaoImpl implements MinutesDao{
     @Autowired
     private SessionFactory sessionFactory;
 
+    public Minutes getMinutesById(String id) {
+        logger.info("User is getting minutes:" +id);
+        return (Minutes) sessionFactory.getCurrentSession()
+                .createQuery("from Minutes where id = :id")
+                .setString("id", id)
+                .uniqueResult();
+    }
 
     public List<Minutes> getAllMinutes() {
         logger.info("User is getting all minutes.");

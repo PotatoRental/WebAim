@@ -93,6 +93,10 @@ public class AimService {
         return minutesDao.getAllMinutes();
     }
 
+    public Minutes getMinutesById(String id){
+        return minutesDao.getMinutesById(id);
+    }
+
     public List<Peo> getAllPeos() {
         return peoDao.getAllPeos();
     }

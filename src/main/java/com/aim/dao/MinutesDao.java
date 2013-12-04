@@ -13,5 +13,6 @@ import java.util.List;
 public interface MinutesDao {
 
     public List<Minutes> getAllMinutes();
+    public Minutes getMinutesById(String id);
 
 }
