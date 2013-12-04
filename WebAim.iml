@@ -21,6 +21,7 @@
           <file>file://$MODULE_DIR$/src/main/resources/spring/security-config.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/spring/web-aim-servlet.xml</file>
         </fileset>
+        <fileset id="web application context" profiles="dev" autodetected="true" />
         <fileset id="web web-aim servlet context" profiles="dev" autodetected="true" />
       </configuration>
     </facet>

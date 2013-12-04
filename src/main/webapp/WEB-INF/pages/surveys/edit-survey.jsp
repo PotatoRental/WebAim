@@ -73,12 +73,12 @@
                         <td>
                             <spring:bind path="survey.semester">
                                 <select name="semester">
-                                    <option value="fall">Fall</option>
-                                    <option value="spring">Spring</option>
+                                    <option value="FALL">FALL</option>
+                                    <option value="SPRING">SPRING</option>
                                 </select>
                             </spring:bind>
                             <spring:bind path="survey.semester">
-                                <select name="year">
+                                <select name="semester">
                                     <c:forEach var="i" begin="0" end="22" step="1">
                                         <option value="${2013-i}">${2013-i}</option>
                                     </c:forEach>

@@ -15,4 +15,7 @@ public interface SurveyDao {
     public List<Survey> getAllSurveys();
     public Survey getSurveyById(String surveyId);
 
+    public void saveSurvey(Survey survey);
+
+    public void addSurvey(Survey survey);
 }
