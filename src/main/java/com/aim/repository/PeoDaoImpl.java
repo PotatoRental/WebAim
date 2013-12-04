@@ -43,5 +43,13 @@ public class PeoDaoImpl implements PeoDao {
                 .list();
     }
 
+    @Override
+    public Peo getPeoById(String peoId) {
+        return (Peo)sessionFactory.getCurrentSession()
+                .createQuery("from Peo where id = :peoId")
+                .setString("peoId",peoId)
+                .uniqueResult();
+    }
+
 
 }

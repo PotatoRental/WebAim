@@ -50,8 +50,25 @@ public class PeoController {
     @RequestMapping(value = "manage-peos", method = RequestMethod.GET)
     public String getAllPeos(Principal principal, ModelMap modelMap) {
         logger.info("User tries to get all peos' information.");
+
         List<Peo> peos = aimService.getAllPeos();
         modelMap.addAttribute("peos",peos);
+
+        List<DegreeProgram> degreePrograms = aimService.getAllDegreeProgram();
+        modelMap.addAttribute("degreeprograms",degreePrograms);
+
         return "peo/manage-peos";
+    }
+
+    @RequestMapping(value="{peoId}/edit", method=RequestMethod.GET)
+    public String getPeoEditor(@PathVariable String peoId, ModelMap modelMap){
+        logger.info("User edits PEO: "+peoId);
+        Peo peo = aimService.getPeoById(peoId);
+        modelMap.addAttribute("peo",peo);
+
+        List<DegreeProgram> degreePrograms = aimService.getAllDegreeProgram();
+        modelMap.addAttribute("degreeprograms",degreePrograms);
+
+        return "peo/edit-peo";
     }
 }

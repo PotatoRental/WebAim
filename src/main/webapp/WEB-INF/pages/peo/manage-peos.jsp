@@ -51,21 +51,21 @@
                                 <select required name="start-year" id="start-year">
                                     <%--<option disabled value="year" selected="selected">Year</option>--%>
                                     <c:forEach var="i" begin="0" end="23" step="1">
-                                        <option value="${2013-i}">${2013-i}</option>
+                                        <option value="${2014-i}">${2014-i}</option>
                                     </c:forEach>
                                 </select> -
                                 <select required name="end-year" id="end-year">
                                     <%--<option disabled value="year" selected="selected">Year</option>--%>
                                     <c:forEach var="i" begin="0" end="23" step="1">
-                                        <option value="${2013-i}">${2013-i}</option>
+                                        <option value="${2014-i}">${2014-i}</option>
                                     </c:forEach>
                                 </select>
                             </td>
                             <td>
                                 <select multiple required name="degree-program">
-                                    <option value="CSE">CSE</option>
-                                    <option value="ISE">ISE</option>
-
+                                    <c:forEach items="${degreeprograms}" var="program">
+                                        <option value="${program.id}">${program.id}</option>
+                                    </c:forEach>
                                 </select>
                             </td>
 
@@ -84,7 +84,7 @@
                             <td>${peo.degreeprogram.id}</td>
 
                             <td>
-                                <button type='submit' class="edit-survey fat btn btn-primary">Edit PEO</button>
+                                <button id="${peo.id}" type='submit' class="edit-peo fat btn btn-primary">Edit PEO</button>
                             </td>
                         </tr>
                     </c:forEach>
@@ -101,7 +101,9 @@
 </div>
 
 <script type="text/javascript">
-
+         $(".edit-peo").click(function(){
+             window.location = "/peo/"+$(this).attr("id")+"/edit";
+         })
 </script>
 
 </body>

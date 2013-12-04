@@ -105,6 +105,10 @@ public class AimService {
         return peoDao.getPeosByDegreeProgramId(programId);
     }
 
+    public Peo getPeoById(String peoId) {
+        return peoDao.getPeoById(peoId);
+    }
+
     public List<StudentOutcome> getAllStudentOutcomes() {
         return studentOutcomeDao.getAllStudentOutcomes();
     }
