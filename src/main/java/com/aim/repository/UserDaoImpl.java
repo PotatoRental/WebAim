@@ -34,7 +34,7 @@ public class UserDaoImpl implements UserDao {
         logger.info("User is getting all users.");
 
         return sessionFactory.getCurrentSession()
-                .createQuery("from UserAccount")
+                .createQuery("from UserAccount order by lastName")
                 .list();
     }
 
