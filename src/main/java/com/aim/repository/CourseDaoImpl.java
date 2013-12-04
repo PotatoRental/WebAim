@@ -92,4 +92,12 @@ public class CourseDaoImpl implements CourseDao {
                 .createQuery("from CourseOffering ")
                 .list();
     }
+
+    @Override
+    public CourseOffering getCourseOfferingById(Integer offeringId) {
+        return (CourseOffering) sessionFactory.getCurrentSession()
+                .createQuery("from CourseOffering where id = :offeringId")
+                .setInteger("offeringId", offeringId)
+                .uniqueResult();
+    }
 }

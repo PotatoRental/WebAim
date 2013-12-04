@@ -157,10 +157,10 @@
 </form>
 
 <script type="text/javascript">
-    $("#edit-cancel").click(function () {
-        $("#offering-home").load("/courses/view-offering");
+    $("#edit-cancel").click(function (event) {
+        $("#offering-home").load("/courses/offerings/" + event.currentTarget.id);
     });
     $("#submit").click(function(){
-        $( "#course-home" ).load( "/courses/view-offering" );
+        $("#course-home" ).load( "/courses/view-offering" );
     });
 </script>

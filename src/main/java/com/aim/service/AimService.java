@@ -132,4 +132,8 @@ public class AimService {
     public List<CourseOffering> getAllCourseOfferings() {
         return courseDao.getAllCourseOfferings();
     }
+
+    public CourseOffering getCourseOfferingById(Integer offeringId) {
+        return courseDao.getCourseOfferingById(offeringId);
+    }
 }
