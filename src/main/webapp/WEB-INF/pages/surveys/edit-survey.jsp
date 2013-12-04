@@ -30,7 +30,7 @@
 
         <div class="col-md-12 col-lg-12">
             <p>
-              <h1>Edit Survey</h1> &nbsp;&nbsp;<a id="cancel" href="#" onclick="window.history.back()">Cancel</a>
+              <h1>Edit Survey</h1> &nbsp;&nbsp;<a id="cancel" href="/surveys">Cancel</a>
             </p>
             <form method="POST">
                 <table class="table table-bordered table-striped">
@@ -73,14 +73,14 @@
                         <td>
                             <spring:bind path="survey.semester">
                                 <select name="semester">
-                                    <option value="FALL">FALL</option>
-                                    <option value="SPRING">SPRING</option>
+                                    <option value="FALL" <c:if test="${semester eq 'FALL'}">selected="selected" </c:if>>FALL</option>
+                                    <option value="SPRING" <c:if test="${semester eq 'SPRING'}">selected="selected" </c:if>>SPRING</option>
                                 </select>
                             </spring:bind>
                             <spring:bind path="survey.semester">
                                 <select name="semester">
                                     <c:forEach var="i" begin="0" end="22" step="1">
-                                        <option value="${2013-i}">${2013-i}</option>
+                                        <option value="${2013-i}" <c:if test="${2013-i eq year}">selected="selected"</c:if>>${2013-i}</option>
                                     </c:forEach>
                                 </select>
                             </spring:bind>

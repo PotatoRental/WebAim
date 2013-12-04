@@ -44,9 +44,17 @@ public class SurveyController {
 
         List<Survey> surveys = aimService.getAllSurveys();
         modelMap.addAttribute("surveys",surveys);
+        modelMap.addAttribute("add-survey", new Survey());
 
         return "/surveys/allsurveys";
     }
+
+/*    @RequestMapping(method = RequestMethod.POST)
+    public String addSurveys(ModelMap modelMap) {
+        logger.info("User adding a survey");
+
+
+    }*/
 
     @RequestMapping(value="{surveyId}", method = RequestMethod.GET)
     public String getSurveyEditor (@PathVariable String surveyId, ModelMap modelMap) {
@@ -54,7 +62,12 @@ public class SurveyController {
 
         Survey survey = aimService.getSurveyById(surveyId);
         List<DegreeProgram> degreePrograms = aimService.getAllDegreeProgram();
+        String semester = survey.getSemester().split(" ")[0];
+        Integer year = Integer.parseInt(survey.getSemester().split(" ")[1]);
+
         modelMap.addAttribute("survey", survey);
+        modelMap.addAttribute("year", year);
+        modelMap.addAttribute("semester", semester);
         modelMap.addAttribute("degreePrograms", degreePrograms);
 
         return "/surveys/edit-survey";
@@ -72,12 +85,10 @@ public class SurveyController {
         String semester[] = request.getParameterValues("semester");
 
         survey.setId(Integer.parseInt(surveyId));
-        survey.setSemester(semester[0] + semester[1]);
+        survey.setSemester(semester[0] + " " + semester[1]);
         survey.setDegreeprograms(dPrograms);
         aimService.saveSurvey(survey);
 
         return "redirect:/surveys/";
     }
-
-
 }
