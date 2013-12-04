@@ -1,7 +1,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <p>
 
-<h1>CSE 102-01</h1>
+<h1>${offering.courseId}-${offering.section}</h1>
 <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
     &nbsp;&nbsp;<a id="edit-offering" href="#">Edit</a>
 </sec:authorize>
