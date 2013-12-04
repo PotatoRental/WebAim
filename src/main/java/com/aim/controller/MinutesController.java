@@ -34,7 +34,7 @@ public class MinutesController {
         return "/minutes/allminutes";
     }
 
-    @RequestMapping(value="{minutesId}/edit", method = RequestMethod.GET)
+    @RequestMapping(value="{minutesId}", method = RequestMethod.GET)
     public String getMinutesEditor (@PathVariable String minutesId, ModelMap modelMap) {
         logger.info("User tries to edit minutes.");
 
@@ -44,9 +44,11 @@ public class MinutesController {
         return "/minutes/edit-minutes";
     }
 
-    @RequestMapping(value="{minutesId}/edit", method = RequestMethod.POST)
+    @RequestMapping(value="{minutesId}", method = RequestMethod.POST)
     public String modifyMinute(@PathVariable String minutesId,
                                @ModelAttribute Minutes minutes) {
+
+
 
         return "redirect:/minutes";
     }
