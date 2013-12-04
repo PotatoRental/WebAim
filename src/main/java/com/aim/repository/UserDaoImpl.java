@@ -23,7 +23,7 @@ import java.lang.Integer;
  */
 @Repository
 @Transactional
-public class UserDaoImpl implements UserDao, UserDetailsService {
+public class UserDaoImpl implements UserDao {
 
     private static final Logger logger = Logger.getLogger(UserDaoImpl.class);
 
@@ -58,10 +58,5 @@ public class UserDaoImpl implements UserDao, UserDetailsService {
                 userlist.remove(i);
 
         return userlist;
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return getUserById(username);
     }
 }
