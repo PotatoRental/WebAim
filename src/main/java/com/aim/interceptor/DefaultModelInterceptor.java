@@ -1,6 +1,8 @@
 package com.aim.interceptor;
 
+import com.aim.model.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -22,6 +24,9 @@ public class DefaultModelInterceptor extends HandlerInterceptorAdapter {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response,
                            Object o, ModelAndView modelAndView) throws Exception {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (!(principal instanceof String && ((String) principal).equals("anonymousUser")))
+            modelAndView.addObject("currentUser", principal);
 
         modelAndView.addObject("globalMessage", globalProperties.get("globalMessage"));
     }

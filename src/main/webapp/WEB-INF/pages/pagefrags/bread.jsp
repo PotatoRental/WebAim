@@ -10,8 +10,7 @@
     <ol class="breadcrumb">
         <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
     <span id="top-nav">
-        <sec:authorize access="isAuthenticated()"><a href="#"><sec:authentication
-                property="principal.username"/></a></sec:authorize>
+        <sec:authorize access="isAuthenticated()"><a href="/users/${currentUser.username}">${currentUser.firstName} (${currentUser.username})</a></sec:authorize>
         <sec:authorize access="isAnonymous()"><a href="/login">Login</a></sec:authorize>
         <sec:authorize access="isAuthenticated()"><a href="logout">| Log Out</a></sec:authorize>
     </span>
