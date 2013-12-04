@@ -34,12 +34,14 @@ public class DefaultModelInterceptor extends HandlerInterceptorAdapter {
         LinkedHashMap<String, String> linkUrl = new LinkedHashMap<String, String>();
 
         String crumbs[] = requestUrl.split("/");
+        String url[] = new String[crumbs.length];
         for (int i = 0; i < crumbs.length; i++) {
-            String url = crumbs[i];
+            String link = crumbs[i];
+            url[i] = link;
             for (int v = 0; v < i; v++)
-                crumbs[i] = crumbs[v] + "/" + crumbs[i];
+                 url[i] = url[v] + "/" + crumbs[i];
 
-            linkUrl.put(url, crumbs[i]);
+            linkUrl.put(link, url[i]);
         }
 
         modelAndView.addObject("currentUrl", linkUrl);
