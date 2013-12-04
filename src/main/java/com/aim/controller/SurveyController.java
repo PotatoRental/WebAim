@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -43,9 +45,31 @@ public class SurveyController {
         logger.info("User tries to get surveys.");
 
         List<Survey> surveys = aimService.getAllSurveys();
+        List<DegreeProgram> allDegreePrograms = aimService.getAllDegreeProgram();
         modelMap.addAttribute("surveys",surveys);
+        modelMap.addAttribute("allDegreePrograms", allDegreePrograms);
+        modelMap.addAttribute("addSurvey", new Survey());
+
 
         return "/surveys/allsurveys";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String addSurveys(@ModelAttribute Survey survey, ModelMap modelMap,
+                             HttpServletRequest request,
+                             RedirectAttributes redirectAttributes) {
+        logger.info("User adding a survey");
+
+        List<DegreeProgram> dPrograms = new ArrayList<DegreeProgram>();
+        for (String degree : request.getParameterValues("degrees"))
+            dPrograms.add(aimService.getDegreeProgramById(degree));
+
+        survey.setSemester(request.getParameter("semester") + " " + request.getParameter("year"));
+        survey.setDegreeprograms(dPrograms);
+
+        aimService.addSurvey(survey);
+
+        return "redirect:/surveys";
     }
 
     @RequestMapping(value="{surveyId}", method = RequestMethod.GET)
@@ -54,7 +78,12 @@ public class SurveyController {
 
         Survey survey = aimService.getSurveyById(surveyId);
         List<DegreeProgram> degreePrograms = aimService.getAllDegreeProgram();
+        String semester = survey.getSemester().split(" ")[0];
+        Integer year = Integer.parseInt(survey.getSemester().split(" ")[1]);
+
         modelMap.addAttribute("survey", survey);
+        modelMap.addAttribute("year", year);
+        modelMap.addAttribute("semester", semester);
         modelMap.addAttribute("degreePrograms", degreePrograms);
 
         return "/surveys/edit-survey";
@@ -72,12 +101,10 @@ public class SurveyController {
         String semester[] = request.getParameterValues("semester");
 
         survey.setId(Integer.parseInt(surveyId));
-        survey.setSemester(semester[0] + semester[1]);
+        survey.setSemester(semester[0] + " " + semester[1]);
         survey.setDegreeprograms(dPrograms);
         aimService.saveSurvey(survey);
 
         return "redirect:/surveys/";
     }
-
-
 }

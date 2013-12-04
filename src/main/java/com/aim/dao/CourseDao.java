@@ -1,6 +1,7 @@
 package com.aim.dao;
 
 import com.aim.model.Course;
+import com.aim.model.CourseOffering;
 import com.aim.model.DegreeProgram;
 
 import java.util.List;
@@ -19,4 +20,5 @@ public interface CourseDao {
     public Integer getNumCourses();
     public void saveCourse(Course course);
     public void addCourse(Course course);
+    public List<CourseOffering> getAllCourseOfferings();
 }

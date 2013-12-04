@@ -120,4 +120,12 @@ public class AimService {
     public Survey getSurveyById(String surveyId) {
         return surveyDao.getSurveyById(surveyId);
     }
+
+    public void addSurvey(Survey survey) {
+        surveyDao.addSurvey(survey);
+    }
+
+    public List<CourseOffering> getAllCourseOfferings() {
+        return courseDao.getAllCourseOfferings();
+    }
 }

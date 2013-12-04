@@ -56,11 +56,13 @@
         <div class="list col-md-12 col-sm-12 sidebar" id="list">
             <div class="search-results">
                 <ul>
-                    <c:forEach var="course" items="${courseList}">
-                        <li class="course search-list">${course.id}<span class="course-desc"> | ${course.name}</span></li>
-                        <li class="search-list hidden offering link">
-                            &emsp;${course.id}-01: Fall 2013
-                        </li>
+                    <c:forEach var="course" items="${courseAndOffering}">
+                        <li class="course search-list">${course.key.id}<span class="course-desc"> | ${course.key.name}</span></li>
+                        <c:forEach var="offering" items="${course.value}">
+                            <li class="search-list hidden offering link">
+                                &emsp;${course.key.name} ${offering.semester}
+                            </li>
+                        </c:forEach>
                     </c:forEach>
                 </ul>
             </div>

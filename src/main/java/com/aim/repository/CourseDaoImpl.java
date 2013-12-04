@@ -2,6 +2,7 @@ package com.aim.repository;
 
 import com.aim.dao.CourseDao;
 import com.aim.model.Course;
+import com.aim.model.CourseOffering;
 import com.aim.model.DegreeProgram;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
@@ -82,8 +83,13 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public void addCourse(Course course) {
-        sessionFactory.getCurrentSession()
+        sessionFactory.getCurrentSession().save(course);
+    }
 
-                .save(course);
+    @Override
+    public List<CourseOffering> getAllCourseOfferings() {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from CourseOffering ")
+                .list();
     }
 }
