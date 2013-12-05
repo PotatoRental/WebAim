@@ -140,4 +140,8 @@ public class AimService {
     public void saveMinutes(Minutes minutes) {
         minutesDao.modifyMinutes(minutes);
     }
+
+    public void saveUser(UserAccount account) {
+        userDao.modifyUser(account);
+    }
 }

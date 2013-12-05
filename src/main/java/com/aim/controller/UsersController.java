@@ -1,5 +1,6 @@
 package com.aim.controller;
 
+import com.aim.model.Role;
 import com.aim.model.UserAccount;
 import com.aim.service.AimService;
 import org.apache.log4j.Logger;
@@ -7,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,6 +63,26 @@ public class UsersController {
         modelMap.addAttribute("user",user);
 
         return "users/userprofile-edit";
+    }
+
+    @RequestMapping(value = "{userId}/edit", method = RequestMethod.POST)
+    public String submitUserEditor(@ModelAttribute UserAccount account,
+                                   HttpServletRequest request,
+                                   RedirectAttributes attributes) {
+
+        UserAccount dataAccount = aimService.getUserByUsername(account.getUsername());
+        account.setPassword(dataAccount.getPassword());
+        account.setDegreeprograms(dataAccount.getDegreeprograms());
+
+        List<Role> role = new ArrayList<Role>();
+        for (String val : request.getParameterValues("role"))
+            role.add(new Role(val));
+
+        account.setRoles(role);
+
+        aimService.saveUser(account);
+
+        return "redirect:/users/" + account.getUsername();
     }
 
 

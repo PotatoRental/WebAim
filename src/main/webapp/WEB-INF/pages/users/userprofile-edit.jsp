@@ -1,6 +1,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -19,8 +20,6 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
         <div class="col-md-12 col-lg-12">
             <p>
 
@@ -29,21 +28,22 @@
             &nbsp;&nbsp;<a id="cancel" href="#" onclick="window.history.back()">Cancel</a>
 
             </p>
-            <form>
+            <form:form method="POST" commandName="user">
                 <table class="table table-bordered table-striped">
                     <tr>
                         <td class="title-col">Full Name</td>
-                        <td><input type='text' required name="first-name"  value="${user.firstName}">
-                            <input type='text' required name="last-name"  value="${user.lastName}">
+                        <td>
+                            <form:input type='text' required="required" name="first-name"  value="${user.firstName}" path="firstName"/>
+                            <form:input type='text' required="required" name="last-name"  value="${user.lastName}" path="lastName"/>
                         </td>
                     </tr>
                     <tr>
                         <td class="title-col">Username</td>
-                        <td><input type='text' required name="username"  value="${user.username}"></td>
+                        <td><form:input type='text' required="required" name="username"  value="${user.username}" path="username"/></td>
                     </tr>
                     <tr>
                         <td class="title-col">Email</td>
-                        <td><input type='text' required name="email"  value="${user.email}"></td>
+                        <td><form:input type='text' required="required" name="email"  value="${user.email}" path="email"/></td>
                     </tr>
                     <tr>
                         <td class="title-col">Roles</td>
@@ -78,7 +78,7 @@
 
                 </table>
                 <input type='submit' class="fat btn btn-primary" value='Submit Changes'/>
-            </form>
+            </form:form>
 
         </div>
     </div>

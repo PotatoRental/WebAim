@@ -59,4 +59,9 @@ public class UserDaoImpl implements UserDao {
 
         return userlist;
     }
+
+    @Override
+    public void modifyUser(UserAccount account) {
+        sessionFactory.getCurrentSession().update(account);
+    }
 }

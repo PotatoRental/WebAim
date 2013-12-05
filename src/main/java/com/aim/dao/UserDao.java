@@ -14,4 +14,5 @@ public interface UserDao {
     public List<UserAccount> getAllUsers();
     public UserAccount getUserById(String username);
     public List<UserAccount> getAllUserRole(Role role);
+    public void modifyUser(UserAccount account);
 }
