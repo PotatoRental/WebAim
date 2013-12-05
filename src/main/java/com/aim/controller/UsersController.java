@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -37,6 +38,7 @@ public class UsersController {
 
         List<UserAccount> userList = aimService.getAllUsers();
         modelMap.addAttribute("userlist", userList);
+        modelMap.addAttribute("newUser", new UserAccount());
 
         return "users/allusers";
     }
@@ -44,6 +46,24 @@ public class UsersController {
     @RequestMapping(value = "ajax", method = RequestMethod.GET)
     public @ResponseBody String getAllUsers() {
         return "body";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String addNewUser(@ModelAttribute UserAccount newUser,
+                             RedirectAttributes attributes,
+                             BindingResult results,
+                             HttpServletRequest request) {
+        List<Role> role = new ArrayList<Role>();
+        for (String val : request.getParameterValues("role"))
+            role.add(new Role(val));
+
+        newUser.setRoles(role);
+
+        aimService.addUser(newUser);
+
+        attributes.addFlashAttribute("userMessage", "New user " + newUser.getFirstName() + " " + newUser.getLastName() + " has been added");
+
+        return "redirect:/users/" + newUser.getUsername();
     }
 
     @RequestMapping(value = "{userId}", method = RequestMethod.GET)
@@ -81,6 +101,7 @@ public class UsersController {
         account.setRoles(role);
 
         aimService.saveUser(account);
+        attributes.addFlashAttribute("userMessage", "User " + account.getFirstName() + " " + account.getLastName() + " has been modified");
 
         return "redirect:/users/" + account.getUsername();
     }

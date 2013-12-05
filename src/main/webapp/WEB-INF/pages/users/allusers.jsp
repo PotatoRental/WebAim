@@ -1,5 +1,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -30,14 +31,14 @@
                 </tr>
 
 
-                <form>
+                <form:form method="post" commandName="newUser">
                     <tr id="header-form">
-                        <td><input type='text' required name="first-name" class="fat" placeholder="First Name"><br/>
-                            <input type='text' required name="last-name" class="fat" placeholder="Last Name">
+                        <td><form:input type='text' required="required" name="first-name" class="fat" placeholder="First Name" path="firstName"/><br/>
+                            <form:input type='text' required="required" name="last-name" class="fat" placeholder="Last Name" path="lastName"/>
                         </td>
-                        <td><input type='text' required name="username" class="fat" placeholder="Username"> <br/>
-                            <input type='text' required name="password" class="fat" placeholder="Password"></td>
-                        <td><input type='text' required name="email" class="fat" placeholder="Email Address"></td>
+                        <td><form:input type='text' required="required" name="username" class="fat" placeholder="Username" path="username"/> <br/>
+                            <form:input type='text' required="required" name="password" class="fat" placeholder="Password" path="password"/></td>
+                        <td><form:input type='text' required="required" name="email" class="fat" placeholder="Email Address" path="email"/></td>
                         <td>
                             <input type="checkbox" name="role" value="ROLE_ADMIN">Admin<br/>
                             <input type="checkbox" name="role" value="ROLE_CIC">CIC Member<br/>
@@ -65,7 +66,7 @@
                         </td>
 
                     </tr>
-                </form>
+                </form:form>
 
 
                 <c:forEach var="user" items="${userlist}">

@@ -6,14 +6,10 @@ import com.aim.model.UserAccount;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.lang.Integer;
 
 /**
  * Created with IntelliJ IDEA.
@@ -63,5 +59,10 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void modifyUser(UserAccount account) {
         sessionFactory.getCurrentSession().update(account);
+    }
+
+    @Override
+    public void addUser(UserAccount newUser) {
+        sessionFactory.getCurrentSession().save(newUser);
     }
 }

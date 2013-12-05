@@ -144,4 +144,8 @@ public class AimService {
     public void saveUser(UserAccount account) {
         userDao.modifyUser(account);
     }
+
+    public void addUser(UserAccount newUser) {
+        userDao.addUser(newUser);
+    }
 }

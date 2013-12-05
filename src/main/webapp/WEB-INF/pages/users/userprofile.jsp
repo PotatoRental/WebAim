@@ -23,6 +23,9 @@
 
         <div class="col-md-12 col-lg-12">
 <p>
+            <c:if test="${not empty userMessage}">
+                <h3>${userMessage}</h3>
+            </c:if>
 <h1>${user.firstName} ${user.lastName}</h1>
 
     &nbsp;&nbsp;<a id="edit-user" href="/users/${user.username}/edit">Edit</a>

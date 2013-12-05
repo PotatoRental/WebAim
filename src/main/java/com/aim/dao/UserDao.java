@@ -15,4 +15,6 @@ public interface UserDao {
     public UserAccount getUserById(String username);
     public List<UserAccount> getAllUserRole(Role role);
     public void modifyUser(UserAccount account);
+
+    public void addUser(UserAccount newUser);
 }
