@@ -331,7 +331,7 @@ INSERT INTO StudentOutcome_CourseOutcome(id, studentOutcomeId, courseOutcomeId, 
 INSERT INTO StudentOutcome_CourseOutcome(id, studentOutcomeId, courseOutcomeId, rationale, assessed) VALUES ('27', 'SO-03', '62', 'rationale here', false);
 INSERT INTO StudentOutcome_CourseOutcome(id, studentOutcomeId, courseOutcomeId, rationale, assessed) VALUES ('28', 'SO-03', '67', 'rationale here', false);
 INSERT INTO StudentOutcome_CourseOutcome(id, studentOutcomeId, courseOutcomeId, rationale, assessed) VALUES ('29', 'SO-03', '68', 'rationale here', false);
-INSERT INTO StudentOutcome_CourseOutcome(id, studentOutcomeId, courseOutcomeId, rationale, assessed) VALUES ('20', 'SO-03', '76', 'rationale here', false);
+INSERT INTO StudentOutcome_CourseOutcome(id, studentOutcomeId, courseOutcomeId, rationale, assessed) VALUES ('30', 'SO-03', '76', 'rationale here', false);
 INSERT INTO StudentOutcome_CourseOutcome(id, studentOutcomeId, courseOutcomeId, rationale, assessed) VALUES ('31', 'SO-03', '77', 'rationale here', false);
 INSERT INTO StudentOutcome_CourseOutcome(id, studentOutcomeId, courseOutcomeId, rationale, assessed) VALUES ('32', 'SO-03', '78', 'rationale here', false);
 INSERT INTO StudentOutcome_CourseOutcome(id, studentOutcomeId, courseOutcomeId, rationale, assessed) VALUES ('33', 'SO-04', '64', 'rationale here', false);

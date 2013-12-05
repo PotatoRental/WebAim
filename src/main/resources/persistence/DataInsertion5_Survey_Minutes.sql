@@ -5,16 +5,16 @@
     Minutes   */
 
 /*Survey*/
-	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(1, 'alumni', 'college', 'FALL2013', '?blah.txt');
-	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(2, 'graduate', 'department', 'FALL2013', '?blah1.txt');
-	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(3, 'undergrate', 'department', 'FALL2013', '?blah2.txt');
-	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(4, 'employers', 'department', 'FALL2013', '?blah3.txt');
-	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(5, 'undergrate', 'department', 'FALL2013', '?blah4.txt');
-	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(6, 'employers', 'department', 'FALL2013', '?blah5.txt');
-	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(7, 'undergrate', 'department', 'FALL2013', '?blah6.txt');
-	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(8, 'employers', 'department', 'FALL2013', '?blah7.txt');
-	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(9, 'graduate', 'department', 'FALL2013', '?blah8.txt');
-	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(10, 'employers', 'department', 'FALL2013', '?blah9.txt');
+	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(1, 'alumni', 'college', 'FALL2013', null);
+	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(2, 'graduate', 'department', 'FALL2013', null);
+	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(3, 'undergrate', 'department', 'FALL2013', null);
+	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(4, 'employers', 'department', 'FALL2013', null);
+	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(5, 'undergrate', 'department', 'FALL2013', null);
+	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(6, 'employers', 'department', 'FALL2013', null);
+	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(7, 'undergrate', 'department', 'FALL2013', null);
+	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(8, 'employers', 'department', 'FALL2013', null);
+	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(9, 'graduate', 'department', 'FALL2013', null);
+	INSERT INTO Survey(id, groups, initiator, semester, resultPath) VALUES(10, 'employers', 'department', 'FALL2013', null);
 
 /*Survey_DegreeProgram*/
 	INSERT INTO Survey_DegreeProgram(Survey_id, degreeprograms_id) VALUES(1, 'CSE');
@@ -41,8 +41,8 @@
 	INSERT INTO Survey_PEOAttainment(id, surveyId, PeoId, attainmentLevel) VALUES(10, 10, 'PEO-02', 1);
 
 /*Minutes*/
-  INSERT INTO Minutes(id, date, groups, filePath) VALUES(1, '2013-01-01', 'Advisory Board', '?mblah.txt');
-	INSERT INTO Minutes(id, date, groups, filePath) VALUES(2, '2013-02-04', 'CIC', '?mblah1.txt');
-	INSERT INTO Minutes(id, date, groups, filePath) VALUES(3, '2013-02-05', 'Advisory', 'mblah2.txt');
-	INSERT INTO Minutes(id, date, groups, filePath) VALUES(4, '2013-02-06', 'CIC', 'mblah3.txt');
-	INSERT INTO Minutes(id, date, groups, filePath) VALUES(5, '2013-02-07', 'Advisory', 'mblah4.txt');
+  INSERT INTO Minutes(id, date, groups, filePath) VALUES(1, '2013-01-01', 'Advisory Board', null);
+	INSERT INTO Minutes(id, date, groups, filePath) VALUES(2, '2013-02-04', 'CIC', null);
+	INSERT INTO Minutes(id, date, groups, filePath) VALUES(3, '2013-02-05', 'Advisory', null);
+	INSERT INTO Minutes(id, date, groups, filePath) VALUES(4, '2013-02-06', 'CIC', null);
+	INSERT INTO Minutes(id, date, groups, filePath) VALUES(5, '2013-02-07', 'Advisory', null);
