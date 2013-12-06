@@ -98,7 +98,7 @@
                             <td>${survey.initiator}</td>
                             <td>${survey.semester} </td>
                             <td><a href="/${survey.resultPath}">Results</a></td>
-                            <td>att. lvl</td>
+                            <td></td>
 
                             <td>
                                 <button type='submit' id="${survey.id}" class="edit-survey fat btn btn-primary">Edit Survey</button>

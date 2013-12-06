@@ -45,6 +45,10 @@ public class AimService {
         return courseDao.getCoursesByInstructor(instructorId);
     }
 
+    public List<Course> getCoursesByCoordinator(String ccName) {
+        return courseDao.getCoursesByCoordinator(ccName);
+    }
+
     public Course getCourseById(String courseId) {
         return courseDao.getCourseById(courseId);
     }

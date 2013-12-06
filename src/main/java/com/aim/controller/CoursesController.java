@@ -228,6 +228,8 @@ public class CoursesController {
     @RequestMapping(value = "cc-reports", method = RequestMethod.GET)
     public String getCourseCoordinatorReports(ModelMap modelMap) {
         logger.info("User tries to get course coordinator reports.");
+
+
         return "courses/cc-reports";
     }
 }
