@@ -70,16 +70,12 @@
                             <td>${program.department}</td>
                             <td>
                                 <ul class="list-unstyled">
-                                    <c:forEach items="${program.peos}" var="peo">
-                                        <li>${peo.shortName}</li>
-                                    </c:forEach>
+
                                 </ul>
                             </td>
                             <td>
                                 <ul class="list-unstyled">
-                                    <c:forEach items="${program.studentOutcomes}" var="outcome">
-                                        <li>${outcome.shortName}</li>
-                                    </c:forEach>
+
                                 </ul>
                             </td>
                             <td>

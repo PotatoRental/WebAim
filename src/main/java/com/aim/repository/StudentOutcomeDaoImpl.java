@@ -1,6 +1,7 @@
 package com.aim.repository;
 
 import com.aim.dao.StudentOutcomeDao;
+import com.aim.model.DegreeProgram;
 import com.aim.model.StudentOutcome;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
@@ -42,4 +43,18 @@ public class StudentOutcomeDaoImpl implements StudentOutcomeDao {
                 .setString("outcomeId",outcomeId)
                 .uniqueResult();
     }
+
+    public List<StudentOutcome> getStudentOutcomeProgram(DegreeProgram degreeProgram) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from StudentOutcome where degreeprogram = :program")
+                .setEntity("program", degreeProgram)
+                .list();
+    }
+
+    public List<String> getStudentOutcomeCourseOutcome() {
+        return sessionFactory.getCurrentSession()
+                .createSQLQuery("select * from StudentOutcome_CourseOutcome")
+                .list();
+    }
+
 }

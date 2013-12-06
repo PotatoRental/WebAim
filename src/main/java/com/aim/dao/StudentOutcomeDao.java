@@ -1,5 +1,6 @@
 package com.aim.dao;
 
+import com.aim.model.DegreeProgram;
 import com.aim.model.StudentOutcome;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface StudentOutcomeDao {
     public List<StudentOutcome> getAllStudentOutcomes();
 
     public StudentOutcome getStudentOutcomeById(String outcomeId);
+    public List<StudentOutcome> getStudentOutcomeProgram(DegreeProgram degreeProgram);
+    public List<String> getStudentOutcomeCourseOutcome();
 }

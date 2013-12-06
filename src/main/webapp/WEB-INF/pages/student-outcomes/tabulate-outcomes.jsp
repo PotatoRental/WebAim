@@ -1,4 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -25,20 +26,21 @@
                 <option value="soa-survey">Student Outcome Attainment (Survey Assessment)</option>
                 <option value="so-enabled-courses">Student Outcome Enabled by Courses</option>
                 <option value="so-assessed-courses">Student Outcome Assessed in Courses</option>
-            </select> <br> <hr>
+            </select> <br>
+            <hr>
             <form id="soa-direct" class="outcome-form">
 
                 <h4>Degree Program: </h4> <br>
                 <select class="fat-select">
-                    <option value="accounting">Accounting</option>
-                    <option value="biochemistry">Biochemistry</option>
-                    <option value="computer-science">Computer Science</option>
-                    <option value="information-systems">Information Systems</option>
+                    <c:forEach items="${degreeprograms}" var="program">
+                        <option value="${program.id}">${program.department}</option>
+                    </c:forEach>
                 </select> <br> <br>
 
 
                 <h4>Academic Years:</h4> <br>
-                From <input type="text" name="year-start" class="year"> to <input type="text" name="year-end" class="year"> <br> <br>
+                From <input type="text" name="year-start" class="year"> to <input type="text" name="year-end"
+                                                                                  class="year"> <br> <br>
 
                 <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
 
@@ -48,15 +50,15 @@
 
                 <h4>Degree Program: </h4> <br>
                 <select class="fat-select">
-                    <option value="accounting">Accounting</option>
-                    <option value="biochemistry">Biochemistry</option>
-                    <option value="computer-science">Computer Science</option>
-                    <option value="information-systems">Information Systems</option>
+                    <c:forEach items="${degreeprograms}" var="program">
+                        <option value="${program.id}">${program.department}</option>
+                    </c:forEach>
                 </select> <br> <br>
 
 
                 <h4>Academic Years:</h4> <br>
-                From <input type="text" name="year-start" class="year"> to <input type="text" name="year-end" class="year"> <br> <br>
+                From <input type="text" name="year-start" class="year"> to <input type="text" name="year-end"
+                                                                                  class="year"> <br> <br>
 
                 <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
 
@@ -66,10 +68,9 @@
 
                 <h4>Degree Program: </h4> <br>
                 <select class="fat-select">
-                    <option value="accounting">Accounting</option>
-                    <option value="biochemistry">Biochemistry</option>
-                    <option value="computer-science">Computer Science</option>
-                    <option value="information-systems">Information Systems</option>
+                    <c:forEach items="${degreeprograms}" var="program">
+                        <option value="${program.id}">${program.department}</option>
+                    </c:forEach>
                 </select> <br> <br>
 
                 <h4>Semester:</h4> <input type="text" name="year" class="year"><br>
@@ -83,14 +84,13 @@
             <form id="so-enabled-courses" class="outcome-form hidden">
 
                 <h4>Degree Program: </h4> <br>
-                <select class="fat-select">
-                    <option value="accounting">Accounting</option>
-                    <option value="biochemistry">Biochemistry</option>
-                    <option value="computer-science">Computer Science</option>
-                    <option value="information-systems">Information Systems</option>
+                <select class="fat-select" id="enabled-courses-prog">
+                    <c:forEach items="${degreeprograms}" var="program">
+                        <option value="${program.id}">${program.department}</option>
+                    </c:forEach>
                 </select> <br> <br>
 
-                <h4>Academic Year:</h4> <input type="text" name="year" class="year"><br>  <br>
+                <h4>Academic Year:</h4> <input type="text" name="year" class="year"><br> <br>
 
                 <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
 
@@ -100,15 +100,14 @@
 
                 <h4>Degree Program: </h4> <br>
                 <select class="fat-select">
-                    <option value="accounting">Accounting</option>
-                    <option value="biochemistry">Biochemistry</option>
-                    <option value="computer-science">Computer Science</option>
-                    <option value="information-systems">Information Systems</option>
+                    <c:forEach items="${degreeprograms}" var="program">
+                        <option value="${program.id}">${program.department}</option>
+                    </c:forEach>
                 </select> <br> <br>
 
-                <h4>Academic Year:</h4> <input type="text" name="year" class="year"><br>  <br>
+                <h4>Academic Year:</h4> <input type="text" name="year" class="year"><br> <br>
 
-                <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
+                <button type='button' class="btn btn-default fat-btn blue-hover">Button</button>
 
             </form>
 
@@ -116,41 +115,7 @@
 
         <div class="col-md-9 col-sm-9">
 
-            <table class="tabulate table table-bordered" id="soa-direct-table">
-
-                <tr>
-                    <th>Year</th>
-                    <th>PEO1</th>
-                    <th>PEO2</th>
-                    <th>PEO3</th>
-                </tr>
-
-                <tr>
-                    <td>TARGET</td>
-                    <td>.9</td>
-                    <td>.9</td>
-                    <td>.9</td>
-                </tr>
-                <tr>
-                    <td>2011</td>
-                    <td>.9</td>
-                    <td>.9</td>
-                    <td>.9</td>
-                </tr>
-                <tr>
-                    <td>2012</td>
-                    <td>.9</td>
-                    <td>.9</td>
-                    <td>.9</td>
-                </tr>
-                <tr>
-                    <td>2013</td>
-                    <td>.9</td>
-                    <td>.9</td>
-                    <td>.9</td>
-                </tr>
-
-            </table>
+            <div class="tabulation"></div>
 
         </div>
     </div>
@@ -159,16 +124,26 @@
 </div>
 
 <script type="text/javascript">
-    $( "#select-outcome" ).change(function() {
+    $("#select-outcome").change(function () {
         var str = "";
-        $( "#select-outcome option:selected" ).each(function() {
-            str += $( this ).val();
+        $("#select-outcome option:selected").each(function () {
+            str += $(this).val();
         });
-        var id="#"+str;
+        var id = "#" + str;
         $(".outcome-form").addClass("hidden");
         $(id).removeClass("hidden");
-        $(".tabulate").attr("id", str+"-table");
+        $(".tabulate").attr("id", str + "-table");
+
+        var prog = $("#enabled-courses-prog option").val().toLowerCase();
+        if ($(this).val() === 'so-enabled-courses')
+            $(".tabulation").load("/outcome/"+prog+"/tabulate");
+
+
     });
+
+    $("button").click(function(){
+        alert ("u click");
+    })
 
 </script>
 

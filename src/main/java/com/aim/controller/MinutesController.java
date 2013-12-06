@@ -64,7 +64,7 @@ public class MinutesController {
     @RequestMapping(value="{minutesId}/delete", method=RequestMethod.GET)
     public String deleteMinutes (@PathVariable String minutesId, ModelMap modelMap) {
         aimService.deleteMinutesById(minutesId);
-        return "/minutes/allminutes";
+        return "redirect:/minutes";
     }
 
     @RequestMapping(value="{minutesId}", method = RequestMethod.POST)

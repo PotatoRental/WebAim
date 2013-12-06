@@ -1,5 +1,6 @@
 package com.aim.controller;
 
+import com.aim.model.Course;
 import com.aim.model.DegreeProgram;
 import com.aim.model.StudentOutcome;
 import com.aim.service.AimService;
@@ -33,6 +34,9 @@ public class OutcomeController {
 
     @RequestMapping(value = "tabulate-outcomes", method = RequestMethod.GET)
     public String getTabulatedOutcomes(ModelMap modelMap) {
+
+        List<DegreeProgram> degreePrograms = aimService.getAllDegreeProgram();
+        modelMap.addAttribute("degreeprograms",degreePrograms);
         logger.info("User tries to tabulate student outcomes");
         return "student-outcomes/tabulate-outcomes";
     }
@@ -44,6 +48,21 @@ public class OutcomeController {
         List<StudentOutcome> studentOutcomes = aimService.getAllStudentOutcomes();
         modelMap.addAttribute("studentoutcomes",studentOutcomes);
         return "student-outcomes/manage-outcomes";
+    }
+
+    @RequestMapping(value = "{programId}/tabulate", method = RequestMethod.GET)
+    public String getOffering(@PathVariable String programId, ModelMap modelMap) {
+
+        List<Course> courses = aimService.getCoursesByDegreeProgram(programId);
+        DegreeProgram degreeProgram = aimService.getDegreeProgramById(programId);
+        List<StudentOutcome> studentOutcomes = aimService.getStudentOutcomeProgram(degreeProgram);
+        List<String> studentOutcomeCourseOutcome = aimService.getStudentOutcomeCourseOutcome();
+
+        modelMap.addAttribute("courses", courses);
+        modelMap.addAttribute("studentoutcomes",studentOutcomes);
+        modelMap.addAttribute("studentoutcomecourseoutcome",studentOutcomeCourseOutcome);
+
+        return "student-outcomes/table";
     }
 
     @RequestMapping(value="{outcomeId}/edit", method=RequestMethod.GET)
