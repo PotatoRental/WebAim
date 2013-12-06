@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 @RequestMapping(value = "/minutes")
@@ -48,13 +49,14 @@ public class MinutesController {
         List<Minutes> minutesList =  aimService.getAllMinutes();
         modelMap.addAttribute("minuteslist",minutesList);
 
+        minutes.setId(new Random().nextInt());
         minutes.setGroups(request.getParameter("group"));
         minutes.setDate(new LocalDate(Integer.parseInt(request.getParameter("year")), Integer.parseInt(request.getParameter("month")), Integer.parseInt(request.getParameter("day"))).toDate());
 
         aimService.addMinutes(minutes);
 
 
-        return "/minutes/allminutes";
+        return "redirect:/minutes";
     }
 
     @RequestMapping(value="{minutesId}", method = RequestMethod.GET)
