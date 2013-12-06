@@ -48,6 +48,9 @@ public class AimService {
     public List<Course> getCoursesByCoordinator(String ccName) {
         return courseDao.getCoursesByCoordinator(ccName);
     }
+    public List<Course> getCoursesByDegreeProgram (String programId){
+        return courseDao.getCoursesByDegreeProgram(programId);
+    }
 
     public Course getCourseById(String courseId) {
         return courseDao.getCourseById(courseId);
@@ -95,6 +98,14 @@ public class AimService {
 
     public DegreeProgram getDegreeProgramById(String degreeId) {
         return courseDao.getDegreeProgramById(degreeId);
+    }
+
+    public List<StudentOutcome> getStudentOutcomeProgram(DegreeProgram degreeProgram){
+        return studentOutcomeDao.getStudentOutcomeProgram(degreeProgram);
+    }
+
+    public List<String> getStudentOutcomeCourseOutcome() {
+        return studentOutcomeDao.getStudentOutcomeCourseOutcome();
     }
 
     public List<Minutes> getAllMinutes() {

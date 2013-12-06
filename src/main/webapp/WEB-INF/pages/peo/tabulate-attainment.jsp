@@ -60,6 +60,20 @@
     $("#submit").click(function () {
         $("#tabulate-table").load("/peo/table");
     })
+
+    function printPDF(){
+        var printDoc = new jsPDF();
+
+
+    };
+
+
+    printDoc.fromHTML($('#tabulate-table').get(0), 10, 10, {
+        'width': 180
+    });
+
+    printDoc.autoPrint() ;
+    printDoc.output("dataurlnewwindow");
 </script>
 </body>
 </html>

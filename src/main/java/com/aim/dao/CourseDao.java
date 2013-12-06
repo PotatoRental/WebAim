@@ -15,6 +15,7 @@ public interface CourseDao {
     public List<Course> getAllCourses();
     public List<Course> getCoursesByInstructor(String instructorId);
     public List<Course> getCoursesByCoordinator(String ccName);
+    public List<Course> getCoursesByDegreeProgram (String programId);
     public List<DegreeProgram> getAllDegreeProgram();
     public DegreeProgram getDegreeProgramById(String degreeId);
     public Course getCourseById(String courseId);

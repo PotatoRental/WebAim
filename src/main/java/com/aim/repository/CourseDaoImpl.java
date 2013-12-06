@@ -64,6 +64,18 @@ public class CourseDaoImpl implements CourseDao {
                 .list();
     }
 
+    public List<Course> getCoursesByDegreeProgram (String programId) {
+        DegreeProgram degreeProgram = (DegreeProgram) sessionFactory.getCurrentSession()
+                .createQuery("from DegreeProgram where id = :programId")
+                .setString("programId", programId)
+                .uniqueResult();
+
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Course as course where :program in elements(course.degreeprograms)")
+                .setEntity("program", degreeProgram)
+                .list();
+    }
+
 
     @Override
     public List<DegreeProgram> getAllDegreeProgram() {
