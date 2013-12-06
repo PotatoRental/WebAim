@@ -42,7 +42,7 @@
                 From <input type="text" name="year-start" class="year"> to <input type="text" name="year-end"
                                                                                   class="year"> <br> <br>
 
-                <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
+
 
             </form>
 
@@ -60,7 +60,7 @@
                 From <input type="text" name="year-start" class="year"> to <input type="text" name="year-end"
                                                                                   class="year"> <br> <br>
 
-                <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
+
 
             </form>
 
@@ -77,7 +77,6 @@
                 <input type="radio" name="semester" value="fall">fall
                 <input type="radio" name="semester" value="spring">spring<br>
 
-                <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
 
             </form>
 
@@ -92,7 +91,7 @@
 
                 <h4>Academic Year:</h4> <input type="text" name="year" class="year"><br> <br>
 
-                <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
+
 
             </form>
 
@@ -113,11 +112,12 @@
 
 
             </form>
-            <button type='button' class="btn btn-default fat-btn blue-hover">Button</button>
+            <button type='button' class="btn btn-default fat-btn blue-hover">Tabulate</button>
 
         </div>
 
         <div class="col-md-9 col-sm-9">
+            <center><a class="hidden printlink" href="/outcome/printable">Printable Version</a></center>
 
             <div class="tabulation"></div>
 
@@ -149,7 +149,9 @@
     });
 
     $("button").click(function(){
+        $(".tabulation").html("<h1>Loading...</h1>");
         $(".tabulation").load("/outcome/"+prog+"/tabulate/"+selectedopt);
+              $(".printlink").removeClass("hidden");
     })
 
 </script>
