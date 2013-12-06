@@ -169,7 +169,7 @@ public class CoursesController {
         logger.info("User tries to view a course offering.");
 
         CourseOffering courseOffering = aimService.getCourseOfferingById(offeringId);
-        Course course = aimService.getCourseById(courseOffering.getCourseId());
+        Course course = courseOffering.getCourse();
         modelMap.addAttribute("offering", courseOffering);
         modelMap.addAttribute("course", course);
 
@@ -192,10 +192,37 @@ public class CoursesController {
         return "courses/edit-offering";
     }
 
+    @RequestMapping(value = "offerings/add-offering", method = RequestMethod.GET)
+    public String getOfferingAdderr(ModelMap modelMap) {
+        logger.info("User tries to edit course offering information.");
+
+        List<Course> courses = aimService.getAllCourses();
+        List<UserAccount> instructors = aimService.getAllInstructor();
+
+        modelMap.addAttribute("courses",courses);
+        modelMap.addAttribute("instructors", instructors);
+
+        return "courses/add-offering";
+    }
+
     @RequestMapping(value = "missing-course-info", method = RequestMethod.GET)
     public String getMissingInfo(ModelMap modelMap) {
         logger.info("User tries to get missing course information.");
+
+
+
         return "courses/missing-course-info";
+    }
+
+    @RequestMapping(value = "offering-table/{role}", method = RequestMethod.GET)
+    public String getMissingInfoTable(@PathVariable String role, ModelMap modelMap) {
+        logger.info("User tries to get missing course information provided by "+role);
+
+        List<CourseOffering> courseOfferings = aimService.getMissingInfoByRole(role);
+        modelMap.addAttribute("courseofferings",courseOfferings) ;
+        modelMap.addAttribute("role",role);
+
+        return "courses/missing-course-info-table";
     }
 
     @RequestMapping(value = "cc-reports", method = RequestMethod.GET)

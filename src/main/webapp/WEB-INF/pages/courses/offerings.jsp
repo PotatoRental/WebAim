@@ -107,7 +107,7 @@
             $(".sidebar").removeClass("col-sm-12");
             smallToggled = true;
         }
-        //$("#course-home").load("/courses/offerings/add-offering");
+        $("#course-home").load("/courses/offerings/add-offering");
     }) ;
 
     $(".course").click(function(){

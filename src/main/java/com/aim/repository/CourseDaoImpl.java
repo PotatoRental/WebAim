@@ -93,8 +93,49 @@ public class CourseDaoImpl implements CourseDao {
                 .list();
     }
 
+    public List<CourseOffering> getMissingInfoByCIC(){
+        logger.info("User tries to get missing course information provided by CIC");
+        return sessionFactory.getCurrentSession()
+                .createQuery ("from CourseOffering where cicReportPath is NULL")
+                .list();
+
+    }
+
+    @Override
+    public List<CourseOffering> getMissingInfoByCC() {
+        logger.info("User tries to get missing course information provided by CC");
+        return sessionFactory.getCurrentSession()
+                .createQuery ("from CourseOffering where ccReportPath is NULL")
+                .list();
+    }
+
+    /*
+
+    syllabus, schedule of lectures, lecture
+    notes (at least one file), assignments (at least one assignment, and at
+    least one student sample for each quality level for each assignment),
+    course outcome direct assessments (at least one for each course outcome
+    used to assess the associated student outcome), course outcome attainment
+    targets (for each course outcome), and end-of-semester report.
+
+     */
+
+    @Override
+    public List<CourseOffering> getMissingInfoByInstructor() {
+        logger.info("User tries to get missing course information provided by instructor");
+        return sessionFactory.getCurrentSession()
+                .createQuery ("from CourseOffering where syllabusPath is NULL" +
+                      //  " or schedulePath is NULL or assignments is EMPTY" +
+                     //   " or courseOfferingDirectAssessments is EMPTY" +
+                        " or eosReportPath is NULL")
+                .list();
+    }
+
+
+
     @Override
     public CourseOffering getCourseOfferingById(Integer offeringId) {
+
         return (CourseOffering) sessionFactory.getCurrentSession()
                 .createQuery("from CourseOffering where id = :offeringId")
                 .setInteger("offeringId", offeringId)

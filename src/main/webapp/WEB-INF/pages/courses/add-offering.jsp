@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <p>
 
-<h1>${offering.course.id}-${offering.section}</h1>
+<h1>${offering.courseId}-${offering.section}</h1>
 <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
     &nbsp;&nbsp;<a id="edit-cancel" href="#">Cancel</a>
 </sec:authorize>
@@ -113,7 +113,7 @@
                 Course Outcome Direct Assessments
             </td>
             <td>
-
+                hi
             </td>
         </tr>
         <tr>
@@ -129,8 +129,6 @@
                 End-of-Semester Report
             </td>
             <td>
-                ${offering.eosReportPath}
-                <br/>
                 <input type='file' name="end-of-semester-report" />
             </td>
         </tr>
@@ -139,7 +137,6 @@
                 Course Coordinator Report
             </td>
             <td>
-                ${offering.ccReportPath} <br/>
                 <input type='file' name="course-coordinator-report" />
             </td>
         </tr>
@@ -148,9 +145,8 @@
                 CIC Report
             </td>
             <td>
-                ${offering.cicReportPath}
                 <br/>
-                    <input type='file' name="cic-report" />
+                <input type='file' name="cic-report" />
             </td>
         </tr>
 

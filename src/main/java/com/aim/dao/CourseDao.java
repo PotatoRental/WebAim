@@ -21,5 +21,8 @@ public interface CourseDao {
     public void saveCourse(Course course);
     public void addCourse(Course course);
     public List<CourseOffering> getAllCourseOfferings();
+    public List<CourseOffering> getMissingInfoByCIC();
+    public List<CourseOffering> getMissingInfoByCC();
+    public List<CourseOffering> getMissingInfoByInstructor();
     public CourseOffering getCourseOfferingById(Integer offeringId);
 }

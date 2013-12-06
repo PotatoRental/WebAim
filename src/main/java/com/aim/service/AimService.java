@@ -139,6 +139,15 @@ public class AimService {
         return courseDao.getAllCourseOfferings();
     }
 
+
+    public List<CourseOffering> getMissingInfoByRole(String role) {
+        if (role.equals("ROLE_CIC"))
+            return courseDao.getMissingInfoByCIC();
+        else if (role.equals("ROLE_CC"))
+            return courseDao.getMissingInfoByCC();
+        else
+            return courseDao.getMissingInfoByInstructor();
+    }
     public CourseOffering getCourseOfferingById(Integer offeringId) {
         return courseDao.getCourseOfferingById(offeringId);
     }
