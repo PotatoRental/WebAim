@@ -49,10 +49,6 @@
             <li><a href="/surveys/">Surveys</a></li>
             <li><a href="/users/">Users</a></li>
         </sec:authorize>
-
-        <sec:authorize ifAnyGranted="ROLE_ADMIN">
-            <li><a href="#">Admin</a></li>
-        </sec:authorize>
     </ul>
 </nav>
 

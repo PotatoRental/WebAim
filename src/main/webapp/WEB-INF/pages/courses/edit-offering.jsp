@@ -3,14 +3,14 @@
 <p>
 
 <h1>${offering.course.id}-${offering.section}</h1>
-<sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
+
     &nbsp;&nbsp;<a id="edit-cancel" href="#">Cancel</a>
-</sec:authorize>
+
 </p>
 
 <form>
     <table class="table table-bordered table-striped">
-        <sec:authorize ifAnyGranted="ROLE_INSTR, ROLE_CIC">
+        <sec:authorize ifAnyGranted="ROLE_INSTR, ROLE_CIC, ROLE_ADMIN">
         <tr>
             <td class="title-col">Course</td>
             <td>
@@ -132,7 +132,7 @@
         </tr>
 
             </sec:authorize>
-        <sec:authorize ifAnyGranted=" ROLE_CIC">
+        <sec:authorize ifAnyGranted=" ROLE_CIC, ROLE_ADMIN">
         <tr>
             <td class="title-col">
                 Course Outcome Survey Results
@@ -154,7 +154,7 @@
             </td>
         </tr>
         </sec:authorize>
-        <sec:authorize ifAnyGranted="ROLE_CC">
+        <sec:authorize ifAnyGranted="ROLE_CC, ROLE_ADMIN">
             <tr>
                 <td class="title-col">
                     Course Coordinator Report
