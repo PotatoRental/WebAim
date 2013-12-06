@@ -29,7 +29,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="a.xml" value="d9e66faa-d8cc-4aa9-bece-6a4f2eda2959" />
-          <unit-entry name="sessionFactory" value="c4204e5d-f5bb-4396-9d31-b8abf314c054" />
+          <unit-entry name="sessionFactory" value="9ae9c7fa-fce1-4207-9b4c-48d91dcbe489" />
         </datasource-map>
       </configuration>
     </facet>
@@ -45,6 +45,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: joda-time:joda-time:2.3" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:3.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:3.2.4.RELEASE" level="project" />
