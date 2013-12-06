@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -244,7 +248,7 @@ public class CoursesController {
     public String sendEmail(ModelMap modelMap) throws IOException {
         logger.info("User tries to get missing course information provided by ");
 
-        new ProcessBuilder("/images/email.sh").start();
+        new ProcessBuilder("/scripts/email.sh").start();
 
         return "courses/missing-course-info";
     }

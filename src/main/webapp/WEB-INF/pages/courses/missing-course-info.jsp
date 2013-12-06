@@ -31,7 +31,6 @@
 
                 </select></h4> <br>
             </p>
-            <button type="button" value="email"/>
             <p>
                 <h2>2. Select Courses</h2>
                 <h4>Notify <span class="selected-group">CIC Members</span> about the following courses:</h4>
@@ -47,6 +46,7 @@
             </p>
             <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Send Request'/>
             </form>
+            <button type="button">Email people</button>
         </div>
     </div>
 
