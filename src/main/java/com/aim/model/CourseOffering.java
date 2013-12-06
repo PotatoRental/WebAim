@@ -66,6 +66,22 @@ public class CourseOffering implements Comparable<CourseOffering> {
         this.id = id;
     }
 
+    public List<CourseOfferingDirectAssessment> getCourseOfferingDirectAssessments() {
+        return courseOfferingDirectAssessments;
+    }
+
+    public void setCourseOfferingDirectAssessments(List<CourseOfferingDirectAssessment> courseOfferingDirectAssessments) {
+        this.courseOfferingDirectAssessments = courseOfferingDirectAssessments;
+    }
+
+    public List<CourseOfferingOutcomeInformation> getCourseOfferingOutcomeInformations() {
+        return courseOfferingOutcomeInformations;
+    }
+
+    public void setCourseOfferingOutcomeInformations(List<CourseOfferingOutcomeInformation> courseOfferingOutcomeInformations) {
+        this.courseOfferingOutcomeInformations = courseOfferingOutcomeInformations;
+    }
+
     public Course getCourse() {
         return course;
     }

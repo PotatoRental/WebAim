@@ -27,6 +27,28 @@ public class CourseOutcome {
     @OneToMany(mappedBy = "courseOutcome")
     private List<StudentOutcomeCourseOutcomeMapping> studentOutcomeCourseOutcomeMappings;
 
+    @OneToMany(mappedBy = "courseOutcome")
+    private List<CourseOfferingDirectAssessment> courseOfferingDirectAssessments;
+
+    @OneToMany(mappedBy = "courseOutcome")
+    private List<CourseOfferingOutcomeInformation> courseOfferingOutcomeInformations;
+
+    public List<CourseOfferingDirectAssessment> getCourseOfferingDirectAssessments() {
+        return courseOfferingDirectAssessments;
+    }
+
+    public void setCourseOfferingDirectAssessments(List<CourseOfferingDirectAssessment> courseOfferingDirectAssessments) {
+        this.courseOfferingDirectAssessments = courseOfferingDirectAssessments;
+    }
+
+    public List<CourseOfferingOutcomeInformation> getCourseOfferingOutcomeInformations() {
+        return courseOfferingOutcomeInformations;
+    }
+
+    public void setCourseOfferingOutcomeInformations(List<CourseOfferingOutcomeInformation> courseOfferingOutcomeInformations) {
+        this.courseOfferingOutcomeInformations = courseOfferingOutcomeInformations;
+    }
+
     public Integer getSequenceNumber() {
         return sequenceNumber;
     }

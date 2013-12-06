@@ -36,6 +36,17 @@ public class DegreeProgram {
     @OneToMany(mappedBy = "degreeprogram")
     private List<StudentOutcome> studentOutcomes;
 
+    @OneToMany(mappedBy = "degreeProgram")
+    private List<Minutes> minutes;
+
+    public List<Minutes> getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(List<Minutes> minutes) {
+        this.minutes = minutes;
+    }
+
     public DegreeProgram() {
     }
 
