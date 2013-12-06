@@ -13,18 +13,19 @@ import javax.persistence.*;
 @Table(name = "Evaluator")
 public class Evaluator{
     @Id
-    @Column
-    private String username;
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    private UserAccount userAccount;
 
     @Column
     private String evaluationPeriod;
 
-    public String getUsername() {
-        return username;
+    public UserAccount getUserAccount() {
+        return userAccount;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
 
     public String getEvaluationPeriod() {
