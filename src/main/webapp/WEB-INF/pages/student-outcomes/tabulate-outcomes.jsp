@@ -150,8 +150,10 @@
 
     $("button").click(function(){
         $(".tabulation").html("<h1>Loading...</h1>");
-        $(".tabulation").load("/outcome/"+prog+"/tabulate/"+selectedopt);
-              $(".printlink").removeClass("hidden");
+        $(".tabulation").load("/outcome/"+prog+"/tabulate/"+selectedopt, function() {
+            $(".printlink").removeClass("hidden");
+        });
+
     })
 
 </script>

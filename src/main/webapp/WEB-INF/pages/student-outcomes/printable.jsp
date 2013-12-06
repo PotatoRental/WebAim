@@ -19,7 +19,12 @@
 <script type="text/javascript">
 
     $(document).ready(function(){
-        $("body").load("/outcome/cse/tabulate");
+        $("body").load("/outcome/cse/tabulate/so-enabled-courses"), function(){window.print()};
+
+
+
+
     })
+
 
 </script>
