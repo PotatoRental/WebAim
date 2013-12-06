@@ -26,6 +26,9 @@
         <div class="col-md-12 col-sm-12">
 
             <div>
+                <c:if test="${not empty surveyMessage}">
+                    <h2 class="error">${surveyMessage}</h2>
+                </c:if>
 
                 <table class="table table-striped">
                     <tr>

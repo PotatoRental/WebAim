@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -43,7 +44,7 @@ public class MinutesController {
     @RequestMapping(method = RequestMethod.POST)
     public String addMinutes(@ModelAttribute Minutes minutes,
                              HttpServletRequest request,
-                             ModelMap modelMap) {
+                             RedirectAttributes modelMap) {
         logger.info("User tries to get minutes.");
 
         List<Minutes> minutesList =  aimService.getAllMinutes();
@@ -55,6 +56,7 @@ public class MinutesController {
 
         aimService.addMinutes(minutes);
 
+        modelMap.addFlashAttribute("minutesMessage", "Added new minutes");
 
         return "redirect:/minutes";
     }
@@ -78,6 +80,7 @@ public class MinutesController {
     @RequestMapping(value="{minutesId}", method = RequestMethod.POST)
     public String modifyMinute(@PathVariable Integer minutesId,
                                @ModelAttribute Minutes minutes,
+                               RedirectAttributes modelMap,
                                BindingResult bindingResult,
                                HttpServletRequest request) {
 
@@ -85,13 +88,15 @@ public class MinutesController {
         Integer day = Integer.parseInt(request.getParameter("day"));
         Integer year = Integer.parseInt(request.getParameter("year"));
 
-        //Date date = new LocalDate(year, month, day).toDate();
+        Date date = new LocalDate(year, month, day).toDate();
 
         minutes.setId(minutesId);
-        //minutes.setDate(date);
+        minutes.setDate(date);
         minutes.setGroups(request.getParameter("group"));
 
         aimService.saveMinutes(minutes);
+
+        modelMap.addFlashAttribute("minutesMessage", "Minutes has been successfully modified");
 
         return "redirect:/minutes";
     }

@@ -204,7 +204,7 @@ public class CoursesController {
 
         aimService.saveCourseOffering(offering);
 
-        return "redirect:/courses/offerings/" + offeringId;
+        return "redirect:/courses/offerings/";
     }
 
     @RequestMapping(value = "offerings/add-offering", method = RequestMethod.GET)

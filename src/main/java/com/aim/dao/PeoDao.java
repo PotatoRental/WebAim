@@ -1,6 +1,7 @@
 package com.aim.dao;
 
 import com.aim.model.Peo;
+import com.aim.model.StudentOutcome;
 
 import java.util.List;
 
@@ -16,4 +17,8 @@ public interface PeoDao {
     public List<Peo> getPeosByDegreeProgramId(String programId);
 
     public Peo getPeoById(String peoId);
+
+    public void modifyPeo(StudentOutcome outcome);
+
+    public void addPeo(StudentOutcome outcome);
 }

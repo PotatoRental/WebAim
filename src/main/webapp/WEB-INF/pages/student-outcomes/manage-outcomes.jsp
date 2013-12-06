@@ -22,6 +22,10 @@
         <div class="col-md-12 col-sm-12">
 
             <div>
+                <c:if test="${not empty outcomeMessage}">
+                    <h2 class="error">${outcomeMessage}</h2>
+                </c:if>
+
 
                 <table class="table table-striped">
 
@@ -37,7 +41,7 @@
                         <th></th>
                     </tr>
 
-                    <form>
+                    <form method="post">
                         <tr id="header-form">
                             <td></td>
                             <td>

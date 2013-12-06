@@ -19,7 +19,9 @@
     <div class="row maincontent">
 
         <jsp:include page="../pagefrags/bread.jsp"/>
-
+        <c:if test="${not empty minutesMessage}">
+            <h2 class="error">${minutesMessage}</h2>
+        </c:if>
 
         <div class="col-md-12 col-sm-12">
             <div>

@@ -70,6 +70,8 @@ public class SurveyController {
 
         aimService.addSurvey(survey);
 
+        redirectAttributes.addFlashAttribute("surveyMessage", "Survey has been successfully added.");
+
         return "redirect:/surveys";
     }
 
@@ -93,7 +95,8 @@ public class SurveyController {
     @RequestMapping(value = "{surveyId}", method = RequestMethod.POST)
     public String modifySurvey(@PathVariable String surveyId,
                                @ModelAttribute Survey survey,
-                               HttpServletRequest request) {
+                               HttpServletRequest request,
+                               RedirectAttributes modelMap) {
 
         List<DegreeProgram> dPrograms = new ArrayList<DegreeProgram>();
         for (String degree : request.getParameterValues("degrees"))
@@ -105,6 +108,8 @@ public class SurveyController {
         survey.setSemester(semester[0] + " " + semester[1]);
         survey.setDegreeprograms(dPrograms);
         aimService.saveSurvey(survey);
+
+        modelMap.addFlashAttribute("surveyMessage", "Survey has been successfully added.");
 
         return "redirect:/surveys/";
     }
