@@ -78,8 +78,8 @@ public class CoursesController {
                                      RedirectAttributes redirectAttributes) {
         logger.info("User tries to submit course.");
 
-        String ccusername = (String) courseResu.getFieldError("courseCoordinator").getRejectedValue();
-        String alterusername = (String) courseResu.getFieldError("alternateCourseCoordinator").getRejectedValue();
+        String ccusername = request.getParameter("courseCoordinator");
+        String alterusername = request.getParameter("alternateCourseCoordinator");
         String degreeprograms[] = request.getParameterValues("degrees");
 
         List<DegreeProgram> dPrograms = new ArrayList<DegreeProgram>();
