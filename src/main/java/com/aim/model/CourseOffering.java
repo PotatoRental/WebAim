@@ -17,8 +17,9 @@ public class CourseOffering implements Comparable<CourseOffering> {
     @Column
     private Integer id;
 
-    @Column
-    private String courseId;
+    @ManyToOne
+    @JoinColumn(name = "courseId", referencedColumnName = "id")
+    private Course course;
 
     @Column
     private Integer Section;
@@ -46,6 +47,12 @@ public class CourseOffering implements Comparable<CourseOffering> {
     private String cicReportPath;
 
     @OneToMany(mappedBy = "courseOffering")
+    private List<CourseOfferingDirectAssessment> courseOfferingDirectAssessments;
+
+    @OneToMany(mappedBy = "courseOffering")
+    private List<CourseOfferingOutcomeInformation> courseOfferingOutcomeInformations;
+
+    @OneToMany(mappedBy = "courseOffering")
     private List<LectureNote> lectureNotes;
 
     @OneToMany(mappedBy = "courseOffering")
@@ -59,12 +66,12 @@ public class CourseOffering implements Comparable<CourseOffering> {
         this.id = id;
     }
 
-    public String getCourseId() {
-        return courseId;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     public Integer getSection() {
@@ -153,6 +160,6 @@ public class CourseOffering implements Comparable<CourseOffering> {
 
     @Override
     public int compareTo(CourseOffering o) {
-        return courseId.compareTo(o.getCourseId());
+        return course.getId().compareTo(o.getCourse().getId());
     }
 }

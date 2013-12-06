@@ -151,7 +151,7 @@ public class CoursesController {
         for (Course course : courseList) {
             List<CourseOffering> list = new ArrayList<CourseOffering>();
             for(CourseOffering courseOffering : courseOfferingList) {
-                if (course.getId().equals(courseOffering.getCourseId())) {
+                if (course.getId().equals(courseOffering.getCourse().getId())) {
                     list.add(courseOffering);
                 }
             }
