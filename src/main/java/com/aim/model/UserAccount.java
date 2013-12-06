@@ -1,5 +1,7 @@
 package com.aim.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -34,9 +36,11 @@ public class UserAccount implements UserDetails {
     private String lastName;
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<Role> roles;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<DegreeProgram> degreeprograms;
 
     public UserAccount() {}

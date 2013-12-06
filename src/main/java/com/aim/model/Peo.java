@@ -1,5 +1,8 @@
 package com.aim.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -34,6 +37,7 @@ public class Peo {
     private String validityPeriod;
 
     @OneToMany(mappedBy = "peo")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<PEOAttainmentLevelFromSurvey> PEOAttainmentLevelFromSurveys;
 
     @ManyToOne

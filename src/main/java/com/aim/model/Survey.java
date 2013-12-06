@@ -38,6 +38,7 @@ public class Survey {
     private List<DegreeProgram> degreeprograms;
 
     @OneToMany(mappedBy = "survey")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<PEOAttainmentLevelFromSurvey> PEOAttainmentLevelFromSurveys;
 
     public List<PEOAttainmentLevelFromSurvey> getPEOAttainmentLevelFromSurveys() {

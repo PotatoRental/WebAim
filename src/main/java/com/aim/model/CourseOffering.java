@@ -1,5 +1,8 @@
 package com.aim.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -47,15 +50,19 @@ public class CourseOffering implements Comparable<CourseOffering> {
     private String cicReportPath;
 
     @OneToMany(mappedBy = "courseOffering")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<CourseOfferingDirectAssessment> courseOfferingDirectAssessments;
 
     @OneToMany(mappedBy = "courseOffering")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<CourseOfferingOutcomeInformation> courseOfferingOutcomeInformations;
 
     @OneToMany(mappedBy = "courseOffering")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<LectureNote> lectureNotes;
 
     @OneToMany(mappedBy = "courseOffering")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<Assignment> assignments;
 
     public Integer getId() {

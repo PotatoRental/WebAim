@@ -1,5 +1,8 @@
 package com.aim.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -25,18 +28,23 @@ public class DegreeProgram {
     private String department;
 
     @ManyToMany(mappedBy = "degreeprograms")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<Course> courses;
 
     @ManyToMany(mappedBy = "degreeprograms")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<UserAccount> userAccounts;
 
     @OneToMany(mappedBy = "degreeprogram")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<Peo> peos;
 
     @OneToMany(mappedBy = "degreeprogram")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<StudentOutcome> studentOutcomes;
 
     @OneToMany(mappedBy = "degreeProgram")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<Minutes> minutes;
 
     public List<Minutes> getMinutes() {
