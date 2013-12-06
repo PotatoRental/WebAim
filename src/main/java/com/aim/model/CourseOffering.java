@@ -1,5 +1,8 @@
 package com.aim.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -55,7 +58,9 @@ public class CourseOffering implements Comparable<CourseOffering> {
     @OneToMany(mappedBy = "courseOffering")
     private List<LectureNote> lectureNotes;
 
+
     @OneToMany(mappedBy = "courseOffering")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<Assignment> assignments;
 
     public Integer getId() {
@@ -169,6 +174,8 @@ public class CourseOffering implements Comparable<CourseOffering> {
     public List<Assignment> getAssignments() {
         return assignments;
     }
+
+
 
     public void setAssignments(List<Assignment> assignments) {
         this.assignments = assignments;

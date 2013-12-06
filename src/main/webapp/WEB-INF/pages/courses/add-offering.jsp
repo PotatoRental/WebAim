@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <p>
 
-<h1>${offering.courseId}-${offering.section}</h1>
+<h1>Add Course Offering</h1>
 <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
     &nbsp;&nbsp;<a id="edit-cancel" href="#">Cancel</a>
 </sec:authorize>
@@ -132,14 +133,16 @@
                 <input type='file' name="end-of-semester-report" />
             </td>
         </tr>
+        <sec:authorize ifAnyGranted="ROLE_CC">
         <tr>
             <td class="title-col">
                 Course Coordinator Report
             </td>
             <td>
-                <input type='file' name="course-coordinator-report" />
+                <input required type='file' name="course-coordinator-report" />
             </td>
         </tr>
+        </sec:authorize>
         <tr>
             <td class="title-col">
                 CIC Report

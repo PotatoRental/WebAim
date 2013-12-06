@@ -70,11 +70,10 @@
         </td>
         <td>
             <ul class="list-unstyled">
-            <li><a href="#">HW 1: Basic HTML</a></li>
-            <li><a href="#">HW 2: Links and Images</a></li>
-            <li><a href="#">HW 3: Tables and Lists</a></li>
-            <li><a href="#">HW 4: CSS</a></li>
-            </ul>
+        <c:forEach items="${offering.assignments}" var="assignment">
+           <li> ${assignment.name} </li>
+        </c:forEach>
+                </ul>
         </td>
     </tr>
     <tr>
