@@ -187,4 +187,9 @@ public class CourseDaoImpl implements CourseDao {
     public void saveCourseOffering(CourseOffering offering) {
         sessionFactory.getCurrentSession().update(offering);
     }
+
+    @Override
+    public void addProgram(DegreeProgram program) {
+        sessionFactory.getCurrentSession().save(program);
+    }
 }

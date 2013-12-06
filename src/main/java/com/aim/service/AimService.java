@@ -212,4 +212,8 @@ public class AimService {
     public void addPeo(StudentOutcome outcome) {
         peoDao.addPeo(outcome);
     }
+
+    public void addProgram(DegreeProgram program) {
+        courseDao.addProgram(program);
+    }
 }

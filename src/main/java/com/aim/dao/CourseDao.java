@@ -31,4 +31,6 @@ public interface CourseDao {
     public CourseOffering getCourseOfferingById(Integer offeringId);
     public void saveProgram(DegreeProgram degreeProgram);
     public void saveCourseOffering(CourseOffering offering);
+
+    public void addProgram(DegreeProgram program);
 }

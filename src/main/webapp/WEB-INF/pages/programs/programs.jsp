@@ -34,15 +34,15 @@
                         <sec:authorize ifNotGranted=" ROLE_EVAL"><th></th>  </sec:authorize>
                     </tr>
                     <sec:authorize ifNotGranted=" ROLE_EVAL">
-                    <form>
+                    <form method="post">
                         <tr id="header-form">
                             <td><input type='text' required name="id" class="fat" placeholder="Identifier">
                             <td><textarea name="description" class="fat" placeholder="Description"></textarea>
                             </td>
                             <td>
                                 <select required name="department">
-                                    <option value="CSE">Computer Science</option>
-                                    <option value="ISE">Information Systems</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Information Systems">Information Systems</option>
                                 </select>
                             </td>
                             <td>

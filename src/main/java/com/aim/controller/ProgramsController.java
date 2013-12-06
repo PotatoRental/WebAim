@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class ProgramsController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getMinutes(ModelMap modelMap) {
+    public String getProgram(ModelMap modelMap) {
         logger.info("User tries to get degree programs.");
 
         List<DegreeProgram> degreePrograms = aimService.getAllDegreeProgram();
@@ -46,6 +47,33 @@ public class ProgramsController {
         modelMap.addAttribute("degreeprograms",degreePrograms);
         modelMap.addAttribute("studentoutcomes",studentOutcomes);
         modelMap.addAttribute("peos",peos);
+
+        return "/programs/programs";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String addProgram(HttpServletRequest request,
+                             RedirectAttributes attributes,
+                             ModelMap modelMap) {
+        logger.info("User tries to get degree programs.");
+
+        DegreeProgram program = new DegreeProgram();
+        program.setId(request.getParameter("id"));
+        program.setDescription(request.getParameter("description"));
+        program.setDepartment(request.getParameter("department"));
+
+        List<Peo> peos = new ArrayList<Peo>();
+        for (String peozor : request.getParameterValues("peo"))
+            peos.add(aimService.getPeoById(peozor));
+
+        List<StudentOutcome> outcomes = new ArrayList<StudentOutcome>();
+        for (String outcome : request.getParameterValues("student-outcomes"))
+            outcomes.add(aimService.getStudentOutcomeById(outcome));
+
+        program.setPeos(peos);
+        program.setStudentOutcomes(outcomes);
+
+        aimService.addProgram(program);
 
         return "/programs/programs";
     }
@@ -60,8 +88,6 @@ public class ProgramsController {
         modelMap.addAttribute("degreeprogram",degreeProgram);
         modelMap.addAttribute("studentoutcomes",studentOutcomes);
         modelMap.addAttribute("peos",peos);
-
-
 
         return "/programs/edit-program";
     }
