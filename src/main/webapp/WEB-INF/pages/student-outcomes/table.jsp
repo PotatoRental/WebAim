@@ -22,7 +22,7 @@
 
             <c:forEach items="${studentoutcomes}" var="studentoutcome">
 
-                <td>
+                <td class="check-col">
                     <c:set var="cond" value="true"/>
                     <c:forEach items="${course.courseOutcomes}" var="courseoutcome">
                         <c:forEach items="${studentoutcomecourseoutcome}" var="soco">
@@ -45,5 +45,9 @@
 </table>
 
 <script type="text/javascript">
+    <c:if test="${soac eq 'true'}">
+    $(".check-col:nth-child(10)").text("");
+    $(".check-col:nth-child(4)").text("");
+     </c:if>
 
 </script>
