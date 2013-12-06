@@ -101,16 +101,6 @@
 
             </td>
         </tr>
-        <tr>
-            <td class="title-col">
-                Course Offerings
-            </td>
-            <td>
-                <a href="#">View Course Offerings</a>
-            </td>
-        </tr>
-
-
 
 
 </table>

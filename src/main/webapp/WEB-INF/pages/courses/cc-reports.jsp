@@ -1,5 +1,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -29,29 +30,19 @@
                         <tr>
                             <th>Course</th>
                             <th>Report</th>
-                            <th></th>
 
+
+                            <c:forEach items="${offerings}" var="offering">
                         <tr>
-                            <td><a href="#">CSE 110</a></td>
-                            <td><a href="#">report.txt</a></td>
-                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">CSE 110</a></td>
-                            <td><a href="#">report.txt</a>
+                            <td>${offering.course.id}-${offering.section}</td>
+                            <td>
+                                <form>
+                                    <input type="file" name="report"/>
+                                    <br><input type="submit" class="btn btn-default  blue-hover" value="submit"/>
+                                </form>
                             </td>
-                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
                         </tr>
-                        <tr>
-                            <td><a href="#">CSE 110</a></td>
-                            <td><a href="#">report.txt</a></td>
-                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">CSE 110</a></td>
-                            <td><a href="#">report.txt</a></td>
-                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                        </tr>
+                        </c:forEach>
                     </table>
                 </sec:authorize>
 
@@ -60,29 +51,22 @@
                     <table class="tabulate table table-bordered table-striped">
                         <tr>
                             <th>Course</th>
-                            <th>Report</th>
-                            <th></th>
 
+                            <th>Report</th>
+
+
+                            <c:forEach items="${allofferings}" var="offering">
                         <tr>
-                            <td><a href="#">CSE 110 | Introduction to Programming</a></td>
-                            <td><a href="#">report.txt</a></td>
-                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
+                            <td>${offering.course.id}-${offering.section}</td>
+
+                            <td>
+                                <form>
+                                <input type="file" name="report"/>
+                                    <br><input type="submit" class="btn btn-default  blue-hover" value="submit"/>
+                                </form>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><a href="#">CSE 110 | Introduction to Programming</a></td>
-                            <td><a href="#">report.txt</a></td>
-                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">CSE 110 | Introduction to Programming</a></td>
-                            <td><a href="#">report.txt</a></td>
-                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">CSE 110 | Introduction to Programming</a></td>
-                            <td><a href="#">report.txt</a></td>
-                            <td><input type='submit' class="btn btn-default blue-hover" value='Upload File'/></td>
-                        </tr>
+                        </c:forEach>
                     </table>
                 </sec:authorize>
 

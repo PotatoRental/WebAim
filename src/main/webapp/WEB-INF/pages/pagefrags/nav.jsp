@@ -16,7 +16,7 @@
                 <li><a href="/programs/" >Degree Programs</a></li>
 
                 <spring:url value="/courses" var="courseUrl" htmlEscape="true"/>
-                <li><a href="${courseUrl}" ">Courses</a></li>
+                <li><a href="${courseUrl}">Courses</a></li>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC, ROLE_CC, ROLE_EVAL">
                     <li><a href="/courses/offerings" >Course Offerings</a></li>
                 </sec:authorize>
@@ -24,7 +24,7 @@
                     <li><a href="/courses/missing-course-info" >Missing Course Info</a></li>
                 </sec:authorize>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CC">
-                    <li><a href="/courses/cc-reports" >Course Coordinator Reports</a></li>
+                    <li><a href="/courses/cc-reports/${currentUser.username}" >Course Coordinator Reports</a></li>
                 </sec:authorize>
             </ul>
         </li>

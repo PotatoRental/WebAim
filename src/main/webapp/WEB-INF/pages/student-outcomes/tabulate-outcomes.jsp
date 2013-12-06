@@ -107,10 +107,6 @@
                 <h4>Academic Year:</h4> <input type="text" name="year" class="year"><br> <br>
 
 
-
-
-
-
             </form>
             <button type='button' class="btn btn-default fat-btn blue-hover">Tabulate</button>
 

@@ -61,6 +61,16 @@ public class CourseDaoImpl implements CourseDao {
                 .list();
     }
 
+    public List<CourseOffering> getOfferingsByCoordinator(String ccName) {
+        logger.info("User is getting course offering by coordinator" + ccName);
+
+        //List<Course> courses = getCoursesByCoordinator(ccName);
+        return sessionFactory.getCurrentSession()
+                .createQuery("from CourseOffering where course.courseCoordinator = :ccName")
+                .setString("ccName", ccName)
+                .list();
+    }
+
     public List<Course> getCoursesByDegreeProgram (String programId) {
         DegreeProgram degreeProgram = (DegreeProgram) sessionFactory.getCurrentSession()
                 .createQuery("from DegreeProgram where id = :programId")

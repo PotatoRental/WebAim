@@ -52,6 +52,10 @@ public class AimService {
         return courseDao.getCoursesByDegreeProgram(programId);
     }
 
+    public List<CourseOffering> getOfferingsByCoordinator(String ccName){
+        return courseDao.getOfferingsByCoordinator(ccName);
+    }
+
     public Course getCourseById(String courseId) {
         return courseDao.getCourseById(courseId);
     }

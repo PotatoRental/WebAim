@@ -19,6 +19,7 @@ public interface CourseDao {
     public List<Course> getCoursesByDegreeProgram (String programId);
     public List<DegreeProgram> getAllDegreeProgram();
     public DegreeProgram getDegreeProgramById(String degreeId);
+    public List<CourseOffering> getOfferingsByCoordinator(String ccName);
     public Course getCourseById(String courseId);
     public Integer getNumCourses();
     public void saveCourse(Course course);

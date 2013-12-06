@@ -247,10 +247,14 @@ public class CoursesController {
         return "courses/missing-course-info";
     }
 
-    @RequestMapping(value = "cc-reports", method = RequestMethod.GET)
-    public String getCourseCoordinatorReports(ModelMap modelMap) {
-        logger.info("User tries to get course coordinator reports.");
+    @RequestMapping(value = "cc-reports/{ccName}", method = RequestMethod.GET)
+    public String getCourseCoordinatorReports(@PathVariable String ccName, ModelMap modelMap) {
+        logger.info("User tries to get course offerings by username.");
 
+        List<CourseOffering> offerings = aimService.getOfferingsByCoordinator(ccName);
+        List<CourseOffering> allOfferings = aimService.getAllCourseOfferings();
+        modelMap.addAttribute("offerings",offerings);
+        modelMap.addAttribute("allofferings",allOfferings);
 
         return "courses/cc-reports";
     }
