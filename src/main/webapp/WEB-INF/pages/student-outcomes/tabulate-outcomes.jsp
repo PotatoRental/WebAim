@@ -117,7 +117,7 @@
         </div>
 
         <div class="col-md-9 col-sm-9">
-            <center><a class="hidden printlink" href="/outcome/printable">Printable Version</a></center>
+            <center><a class="hidden printlink" href="/outcome/printable" target="_blank">Printable Version</a></center>
 
             <div class="tabulation"></div>
 
@@ -150,8 +150,10 @@
 
     $("button").click(function(){
         $(".tabulation").html("<h1>Loading...</h1>");
-        $(".tabulation").load("/outcome/"+prog+"/tabulate/"+selectedopt);
-              $(".printlink").removeClass("hidden");
+        $(".tabulation").load("/outcome/"+prog+"/tabulate/"+selectedopt, function() {
+            $(".printlink").removeClass("hidden");
+        });
+
     })
 
 </script>

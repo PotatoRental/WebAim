@@ -80,6 +80,7 @@ public class OutcomeController {
         return "redirect:/outcome/manage-outcomes";
     }
 
+
     @RequestMapping(value = "{programId}/tabulate/{outcome}", method = RequestMethod.GET)
     public String getOffering(@PathVariable String programId, @PathVariable String outcome, ModelMap modelMap) {
 
