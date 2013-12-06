@@ -185,6 +185,7 @@ public class CoursesController {
         List<Course> courses = aimService.getAllCourses();
         List<UserAccount> instructors = aimService.getAllInstructor();
 
+        modelMap.addAttribute("modifyOffering", new CourseOffering());
         modelMap.addAttribute("offering", courseOffering);
         modelMap.addAttribute("courses",courses);
         modelMap.addAttribute("instructors", instructors);

@@ -48,8 +48,8 @@
                                     </select>
                                 </spring:bind>
                             </td>
-                            <td><input type='text' required name="group" class="fat" placeholder="Group"></td>
-                            <td><input type='text' required name="initiator" class="fat" placeholder="Initiator"></td>
+                            <td><spring:bind path="addSurvey.groups"><input type='text' required name="groups" class="fat" placeholder="Group"></spring:bind></td>
+                            <td><spring:bind path="addSurvey.initiator"><input type='text' required name="initiator" class="fat" placeholder="Initiator"></spring:bind></td>
                             <td>
                                 <spring:bind path="addSurvey.semester">
                                     <select required name="semester" id="semester">
