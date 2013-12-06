@@ -20,6 +20,9 @@
 
         <div class="col-md-12 col-sm-12">
 
+        <c:if test="${not empty missingMessage}">
+            <h2>${missingMessage}</h2>
+        </c:if>
         <form method="post">
             <p>
                <h2>1. Select Group</h2>

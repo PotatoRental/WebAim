@@ -245,7 +245,8 @@ public class CoursesController {
     }
 
     @RequestMapping(value = "missing-course-info", method = RequestMethod.POST)
-    public String sendEmail(HttpServletRequest request, ModelMap modelMap) throws IOException {
+    public String sendEmail(HttpServletRequest request, ModelMap modelMap,
+                            RedirectAttributes redirectAttributes) throws IOException {
         logger.info("User tries to get missing course information provided by ");
         String content = request.getParameter("role-class") + request.getParameter("myname");
         String subject = "You have a request to add information!";
@@ -253,6 +254,7 @@ public class CoursesController {
 
         Process process = new ProcessBuilder("/scripts/email.sh", content, subject, targetEmail).start();
 
+        redirectAttributes.addFlashAttribute("missingMessage", "Email has been sent to the users");
         return "redirect:/courses/missing-course-info";
     }
 
