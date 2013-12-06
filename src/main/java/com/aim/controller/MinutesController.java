@@ -41,6 +41,15 @@ public class MinutesController {
         return "/minutes/allminutes";
     }
 
+    @RequestMapping(value="eval/{programId}", method = RequestMethod.GET)
+    public String getMinutesEval (@PathVariable String programId, ModelMap modelMap) {
+
+        List<Minutes> minutes = aimService.getMinutesByProgramId(programId);
+        modelMap.addAttribute("minuteslist",minutes);
+
+        return "/minutes/allminutes";
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public String addMinutes(@ModelAttribute Minutes minutes,
                              HttpServletRequest request,

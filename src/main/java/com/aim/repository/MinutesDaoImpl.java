@@ -33,6 +33,14 @@ public class MinutesDaoImpl implements MinutesDao{
                 .uniqueResult();
     }
 
+    public List<Minutes> getMinutesByProgramId(String id) {
+        logger.info("User is getting minutes by degree program:" +id);
+        return  sessionFactory.getCurrentSession()
+                .createQuery("from Minutes where degreeProgram = :id")
+                .setString("id", id)
+                .list();
+    }
+
     public void deleteMinutesById(String id) {
         logger.info("User is DELEEEEEEEETINGGGGGGGGGGG" +id);
         sessionFactory.getCurrentSession()

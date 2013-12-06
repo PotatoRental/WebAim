@@ -33,6 +33,7 @@
                 </tr>
 
 
+
                 <form:form method="post" commandName="newUser">
                     <tr id="header-form">
                         <td><form:input type='text' required="required" name="first-name" class="fat" placeholder="First Name" path="firstName"/><br/>
@@ -74,8 +75,11 @@
                 <c:forEach var="user" items="${userlist}">
                     <tr>
                         <td><a href="/users/${user.username}">${user.firstName} ${user.lastName}</a></td>
+
                         <td>${user.username}</td>
-                        <td>${user.email}</td>
+                        <td>${user.email}
+
+                        </td>
                         <td>
 
                             <ul class="list-unstyled">

@@ -14,7 +14,7 @@ public interface MinutesDao {
 
     public List<Minutes> getAllMinutes();
     public Minutes getMinutesById(String id);
-
+    public List<Minutes> getMinutesByProgramId(String id);
     public void modifyMinutes(Minutes minutes);
     public void deleteMinutesById(String id);
 

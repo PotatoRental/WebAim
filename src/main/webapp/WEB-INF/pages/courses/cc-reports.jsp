@@ -37,6 +37,8 @@
                             <td>${offering.course.id}-${offering.section}</td>
                             <td>
                                 <form>
+                                    <a href="/${offering.ccReportPath}"> ${offering.ccReportPath}</a><br>
+
                                     <input type="file" name="report"/>
                                     <br><input type="submit" class="btn btn-default  blue-hover" value="submit"/>
                                 </form>
@@ -50,20 +52,22 @@
                     <h2>All Reports</h2>
                     <table class="tabulate table table-bordered table-striped">
                         <tr>
-                            <th>Course</th>
-
+                            <th>Course Offering</th>
+                            <th>Semester</th>
+                            <th>Course Coordinator</th>
                             <th>Report</th>
 
 
                             <c:forEach items="${allofferings}" var="offering">
                         <tr>
                             <td>${offering.course.id}-${offering.section}</td>
+                            <td>${offering.semester}</td>
+                            <td>
+                                <a href="/users/${offering.course.courseCoordinator.username}"> ${offering.course.courseCoordinator.firstName} ${offering.course.courseCoordinator.lastName}</a>
+                            </td>
 
                             <td>
-                                <form>
-                                <input type="file" name="report"/>
-                                    <br><input type="submit" class="btn btn-default  blue-hover" value="submit"/>
-                                </form>
+                                <a href="/${offering.ccReportPath}"> ${offering.ccReportPath}</a>
                             </td>
                         </tr>
                         </c:forEach>

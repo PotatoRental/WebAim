@@ -32,39 +32,22 @@
             <div class="quicklinks">
                 <ul>
                     <li><a href="/courses">All Course Listings</a></li>
-                    <li><a href="#">Degree Programs</a></li>
+                    <li><a href="/programs">Degree Programs</a></li>
+                    <li><a href="/courses/missing-course-info">Identify & Request Missing Course Information</a></li>
+                    <li><a href="/outcome/manage-outcomes">Manage Student Outcomes</a>
+                    <li><a href="/outcome/tabulate-outcomes">Tabulate Student Outcomes</a></li>
                     <sec:authorize ifAllGranted="ROLE_ADMIN">
-                        <li><a href="/users">View Users</a></li>
+
                     </sec:authorize>
                     <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
-                        <li><a href="#">View Instructors</a></li>
+                        <li><a href="/users">View Users</a></li>
+
                         <li><a href="#">View Course Coordinators</a></li>
                         <li><a href="#">View Evaluators</a></li>
                     </sec:authorize>
                 </ul>
             </div>
-            <br>
-            <sec:authorize ifAnyGranted="ROLE_CC">
-                <h4>
-                    Courses You Are Teaching
-                </h4>
 
-                <div class="quicklinks">
-                    <ul>
-                        <li><a href="#">CSE 102</a></li>
-                        <li><a href="#">CSE 320</a></li>
-                    </ul>
-                </div>
-                <br>
-                <h4>Courses You Are Coordinating</h4>
-
-                <div class="quicklinks">
-                    <ul>
-                        <li><a href="#">CSE 336</a></li>
-                        <li><a href="#">CSE 373</a></li>
-                    </ul>
-                </div>
-            </sec:authorize>
         </div>
 
         <div class="col-md-7 col-sm-7 col-sm-offset-1 col-md-offset-1">
@@ -99,12 +82,12 @@
 
                 <div class="alert alert-dismissable alert-warning">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <strong>4 courses are missing information.</strong> <a href="#">View</a>.
+                    <strong>Courses are missing information.</strong> <a href="/courses/missing-course-info">View</a>.
                 </div>
 
                 <div class="alert alert-dismissable alert-info">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    2 courses have been added to the system. <a href="#">View</a>.
+                    New courses have been added to the system. <a href="/courses">View</a>.
                 </div>
             </sec:authorize>
 

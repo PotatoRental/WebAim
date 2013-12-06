@@ -28,7 +28,7 @@
                 </sec:authorize>
             </ul>
         </li>
-
+        <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
         <li>
             <a href="#">Student Outcomes</a>
             <ul class="cbp-tm-submenu">
@@ -37,7 +37,7 @@
             </ul>
         </li>
 
-        <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
+
             <li>
                 <a href="#">PEOs</a>
                 <ul class="cbp-tm-submenu">
@@ -45,7 +45,13 @@
                     <li><a href="/peo/tabulate-attainment">Tabulate PEO Attainment</a></li>
                 </ul>
             </li>
+
             <li><a href="/minutes/">Minutes</a></li>
+        </sec:authorize>
+        <sec:authorize ifAnyGranted=" ROLE_EVAL">
+            <li><a href="/minutes/eval/${currentUser.degreeprograms[0].id}">Minutes</a></li>
+            </sec:authorize>
+        <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
             <li><a href="/surveys/">Surveys</a></li>
             <li><a href="/users/">Users</a></li>
         </sec:authorize>
