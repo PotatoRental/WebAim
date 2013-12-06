@@ -55,6 +55,7 @@ public class MinutesController {
 
         aimService.addMinutes(minutes);
 
+        modelMap.addAttribute("minutesMessage", "Added new minutes");
 
         return "redirect:/minutes";
     }
@@ -78,6 +79,7 @@ public class MinutesController {
     @RequestMapping(value="{minutesId}", method = RequestMethod.POST)
     public String modifyMinute(@PathVariable Integer minutesId,
                                @ModelAttribute Minutes minutes,
+                               ModelMap modelMap,
                                BindingResult bindingResult,
                                HttpServletRequest request) {
 
@@ -85,13 +87,15 @@ public class MinutesController {
         Integer day = Integer.parseInt(request.getParameter("day"));
         Integer year = Integer.parseInt(request.getParameter("year"));
 
-        //Date date = new LocalDate(year, month, day).toDate();
+        Date date = new LocalDate(year, month, day).toDate();
 
         minutes.setId(minutesId);
-        //minutes.setDate(date);
+        minutes.setDate(date);
         minutes.setGroups(request.getParameter("group"));
 
         aimService.saveMinutes(minutes);
+
+        modelMap.addAttribute("minutesMessage", "Minutes has been successfully modified");
 
         return "redirect:/minutes";
     }

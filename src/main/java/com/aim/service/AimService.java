@@ -181,4 +181,8 @@ public class AimService {
     public void saveCourseOffering(CourseOffering offering) {
         courseDao.saveCourseOffering(offering);
     }
+
+    public void savePeo(StudentOutcome outcome) {
+        peoDao.modifyPeo(outcome);
+    }
 }

@@ -2,6 +2,7 @@ package com.aim.repository;
 
 import com.aim.dao.PeoDao;
 import com.aim.model.Peo;
+import com.aim.model.StudentOutcome;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,11 @@ public class PeoDaoImpl implements PeoDao {
                 .createQuery("from Peo where id = :peoId")
                 .setString("peoId",peoId)
                 .uniqueResult();
+    }
+
+    @Override
+    public void modifyPeo(StudentOutcome outcome) {
+        sessionFactory.getCurrentSession().update(outcome);
     }
 
 

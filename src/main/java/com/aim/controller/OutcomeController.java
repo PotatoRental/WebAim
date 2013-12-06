@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,6 +59,26 @@ public class OutcomeController {
         modelMap.addAttribute("degreeprograms",degreePrograms);
 
         return "student-outcomes/edit-outcomes";
+    }
+
+    @RequestMapping(value="{outcomeId}/edit", method = RequestMethod.POST)
+    public String submitPeoEditor(@PathVariable String outcomeId,
+                                  HttpServletRequest request,
+                                  ModelMap modelMap){
+        StudentOutcome outcome = aimService.getStudentOutcomeById(outcomeId);
+        outcome.setShortName(request.getParameter("shortname"));
+        outcome.setDescription(request.getParameter("description"));
+        outcome.setTargetDirectAssessmentAttainmentLevel(Float.parseFloat(request.getParameter("target-direct-assessment")));
+        outcome.setTargetSurveyAssessmentAttainmentLevel(Float.parseFloat(request.getParameter("target-survey-assessment")));
+        outcome.setValidityPeriod(request.getParameter("start-year") + "-" + request.getParameter("end-year"));
+
+        List<DegreeProgram> degreePrograms = new ArrayList<DegreeProgram>();
+        for (String deg : request.getParameterValues("degree-program"))
+            degreePrograms.add(aimService.getDegreeProgramById(deg));
+
+
+        aimService.savePeo(outcome);
+        return "redirect:/outcome/manage-outcomes";
     }
 
 }
