@@ -54,6 +54,13 @@ public class SurveyController {
         return "/surveys/allsurveys";
     }
 
+    @RequestMapping(value = "eval/{programId}", method = RequestMethod.GET)
+    public String viewEvalSurvey(@PathVariable String programId, ModelMap modelMap){
+        List<Survey> surveys = aimService.getSurveysByProgram(programId);
+        modelMap.addAttribute("surveys",surveys);
+        return "/surveys/allsurveys";
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public String addSurveys(@ModelAttribute Survey survey, ModelMap modelMap,
                              HttpServletRequest request,

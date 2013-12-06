@@ -35,6 +35,16 @@ public class SurveyDaoImpl implements SurveyDao {
                 .list();
     }
 
+
+    public List<Survey> getSurveysByProgram(String id) {
+        logger.info("User is getting all surveys.");
+
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Survey where :id in elements(degreeprograms)")
+                .setString("id",id)
+                .list();
+    }
+
     @Override
     public Survey getSurveyById(String surveyId) {
         return (Survey) sessionFactory.getCurrentSession()

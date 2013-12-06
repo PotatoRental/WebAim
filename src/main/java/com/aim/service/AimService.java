@@ -41,6 +41,10 @@ public class AimService {
         return courseDao.getAllCourses();
     }
 
+    public List<Survey> getSurveysByProgram(String id){
+        return surveyDao.getSurveysByProgram(id);
+    }
+
     public List<Course> getCoursesByInstructor(String instructorId) {
         return courseDao.getCoursesByInstructor(instructorId);
     }

@@ -50,11 +50,11 @@
         </sec:authorize>
         <sec:authorize ifAnyGranted=" ROLE_EVAL">
             <li><a href="/minutes/eval/${currentUser.degreeprograms[0].id}">Minutes</a></li>
-            </sec:authorize>
-        <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC, ROLE_EVAL">
-            <li><a href="/surveys/">Surveys</a></li>
+            <li><a href="/surveys/eval/${currentUser.degreeprograms[0].id}">Surveys</a></li>
             </sec:authorize>
         <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
+            <li><a href="/surveys/">Surveys</a></li>
+
             <li><a href="/users/">Users</a></li>
         </sec:authorize>
     </ul>
