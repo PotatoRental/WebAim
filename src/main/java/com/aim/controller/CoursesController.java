@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -240,9 +241,10 @@ public class CoursesController {
     }
 
     @RequestMapping(value = "offering-table/sendemail", method = RequestMethod.GET)
-    public String sendEmail(ModelMap modelMap) {
+    public String sendEmail(ModelMap modelMap) throws IOException {
         logger.info("User tries to get missing course information provided by ");
 
+        new ProcessBuilder("/images/email.sh").start();
 
         return "courses/missing-course-info";
     }
