@@ -1,6 +1,7 @@
 package com.aim.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -32,9 +33,20 @@ public class Peo {
     @Column(nullable = false)
     private String validityPeriod;
 
+    @OneToMany(mappedBy = "peo")
+    private List<PEOAttainmentLevelFromSurvey> PEOAttainmentLevelFromSurveys;
+
     @ManyToOne
     @JoinColumn(name = "degreeProgramId")
     private DegreeProgram degreeprogram;
+
+    public List<PEOAttainmentLevelFromSurvey> getPEOAttainmentLevelFromSurveys() {
+        return PEOAttainmentLevelFromSurveys;
+    }
+
+    public void setPEOAttainmentLevelFromSurveys(List<PEOAttainmentLevelFromSurvey> PEOAttainmentLevelFromSurveys) {
+        this.PEOAttainmentLevelFromSurveys = PEOAttainmentLevelFromSurveys;
+    }
 
     public String getId() {
         return id;

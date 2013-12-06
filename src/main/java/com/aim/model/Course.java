@@ -45,6 +45,17 @@ public class Course implements Comparable<Course> {
     @JoinColumn(name = "alternateCourseCoordinatorUsername", referencedColumnName = "username")
     private UserAccount alternateCourseCoordinator;
 
+    @OneToMany(mappedBy = "course")
+    private List<CourseOffering> courseOfferings;
+
+    public List<CourseOffering> getCourseOfferings() {
+        return courseOfferings;
+    }
+
+    public void setCourseOfferings(List<CourseOffering> courseOfferings) {
+        this.courseOfferings = courseOfferings;
+    }
+
     public String getId() {
         return id;
     }
