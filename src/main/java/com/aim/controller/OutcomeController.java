@@ -82,6 +82,8 @@ public class OutcomeController {
 
     @RequestMapping(value = "{programId}/tabulate", method = RequestMethod.GET)
     public String getOffering(@PathVariable String programId, ModelMap modelMap) {
+    @RequestMapping(value = "{programId}/tabulate/{outcome}", method = RequestMethod.GET)
+    public String getOffering(@PathVariable String programId, @PathVariable String outcome, ModelMap modelMap) {
 
         List<Course> courses = aimService.getCoursesByDegreeProgram(programId);
         DegreeProgram degreeProgram = aimService.getDegreeProgramById(programId);
@@ -91,6 +93,7 @@ public class OutcomeController {
         modelMap.addAttribute("courses", courses);
         modelMap.addAttribute("studentoutcomes",studentOutcomes);
         modelMap.addAttribute("studentoutcomecourseoutcome",studentOutcomeCourseOutcome);
+        modelMap.addAttribute("selectedoutcome",outcome);
 
         return "student-outcomes/table";
     }
@@ -129,6 +132,11 @@ public class OutcomeController {
 
         modelMap.addFlashAttribute("outcomeMessage", "Peo has been modified");
         return "redirect:/outcome/manage-outcomes";
+    }
+
+    @RequestMapping(value="printable",method=RequestMethod.GET)
+    public String getPrintable(ModelMap modelMap){
+        return "/student-outcomes/printable";
     }
 
 }

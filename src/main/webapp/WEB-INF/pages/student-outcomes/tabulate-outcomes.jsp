@@ -107,9 +107,13 @@
 
                 <h4>Academic Year:</h4> <input type="text" name="year" class="year"><br> <br>
 
-                <button type='button' class="btn btn-default fat-btn blue-hover">Button</button>
+
+
+
+
 
             </form>
+            <button type='button' class="btn btn-default fat-btn blue-hover">Button</button>
 
         </div>
 
@@ -124,6 +128,8 @@
 </div>
 
 <script type="text/javascript">
+    var selectedopt = "";
+    var prog="";
     $("#select-outcome").change(function () {
         var str = "";
         $("#select-outcome option:selected").each(function () {
@@ -134,15 +140,16 @@
         $(id).removeClass("hidden");
         $(".tabulate").attr("id", str + "-table");
 
-        var prog = $("#enabled-courses-prog option").val().toLowerCase();
-        if ($(this).val() === 'so-enabled-courses')
-            $(".tabulation").load("/outcome/"+prog+"/tabulate");
+         prog = $("#enabled-courses-prog option").val().toLowerCase();
+        //if ($(this).val() === 'so-enabled-courses')
+        selectedopt = $(this).val();
+
 
 
     });
 
     $("button").click(function(){
-        alert ("u click");
+        $(".tabulation").load("/outcome/"+prog+"/tabulate/"+selectedopt);
     })
 
 </script>
