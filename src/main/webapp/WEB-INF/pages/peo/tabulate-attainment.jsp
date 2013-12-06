@@ -37,14 +37,16 @@
                 <input type="radio" name="base-level" value="both">Both (avg.)
 
                 <br><br>
-                <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>
+                <button type="button" class="btn btn-default fat-btn blue-hover" id="submit">Tabulate</button>
+                <%--<input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Tabulate'/>--%>
 
             </form>
         </div>
 
         <div class="col-md-9 col-sm-9">
 
-            <jsp:include page="../peo/table.jsp"/>
+            <%--<jsp:include page="../peo/table.jsp"/>--%>
+            <div id="tabulate-table"></div>
 
         </div>
     </div>
@@ -53,5 +55,11 @@
 </div>
 
 </div>
+
+<script type="text/javascript">
+    $("#submit").click(function () {
+        $("#tabulate-table").load("/peo/table");
+    })
+</script>
 </body>
 </html>
