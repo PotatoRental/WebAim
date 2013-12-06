@@ -108,7 +108,7 @@ public class ProgramsController {
 
         aimService.saveProgram(program);
 
-        return "/programs/programs";
+        return "redirect:/programs";
     }
 
 }
