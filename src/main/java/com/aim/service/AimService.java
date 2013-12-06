@@ -177,4 +177,8 @@ public class AimService {
     public void addMinutes(Minutes minutes) {
         minutesDao.addMinutes(minutes);
     }
+
+    public void saveCourseOffering(CourseOffering offering) {
+        courseDao.saveCourseOffering(offering);
+    }
 }

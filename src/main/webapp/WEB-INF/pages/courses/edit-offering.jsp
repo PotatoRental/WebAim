@@ -28,7 +28,7 @@
                 Section
             </td>
             <td>
-                <input name="section" required type="text" class="fat" onclick="this.select()" value="${offering.section}">
+                <input name="section" required="required" type="text" class="fat" onclick="this.select()" value="${offering.section}">
             </td>
         </tr>
         <tr>
@@ -108,7 +108,11 @@
                 Course Outcome Attainment Target
             </td>
             <td>
-
+                <ul>
+                <c:forEach var="outcome" items="${offering.courseOfferingOutcomeInformations}">
+                    <li>${outcome.courseOutcome.description}</li>
+                </c:forEach>
+                </ul>
             </td>
         </tr>
 

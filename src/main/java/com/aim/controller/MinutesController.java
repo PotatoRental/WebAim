@@ -49,7 +49,7 @@ public class MinutesController {
         List<Minutes> minutesList =  aimService.getAllMinutes();
         modelMap.addAttribute("minuteslist",minutesList);
 
-        minutes.setId(new Random().nextInt());
+        minutes.setId(new Random().nextInt(Integer.MAX_VALUE));
         minutes.setGroups(request.getParameter("group"));
         minutes.setDate(new LocalDate(Integer.parseInt(request.getParameter("year")), Integer.parseInt(request.getParameter("month")), Integer.parseInt(request.getParameter("day"))).toDate());
 

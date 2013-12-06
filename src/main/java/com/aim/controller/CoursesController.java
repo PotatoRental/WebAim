@@ -193,6 +193,20 @@ public class CoursesController {
         return "courses/edit-offering";
     }
 
+    @RequestMapping(value = "offerings/{offeringId}/edit-offering", method = RequestMethod.POST)
+    public String submitOfferingEditor(@PathVariable String offeringId,
+                                       HttpServletRequest request, ModelMap map) {
+
+        CourseOffering offering = aimService.getCourseOfferingById(Integer.parseInt(offeringId));
+        offering.setSection(Integer.parseInt(request.getParameter("section")));
+        offering.setSemester(request.getParameter("semester") + " "+ request.getParameter("year"));
+        offering.setInstructor(aimService.getUserByUsername(request.getParameter("instructor")));
+
+        aimService.saveCourseOffering(offering);
+
+        return "redirect:/courses/offerings/" + offeringId;
+    }
+
     @RequestMapping(value = "offerings/add-offering", method = RequestMethod.GET)
     public String getOfferingAdderr(ModelMap modelMap) {
         logger.info("User tries to edit course offering information.");

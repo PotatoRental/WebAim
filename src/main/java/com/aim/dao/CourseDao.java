@@ -27,4 +27,5 @@ public interface CourseDao {
     public List<CourseOffering> getMissingInfoByInstructor();
     public CourseOffering getCourseOfferingById(Integer offeringId);
     public void saveProgram(DegreeProgram degreeProgram);
+    public void saveCourseOffering(CourseOffering offering);
 }

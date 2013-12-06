@@ -69,4 +69,8 @@ public class CourseOfferingOutcomeInformation {
     public void setAverageAttainmentRating(Float averageAttainmentRating) {
         this.averageAttainmentRating = averageAttainmentRating;
     }
+
+    public String toString() {
+        return courseOutcome.getDescription();
+    }
 }
