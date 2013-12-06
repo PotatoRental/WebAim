@@ -106,7 +106,4 @@ public class UsersController {
 
         return "redirect:/users/" + account.getUsername();
     }
-
-
-
 }

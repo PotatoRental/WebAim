@@ -123,7 +123,7 @@ public class CoursesController {
         }
 
         String ccusername = request.getParameter("courseCoordinator");
-        String alterusername = request.getParameter("alterCourseCoordinator");
+        String alterusername = request.getParameter("alternateCourseCoordinator");
         String degreeprograms[] = request.getParameterValues("degrees");
 
         List<DegreeProgram> dPrograms = new ArrayList<DegreeProgram>();

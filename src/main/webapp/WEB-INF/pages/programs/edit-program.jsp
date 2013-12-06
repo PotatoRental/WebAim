@@ -8,6 +8,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -26,13 +27,12 @@
 
         <jsp:include page="../pagefrags/bread.jsp"/>
 
-        <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
         <div class="col-md-12 col-lg-12">
             <p>
-              <h1>Edit Degree Program: ${degreeprogram.id}</h1>
+              <h1>Edit Degree Program</h1>
             </p>
-            <form>
+            <form:form method="post" commandName="modifyProgram">
                 <table class="table table-bordered table-striped">
                     <tr>
                         <td class="title-col">Department</td>
@@ -46,8 +46,7 @@
                     <tr>
                         <td class="title-col">Description</td>
                         <td>
-                           <textarea name="description" required class="fat">${degreeprogram.description}
-                           </textarea>
+                                                   <form:textarea cssClass="description" name="description" required="required" class="fat" path="description" />
                         </td>
                     </tr>
                     <tr>
@@ -82,6 +81,5 @@
 </div>
 
 <script type="text/javascript">
-
-
+$('.description').val(${modifyProgram.description});
 </script>
