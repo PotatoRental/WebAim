@@ -20,11 +20,11 @@
 
         <div class="col-md-12 col-sm-12">
 
-        <form id="">
+        <form method="post">
             <p>
                <h2>1. Select Group</h2>
                 <h4>Show me missing info provided by
-                <select class="selectpicker" id="select-group">
+                <select class="selectpicker" id="select-group" name="role-class">
                     <option value="ROLE_CIC">CIC Members</option>
                     <option value="ROLE_INSTR">Instructors</option>
                     <option value="ROLE_CC">Course Coordinators</option>
@@ -46,7 +46,6 @@
             </p>
             <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Send Request'/>
             </form>
-            <button type="button">Email people</button>
         </div>
     </div>
 
@@ -64,9 +63,6 @@
         $('.insert').load("/courses/offering-table/"+$("#select-group").val());
     });
 
-    $("button").click(function() {
-        $('.insert').load("/courses/offering-table/sendemail");
-    });
 </script>
 </body>
 </html>

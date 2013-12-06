@@ -244,13 +244,16 @@ public class CoursesController {
         return "courses/missing-course-info-table";
     }
 
-    @RequestMapping(value = "offering-table/sendemail", method = RequestMethod.GET)
-    public String sendEmail(ModelMap modelMap) throws IOException {
+    @RequestMapping(value = "missing-course-info", method = RequestMethod.POST)
+    public String sendEmail(HttpServletRequest request, ModelMap modelMap) throws IOException {
         logger.info("User tries to get missing course information provided by ");
+        String content = request.getParameter("role-class") + request.getParameter("myname");
+        String subject = "You have a request to add information!";
+        String targetEmail = "ultramilkman@gmail.com";
 
-        new ProcessBuilder("/scripts/email.sh").start();
+        Process process = new ProcessBuilder("/scripts/email.sh", content, subject, targetEmail).start();
 
-        return "courses/missing-course-info";
+        return "redirect:/courses/missing-course-info";
     }
 
     @RequestMapping(value = "cc-reports/{ccName}", method = RequestMethod.GET)
