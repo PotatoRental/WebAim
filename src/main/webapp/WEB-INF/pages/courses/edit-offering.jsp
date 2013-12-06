@@ -9,7 +9,7 @@
 
 </p>
 
-<form:form method="POST" commandName="modifyOffering">
+<form:form method="POST" commandName="modifyOffering" enctype="multipart/form-data">
     <table class="table table-bordered table-striped">
         <sec:authorize ifAnyGranted="ROLE_INSTR, ROLE_CIC, ROLE_ADMIN">
         <tr>

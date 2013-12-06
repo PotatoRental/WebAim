@@ -53,7 +53,7 @@ public class MinutesController {
     @RequestMapping(method = RequestMethod.POST)
     public String addMinutes(@ModelAttribute Minutes minutes,
                              HttpServletRequest request,
-                             RedirectAttributes modelMap) {
+                             ModelMap modelMap, RedirectAttributes redirectAttributes) {
         logger.info("User tries to get minutes.");
 
         List<Minutes> minutesList =  aimService.getAllMinutes();
@@ -65,7 +65,7 @@ public class MinutesController {
 
         aimService.addMinutes(minutes);
 
-        modelMap.addFlashAttribute("minutesMessage", "Added new minutes");
+        redirectAttributes.addFlashAttribute("minutesMessage", "Added new minutes");
 
         return "redirect:/minutes";
     }

@@ -31,9 +31,9 @@
                         <th>Group</th>
                         <th>Degree Program</th>
                         <th>Results</th>
-                        <sec:authorize ifNotGranted=" ROLE_EVAL"><th></th> </sec:authorize>
+                        <sec:authorize ifNotGranted="ROLE_EVAL"><th></th> </sec:authorize>
                     </tr>
-                    <sec:authorize ifNotGranted=" ROLE_EVAL">
+                    <sec:authorize ifNotGranted="ROLE_EVAL">
                     <form:form method="post" commandName="minutes">
                         <tr id="header-form">
                             <td style="width:210px">
@@ -76,7 +76,7 @@
                             <td>${min.degreeProgram.id}</td>
                             <td>${min.filePath}</td>
 
-                            <sec:authorize ifNotGranted=" ROLE_EVAL">
+                            <sec:authorize ifNotGranted="ROLE_EVAL">
                             <td>
                                 <button id="${min.id}" class="edit-minutes fat btn btn-primary">Edit Minutes</button>
                             </td>
