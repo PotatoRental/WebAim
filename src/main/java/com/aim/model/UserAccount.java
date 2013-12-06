@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -99,11 +100,22 @@ public class UserAccount implements UserDetails {
     }
 
     public String getPassword() {
+        if (password != null){
+        int offset = password.charAt(password.length()-1)-97;
+        byte[] bytes = password.substring(0, password.length()-1).getBytes();
+        for(int i = 0; i < bytes.length; i++)
+            bytes[i] = (byte)(bytes[i]+offset);
+        return new String(bytes);
+        }
         return password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        byte[] bytes = password.getBytes();
+        int offset = new Random().nextInt(10)+1;
+        for(int i = 0; i < bytes.length; i++)
+            bytes[i] = (byte)(bytes[i]-offset);
+        this.password = new String(bytes) + (char)(offset+97);
     }
 
     public String getEmail() {
@@ -129,4 +141,12 @@ public class UserAccount implements UserDetails {
     public void setDegreeprograms(List<DegreeProgram> degreeprograms) {
         this.degreeprograms = degreeprograms;
     }
+/*
+    public static void main(String[] args)
+    {
+        UserAccount user = new UserAccount();
+        user.setPassword("password");
+        System.out.println(user.password);
+        System.out.println(user.getPassword());
+    }*/
 }
