@@ -95,6 +95,7 @@ public class OutcomeController {
         for (String deg : request.getParameterValues("degree-program"))
             degreePrograms.add(aimService.getDegreeProgramById(deg));
 
+        outcome.setDegreeprogram(degreePrograms.get(0));
 
         aimService.savePeo(outcome);
         return "redirect:/outcome/manage-outcomes";
