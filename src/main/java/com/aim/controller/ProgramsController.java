@@ -1,12 +1,15 @@
 package com.aim.controller;
 
 import com.aim.model.DegreeProgram;
+import com.aim.model.Peo;
+import com.aim.model.StudentOutcome;
 import com.aim.service.AimService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,13 +37,29 @@ public class ProgramsController {
         logger.info("User tries to get degree programs.");
 
         List<DegreeProgram> degreePrograms = aimService.getAllDegreeProgram();
+        List<StudentOutcome> studentOutcomes = aimService.getAllStudentOutcomes();
+        List<Peo> peos = aimService.getAllPeos();
+
         modelMap.addAttribute("degreeprograms",degreePrograms);
+        modelMap.addAttribute("studentoutcomes",studentOutcomes);
+        modelMap.addAttribute("peos",peos);
 
         return "/programs/programs";
     }
 
-    @RequestMapping(value = "edit", method = RequestMethod.GET)
-    public String getProgramEditor(ModelMap modelMap) {
+    @RequestMapping(value = "{programId}/edit", method = RequestMethod.GET)
+    public String getProgramEditor(@PathVariable String programId, ModelMap modelMap) {
+
+        DegreeProgram degreeProgram = aimService.getDegreeProgramById(programId);
+        List<StudentOutcome> studentOutcomes = aimService.getAllStudentOutcomes();
+        List<Peo> peos = aimService.getAllPeos();
+
+        modelMap.addAttribute("degreeprogram",degreeProgram);
+        modelMap.addAttribute("studentoutcomes",studentOutcomes);
+        modelMap.addAttribute("peos",peos);
+
+
+
         return "/programs/edit-program";
     }
 

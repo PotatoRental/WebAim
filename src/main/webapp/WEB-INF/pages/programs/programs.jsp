@@ -36,7 +36,7 @@
                     <form>
                         <tr id="header-form">
                             <td><input type='text' required name="id" class="fat" placeholder="Identifier">
-                            <td><input type='text' required name="description" class="fat" placeholder="Description">
+                            <td><textarea name="description" class="fat" placeholder="Description"></textarea>
                             </td>
                             <td>
                                 <select required name="department">
@@ -44,8 +44,20 @@
                                     <option value="ISE">Information Systems</option>
                                 </select>
                             </td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                <select multiple name="peo">
+                                    <c:forEach items="${peos}" var="peo">
+                                        <option value="${peo.id}">${peo.shortName}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
+                            <td>
+                                <select multiple name="student-outcomes">
+                                    <c:forEach items="${studentoutcomes}" var="outcome">
+                                        <option value="${outcome.id}">${outcome.shortName}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
                             <td>
                                 <input type='submit' class="fat btn btn-primary" value='Add Program'/>
                             </td>
@@ -57,9 +69,11 @@
                             <td>${program.description}</td>
                             <td>${program.department}</td>
                             <td></td>
-                            <td></td>
                             <td>
-                                <input type='submit' class="edit-program fat btn btn-primary" value='Edit Program'/>
+
+                            </td>
+                            <td>
+                                <input type='submit' id="${program.id}" class="edit-program fat btn btn-primary" value='Edit Program'/>
                             </td>
                         </tr>
                     </c:forEach>
@@ -77,7 +91,7 @@
 
 <script type="text/javascript">
     $(".edit-program").click(function () {
-        window.location = "/programs/edit";
+        window.location = "/programs/"+$(this).attr("id")+"/edit";
     })
 </script>
 

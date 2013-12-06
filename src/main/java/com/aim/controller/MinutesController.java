@@ -3,7 +3,7 @@ package com.aim.controller;
 import com.aim.model.Minutes;
 import com.aim.service.AimService;
 import org.apache.log4j.Logger;
-import org.joda.time.LocalDate;
+//import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -71,10 +71,10 @@ public class MinutesController {
         Integer day = Integer.parseInt(request.getParameter("day"));
         Integer year = Integer.parseInt(request.getParameter("year"));
 
-        Date date = new LocalDate(year, month, day).toDate();
+        //Date date = new LocalDate(year, month, day).toDate();
 
         minutes.setId(minutesId);
-        minutes.setDate(date);
+        //minutes.setDate(date);
         minutes.setGroups(request.getParameter("group"));
 
         aimService.saveMinutes(minutes);

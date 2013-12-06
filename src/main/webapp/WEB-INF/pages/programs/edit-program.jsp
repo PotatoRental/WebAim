@@ -30,7 +30,7 @@
 
         <div class="col-md-12 col-lg-12">
             <p>
-              <h1>Edit Degree Program</h1>
+              <h1>Edit Degree Program: ${degreeprogram.id}</h1>
             </p>
             <form>
                 <table class="table table-bordered table-striped">
@@ -46,8 +46,26 @@
                     <tr>
                         <td class="title-col">Description</td>
                         <td>
-                           <textarea name="description" required class="fat">
+                           <textarea name="description" required class="fat">${degreeprogram.description}
                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title-col">PEOs</td>
+                        <td><select multiple name="peo">
+                            <c:forEach items="${peos}" var="peo">
+                                <option value="${peo.id}">${peo.shortName}</option>
+                            </c:forEach>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title-col">Student Outcomes</td>
+                        <td><select multiple name="student-outcomes">
+                            <c:forEach items="${studentoutcomes}" var="outcome">
+                                <option value="${outcome.id}">${outcome.shortName}</option>
+                            </c:forEach>
+                        </select>
                         </td>
                     </tr>
 
@@ -64,5 +82,6 @@
 </div>
 
 <script type="text/javascript">
+
 
 </script>
