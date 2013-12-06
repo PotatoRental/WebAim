@@ -173,4 +173,8 @@ public class AimService {
     public void saveProgram(DegreeProgram program) {
         courseDao.saveProgram(program);
     }
+
+    public void addMinutes(Minutes minutes) {
+        minutesDao.addMinutes(minutes);
+    }
 }

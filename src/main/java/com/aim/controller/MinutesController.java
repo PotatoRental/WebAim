@@ -4,6 +4,7 @@ import com.aim.model.Minutes;
 import com.aim.service.AimService;
 import org.apache.log4j.Logger;
 //import org.joda.time.LocalDate;
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -46,6 +47,11 @@ public class MinutesController {
 
         List<Minutes> minutesList =  aimService.getAllMinutes();
         modelMap.addAttribute("minuteslist",minutesList);
+
+        minutes.setGroups(request.getParameter("group"));
+        minutes.setDate(new LocalDate(Integer.parseInt(request.getParameter("year")), Integer.parseInt(request.getParameter("month")), Integer.parseInt(request.getParameter("day"))).toDate());
+
+        aimService.addMinutes(minutes);
 
 
         return "/minutes/allminutes";
