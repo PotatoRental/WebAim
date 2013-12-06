@@ -17,14 +17,14 @@
 
                 <spring:url value="/courses" var="courseUrl" htmlEscape="true"/>
                 <li><a href="${courseUrl}">Courses</a></li>
-                <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC, ROLE_CC, ROLE_EVAL">
+                <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC, ROLE_CC, ROLE_EVAL, ROLD_INSTR">
                     <li><a href="/courses/offerings" >Course Offerings</a></li>
                 </sec:authorize>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
                     <li><a href="/courses/missing-course-info" >Missing Course Info</a></li>
                 </sec:authorize>
-                <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CC">
-                    <li><a href="/courses/cc-reports/${currentUser.username}" >Course Coordinator Reports</a></li>
+                <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CC, ROLE_CIC">
+                    <li><a href="/courses/cc-reports" >Course Coordinator Reports</a></li>
                 </sec:authorize>
             </ul>
         </li>
