@@ -244,7 +244,7 @@ public class CoursesController {
     public String sendEmail(ModelMap modelMap) throws IOException {
         logger.info("User tries to get missing course information provided by ");
 
-        Runtime.getRuntime().exec("mail -s \"You need to review shit\" ultramilkman@gmail.com");
+        new ProcessBuilder("/images/email.sh").start();
 
         return "courses/missing-course-info";
     }
