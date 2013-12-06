@@ -107,4 +107,42 @@ public class Peo {
     public void setDegreeprogram(DegreeProgram degreeprogram) {
         this.degreeprogram = degreeprogram;
     }
+/*
+    //For getting attainment level of this peo
+    private String year;
+    private String group;
+    private int count;
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public double getAttainmentLevel(){
+        double sum = 0;
+        count = 0;
+        for(PEOAttainmentLevelFromSurvey s : PEOAttainmentLevelFromSurveys){
+            sum += getNextAttainmentLevel(s);
+        }
+        return sum/count;
+    }
+
+    private double getNextAttainmentLevel(PEOAttainmentLevelFromSurvey s)
+    {
+        Survey survey = s.getSurvey();
+        String surveyGroup = survey.getGroups();
+        if (survey.getSemester().contains(year))
+        {
+            if (group.contains(surveyGroup) ||
+               (group.equals("both") && (surveyGroup.equals("alumni") || surveyGroup.equals("employers"))))
+            {
+                count++;
+                return s.getAttainmentLevel();
+            }
+        }
+        return 0;
+    }*/
 }

@@ -44,7 +44,13 @@ public class PeoController {
 
     @RequestMapping(value="table", method=RequestMethod.GET)
     public String getTabulation(ModelMap modelMap) {
-        return "/peo/table";
+        logger.info("User tries to display PEO attainment table.");
+
+//        List<Peo> peos = aimService.getAllPeos();
+//        modelMap.addAttribute("peos", peos);
+
+
+        return "peo/table";
     }
 
     @RequestMapping(value = "manage-peos", method = RequestMethod.GET)
