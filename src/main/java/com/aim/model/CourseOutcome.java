@@ -1,5 +1,8 @@
 package com.aim.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -25,12 +28,15 @@ public class CourseOutcome {
     private Course course;
 
     @OneToMany(mappedBy = "courseOutcome")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<StudentOutcomeCourseOutcomeMapping> studentOutcomeCourseOutcomeMappings;
 
     @OneToMany(mappedBy = "courseOutcome")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<CourseOfferingDirectAssessment> courseOfferingDirectAssessments;
 
     @OneToMany(mappedBy = "courseOutcome")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<CourseOfferingOutcomeInformation> courseOfferingOutcomeInformations;
 
     public List<CourseOfferingDirectAssessment> getCourseOfferingDirectAssessments() {

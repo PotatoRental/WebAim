@@ -1,5 +1,8 @@
 package com.aim.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -24,6 +27,7 @@ public class Assignment {
     private String descriptionPath;
 
     @OneToMany(mappedBy="assignment")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<StudentSample> studentSampleList;
 
     @ManyToOne

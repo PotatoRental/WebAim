@@ -1,5 +1,8 @@
 package com.aim.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -36,6 +39,7 @@ public class StudentOutcome {
     private String validityPeriod;
 
     @OneToMany(mappedBy = "studentOutcome")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<StudentOutcomeCourseOutcomeMapping> studentOutcomeCourseOutcomeMappings;
 
     @ManyToOne

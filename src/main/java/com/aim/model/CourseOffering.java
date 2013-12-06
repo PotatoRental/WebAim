@@ -50,12 +50,15 @@ public class CourseOffering implements Comparable<CourseOffering> {
     private String cicReportPath;
 
     @OneToMany(mappedBy = "courseOffering")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<CourseOfferingDirectAssessment> courseOfferingDirectAssessments;
 
     @OneToMany(mappedBy = "courseOffering")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<CourseOfferingOutcomeInformation> courseOfferingOutcomeInformations;
 
     @OneToMany(mappedBy = "courseOffering")
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     private List<LectureNote> lectureNotes;
 
 
