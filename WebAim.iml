@@ -29,7 +29,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="a.xml" value="d9e66faa-d8cc-4aa9-bece-6a4f2eda2959" />
-          <unit-entry name="sessionFactory" value="21b9fa5c-df91-4f1f-91be-2f25b5e5f0d0" />
+          <unit-entry name="sessionFactory" value="0c58b4ba-feba-48de-aac2-1675f54ed213" />
         </datasource-map>
       </configuration>
     </facet>

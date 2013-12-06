@@ -225,7 +225,6 @@ public class CoursesController {
         logger.info("User tries to get missing course information.");
 
 
-
         return "courses/missing-course-info";
     }
 
@@ -234,10 +233,18 @@ public class CoursesController {
         logger.info("User tries to get missing course information provided by "+role);
 
         List<CourseOffering> courseOfferings = aimService.getMissingInfoByRole(role);
-        modelMap.addAttribute("courseofferings",courseOfferings) ;
+        modelMap.addAttribute("courseofferings",courseOfferings);
         modelMap.addAttribute("role",role);
 
         return "courses/missing-course-info-table";
+    }
+
+    @RequestMapping(value = "offering-table/sendemail", method = RequestMethod.GET)
+    public String sendEmail(ModelMap modelMap) {
+        logger.info("User tries to get missing course information provided by ");
+
+
+        return "courses/missing-course-info";
     }
 
     @RequestMapping(value = "cc-reports", method = RequestMethod.GET)

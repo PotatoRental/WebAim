@@ -1,10 +1,7 @@
 package com.aim.repository;
 
 import com.aim.dao.CourseDao;
-import com.aim.model.Course;
-import com.aim.model.CourseOffering;
-import com.aim.model.CourseOfferingDirectAssessment;
-import com.aim.model.DegreeProgram;
+import com.aim.model.*;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -149,8 +146,8 @@ public class CourseDaoImpl implements CourseDao {
         logger.info("User tries to get missing course information provided by instructor");
         return sessionFactory.getCurrentSession()
                 .createQuery ("from CourseOffering where syllabusPath is NULL" +
-                      //  " or schedulePath is NULL or assignments is EMPTY" +
-                     //   " or courseOfferingDirectAssessments is EMPTY" +
+                        " or schedulePath is NULL or assignments is EMPTY" +
+                        " or courseOfferingDirectAssessments is EMPTY" +
                         " or eosReportPath is NULL")
                 .list();
     }
