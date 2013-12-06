@@ -12,10 +12,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -48,8 +50,34 @@ public class OutcomeController {
         logger.info("User tries to get all outcomes' information");
 
         List<StudentOutcome> studentOutcomes = aimService.getAllStudentOutcomes();
-        modelMap.addAttribute("studentoutcomes",studentOutcomes);
+        modelMap.addAttribute("studentoutcomes", studentOutcomes);
         return "student-outcomes/manage-outcomes";
+    }
+
+    @RequestMapping(value="manage-outcomes", method = RequestMethod.POST)
+    public String submitAddOutcome(HttpServletRequest request,
+                                  RedirectAttributes modelMap){
+
+        int number = new Random().nextInt(80)+12;
+        StudentOutcome outcome = new StudentOutcome();
+        outcome.setId("SO-" + number);
+        outcome.setSequenceNumber(number);
+        outcome.setShortName(request.getParameter("shortname"));
+        outcome.setDescription(request.getParameter("description"));
+        outcome.setTargetDirectAssessmentAttainmentLevel(Float.parseFloat(request.getParameter("target-da-level")));
+        outcome.setTargetSurveyAssessmentAttainmentLevel(Float.parseFloat(request.getParameter("target-sa-level")));
+        outcome.setValidityPeriod(request.getParameter("start-year") + "-" + request.getParameter("end-year"));
+
+        List<DegreeProgram> degreePrograms = new ArrayList<DegreeProgram>();
+        for (String deg : request.getParameterValues("program"))
+            degreePrograms.add(aimService.getDegreeProgramById(deg));
+
+        outcome.setDegreeprogram(degreePrograms.get(0));
+
+
+        modelMap.addFlashAttribute("outcomeMessage", "New outcome has been added");
+        aimService.addPeo(outcome);
+        return "redirect:/outcome/manage-outcomes";
     }
 
     @RequestMapping(value = "{programId}/tabulate", method = RequestMethod.GET)
@@ -83,7 +111,7 @@ public class OutcomeController {
     @RequestMapping(value="{outcomeId}/edit", method = RequestMethod.POST)
     public String submitPeoEditor(@PathVariable String outcomeId,
                                   HttpServletRequest request,
-                                  ModelMap modelMap){
+                                  RedirectAttributes modelMap){
         StudentOutcome outcome = aimService.getStudentOutcomeById(outcomeId);
         outcome.setShortName(request.getParameter("shortname"));
         outcome.setDescription(request.getParameter("description"));
@@ -98,6 +126,8 @@ public class OutcomeController {
         outcome.setDegreeprogram(degreePrograms.get(0));
 
         aimService.savePeo(outcome);
+
+        modelMap.addFlashAttribute("outcomeMessage", "Peo has been modified");
         return "redirect:/outcome/manage-outcomes";
     }
 

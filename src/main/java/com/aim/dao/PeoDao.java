@@ -19,4 +19,6 @@ public interface PeoDao {
     public Peo getPeoById(String peoId);
 
     public void modifyPeo(StudentOutcome outcome);
+
+    public void addPeo(StudentOutcome outcome);
 }

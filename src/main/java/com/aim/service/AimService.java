@@ -196,4 +196,8 @@ public class AimService {
     public void savePeo(StudentOutcome outcome) {
         peoDao.modifyPeo(outcome);
     }
+
+    public void addPeo(StudentOutcome outcome) {
+        peoDao.addPeo(outcome);
+    }
 }

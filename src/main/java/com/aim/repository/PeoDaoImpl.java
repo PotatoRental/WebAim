@@ -57,5 +57,10 @@ public class PeoDaoImpl implements PeoDao {
         sessionFactory.getCurrentSession().update(outcome);
     }
 
+    @Override
+    public void addPeo(StudentOutcome outcome) {
+        sessionFactory.getCurrentSession().save(outcome);
+    }
+
 
 }
