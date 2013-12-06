@@ -1,4 +1,5 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <p>
 
 <h1>${offering.courseId}-${offering.section}</h1>
@@ -10,7 +11,7 @@
 <table class="table table-bordered table-striped">
     <tr>
         <td class="title-col">Course</td>
-        <td><a href="/courses/${offering.courseId}">${offering.courseId}</a></td>
+        <td><a id="${offering.id}" href="/courses/${offering.courseId}">${offering.courseId}</a></td>
     </tr>
     <tr>
         <td class="title-col">
@@ -81,8 +82,14 @@
             Course Outcome Attainment Target
         </td>
         <td>
-            the target fraction
-                of students expected to achieve that course outcome.
+            <table>
+            <c:forEach items="${course.courseOutcomes}" var="outcome">
+                <tr>
+                    <td>${outcome.description}<td/><td>10</td>
+
+                </tr>
+            </c:forEach>
+            </table>
         </td>
     </tr>
     <tr>
@@ -129,8 +136,10 @@
 </table>
 
 <script type="text/javascript">
+
     $("#edit-offering").click(function () {
-        $("#offering-home").load("/courses/edit-offering");
+
+        $("#course-home").load("/courses/offerings/${offering.id}/edit-offering");
     });
 
     $(".close-col").click(function(){

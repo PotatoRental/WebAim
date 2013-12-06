@@ -81,6 +81,10 @@
 <script type="text/javascript">
     var smallToggled = false;
     $(document).ready(function () {
+        $("#edit-offering").click(function () {
+            $("#offering-home").load("/courses/1/edit-offering");
+        });
+
         $(".offering").click(function (event) {
 
             if (!smallToggled) {

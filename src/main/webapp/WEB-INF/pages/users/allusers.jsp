@@ -37,7 +37,7 @@
                             <form:input type='text' required="required" name="last-name" class="fat" placeholder="Last Name" path="lastName"/>
                         </td>
                         <td><form:input type='text' required="required" name="username" class="fat" placeholder="Username" path="username"/> <br/>
-                            <form:input type='text' required="required" name="password" class="fat" placeholder="Password" path="password"/></td>
+                            <form:input type='password' required="required" name="password" class="fat" placeholder="Password" path="password"/></td>
                         <td><form:input type='text' required="required" name="email" class="fat" placeholder="Email Address" path="email"/></td>
                         <td>
                             <input type="checkbox" name="role" value="ROLE_ADMIN">Admin<br/>

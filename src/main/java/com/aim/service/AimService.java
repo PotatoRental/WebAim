@@ -57,12 +57,18 @@ public class AimService {
         return userDao.getAllUsers();
     }
 
+
+
     public UserAccount getUserByUsername(String username) {
         return userDao.getUserById(username);
     }
 
     public List<UserAccount> getAllCourseCoordinator() {
         return userDao.getAllUserRole(Role.ROLE_CC);
+    }
+
+    public List<UserAccount> getAllInstructor() {
+        return userDao.getAllUserRole(Role.ROLE_INSTR);
     }
 
     public void saveCourse(Course course) {

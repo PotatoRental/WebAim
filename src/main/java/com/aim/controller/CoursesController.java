@@ -169,14 +169,26 @@ public class CoursesController {
         logger.info("User tries to view a course offering.");
 
         CourseOffering courseOffering = aimService.getCourseOfferingById(offeringId);
+        Course course = aimService.getCourseById(courseOffering.getCourseId());
         modelMap.addAttribute("offering", courseOffering);
+        modelMap.addAttribute("course", course);
 
         return "courses/view-offering";
     }
 
-    @RequestMapping(value = "edit-offering", method = RequestMethod.GET)
-    public String getOfferingEditor(ModelMap modelMap) {
+    @RequestMapping(value = "offerings/{offeringId}/edit-offering", method = RequestMethod.GET)
+    public String getOfferingEditor(@PathVariable String offeringId, ModelMap modelMap) {
         logger.info("User tries to edit course offering information.");
+
+
+        CourseOffering courseOffering = aimService.getCourseOfferingById(Integer.parseInt(offeringId));
+        List<Course> courses = aimService.getAllCourses();
+        List<UserAccount> instructors = aimService.getAllInstructor();
+
+        modelMap.addAttribute("offering", courseOffering);
+        modelMap.addAttribute("courses",courses);
+        modelMap.addAttribute("instructors", instructors);
+
         return "courses/edit-offering";
     }
 

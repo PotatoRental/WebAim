@@ -1,6 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <p>
 
-<h1>CSE 102-01</h1>
+<h1>${offering.courseId}-${offering.section}</h1>
 <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
     &nbsp;&nbsp;<a id="edit-cancel" href="#">Cancel</a>
 </sec:authorize>
@@ -11,9 +12,11 @@
         <tr>
             <td class="title-col">Course</td>
             <td>
-                <select class="fat">
-                    <option value="cse102" selected="selected">CSE 102</option>
-                    <option value="cse110">CSE 110</option>
+                <select class="fat" name="course">
+                    <c:forEach var="course" items="${courses}">
+                        <option value="${course.id}">${course.id}</option>
+
+                    </c:forEach>
                 </select>
             </td>
         </tr>
@@ -22,7 +25,7 @@
                 Section
             </td>
             <td>
-                <input type="text" class="fat" onclick="this.select()" value="1">
+                <input name="section" required type="text" class="fat" onclick="this.select()" value="${offering.section}">
             </td>
         </tr>
         <tr>
@@ -30,13 +33,14 @@
                 Semester
             </td>
             <td>
-                <select>
+                <select name="semester">
                     <option value="Fall" selected="selected">Fall</option>
                     <option value="Spring">Spring</option>
                 </select>
-                <select>
-                    <option value="2013" selected="selected">2013</option>
-                    <option value="2012">2012</option>
+                <select name="year">
+                    <c:forEach var="i" begin="0" end="20" step="1">
+                        <option value="${2014-i}">${2014-i}</option>
+                    </c:forEach>
                 </select>
             </td>
         </tr>
@@ -45,9 +49,10 @@
                 Instructor
             </td>
             <td>
-                <select class="fat">
-                    <option value="walter-white" selected="selected">Walter White</option>
-                    <option value="skyler-white">Skyler White</option>
+                <select class="fat" name="instructor">
+                    <c:forEach items="${instructors}" var="instructor">
+                        <option value="${instructor.username}">${instructor.firstName} ${instructor.lastName}</option>
+                    </c:forEach>
                 </select>
             </td>
         </tr>
@@ -56,9 +61,9 @@
                 Syllabus
             </td>
             <td>
-                <a href="#">syllabus.pdf </a>
+                Current file: ${offering.syllabusPath}
                 <br/>
-                <input type='submit' class="btn btn-default blue-hover" value='Upload File'/>
+                <input type='file' name="syllabus"/>
             </td>
         </tr>
         <tr>
@@ -66,7 +71,9 @@
                 Schedule
             </td>
             <td>
-                <a href="#">schedule.pdf</a>
+               Current file: ${offering.schedulePath}
+                <br/>
+                <input type='file' name="schedule" />
             </td>
         </tr>
         <tr>
@@ -75,11 +82,10 @@
             </td>
             <td>
                 <ul class="list-unstyled">
-                    <li><a href="#">11-07-2013.pdf</a></li>
-                    <li><a href="#">11-08-2013.pdf</a></li>
+
 
                 </ul>
-                <input type='submit' class="btn btn-default blue-hover" value='Upload File(s)'/>
+                <input type='file' name="lecture-notes" />
             </td>
         </tr>
         <tr>
@@ -88,12 +94,10 @@
             </td>
             <td>
                 <ul class="list-unstyled">
-                    <li><a href="#">HW 1: Basic HTML</a></li>
-                    <li><a href="#">HW 2: Links and Images</a></li>
-                    <li><a href="#">HW 3: Tables and Lists</a></li>
-                    <li><a href="#">HW 4: CSS</a></li>
+
+
                 </ul>
-                <input type='submit' class="btn btn-default blue-hover" value='Upload File(s)'/>
+                <input type='file' name="assignments" />
             </td>
         </tr>
         <tr>
@@ -101,8 +105,7 @@
                 Course Outcome Attainment Target
             </td>
             <td>
-                the target fraction
-                of students expected to achieve that course outcome.
+
             </td>
         </tr>
         <tr>
