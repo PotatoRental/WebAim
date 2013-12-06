@@ -73,12 +73,16 @@
                             <td>${program.department}</td>
                             <td>
                                 <ul class="list-unstyled">
-
+                                    <c:forEach var="peoas" items="${program.peos}">
+                                        <li>${peoas.shortName}</li>
+                                    </c:forEach>
                                 </ul>
                             </td>
                             <td>
                                 <ul class="list-unstyled">
-
+                                    <c:forEach var="outff" items="${program.studentOutcomes}">
+                                        <li>${outff.shortName}</li>
+                                    </c:forEach>
                                 </ul>
                             </td>
                             <sec:authorize ifNotGranted=" ROLE_EVAL">

@@ -75,7 +75,7 @@ public class ProgramsController {
 
         aimService.addProgram(program);
 
-        return "/programs/programs";
+        return "redirect:/programs/";
     }
 
     @RequestMapping(value = "{programId}/edit", method = RequestMethod.GET)
