@@ -35,7 +35,7 @@
                 </c:if>
                 <c:if test="${role == 'ROLE_CC'}">
                     <c:if test="${empty offering.ccReportPath}">Course Coordinator Report</c:if>
-                        </c:if>
+                </c:if>
             </td>
         </tr>
     </c:forEach>

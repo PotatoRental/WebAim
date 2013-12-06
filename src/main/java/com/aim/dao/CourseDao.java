@@ -3,6 +3,7 @@ package com.aim.dao;
 import com.aim.model.Course;
 import com.aim.model.CourseOffering;
 import com.aim.model.DegreeProgram;
+import com.aim.model.UserAccount;
 
 import java.util.List;
 
