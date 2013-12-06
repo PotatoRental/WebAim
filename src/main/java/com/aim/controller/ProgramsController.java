@@ -9,10 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -63,5 +66,23 @@ public class ProgramsController {
         return "/programs/edit-program";
     }
 
+    @RequestMapping(value = "{programId}/edit", method = RequestMethod.POST)
+    public String submitProgrameditor(@PathVariable String programId, ModelMap modelMap, HttpServletRequest request,
+                                      @ModelAttribute DegreeProgram degreeProgram) {
+
+        DegreeProgram program = aimService.getDegreeProgramById(programId);
+
+        program.setDescription(request.getParameter("description"));
+        program.setDepartment(request.getParameter("department"));
+        List<StudentOutcome> outcomes = new ArrayList<StudentOutcome>();
+        for (String out : request.getParameterValues("student-outcomes"))
+            outcomes.add(aimService.getStudentOutcomeById(out));
+
+        program.setStudentOutcomes(outcomes);
+
+        aimService.saveProgram(program);
+
+        return "/programs/programs";
+    }
 
 }

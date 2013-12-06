@@ -46,6 +46,7 @@ public class StudentOutcome {
     @JoinColumn(name = "degreeProgramId")
     private DegreeProgram degreeprogram;
 
+
     public String getDescription() {
         return description;
     }

@@ -169,4 +169,8 @@ public class AimService {
     public void addUser(UserAccount newUser) {
         userDao.addUser(newUser);
     }
+
+    public void saveProgram(DegreeProgram program) {
+        courseDao.saveProgram(program);
+    }
 }
