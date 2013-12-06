@@ -57,8 +57,6 @@ public class AimService {
         return userDao.getAllUsers();
     }
 
-
-
     public UserAccount getUserByUsername(String username) {
         return userDao.getUserById(username);
     }

@@ -68,12 +68,23 @@
                             <td>${program.id}</td>
                             <td>${program.description}</td>
                             <td>${program.department}</td>
-                            <td></td>
                             <td>
-
+                                <ul class="list-unstyled">
+                                    <c:forEach items="${program.peos}" var="peo">
+                                        <li>${peo.shortName}</li>
+                                    </c:forEach>
+                                </ul>
                             </td>
                             <td>
-                                <input type='submit' id="${program.id}" class="edit-program fat btn btn-primary" value='Edit Program'/>
+                                <ul class="list-unstyled">
+                                    <c:forEach items="${program.studentOutcomes}" var="outcome">
+                                        <li>${outcome.shortName}</li>
+                                    </c:forEach>
+                                </ul>
+                            </td>
+                            <td>
+                                <input type='submit' id="${program.id}" class="edit-program fat btn btn-primary" style="min-width: 105px"
+                                       value='Edit Program'/>
                             </td>
                         </tr>
                     </c:forEach>
@@ -91,7 +102,7 @@
 
 <script type="text/javascript">
     $(".edit-program").click(function () {
-        window.location = "/programs/"+$(this).attr("id")+"/edit";
+        window.location = "/programs/" + $(this).attr("id") + "/edit";
     })
 </script>
 

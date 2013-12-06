@@ -6,7 +6,7 @@
 <sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_CIC">
     &nbsp;&nbsp;<a id="edit-offering" href="#">Edit</a>
 </sec:authorize>
-<h1><span class="glyphicon glyphicon-circle-arrow-left  link close-col pull-right"></span> </h1>
+<h1><span class="glyphicon glyphicon-circle-arrow-left  link close-col pull-right"></span></h1>
 </p>
 <table class="table table-bordered table-striped">
     <tr>
@@ -59,21 +59,22 @@
         </td>
         <td>
             <ul class="list-unstyled">
-                <li><a href="#">11-07-2013.pdf</a></li>
-                <li><a href="#">11-08-2013.pdf</a></li>
+                <c:forEach items="${offering.lectureNotes}" var="notes">
+                    <li> ${notes.name} </li>
+                </c:forEach>
             </ul>
         </td>
     </tr>
     <tr>
         <td class="title-col">
-           Assignments
+            Assignments
         </td>
         <td>
             <ul class="list-unstyled">
-        <c:forEach items="${offering.assignments}" var="assignment">
-           <li> ${assignment.name} </li>
-        </c:forEach>
-                </ul>
+                <c:forEach items="${offering.assignments}" var="assignment">
+                    <li> ${assignment.name} </li>
+                </c:forEach>
+            </ul>
         </td>
     </tr>
     <tr>
@@ -82,12 +83,15 @@
         </td>
         <td>
             <table>
-            <c:forEach items="${course.courseOutcomes}" var="outcome">
-                <tr>
-                    <td>${outcome.description}<td/><td>10</td>
+                <c:forEach items="${course.courseOutcomes}" var="outcome">
+                    <tr>
+                        <td>
+                            ${outcome.description}
+                        <td/>
 
-                </tr>
-            </c:forEach>
+
+                    </tr>
+                </c:forEach>
             </table>
         </td>
     </tr>
@@ -96,7 +100,7 @@
             Course Outcome Direct Assessments
         </td>
         <td>
-            hi
+
         </td>
     </tr>
     <tr>
@@ -104,7 +108,7 @@
             Course Outcome Survey Results
         </td>
         <td>
-            <input type='file' name="end-of-semester-report" />
+            <input type='file' name="end-of-semester-report"/>
         </td>
     </tr>
     <tr>
@@ -141,12 +145,12 @@
         $("#course-home").load("/courses/offerings/${offering.id}/edit-offering");
     });
 
-    $(".close-col").click(function(){
-        $(".sidebar").switchClass( "col-md-3", "col-md-12", 200, "easeInOutQuad" );
+    $(".close-col").click(function () {
+        $(".sidebar").switchClass("col-md-3", "col-md-12", 200, "easeInOutQuad");
         $(".sidebar").addClass("col-sm-12");
         $(".sidebar").removeClass("col-sm-3");
         $(".course-desc").show();
         $("#course-home").html("");
-        smallToggled=false;
-    } );
+        smallToggled = false;
+    });
 </script>

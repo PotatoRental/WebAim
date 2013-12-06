@@ -3,6 +3,7 @@ package com.aim.repository;
 import com.aim.dao.CourseDao;
 import com.aim.model.Course;
 import com.aim.model.CourseOffering;
+import com.aim.model.CourseOfferingDirectAssessment;
 import com.aim.model.DegreeProgram;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
@@ -109,6 +110,7 @@ public class CourseDaoImpl implements CourseDao {
                 .list();
     }
 
+
     /*
 
     syllabus, schedule of lectures, lecture
@@ -131,7 +133,11 @@ public class CourseDaoImpl implements CourseDao {
                 .list();
     }
 
-
+     public List<CourseOfferingDirectAssessment> getDirectAssessments(String id) {
+         return sessionFactory.getCurrentSession()
+                 .createQuery("from CourseOfferingDirectAssessment")
+                 .list();
+     }
 
     @Override
     public CourseOffering getCourseOfferingById(Integer offeringId) {

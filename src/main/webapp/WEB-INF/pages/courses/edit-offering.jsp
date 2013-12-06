@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <p>
 
 <h1>${offering.course.id}-${offering.section}</h1>
@@ -9,6 +10,7 @@
 
 <form>
     <table class="table table-bordered table-striped">
+        <sec:authorize ifAnyGranted="ROLE_INSTR, ROLE_CIC">
         <tr>
             <td class="title-col">Course</td>
             <td>
@@ -108,6 +110,18 @@
 
             </td>
         </tr>
+
+            <tr>
+                <td class="title-col">
+                    End-of-Semester Report
+                </td>
+                <td>
+                        ${offering.eosReportPath}
+                    <br/>
+                    <input type='file' name="end-of-semester-report" />
+                </td>
+            </tr>
+
         <tr>
             <td class="title-col">
                 Course Outcome Direct Assessments
@@ -116,6 +130,9 @@
 
             </td>
         </tr>
+
+            </sec:authorize>
+        <sec:authorize ifAnyGranted=" ROLE_CIC">
         <tr>
             <td class="title-col">
                 Course Outcome Survey Results
@@ -124,25 +141,8 @@
                 <input type='file' name="end-of-semester-report" />
             </td>
         </tr>
-        <tr>
-            <td class="title-col">
-                End-of-Semester Report
-            </td>
-            <td>
-                ${offering.eosReportPath}
-                <br/>
-                <input type='file' name="end-of-semester-report" />
-            </td>
-        </tr>
-        <tr>
-            <td class="title-col">
-                Course Coordinator Report
-            </td>
-            <td>
-                ${offering.ccReportPath} <br/>
-                <input type='file' name="course-coordinator-report" />
-            </td>
-        </tr>
+
+
         <tr>
             <td class="title-col">
                 CIC Report
@@ -153,6 +153,18 @@
                     <input type='file' name="cic-report" />
             </td>
         </tr>
+        </sec:authorize>
+        <sec:authorize ifAnyGranted="ROLE_CC">
+            <tr>
+                <td class="title-col">
+                    Course Coordinator Report
+                </td>
+                <td>
+                        ${offering.ccReportPath} <br/>
+                    <input type='file' name="course-coordinator-report" />
+                </td>
+            </tr>
+        </sec:authorize>
 
     </table>
     <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Submit'/>

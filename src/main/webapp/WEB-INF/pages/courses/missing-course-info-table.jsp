@@ -25,7 +25,8 @@
                         <c:if test="${empty offering.syllabusPath}"><li>Syllabus</li></c:if>
 
                         <c:if test="${empty offering.schedulePath}"><li>Schedule</li></c:if>
-
+                        <c:if test="${empty offering.assignments}"><li>Assignments</li></c:if>
+                        <c:if test="${empty offering.lectureNotes}"><li>Lecture Notes</li></c:if>
                         <c:if test="${empty offering.eosReportPath}"><li>End of Semester Report</li></c:if>
                     </ul>
                 </c:if>

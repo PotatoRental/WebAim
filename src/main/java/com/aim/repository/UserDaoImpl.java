@@ -1,6 +1,7 @@
 package com.aim.repository;
 
 import com.aim.dao.UserDao;
+import com.aim.model.Evaluator;
 import com.aim.model.Role;
 import com.aim.model.UserAccount;
 import org.apache.log4j.Logger;
@@ -55,6 +56,7 @@ public class UserDaoImpl implements UserDao {
 
         return userlist;
     }
+
 
     @Override
     public void modifyUser(UserAccount account) {

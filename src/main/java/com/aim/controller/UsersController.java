@@ -1,5 +1,6 @@
 package com.aim.controller;
 
+import com.aim.model.Evaluator;
 import com.aim.model.Role;
 import com.aim.model.UserAccount;
 import com.aim.service.AimService;

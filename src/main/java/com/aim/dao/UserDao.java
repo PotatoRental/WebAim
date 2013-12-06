@@ -1,5 +1,6 @@
 package com.aim.dao;
 
+import com.aim.model.Evaluator;
 import com.aim.model.Role;
 import com.aim.model.UserAccount;
 
