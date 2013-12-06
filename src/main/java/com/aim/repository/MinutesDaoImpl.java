@@ -40,6 +40,11 @@ public class MinutesDaoImpl implements MinutesDao{
           }
 
     @Override
+    public void addMinutes(Minutes minutes) {
+        sessionFactory.getCurrentSession().save(minutes);
+    }
+
+    @Override
     public void modifyMinutes(Minutes minutes) {
         sessionFactory.getCurrentSession().update(minutes);
     }

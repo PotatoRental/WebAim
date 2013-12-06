@@ -64,8 +64,9 @@ public class SurveyController {
         for (String degree : request.getParameterValues("degrees"))
             dPrograms.add(aimService.getDegreeProgramById(degree));
 
-        survey.setSemester(request.getParameter("semester") + " " + request.getParameter("year"));
+        survey.setSemester(request.getParameterValues("semester")[0] + " " + request.getParameterValues("semester")[1]);
         survey.setDegreeprograms(dPrograms);
+        survey.setGroups(request.getParameter("groups"));
 
         aimService.addSurvey(survey);
 

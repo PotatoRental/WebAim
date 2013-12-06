@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <p>
 
 <h1>${offering.course.id}-${offering.section}</h1>
@@ -8,7 +9,7 @@
 
 </p>
 
-<form>
+<form:form method="POST" commandName="modifyOffering">
     <table class="table table-bordered table-striped">
         <sec:authorize ifAnyGranted="ROLE_INSTR, ROLE_CIC, ROLE_ADMIN">
         <tr>
@@ -27,7 +28,7 @@
                 Section
             </td>
             <td>
-                <input name="section" required type="text" class="fat" onclick="this.select()" value="${offering.section}">
+                <input name="section" required="required" type="text" class="fat" onclick="this.select()" value="${offering.section}">
             </td>
         </tr>
         <tr>
@@ -107,7 +108,11 @@
                 Course Outcome Attainment Target
             </td>
             <td>
-
+                <ul>
+                <c:forEach var="outcome" items="${offering.courseOfferingOutcomeInformations}">
+                    <li>${outcome.courseOutcome.description}</li>
+                </c:forEach>
+                </ul>
             </td>
         </tr>
 
@@ -168,9 +173,12 @@
 
     </table>
     <input type='submit' class="btn btn-default fat-btn blue-hover" id="submit" value='Submit'/>
-</form>
+</form:form>
 
 <script type="text/javascript">
+    $("option[value=${offering.course.id}]").prop("selected",true)
+    $("option[value=${instructor.username}]").prop("selected",true)
+
     $("#edit-cancel").click(function (event) {
         $("#offering-home").load("/courses/offerings/" + event.currentTarget.id);
     });

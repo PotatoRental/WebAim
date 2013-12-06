@@ -185,11 +185,26 @@ public class CoursesController {
         List<Course> courses = aimService.getAllCourses();
         List<UserAccount> instructors = aimService.getAllInstructor();
 
+        modelMap.addAttribute("modifyOffering", new CourseOffering());
         modelMap.addAttribute("offering", courseOffering);
         modelMap.addAttribute("courses",courses);
         modelMap.addAttribute("instructors", instructors);
 
         return "courses/edit-offering";
+    }
+
+    @RequestMapping(value = "offerings/{offeringId}/edit-offering", method = RequestMethod.POST)
+    public String submitOfferingEditor(@PathVariable String offeringId,
+                                       HttpServletRequest request, ModelMap map) {
+
+        CourseOffering offering = aimService.getCourseOfferingById(Integer.parseInt(offeringId));
+        offering.setSection(Integer.parseInt(request.getParameter("section")));
+        offering.setSemester(request.getParameter("semester") + " "+ request.getParameter("year"));
+        offering.setInstructor(aimService.getUserByUsername(request.getParameter("instructor")));
+
+        aimService.saveCourseOffering(offering);
+
+        return "redirect:/courses/offerings/" + offeringId;
     }
 
     @RequestMapping(value = "offerings/add-offering", method = RequestMethod.GET)

@@ -1,6 +1,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@
         <div class="col-md-12 col-sm-12">
             <div>
                 <table class="table table-striped">
-                    <form>
+                    <form:form method="post" commandName="minutes">
                         <tr id="header-form">
                             <td style="width:210px">
                                 <select name="month" id="month">
@@ -53,7 +54,7 @@
                                 <input type='submit' class="fat btn btn-default blue-hover" value='Add'/>
                             </td>
                         </tr>
-                    </form>
+                    </form:form>
                     <c:forEach items="${minuteslist}" var="min">
                         <tr>
                             <td>

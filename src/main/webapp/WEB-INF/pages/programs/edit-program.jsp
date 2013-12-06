@@ -32,7 +32,7 @@
             <p>
               <h1>Edit Degree Program</h1>
             </p>
-            <form:form method="post" commandName="modifyProgram">
+            <form:form method="post" commandName="degreeprogram">
                 <table class="table table-bordered table-striped">
                     <tr>
                         <td class="title-col">Department</td>
@@ -72,7 +72,7 @@
 
                 </table>
                 <input type="submit" class="btn btn-default fat-btn blue-hover" value="Submit"/>
-            </form>
+            </form:form>
 
         </div>
     </div>

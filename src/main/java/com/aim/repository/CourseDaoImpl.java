@@ -169,4 +169,15 @@ public class CourseDaoImpl implements CourseDao {
                 .setInteger("offeringId", offeringId)
                 .uniqueResult();
     }
+
+    @Override
+    public void saveProgram(DegreeProgram degreeProgram) {
+        sessionFactory.getCurrentSession()
+                .update(degreeProgram);
+    }
+
+    @Override
+    public void saveCourseOffering(CourseOffering offering) {
+        sessionFactory.getCurrentSession().update(offering);
+    }
 }

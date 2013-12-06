@@ -4,6 +4,7 @@ import com.aim.model.Minutes;
 import com.aim.service.AimService;
 import org.apache.log4j.Logger;
 //import org.joda.time.LocalDate;
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 @RequestMapping(value = "/minutes")
@@ -47,8 +49,14 @@ public class MinutesController {
         List<Minutes> minutesList =  aimService.getAllMinutes();
         modelMap.addAttribute("minuteslist",minutesList);
 
+        minutes.setId(new Random().nextInt(Integer.MAX_VALUE));
+        minutes.setGroups(request.getParameter("group"));
+        minutes.setDate(new LocalDate(Integer.parseInt(request.getParameter("year")), Integer.parseInt(request.getParameter("month")), Integer.parseInt(request.getParameter("day"))).toDate());
 
-        return "/minutes/allminutes";
+        aimService.addMinutes(minutes);
+
+
+        return "redirect:/minutes";
     }
 
     @RequestMapping(value="{minutesId}", method = RequestMethod.GET)
