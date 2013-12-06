@@ -16,4 +16,5 @@ public interface MinutesDao {
     public Minutes getMinutesById(String id);
 
     public void modifyMinutes(Minutes minutes);
+    public void deleteMinutesById(String id);
 }

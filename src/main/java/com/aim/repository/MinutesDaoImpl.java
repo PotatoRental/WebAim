@@ -33,6 +33,12 @@ public class MinutesDaoImpl implements MinutesDao{
                 .uniqueResult();
     }
 
+    public void deleteMinutesById(String id) {
+        logger.info("User is DELEEEEEEEETINGGGGGGGGGGG" +id);
+        sessionFactory.getCurrentSession()
+                .delete(getMinutesById(id));
+          }
+
     @Override
     public void modifyMinutes(Minutes minutes) {
         sessionFactory.getCurrentSession().update(minutes);

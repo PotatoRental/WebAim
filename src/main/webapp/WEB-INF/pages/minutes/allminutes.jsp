@@ -48,7 +48,7 @@
                                 </select>
                             </td>
                             <td><input type='text' required name="group" class="fat" placeholder="group"></td>
-                            <td><input required type="file" name="minutes"></td>
+                            <td><input type="file" name="minutes"></td>
                             <td>
                                 <input type='submit' class="fat btn btn-default blue-hover" value='Add'/>
                             </td>

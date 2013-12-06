@@ -105,6 +105,10 @@ public class AimService {
         return minutesDao.getMinutesById(id);
     }
 
+    public void deleteMinutesById(String id) {
+         minutesDao.deleteMinutesById(id);
+    }
+
     public List<Peo> getAllPeos() {
         return peoDao.getAllPeos();
     }

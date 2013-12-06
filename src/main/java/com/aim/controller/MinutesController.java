@@ -61,6 +61,12 @@ public class MinutesController {
         return "/minutes/edit-minutes";
     }
 
+    @RequestMapping(value="{minutesId}/delete", method=RequestMethod.GET)
+    public String deleteMinutes (@PathVariable String minutesId, ModelMap modelMap) {
+        aimService.deleteMinutesById(minutesId);
+        return "/minutes/allminutes";
+    }
+
     @RequestMapping(value="{minutesId}", method = RequestMethod.POST)
     public String modifyMinute(@PathVariable Integer minutesId,
                                @ModelAttribute Minutes minutes,

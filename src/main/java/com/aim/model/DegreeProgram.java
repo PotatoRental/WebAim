@@ -28,23 +28,23 @@ public class DegreeProgram {
     private String department;
 
     @ManyToMany(mappedBy = "degreeprograms")
-    @LazyCollection(value = LazyCollectionOption.FALSE)
+    @LazyCollection(value = LazyCollectionOption.TRUE)
     private List<Course> courses;
 
     @ManyToMany(mappedBy = "degreeprograms")
-    @LazyCollection(value = LazyCollectionOption.FALSE)
+    @LazyCollection(value = LazyCollectionOption.TRUE)
     private List<UserAccount> userAccounts;
 
     @OneToMany(mappedBy = "degreeprogram")
-    @LazyCollection(value = LazyCollectionOption.FALSE)
+    @LazyCollection(value = LazyCollectionOption.TRUE)
     private List<Peo> peos;
 
     @OneToMany(mappedBy = "degreeprogram")
-    @LazyCollection(value = LazyCollectionOption.FALSE)
+    @LazyCollection(value = LazyCollectionOption.TRUE)
     private List<StudentOutcome> studentOutcomes;
 
     @OneToMany(mappedBy = "degreeProgram")
-    @LazyCollection(value = LazyCollectionOption.FALSE)
+    @LazyCollection(value = LazyCollectionOption.TRUE)
     private List<Minutes> minutes;
 
     public List<Minutes> getMinutes() {

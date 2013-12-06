@@ -32,7 +32,7 @@
         <div class="col-md-12 col-lg-12">
             <p>
 
-            <h1>Edit Minutes</h1> &nbsp;&nbsp;<a id="cancel" href="/minutes">Cancel</a>
+            <h1>Edit Minutes</h1> &nbsp;&nbsp;<a id="cancel" href="/minutes">Cancel</a> &nbsp;&nbsp;<a id="delete" style="color:red" href="/minutes/${minutes.id}/delete">Delete</a>
             </p>
             <form method="post">
                 <table class="table table-bordered table-striped">
