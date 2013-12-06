@@ -1,5 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set var="soac" value="false"/>
+<c:if test="${selectedoutcome eq 'so-assessed-courses'}">
+    <c:set var="soac" value="true"/>
+</c:if>
+
 <table class="tabulate table table-bordered table-striped">
     <thead>
     <tr>
@@ -16,6 +21,7 @@
 
 
             <c:forEach items="${studentoutcomes}" var="studentoutcome">
+
                 <td>
                     <c:set var="cond" value="true"/>
                     <c:forEach items="${course.courseOutcomes}" var="courseoutcome">
