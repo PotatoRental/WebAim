@@ -38,8 +38,10 @@
                         <th>Semester</th>
                         <th>Results</th>
                         <th>PEO Attainment Levels</th>
-                        <th></th>
+                        <sec:authorize ifNotGranted=" ROLE_EVAL"><th></th> </sec:authorize>
                     </tr>
+
+                    <sec:authorize ifNotGranted=" ROLE_EVAL">
                     <form method="post">
                         <tr id="header-form">
                             <td>
@@ -88,6 +90,7 @@
                             </td>
                         </tr>
                     </form>
+                    </sec:authorize>
                     <c:forEach items="${surveys}" var="survey">
                         <tr>
                             <td>
@@ -102,10 +105,11 @@
                             <td>${survey.semester} </td>
                             <td><a href="/${survey.resultPath}">Results</a></td>
                             <td></td>
-
+                            <sec:authorize ifNotGranted=" ROLE_EVAL">
                             <td>
                                 <button type='submit' id="${survey.id}" class="edit-survey fat btn btn-primary">Edit Survey</button>
                             </td>
+                            </sec:authorize>
                         </tr>
                     </c:forEach>
 

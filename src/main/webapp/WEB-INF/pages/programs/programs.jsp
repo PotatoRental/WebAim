@@ -31,8 +31,9 @@
                         <th>Department</th>
                         <th>PEOs</th>
                         <th>Student Outcomes</th>
-                        <th></th>
+                        <sec:authorize ifNotGranted=" ROLE_EVAL"><th></th>  </sec:authorize>
                     </tr>
+                    <sec:authorize ifNotGranted=" ROLE_EVAL">
                     <form>
                         <tr id="header-form">
                             <td><input type='text' required name="id" class="fat" placeholder="Identifier">
@@ -63,6 +64,8 @@
                             </td>
                         </tr>
                     </form>
+                    </sec:authorize>
+
                     <c:forEach items="${degreeprograms}" var="program">
                         <tr>
                             <td>${program.id}</td>
@@ -78,10 +81,12 @@
 
                                 </ul>
                             </td>
+                            <sec:authorize ifNotGranted=" ROLE_EVAL">
                             <td>
                                 <input type='submit' id="${program.id}" class="edit-program fat btn btn-primary" style="min-width: 105px"
                                        value='Edit Program'/>
                             </td>
+                            </sec:authorize>
                         </tr>
                     </c:forEach>
 
