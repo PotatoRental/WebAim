@@ -20,18 +20,20 @@
 
         <div class="col-md-12 col-sm-12">
 
-        <form id="">
+        <c:if test="${not empty missingMessage}">
+            <h2>${missingMessage}</h2>
+        </c:if>
+        <form method="post">
             <p>
                <h2>1. Select Group</h2>
                 <h4>Show me missing info provided by
-                <select class="selectpicker" id="select-group">
+                <select class="selectpicker" id="select-group" name="role-class">
                     <option value="ROLE_CIC">CIC Members</option>
                     <option value="ROLE_INSTR">Instructors</option>
                     <option value="ROLE_CC">Course Coordinators</option>
 
                 </select></h4> <br>
             </p>
-            <button type="button" value="email"/>
             <p>
                 <h2>2. Select Courses</h2>
                 <h4>Notify <span class="selected-group">CIC Members</span> about the following courses:</h4>
@@ -64,9 +66,6 @@
         $('.insert').load("/courses/offering-table/"+$("#select-group").val());
     });
 
-    $("button").click(function() {
-        $('.insert').load("/courses/offering-table/sendemail");
-    });
 </script>
 </body>
 </html>

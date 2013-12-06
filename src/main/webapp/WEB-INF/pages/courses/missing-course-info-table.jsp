@@ -13,7 +13,7 @@
     </tr>
     <c:forEach items="${courseofferings}" var="offering">
         <tr>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" ></td>
 
             <td>${offering.course.id}</td>
             <td>${offering.section}</td>

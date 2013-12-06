@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -240,13 +244,18 @@ public class CoursesController {
         return "courses/missing-course-info-table";
     }
 
-    @RequestMapping(value = "offering-table/sendemail", method = RequestMethod.GET)
-    public String sendEmail(ModelMap modelMap) throws IOException {
+    @RequestMapping(value = "missing-course-info", method = RequestMethod.POST)
+    public String sendEmail(HttpServletRequest request, ModelMap modelMap,
+                            RedirectAttributes redirectAttributes) throws IOException {
         logger.info("User tries to get missing course information provided by ");
+        String content = request.getParameter("role-class") + request.getParameter("myname");
+        String subject = "You have a request to add information!";
+        String targetEmail = "ultramilkman@gmail.com";
 
-        new ProcessBuilder("/images/email.sh").start();
+        Process process = new ProcessBuilder("/scripts/email.sh", content, subject, targetEmail).start();
 
-        return "courses/missing-course-info";
+        redirectAttributes.addFlashAttribute("missingMessage", "Email has been sent to the users");
+        return "redirect:/courses/missing-course-info";
     }
 
     @RequestMapping(value = "cc-reports/{ccName}", method = RequestMethod.GET)
